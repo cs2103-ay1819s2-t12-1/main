@@ -141,7 +141,7 @@ public class EditCommandTest {
      * but smaller than size of address book
      */
     @Test
-    public void execute_invalidCustomerIndexFilteredList_failure() {
+    public void executeInvalidCustomerIndexFilteredListFailure() {
         showCustomerAtIndex(model, INDEX_FIRST_CUSTOMER);
         Index outOfBoundIndex = INDEX_SECOND_CUSTOMER;
         // ensures that outOfBoundIndex is still in bounds of address book list
@@ -198,7 +198,7 @@ public class EditCommandTest {
      * 4. Redo the edit. This ensures {@code RedoCommand} edits the customer object regardless of indexing.
      */
     @Test
-    public void executeUndoRedo_validIndexFilteredList_sameCustomerEdited() throws Exception {
+    public void executeUndoRedoValidIndexFilteredListSameCustomerEdited() throws Exception {
         Customer editedCustomer = new CustomerBuilder().build();
         EditCommand.EditCustomerDescriptor descriptor = new EditCustomerDescriptorBuilder(editedCustomer).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_CUSTOMER, descriptor);
