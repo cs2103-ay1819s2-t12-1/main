@@ -9,8 +9,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.TypicalCustomers.ALICE;
 import static seedu.address.testutil.TypicalCustomers.BOB;
-import static seedu.address.testutil.TypicalCustomers.VIP_PERSON;
-import static seedu.address.testutil.TypicalCustomers.VIP_PERSON2;
+import static seedu.address.testutil.TypicalCustomers.VIP_CUSTOMER;
+import static seedu.address.testutil.TypicalCustomers.VIP_CUSTOMER2;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -102,8 +102,8 @@ public class CustomerTest {
     @Test
     public void isVip() {
         // VIP Customer -> returns true
-        assertTrue(VIP_PERSON.isVip());
-        assertTrue(VIP_PERSON2.isVip());
+        assertTrue(VIP_CUSTOMER.isVip());
+        assertTrue(VIP_CUSTOMER2.isVip());
 
         // Normal Customer -> returns false
         assertFalse(ALICE.isVip());
