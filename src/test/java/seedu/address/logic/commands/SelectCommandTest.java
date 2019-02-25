@@ -5,10 +5,10 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showCustomerAtIndex;
+import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
 import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_CUSTOMER;
-import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
 
 import org.junit.Test;
 
@@ -87,7 +87,8 @@ public class SelectCommandTest {
 
     /**
      * Executes a {@code SelectCommand} with the given {@code index},
-     * and checks that the model's selected customer is set to the customer at {@code index} in the filtered customer list.
+     * and checks that the model's selected customer is set to the customer at {@code index} in the filtered customer
+     * list.
      */
     private void assertExecutionSuccess(Index index) {
         SelectCommand selectCommand = new SelectCommand(index);

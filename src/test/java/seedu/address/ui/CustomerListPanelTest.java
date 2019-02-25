@@ -3,22 +3,25 @@ package seedu.address.ui;
 import static java.time.Duration.ofMillis;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
 import static seedu.address.testutil.TypicalCustomers.getTypicalCustomers;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardDisplaysCustomer;
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardEquals;
 
 import java.util.Collections;
 
-import guitests.guihandles.CustomerCardHandle;
-import guitests.guihandles.CustomerListPanelHandle;
 import org.junit.Test;
 
+import guitests.guihandles.CustomerCardHandle;
+import guitests.guihandles.CustomerListPanelHandle;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.customer.*;
+import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.customer.Email;
+import seedu.address.model.customer.Name;
+import seedu.address.model.customer.Phone;
 
 public class CustomerListPanelTest extends GuiUnitTest {
     private static final ObservableList<Customer> TYPICAL_CUSTOMERS =
@@ -49,8 +52,8 @@ public class CustomerListPanelTest extends GuiUnitTest {
         Customer secondCustomer = TYPICAL_CUSTOMERS.get(INDEX_SECOND_CUSTOMER.getZeroBased());
         guiRobot.interact(() -> selectedCustomer.set(secondCustomer));
         guiRobot.pauseForHuman();
-
-        CustomerCardHandle expectedCustomer = customerListPanelHandle.getCustomerCardHandle(INDEX_SECOND_CUSTOMER.getZeroBased());
+        CustomerCardHandle expectedCustomer =
+                customerListPanelHandle.getCustomerCardHandle(INDEX_SECOND_CUSTOMER.getZeroBased());
         CustomerCardHandle selectedCustomer = customerListPanelHandle.getHandleToSelectedCard();
         assertCardEquals(expectedCustomer, selectedCustomer);
     }

@@ -4,11 +4,11 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.DeleteCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS;
+import static seedu.address.testutil.TestUtil.getCustomer;
 import static seedu.address.testutil.TestUtil.getLastIndex;
 import static seedu.address.testutil.TestUtil.getMidIndex;
-import static seedu.address.testutil.TestUtil.getCustomer;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
 import static seedu.address.testutil.TypicalCustomers.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
 
 import org.junit.Test;
 
@@ -31,7 +31,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: delete the first customer in the list, command with leading spaces and trailing spaces -> deleted */
         Model expectedModel = getModel();
-        String command = "     " + DeleteCommand.COMMAND_WORD + "      " + INDEX_FIRST_CUSTOMER.getOneBased() + "       ";
+        String command = "     " + DeleteCommand.COMMAND_WORD + "      "
+                + INDEX_FIRST_CUSTOMER.getOneBased() + "       ";
         Customer deletedCustomer = removeCustomer(expectedModel, INDEX_FIRST_CUSTOMER);
         String expectedResultMessage = String.format(MESSAGE_DELETE_CUSTOMER_SUCCESS, deletedCustomer);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
@@ -72,7 +73,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         command = DeleteCommand.COMMAND_WORD + " " + invalidIndex;
         assertCommandFailure(command, MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
 
-        /* --------------------- Performing delete operation while a customer card is selected ------------------------ */
+        /* --------------------- Performing delete operation while a customer card is selected ---------------------- */
 
         /* Case: delete the selected customer -> customer list panel selects the customer before the deleted customer */
         showAllCustomers();

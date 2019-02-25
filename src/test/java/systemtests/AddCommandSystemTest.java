@@ -37,8 +37,11 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
-import seedu.address.model.customer.*;
+import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.customer.Email;
+import seedu.address.model.customer.Name;
+import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.CustomerBuilder;
 import seedu.address.testutil.CustomerUtil;
@@ -51,7 +54,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
 
         /* ------------------------ Perform add operations on the shown unfiltered list ----------------------------- */
 
-        /* Case: add a customer without tags to a non-empty address book, command with leading spaces and trailing spaces
+        /* Case: add a customer without tags to a non-empty address book, command with leading spaces and trailing
+         * spaces
          * -> added
          */
         Customer toAdd = AMY;
@@ -102,7 +106,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         showCustomersWithName(KEYWORD_MATCHING_MEIER);
         assertCommandSuccess(IDA);
 
-        /* ------------------------ Perform add operation while a customer card is selected --------------------------- */
+        /* ------------------------ Perform add operation while a customer card is selected ------------------------- */
 
         /* Case: selects first card in the customer list, add a customer -> added, card selection remains unchanged */
         selectCustomer(Index.fromOneBased(1));

@@ -16,8 +16,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.model.customer.exceptions.DuplicateCustomerException;
 import seedu.address.model.customer.exceptions.CustomerNotFoundException;
+import seedu.address.model.customer.exceptions.DuplicateCustomerException;
 import seedu.address.testutil.CustomerBuilder;
 
 public class UniqueCustomerListTest {

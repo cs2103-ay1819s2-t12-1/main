@@ -25,11 +25,11 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_CUSTOMERS;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
 import static seedu.address.testutil.TypicalCustomers.AMY;
 import static seedu.address.testutil.TypicalCustomers.BOB;
 import static seedu.address.testutil.TypicalCustomers.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
 
 import org.junit.Test;
 
@@ -39,8 +39,11 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
-import seedu.address.model.customer.*;
+import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.customer.Email;
+import seedu.address.model.customer.Name;
+import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.CustomerBuilder;
 import seedu.address.testutil.CustomerUtil;
@@ -70,7 +73,8 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* Case: redo editing the last customer in the list -> last customer edited again */
         command = RedoCommand.COMMAND_WORD;
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
-        model.setCustomer(getModel().getFilteredCustomerList().get(INDEX_FIRST_CUSTOMER.getZeroBased()), editedCustomer);
+        model.setCustomer(getModel().getFilteredCustomerList().get(INDEX_FIRST_CUSTOMER.getZeroBased()),
+                editedCustomer);
         assertCommandSuccess(command, model, expectedResultMessage);
 
         /* Case: edit a customer with new values same as existing values -> edited */
@@ -122,9 +126,10 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
                 Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
 
-        /* --------------------- Performing edit operation while a customer card is selected -------------------------- */
+        /* --------------------- Performing edit operation while a customer card is selected ------------------------ */
 
-        /* Case: selects first card in the customer list, edit a customer -> edited, card selection remains unchanged but
+        /* Case: selects first card in the customer list, edit a customer -> edited, card selection remains unchanged
+         * but
          * browser url changes
          */
         showAllCustomers();
@@ -188,22 +193,25 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_CUSTOMER);
 
-        /* Case: edit a customer with new values same as another customer's values but with different tags -> rejected */
+        /* Case: edit a customer with new values same as another customer's values but with different tags -> rejected*/
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_CUSTOMER);
 
-        /* Case: edit a customer with new values same as another customer's values but with different address -> rejected */
+        /* Case: edit a customer with new values same as another customer's values but with different address ->
+         * rejected */
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_AMY + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_CUSTOMER);
 
-        /* Case: edit a customer with new values same as another customer's values but with different phone -> rejected */
+        /* Case: edit a customer with new values same as another customer's values but with different phone ->
+         * rejected */
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_AMY + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_CUSTOMER);
 
-        /* Case: edit a customer with new values same as another customer's values but with different email -> rejected */
+        /* Case: edit a customer with new values same as another customer's values but with different email ->
+         * rejected */
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_AMY
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_CUSTOMER);
