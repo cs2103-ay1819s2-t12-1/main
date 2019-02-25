@@ -41,9 +41,9 @@ public class TypicalCustomers {
             .withEmail("lydia@example.com").withAddress("little tokyo").build();
     public static final Customer GEORGE = new CustomerBuilder().withName("George Best").withPhone("9482442")
             .withEmail("anna@example.com").withAddress("4th street").build();
-    public static final Person VIP_PERSON = new PersonBuilder().withName("I am VIP").withPhone("94824425")
+    public static final Customer VIP_CUSTOMER = new CustomerBuilder().withName("I am VIP").withPhone("94824425")
             .withEmail("vip@example.com").withAddress("VIP street").withTags("VIP").build();
-    public static final Person VIP_PERSON2 = new PersonBuilder().withName("I am also VIP").withPhone("34824425")
+    public static final Customer VIP_CUSTOMER2 = new CustomerBuilder().withName("I am also VIP").withPhone("34824425")
             .withEmail("vip2@example.com").withAddress("VVIP street").withTags("vip").build();
 
     // Manually added
@@ -52,14 +52,9 @@ public class TypicalCustomers {
     public static final Customer IDA = new CustomerBuilder().withName("Ida Mueller").withPhone("8482131")
             .withEmail("hans@example.com").withAddress("chicago ave").build();
 
-<<<<<<< HEAD:src/test/java/seedu/address/testutil/TypicalCustomers.java
+
     // Manually added - Customer's details found in {@code CommandTestUtil}
     public static final Customer AMY = new CustomerBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-=======
-
-    // Manually added - Person's details found in {@code CommandTestUtil}
-    public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
->>>>>>> 41359a9faf0b60a1710dcf9f493f2f29d2493c22:src/test/java/seedu/address/testutil/TypicalPersons.java
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
     public static final Customer BOB = new CustomerBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
