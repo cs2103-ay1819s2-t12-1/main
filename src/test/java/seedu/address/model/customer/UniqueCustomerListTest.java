@@ -27,24 +27,24 @@ public class UniqueCustomerListTest {
     private final UniqueCustomerList uniqueCustomerList = new UniqueCustomerList();
 
     @Test
-    public void contains_nullCustomer_throwsNullPointerException() {
+    public void containsNullCustomerThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.contains(null);
     }
 
     @Test
-    public void contains_customerNotInList_returnsFalse() {
+    public void containsCustomerNotInListReturnsFalse() {
         assertFalse(uniqueCustomerList.contains(ALICE));
     }
 
     @Test
-    public void contains_customerInList_returnsTrue() {
+    public void containsCustomerInListReturnsTrue() {
         uniqueCustomerList.add(ALICE);
         assertTrue(uniqueCustomerList.contains(ALICE));
     }
 
     @Test
-    public void contains_customerWithSameIdentityFieldsInList_returnsTrue() {
+    public void containsCustomerWithSameIdentityFieldsInListReturnsTrue() {
         uniqueCustomerList.add(ALICE);
         Customer editedAlice = new CustomerBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
@@ -52,38 +52,38 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void add_nullCustomer_throwsNullPointerException() {
+    public void addNullCustomerThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.add(null);
     }
 
     @Test
-    public void add_duplicateCustomer_throwsDuplicateCustomerException() {
+    public void addDuplicateCustomerThrowsDuplicateCustomerException() {
         uniqueCustomerList.add(ALICE);
         thrown.expect(DuplicateCustomerException.class);
         uniqueCustomerList.add(ALICE);
     }
 
     @Test
-    public void setCustomer_nullTargetCustomer_throwsNullPointerException() {
+    public void setCustomerNullTargetCustomerThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.setCustomer(null, ALICE);
     }
 
     @Test
-    public void setCustomer_nullEditedCustomer_throwsNullPointerException() {
+    public void setCustomerNullEditedCustomerThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.setCustomer(ALICE, null);
     }
 
     @Test
-    public void setCustomer_targetCustomerNotInList_throwsCustomerNotFoundException() {
+    public void setCustomerTargetCustomerNotInListThrowsCustomerNotFoundException() {
         thrown.expect(CustomerNotFoundException.class);
         uniqueCustomerList.setCustomer(ALICE, ALICE);
     }
 
     @Test
-    public void setCustomer_editedCustomerIsSameCustomer_success() {
+    public void setCustomerEditedCustomerIsSameCustomerSuccess() {
         uniqueCustomerList.add(ALICE);
         uniqueCustomerList.setCustomer(ALICE, ALICE);
         UniqueCustomerList expectedUniqueCustomerList = new UniqueCustomerList();
@@ -92,7 +92,7 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void setCustomer_editedCustomerHasSameIdentity_success() {
+    public void setCustomerEditedCustomerHasSameIdentitySuccess() {
         uniqueCustomerList.add(ALICE);
         Customer editedAlice = new CustomerBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
@@ -103,7 +103,7 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void setCustomer_editedCustomerHasDifferentIdentity_success() {
+    public void setCustomerEditedCustomerHasDifferentIdentitySuccess() {
         uniqueCustomerList.add(ALICE);
         uniqueCustomerList.setCustomer(ALICE, BOB);
         UniqueCustomerList expectedUniqueCustomerList = new UniqueCustomerList();
@@ -112,7 +112,7 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void setCustomer_editedCustomerHasNonUniqueIdentity_throwsDuplicateCustomerException() {
+    public void setCustomerEditedCustomerHasNonUniqueIdentityThrowsDuplicateCustomerException() {
         uniqueCustomerList.add(ALICE);
         uniqueCustomerList.add(BOB);
         thrown.expect(DuplicateCustomerException.class);
@@ -120,19 +120,19 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void remove_nullCustomer_throwsNullPointerException() {
+    public void removeNullCustomerThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.remove(null);
     }
 
     @Test
-    public void remove_customerDoesNotExist_throwsCustomerNotFoundException() {
+    public void removeCustomerDoesNotExistThrowsCustomerNotFoundException() {
         thrown.expect(CustomerNotFoundException.class);
         uniqueCustomerList.remove(ALICE);
     }
 
     @Test
-    public void remove_existingCustomer_removesCustomer() {
+    public void removeExistingCustomerRemovesCustomer() {
         uniqueCustomerList.add(ALICE);
         uniqueCustomerList.remove(ALICE);
         UniqueCustomerList expectedUniqueCustomerList = new UniqueCustomerList();
@@ -140,13 +140,13 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void setCustomers_nullUniqueCustomerList_throwsNullPointerException() {
+    public void setCustomersNullUniqueCustomerListThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.setCustomers((UniqueCustomerList) null);
     }
 
     @Test
-    public void setCustomers_uniqueCustomerList_replacesOwnListWithProvidedUniqueCustomerList() {
+    public void setCustomersUniqueCustomerListReplacesOwnListWithProvidedUniqueCustomerList() {
         uniqueCustomerList.add(ALICE);
         UniqueCustomerList expectedUniqueCustomerList = new UniqueCustomerList();
         expectedUniqueCustomerList.add(BOB);
@@ -155,13 +155,13 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void setCustomers_nullList_throwsNullPointerException() {
+    public void setCustomersNullListThrowsNullPointerException() {
         thrown.expect(NullPointerException.class);
         uniqueCustomerList.setCustomers((List<Customer>) null);
     }
 
     @Test
-    public void setCustomers_list_replacesOwnListWithProvidedList() {
+    public void setCustomersListReplacesOwnListWithProvidedList() {
         uniqueCustomerList.add(ALICE);
         List<Customer> customerList = Collections.singletonList(BOB);
         uniqueCustomerList.setCustomers(customerList);
@@ -171,14 +171,14 @@ public class UniqueCustomerListTest {
     }
 
     @Test
-    public void setCustomers_listWithDuplicateCustomers_throwsDuplicateCustomerException() {
+    public void setCustomersListWithDuplicateCustomersThrowsDuplicateCustomerException() {
         List<Customer> listWithDuplicateCustomers = Arrays.asList(ALICE, ALICE);
         thrown.expect(DuplicateCustomerException.class);
         uniqueCustomerList.setCustomers(listWithDuplicateCustomers);
     }
 
     @Test
-    public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
+    public void asUnmodifiableObservableListModifyListThrowsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
         uniqueCustomerList.asUnmodifiableObservableList().remove(0);
     }

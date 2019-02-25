@@ -44,7 +44,7 @@ public class CustomerListPanelTest extends GuiUnitTest {
     }
 
     @Test
-    public void selection_modelSelectedCustomerChanged_selectionChanges() {
+    public void selectionModelSelectedCustomerChangedSelectionChanges() {
         initUi(TYPICAL_CUSTOMERS);
         Customer secondCustomer = TYPICAL_CUSTOMERS.get(INDEX_SECOND_CUSTOMER.getZeroBased());
         guiRobot.interact(() -> selectedCustomer.set(secondCustomer));

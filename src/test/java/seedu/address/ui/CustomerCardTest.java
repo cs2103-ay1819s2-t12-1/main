@@ -41,7 +41,7 @@ public class CustomerCardTest extends GuiUnitTest {
         assertTrue(customerCard.equals(customerCard));
 
         // null -> returns false
-        assertFalse(customerCard.equals(null));
+        assertFalse(customerCard == null);
 
         // different types -> returns false
         assertFalse(customerCard.equals(0));
