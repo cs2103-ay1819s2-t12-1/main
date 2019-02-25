@@ -32,10 +32,6 @@ public class Tag {
         return test.matches(VALIDATION_REGEX);
     }
 
-    public boolean isVipTag() {
-        return this.tagName.equalsIgnoreCase("vip");
-    }
-
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

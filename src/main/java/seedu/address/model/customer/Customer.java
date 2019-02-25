@@ -60,10 +60,6 @@ public class Customer {
         return Collections.unmodifiableSet(tags);
     }
 
-    public boolean isVip() {
-        return this.tags.stream().anyMatch(Tag::isVipTag);
-    }
-
     /**
      * Returns true if both customers of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two customers.
@@ -116,8 +112,6 @@ public class Customer {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
-                .append(" VIP Status: ")
-                .append(isVip())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

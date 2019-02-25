@@ -1,8 +1,5 @@
 package seedu.address.model.tag;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 import seedu.address.testutil.Assert;
@@ -24,16 +21,6 @@ public class TagTest {
     public void isValidTagName() {
         // null tag name
         Assert.assertThrows(NullPointerException.class, () -> Tag.isValidTagName(null));
-    }
-
-    @Test
-    public void isVipTag() {
-        // "VIP" and "vip" -> return true
-        assertTrue(new Tag("VIP").isVipTag());
-        assertTrue(new Tag("vip").isVipTag());
-
-        // Other tag name -> returns false
-        assertFalse(new Tag("VI").isVipTag());
     }
 
 }
