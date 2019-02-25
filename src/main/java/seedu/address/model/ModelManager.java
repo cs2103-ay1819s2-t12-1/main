@@ -193,7 +193,8 @@ public class ModelManager implements Model {
                 return;
             }
 
-            boolean wasSelectedCustomerReplaced = change.wasReplaced() && change.getAddedSize() == change.getRemovedSize()
+            boolean wasSelectedCustomerReplaced =
+                    change.wasReplaced() && change.getAddedSize() == change.getRemovedSize()
                     && change.getRemoved().contains(selectedCustomer.getValue());
             if (wasSelectedCustomerReplaced) {
                 // Update selectedCustomer to its new value.
