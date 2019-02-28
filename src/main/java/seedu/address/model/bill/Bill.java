@@ -6,13 +6,18 @@ import seedu.address.model.customer.Customer;
 public class Bill {
 
     private Customer customer;
-    private int amount_paid;
+    private int amountPaid;
 
-
-    public Bill(Customer customer, int amount_paid) {
+    /**
+     * Constructs a {@code Bill}.
+     *
+     * @param customer Customer details.
+     * @param amountPaid Amount already paid by customers.
+     */
+    public Bill(Customer customer, int amountPaid) {
 
         this.customer = customer;
-        this.amount_paid = amount_paid;
+        this.amountPaid = amountPaid;
 
     }
 
@@ -21,13 +26,12 @@ public class Bill {
     }
 
     public int getAmountPaid() {
-        return amount_paid;
+        return amountPaid;
     }
-
 
     @Override
     public String toString() {
-        return " Amount already paid " + amount_paid
+        return " Amount already paid " + amountPaid
             + " by " + customer;
     }
 }
