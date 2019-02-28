@@ -34,22 +34,22 @@ public class GenerateBillCommand extends Command {
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
-    requireNonNull(model);
-    List<Customer> lastShownList = model.getFilteredCustomerList();
+        requireNonNull(model);
+        List<Customer> lastShownList = model.getFilteredCustomerList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
-        throw new CommandException(Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
-    }
+            throw new CommandException(Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
+        }
 
-    Customer customerToGenerateBillFor = lastShownList.get(targetIndex.getZeroBased());
+        Customer customerToGenerateBillFor = lastShownList.get(targetIndex.getZeroBased());
 
         return new CommandResult(String.format(MESSAGE_GENERATE_BILL_SUCCESS, customerToGenerateBillFor));
-}
+    }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-        || (other instanceof GenerateBillCommand // instanceof handles nulls
-                && targetIndex.equals(((GenerateBillCommand) other).targetIndex)); // state check
-}
+            || (other instanceof GenerateBillCommand // instanceof handles nulls
+            && targetIndex.equals(((GenerateBillCommand) other).targetIndex)); // state check
+    }
 }
