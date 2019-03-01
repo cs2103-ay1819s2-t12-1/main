@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import seedu.address.testutil.Assert;
 
-public class IDTest {
+public class IdentificationNoTest {
 
     @Test
     public void constructorNullThrowsNullPointerException() {
