@@ -6,6 +6,7 @@ import java.util.Set;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
+import seedu.address.model.customer.ID;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -19,11 +20,13 @@ public class CustomerBuilder {
     public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
+    public static final String DEFAULT_ID = "Z12334";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private Name name;
     private Phone phone;
     private Email email;
+    private ID id;
     private Address address;
     private Set<Tag> tags;
 
@@ -31,6 +34,7 @@ public class CustomerBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
+        id = new ID(DEFAULT_ID);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -42,6 +46,7 @@ public class CustomerBuilder {
         name = customerToCopy.getName();
         phone = customerToCopy.getPhone();
         email = customerToCopy.getEmail();
+        id = customerToCopy.getIdNum();
         address = customerToCopy.getAddress();
         tags = new HashSet<>(customerToCopy.getTags());
     }
@@ -71,6 +76,15 @@ public class CustomerBuilder {
     }
 
     /**
+     * Sets the {@code ID} of the {@code Customer} that we are building.
+     */
+    public CustomerBuilder withId(String id) {
+        this.id = new ID(id);
+        return this;
+    }
+
+
+    /**
      * Sets the {@code Phone} of the {@code Customer} that we are building.
      */
     public CustomerBuilder withPhone(String phone) {
@@ -87,7 +101,7 @@ public class CustomerBuilder {
     }
 
     public Customer build() {
-        return new Customer(name, phone, email, address, tags);
+        return new Customer(name, phone, email, id, address, tags);
     }
 
 }

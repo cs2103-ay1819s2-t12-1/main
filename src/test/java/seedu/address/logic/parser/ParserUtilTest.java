@@ -18,6 +18,7 @@ import org.junit.rules.ExpectedException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Email;
+import seedu.address.model.customer.ID;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -28,12 +29,14 @@ public class ParserUtilTest {
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
+    private static final String INVALID_ID = " ";
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_EMAIL = "rachel@example.com";
+    private static final String VALID_ID = "Z123344";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
 
@@ -131,6 +134,29 @@ public class ParserUtilTest {
         String addressWithWhitespace = WHITESPACE + VALID_ADDRESS + WHITESPACE;
         Address expectedAddress = new Address(VALID_ADDRESS);
         assertEquals(expectedAddress, ParserUtil.parseAddress(addressWithWhitespace));
+    }
+
+    @Test
+    public void parseId_null_throwsNullPointerException() {
+        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseId((String) null));
+    }
+
+    @Test
+    public void parseId_invalidValue_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseId(INVALID_ID));
+    }
+
+    @Test
+    public void parseId_validValueWithoutWhitespace_returnsId() throws Exception {
+        ID expectedId = new ID(VALID_ID);
+        assertEquals(expectedId, ParserUtil.parseAddress(VALID_ID));
+    }
+
+    @Test
+    public void parseId_validValueWithWhitespace_returnsTrimmedId() throws Exception {
+        String idWithWhitespace = WHITESPACE + VALID_ID + WHITESPACE;
+        ID expectedId = new ID(VALID_ID);
+        assertEquals(expectedId, ParserUtil.parseAddress(idWithWhitespace));
     }
 
     @Test

@@ -3,6 +3,7 @@
     "name": "Customer with invalid name field: Ha!ns Mu@ster",
     "phone": "9482424",
     "email": "hans@example.com",
+    "id": "2344242",
     "address": "4th street"
   } ]
 }
