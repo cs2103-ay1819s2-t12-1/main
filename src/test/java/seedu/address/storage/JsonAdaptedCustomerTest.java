@@ -13,7 +13,7 @@ import org.junit.Test;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.testutil.Assert;
@@ -101,7 +101,7 @@ public class JsonAdaptedCustomerTest {
     public void toModelTypeNullIdThrowsIllegalValueException() {
         JsonAdaptedCustomer customer = new JsonAdaptedCustomer(VALID_NAME, VALID_PHONE, VALID_EMAIL, null, VALID_ADDRESS,
             VALID_TAGS);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, ID.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, IdentificationNo.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, customer::toModelType);
     }
 
@@ -109,7 +109,7 @@ public class JsonAdaptedCustomerTest {
     public void toModelTypeInvalidIdThrowsIllegalValueException() {
         JsonAdaptedCustomer customer =
             new JsonAdaptedCustomer(VALID_NAME, VALID_PHONE, VALID_EMAIL, INVALID_ID, VALID_ADDRESS, VALID_TAGS);
-        String expectedMessage = ID.MESSAGE_CONSTRAINTS;
+        String expectedMessage = IdentificationNo.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, customer::toModelType);
     }
 

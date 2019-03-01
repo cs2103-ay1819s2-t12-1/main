@@ -39,7 +39,7 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -134,9 +134,9 @@ public class AddCommandParserTest {
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ID_DESC_BOB + INVALID_ADDRESS_DESC
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Address.MESSAGE_CONSTRAINTS);
 
-        // invalid ID
+        // invalid IdentificationNo
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + INVALID_ID_DESC + INVALID_ADDRESS_DESC
-            + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, ID.MESSAGE_CONSTRAINTS);
+            + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, IdentificationNo.MESSAGE_CONSTRAINTS);
 
         // invalid tag
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ID_DESC_BOB + ADDRESS_DESC_BOB

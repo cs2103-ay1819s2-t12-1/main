@@ -9,7 +9,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -21,22 +21,22 @@ public class SampleDataUtil {
     public static Customer[] getSampleCustomers() {
         return new Customer[] {
             new Customer(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                new ID("234515"), new Address("Blk 30 Geylang Street 29, #06-40"),
+                new IdentificationNo("234515"), new Address("Blk 30 Geylang Street 29, #06-40"),
                 getTagSet("friends")),
             new Customer(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                new ID("094552"), new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
+                new IdentificationNo("094552"), new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
                 getTagSet("colleagues", "friends")),
             new Customer(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                new ID("23431"), new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
+                new IdentificationNo("23431"), new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
                 getTagSet("neighbours")),
             new Customer(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-                new ID("123345"), new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
+                new IdentificationNo("123345"), new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
                 getTagSet("family")),
             new Customer(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                new ID("23459871"), new Address("Blk 47 Tampines Street 20, #17-35"),
+                new IdentificationNo("23459871"), new Address("Blk 47 Tampines Street 20, #17-35"),
                 getTagSet("classmates")),
             new Customer(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-                new ID("3555356"), new Address("Blk 45 Aljunied Street 85, #11-31"),
+                new IdentificationNo("3555356"), new Address("Blk 45 Aljunied Street 85, #11-31"),
                 getTagSet("colleagues"))
         };
     }

@@ -18,7 +18,7 @@ import org.junit.rules.ExpectedException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -137,7 +137,7 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseId_null_throwsNullPointerException() {
+    public void parseIdNullThrowsNullPointerException() {
         Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseId((String) null));
     }
 
@@ -148,14 +148,14 @@ public class ParserUtilTest {
 
     @Test
     public void parseId_validValueWithoutWhitespace_returnsId() throws Exception {
-        ID expectedId = new ID(VALID_ID);
+        IdentificationNo expectedId = new IdentificationNo(VALID_ID);
         assertEquals(expectedId, ParserUtil.parseAddress(VALID_ID));
     }
 
     @Test
     public void parseId_validValueWithWhitespace_returnsTrimmedId() throws Exception {
         String idWithWhitespace = WHITESPACE + VALID_ID + WHITESPACE;
-        ID expectedId = new ID(VALID_ID);
+        IdentificationNo expectedId = new IdentificationNo(VALID_ID);
         assertEquals(expectedId, ParserUtil.parseAddress(idWithWhitespace));
     }
 

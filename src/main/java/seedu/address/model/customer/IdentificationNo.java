@@ -7,9 +7,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a Customer's Identification Number in the HMS.
  * Guarantees: immutable; is valid as declared in {@link #isValidId(String)}
  */
-public class ID {
+public class IdentificationNo {
 
-    public static final String MESSAGE_CONSTRAINTS = "ID should only contain numbers, and it should be at least 3 digits long";
+    public static final String MESSAGE_CONSTRAINTS = "Identification number should only contain numbers, and it should be at least 3 digits long";
 
     /*
      * The first character of the identification number must not be a whitespace,
@@ -24,7 +24,7 @@ public class ID {
      *
      * @param id A valid identification number.
      */
-    public ID(String id) {
+    public IdentificationNo(String id) {
         requireNonNull(id);
         checkArgument(isValidId(id), MESSAGE_CONSTRAINTS);
         value = id;

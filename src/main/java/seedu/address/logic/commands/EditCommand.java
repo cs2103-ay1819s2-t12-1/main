@@ -24,7 +24,7 @@ import seedu.address.model.Model;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -38,18 +38,18 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the customer identified "
-            + "by the index number used in the displayed customer list. "
-            + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_NAME + "NAME] "
-            + "[" + PREFIX_PHONE + "PHONE] "
-            + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_ID + "ID] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
-            + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_PHONE + "91234567 "
-            + PREFIX_EMAIL + "johndoe@example.com";
+        + "by the index number used in the displayed customer list. "
+        + "Existing values will be overwritten by the input values.\n"
+        + "Parameters: INDEX (must be a positive integer) "
+        + "[" + PREFIX_NAME + "NAME] "
+        + "[" + PREFIX_PHONE + "PHONE] "
+        + "[" + PREFIX_EMAIL + "EMAIL] "
+        + "[" + PREFIX_ID + "IDENTIFICATIONNO] "
+        + "[" + PREFIX_ADDRESS + "ADDRESS] "
+        + "[" + PREFIX_TAG + "TAG]...\n"
+        + "Example: " + COMMAND_WORD + " 1 "
+        + PREFIX_PHONE + "91234567 "
+        + PREFIX_EMAIL + "johndoe@example.com";
 
     public static final String MESSAGE_EDIT_CUSTOMER_SUCCESS = "Edited Customer: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -59,7 +59,7 @@ public class EditCommand extends Command {
     private final EditCustomerDescriptor editCustomerDescriptor;
 
     /**
-     * @param index of the customer in the filtered customer list to edit
+     * @param index                  of the customer in the filtered customer list to edit
      * @param editCustomerDescriptor details to edit the customer with
      */
     public EditCommand(Index index, EditCustomerDescriptor editCustomerDescriptor) {
@@ -103,7 +103,7 @@ public class EditCommand extends Command {
         Name updatedName = editCustomerDescriptor.getName().orElse(customerToEdit.getName());
         Phone updatedPhone = editCustomerDescriptor.getPhone().orElse(customerToEdit.getPhone());
         Email updatedEmail = editCustomerDescriptor.getEmail().orElse(customerToEdit.getEmail());
-        ID updatedId = editCustomerDescriptor.getIdNum().orElse(customerToEdit.getIdNum());
+        IdentificationNo updatedId = editCustomerDescriptor.getIdNum().orElse(customerToEdit.getIdNum());
         Address updatedAddress = editCustomerDescriptor.getAddress().orElse(customerToEdit.getAddress());
         Set<Tag> updatedTags = editCustomerDescriptor.getTags().orElse(customerToEdit.getTags());
 
@@ -125,7 +125,7 @@ public class EditCommand extends Command {
         // state check
         EditCommand e = (EditCommand) other;
         return index.equals(e.index)
-                && editCustomerDescriptor.equals(e.editCustomerDescriptor);
+            && editCustomerDescriptor.equals(e.editCustomerDescriptor);
     }
 
     /**
@@ -136,11 +136,12 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private ID id;
+        private IdentificationNo id;
         private Address address;
         private Set<Tag> tags;
 
-        public EditCustomerDescriptor() {}
+        public EditCustomerDescriptor() {
+        }
 
         /**
          * Copy constructor.
@@ -186,9 +187,13 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setId(ID id) {this.id = id;}
+        public void setId(IdentificationNo id) {
+            this.id = id;
+        }
 
-        public Optional<ID> getIdNum() { return Optional.ofNullable(id); }
+        public Optional<IdentificationNo> getIdNum() {
+            return Optional.ofNullable(id);
+        }
 
         public void setAddress(Address address) {
             this.address = address;
@@ -231,11 +236,11 @@ public class EditCommand extends Command {
             EditCustomerDescriptor e = (EditCustomerDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getPhone().equals(e.getPhone())
-                    && getEmail().equals(e.getEmail())
-                    && getIdNum().equals(e.getIdNum())
-                    && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                && getPhone().equals(e.getPhone())
+                && getEmail().equals(e.getEmail())
+                && getIdNum().equals(e.getIdNum())
+                && getAddress().equals(e.getAddress())
+                && getTags().equals(e.getTags());
         }
     }
 }

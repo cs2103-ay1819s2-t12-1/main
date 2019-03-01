@@ -52,7 +52,7 @@ public class CustomerTest {
                 .withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameCustomer(editedAlice));
 
-        // different name, same ID -> returns false
+        // different name, same IdentificationNo -> returns false
         editedAlice = new CustomerBuilder(BOB).withId(VALID_ID_AMY).build();
         assertTrue(ALICE.isSameCustomer(editedAlice));
 
@@ -96,7 +96,7 @@ public class CustomerTest {
         editedAlice = new CustomerBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
-        // different ID -> returns false
+        // different IdentificationNo -> returns false
         editedAlice = new CustomerBuilder(ALICE).withId(VALID_ID_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 

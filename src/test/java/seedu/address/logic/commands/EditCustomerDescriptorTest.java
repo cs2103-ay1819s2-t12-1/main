@@ -49,7 +49,7 @@ public class EditCustomerDescriptorTest {
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different IDNumber -> returns false
-        editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withEmail(VALID_ID_BOB).build();
+        editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withId(VALID_ID_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different address -> returns false

@@ -6,7 +6,7 @@ import java.util.Set;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -26,7 +26,7 @@ public class CustomerBuilder {
     private Name name;
     private Phone phone;
     private Email email;
-    private ID id;
+    private IdentificationNo id;
     private Address address;
     private Set<Tag> tags;
 
@@ -34,7 +34,7 @@ public class CustomerBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
-        id = new ID(DEFAULT_ID);
+        id = new IdentificationNo(DEFAULT_ID);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -76,10 +76,10 @@ public class CustomerBuilder {
     }
 
     /**
-     * Sets the {@code ID} of the {@code Customer} that we are building.
+     * Sets the {@code IdentificationNo} of the {@code Customer} that we are building.
      */
     public CustomerBuilder withId(String id) {
-        this.id = new ID(id);
+        this.id = new IdentificationNo(id);
         return this;
     }
 

@@ -8,7 +8,7 @@ import seedu.address.logic.commands.EditCommand.EditCustomerDescriptor;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -66,10 +66,10 @@ public class EditCustomerDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code ID} of the {@code EditCustomerDescriptor} that we are building.
+     * Sets the {@code IdentificationNo} of the {@code EditCustomerDescriptor} that we are building.
      */
     public EditCustomerDescriptorBuilder withId(String id) {
-        descriptor.setId(new ID(id));
+        descriptor.setId(new IdentificationNo(id));
         return this;
     }
 

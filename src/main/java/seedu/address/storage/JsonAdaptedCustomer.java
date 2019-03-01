@@ -13,7 +13,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.Email;
-import seedu.address.model.customer.ID;
+import seedu.address.model.customer.IdentificationNo;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
@@ -59,8 +59,8 @@ class JsonAdaptedCustomer {
         id = source.getIdNum().value;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
-                .collect(Collectors.toList()));
+            .map(JsonAdaptedTag::new)
+            .collect(Collectors.toList()));
     }
 
     /**
@@ -80,7 +80,7 @@ class JsonAdaptedCustomer {
 
         final Email modelEmail = getEmail();
 
-        final ID modelID = getId();
+        final IdentificationNo modelID = getId();
 
         final Address modelAddress = getAddress();
 
@@ -88,14 +88,14 @@ class JsonAdaptedCustomer {
         return new Customer(modelName, modelPhone, modelEmail, modelID, modelAddress, modelTags);
     }
 
-    private ID getId() throws IllegalValueException {
+    private IdentificationNo getId() throws IllegalValueException {
         if (id == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, ID.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, IdentificationNo.class.getSimpleName()));
         }
-        if (!ID.isValidId(id)) {
-            throw new IllegalValueException(ID.MESSAGE_CONSTRAINTS);
+        if (!IdentificationNo.isValidId(id)) {
+            throw new IllegalValueException(IdentificationNo.MESSAGE_CONSTRAINTS);
         }
-        return new ID(id);
+        return new IdentificationNo(id);
     }
 
     private Address getAddress() throws IllegalValueException {

@@ -19,7 +19,7 @@ public class Customer {
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final ID id;
+    private final IdentificationNo id;
 
     // Data fields
     private final Address address;
@@ -28,7 +28,7 @@ public class Customer {
     /**
      * Every field must be present and not null.
      */
-    public Customer(Name name, Phone phone, Email email, ID id, Address address, Set<Tag> tags) {
+    public Customer(Name name, Phone phone, Email email, IdentificationNo id, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, id, address, tags);
         this.name = name;
         this.phone = phone;
@@ -50,9 +50,13 @@ public class Customer {
         return email;
     }
 
-    public ID getIdNum() { return id; }
+    public IdentificationNo getIdNum() {
+        return id;
+    }
 
-    public Address getAddress() { return address; }
+    public Address getAddress() {
+        return address;
+    }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -76,8 +80,8 @@ public class Customer {
         }
 
         return otherCustomer != null
-                && otherCustomer.getName().equals(getName())
-                && (otherCustomer.getPhone().equals(getPhone()) || otherCustomer.getEmail().equals(getEmail()) || otherCustomer.getIdNum().equals(getIdNum()));
+            && otherCustomer.getName().equals(getName())
+            && (otherCustomer.getPhone().equals(getPhone()) || otherCustomer.getEmail().equals(getEmail()) || otherCustomer.getIdNum().equals(getIdNum()));
     }
 
     /**
@@ -96,11 +100,11 @@ public class Customer {
 
         Customer otherCustomer = (Customer) other;
         return otherCustomer.getName().equals(getName())
-                && otherCustomer.getPhone().equals(getPhone())
-                && otherCustomer.getEmail().equals(getEmail())
-                && otherCustomer.getIdNum().equals(getIdNum())
-                && otherCustomer.getAddress().equals(getAddress())
-                && otherCustomer.getTags().equals(getTags());
+            && otherCustomer.getPhone().equals(getPhone())
+            && otherCustomer.getEmail().equals(getEmail())
+            && otherCustomer.getIdNum().equals(getIdNum())
+            && otherCustomer.getAddress().equals(getAddress())
+            && otherCustomer.getTags().equals(getTags());
     }
 
     @Override
@@ -113,17 +117,17 @@ public class Customer {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" Phone: ")
-                .append(getPhone())
-                .append(" Email: ")
-                .append(getEmail())
-                .append(" ID: ")
-                .append(getIdNum())
-                .append(" Address: ")
-                .append(getAddress())
-                .append(" VIP Status: ")
-                .append(isVip())
-                .append(" Tags: ");
+            .append(" Phone: ")
+            .append(getPhone())
+            .append(" Email: ")
+            .append(getEmail())
+            .append(" IdentificationNo: ")
+            .append(getIdNum())
+            .append(" Address: ")
+            .append(getAddress())
+            .append(" VIP Status: ")
+            .append(isVip())
+            .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }
