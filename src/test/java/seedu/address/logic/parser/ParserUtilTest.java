@@ -142,18 +142,18 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseId_invalidValue_throwsParseException() {
+    public void parseIdInvalidValueThrowsParseException() {
         Assert.assertThrows(ParseException.class, () -> ParserUtil.parseId(INVALID_ID));
     }
 
     @Test
-    public void parseId_validValueWithoutWhitespace_returnsId() throws Exception {
+    public void parseIdValidValueWithoutWhitespaceReturnsId() throws Exception {
         IdentificationNo expectedId = new IdentificationNo(VALID_ID);
         assertEquals(expectedId, ParserUtil.parseAddress(VALID_ID));
     }
 
     @Test
-    public void parseId_validValueWithWhitespace_returnsTrimmedId() throws Exception {
+    public void parseIdValidValueWithWhitespaceReturnsTrimmedId() throws Exception {
         String idWithWhitespace = WHITESPACE + VALID_ID + WHITESPACE;
         IdentificationNo expectedId = new IdentificationNo(VALID_ID);
         assertEquals(expectedId, ParserUtil.parseAddress(idWithWhitespace));

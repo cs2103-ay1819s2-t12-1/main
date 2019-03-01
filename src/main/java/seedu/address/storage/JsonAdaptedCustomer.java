@@ -80,17 +80,18 @@ class JsonAdaptedCustomer {
 
         final Email modelEmail = getEmail();
 
-        final IdentificationNo modelID = getId();
+        final IdentificationNo modelIdentificationNo = getId();
 
         final Address modelAddress = getAddress();
 
         final Set<Tag> modelTags = new HashSet<>(customerTags);
-        return new Customer(modelName, modelPhone, modelEmail, modelID, modelAddress, modelTags);
+        return new Customer(modelName, modelPhone, modelEmail, modelIdentificationNo, modelAddress, modelTags);
     }
 
     private IdentificationNo getId() throws IllegalValueException {
         if (id == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, IdentificationNo.class.getSimpleName()));
+            throw new IllegalValueException(String.format
+                (MISSING_FIELD_MESSAGE_FORMAT, IdentificationNo.class.getSimpleName()));
         }
         if (!IdentificationNo.isValidId(id)) {
             throw new IllegalValueException(IdentificationNo.MESSAGE_CONSTRAINTS);

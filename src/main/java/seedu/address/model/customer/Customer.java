@@ -81,7 +81,8 @@ public class Customer {
 
         return otherCustomer != null
             && otherCustomer.getName().equals(getName())
-            && (otherCustomer.getPhone().equals(getPhone()) || otherCustomer.getEmail().equals(getEmail()) || otherCustomer.getIdNum().equals(getIdNum()));
+            && (otherCustomer.getPhone().equals(getPhone()) || otherCustomer.getEmail().equals(getEmail())
+            || otherCustomer.getIdNum().equals(getIdNum()));
     }
 
     /**

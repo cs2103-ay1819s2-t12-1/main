@@ -9,7 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class IdentificationNo {
 
-    public static final String MESSAGE_CONSTRAINTS = "Identification number should only contain numbers, and it should be at least 3 digits long";
+    public static final String MESSAGE_CONSTRAINTS =
+        "Identification number should only contain numbers, and it should be at least 3 digits long";
 
     /*
      * The first character of the identification number must not be a whitespace,
