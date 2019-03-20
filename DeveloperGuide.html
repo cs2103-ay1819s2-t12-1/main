@@ -31,9 +31,10 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#adding-service-booking-functionality">4.1. Adding service booking functionality</a></li>
-<li><a href="#undo-redo-feature">4.2. Undo/Redo feature</a></li>
-<li><a href="#logging">4.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
+<li><a href="#filtering-service-booking-functionality">4.2. Filtering service booking functionality</a></li>
+<li><a href="#undo-redo-feature">4.3. Undo/Redo feature</a></li>
+<li><a href="#logging">4.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -691,9 +692,59 @@ for these purposes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.2. Undo/Redo feature</a></h3>
+<h3 id="filtering-service-booking-functionality"><a class="link" href="#filtering-service-booking-functionality">4.2. Filtering service booking functionality</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>To find and filter the service bookings, we need to work on Logic, Model and Storage components. We can start
+on the Logic component. According to the current implementation, a command can only take in one model&#8201;&#8212;&#8201;either
+a customer model or a booking model. Limited by this, we cannot get access to customer list and booking list at the
+same time in one command. To implement the function without changing the base abstraction, we used identification number
+to check whether the payer of the booking is the customer we are selecting instead of using the index of a customer.
+The reason we use identification number(ID) instead of name or other factors is that the ID of one customer is unique.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-should-the-customer-be-stressed"><a class="link" href="#aspect-how-should-the-customer-be-stressed">Aspect: How should the customer be stressed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Using identification number(ID) to check.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The command can be implemented as only getting access to one model.</p>
+</li>
+<li>
+<p>Cons: The scalablity of the program is low.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implementing new command interface which can interact with two models at the same time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The scalablity of the program is high</p>
+</li>
+<li>
+<p>Cons: Requiring more work and the old abstraction may break.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.3. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedHotelManagementSystem</code>.
 It extends <code>HotelManagementSystem</code> with an undo/redo history, stored internally as an <code>hotelManagementSystemStateList</code> and <code>currentStatePointer</code>.
@@ -823,7 +874,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -893,14 +944,14 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -931,7 +982,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2566,4 +2617,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 14:17:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 14:33:02 UTC</div></div></div></body></html>

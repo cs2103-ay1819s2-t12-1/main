@@ -525,7 +525,30 @@ Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing 
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-booked-service-code-deletebooking-code-code-delb-code"><a class="link" href="#deleting-a-booked-service-code-deletebooking-code-code-delb-code">3.14. Deleting a booked service: <code>deletebooking</code>, <code>delb</code></a></h3>
+<h3 id="find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code"><a class="link" href="#find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code">3.14. Find a booked service contains payer: <code>findbookingcontainspayer</code>, <code>fbcp</code></a></h3>
+<div class="paragraph">
+<p>Effect: Displays a booking list, which is paid by the customer whose identification number is the same as the given number
+Format: <code>{findbookingcontainspayer/fbcp} PAYER_IDENTIFICATION_NUMBER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The searching is done in the whole booking list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>fbcs 12345678</code><br>
+Returns any booking which is paid by the customer with identification number 12345678</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-booked-service-code-deletebooking-code-code-delb-code"><a class="link" href="#deleting-a-booked-service-code-deletebooking-code-code-delb-code">3.15. Deleting a booked service: <code>deletebooking</code>, <code>delb</code></a></h3>
 <div class="paragraph">
 <p>Effect: Deletes a booking from the database.
 Format: <code>{deletebooking/delb} INDEX</code></p>
@@ -548,7 +571,7 @@ Deletes the 2nd booking of the booking database</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-customer-s-bill-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code"><a class="link" href="#generate-customer-s-bill-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code">3.15. Generate customer&#8217;s bill : <code>generatebill</code>, <code>gb</code>   <code>[coming in v2.0]</code></a></h3>
+<h3 id="generate-customer-s-bill-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code"><a class="link" href="#generate-customer-s-bill-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code">3.16. Generate customer&#8217;s bill : <code>generatebill</code>, <code>gb</code>   <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Effect: Generates the bill for the customer based on his room reservations plus service bookings less the amount the customer has already paid+
 Format: <code>{generatebill/gb} INDEX</code></p>
@@ -571,7 +594,7 @@ Generates the bill for the second customer.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.17. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Effect: Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -592,7 +615,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.17. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Effect: Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -636,7 +659,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.18. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Effect: Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -668,28 +691,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clearcustomers-code"><a class="link" href="#clearing-all-entries-code-clearcustomers-code">3.19. Clearing all entries : <code>clearcustomers</code></a></h3>
+<h3 id="clearing-all-entries-code-clearcustomers-code"><a class="link" href="#clearing-all-entries-code-clearcustomers-code">3.20. Clearing all entries : <code>clearcustomers</code></a></h3>
 <div class="paragraph">
 <p>Effect: Clears all entries from the customer database.<br>
 Format: <code>clearcustomers</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Effect: Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
 <div class="paragraph">
 <p>The HMS+ data file is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -776,4 +799,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 14:17:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 14:33:02 UTC</div></div></div></body></html>
