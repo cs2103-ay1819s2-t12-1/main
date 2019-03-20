@@ -437,7 +437,7 @@ Deletes the 1st booking in the results of the listb command.</p>
 <h3 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">3.11. Booking a service: <code>add-booking</code>,<code>ab</code></a></h3>
 <div class="paragraph">
 <p>Effect: Adds a service associated with certain customers.<br>
-Format: <code>{add-booking/ab} s/SERVICE_TYPE :/START_TIME-END_TIME $/PAYER INDEX [c/CUSTOMER INDEX] [com/COMMENTS]</code></p>
+Format: <code>{add-booking/ab} s/SERVICE_NAME :/START_TIME-END_TIME $/PAYER INDEX [c/CUSTOMER INDEX] [com/COMMENTS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -447,7 +447,7 @@ Format: <code>{add-booking/ab} s/SERVICE_TYPE :/START_TIME-END_TIME $/PAYER INDE
 <p><code>SERVICE_TYPE</code> is a string. Which corresponds to which service type is defined by the user.</p>
 </li>
 <li>
-<p><code>START_TIME</code> and <code>END_TIME</code> follows the <code>HH.MM 24-hour</code> format.</p>
+<p><code>START_TIME</code> and <code>END_TIME</code> follows the <code>HH 24-hour</code> format.</p>
 </li>
 <li>
 <p><code>COMMENTS</code> can contain any text without slash (<code>/</code>).</p>
@@ -462,45 +462,28 @@ Format: <code>{add-booking/ab} s/SERVICE_TYPE :/START_TIME-END_TIME $/PAYER INDE
 <div class="ulist">
 <ul>
 <li>
-<p><code>listc</code>, then `add-booking s/GYM :/20:55-23:55 $/2
-Adds a booking for service GYM, for the 15th customer from the complete customer list, from 20:55 to 23:55.</p>
+<p><code>listc</code>, then `add-booking s/GYM :/20-23 $/2
+Adds a booking for service GYM, for the 2nd customer from the complete customer list, from 20:00 to 23:00 if the service is available.</p>
 </li>
 <li>
-<p><code>findn Jack Rose</code>, then <code>add-booking s/GYM h/14:20-15:20 $/1 c/2</code>
-Adds a booking of service GYM for customer index 2 payed customer index 1, from 14:20 to 15:20.</p>
+<p><code>findn Jack Rose</code>, then <code>add-booking s/GYM h/14-15 $/1 c/2</code>
+Adds a booking of service GYM for customer index 2 payed by customer index 1, from 14:00 to 15:00.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-booked-services-code-list-bookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-list-bookings-code-code-lb-code">3.12. Listing all booked services: <code>list-bookings</code>,<code>lb</code></a></h3>
+<h3 id="listing-all-booked-services-code-listbookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-listbookings-code-code-lb-code">3.12. Listing all booked services: <code>listbookings</code>,<code>lb</code></a></h3>
 <div class="paragraph">
-<p>Effect: Displays a service list, which lists one of: 1. all the room services in the booking database; 2. the services associated with certain customers; 3. the room that are booked inside the time range.<br>
-Format: <code>{list-booking/lb} [i/INDEX_OF_CUSTOMER]… [t/START_TIME-END_TIME]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If the indices are provided, the command shows only the bookings associated with any of the customers. The index refers to the index number shown in the displayed customer list. The index must be a positive integer.</p>
-</li>
-<li>
-<p>If a time range is provided, the command shows only the bookings that are in that time range. The date should follow the <code>DD.MM</code> format.</p>
-</li>
-<li>
-<p>Indices and time ranges can be provided at the same time. The command will then show only the bookings associated with the customers that covers the date.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Effect: Displays a booking list, which lists all the bookings made till now.
+Format: <code>{listbookings/lb}</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">3.13. Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h3>
 <div class="paragraph">
-<p>Effect: Edits the fields of an room service in the database.<br>
-Format: <code>{edit-booking/eb} INDEX [s/SERVICE_TYPE] [h/START_TIME - END_TIME] [c/COMMENTS]</code></p>
+<p>Effect: Edits the fields of a booking in the database.<br>
+Format: <code>{edit-booking/eb} INDEX [s/SERVICE_NAME] [:/START_TIME - END_TIME] [p/PAYER INDEX] [c/CUSTOMER INDICES] [com/COMMENTS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -513,16 +496,13 @@ Format: <code>{edit-booking/eb} INDEX [s/SERVICE_TYPE] [h/START_TIME - END_TIME]
 <p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
 </li>
 <li>
-<p>Changing the associated customers is forbidden because that may lead to billing issues. If that is desired, delete the existing booking and create a new one.</p>
-</li>
-<li>
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
 <p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the booking&#8217;s comments by typing <code>c/</code> without specifying any tags after it.</p>
+<p>You can remove all the booking&#8217;s comments by typing <code>com/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -534,28 +514,28 @@ Format: <code>{edit-booking/eb} INDEX [s/SERVICE_TYPE] [h/START_TIME - END_TIME]
 <div class="ulist">
 <ul>
 <li>
-<p><code>lb</code>, then <code>eb 1 s/3</code>
-Edits the service type of the 1st booking to be Type 3.</p>
+<p><code>lb</code>, then <code>eb 1 s/GYM</code>
+Edits the service type of the 1st booking to be GYM.</p>
 </li>
 <li>
-<p><code>lb</code>, then <code>edit-booking 2 s/14:20-14.30 c/</code>
-Edits the timing of the 2nd booking to be 14:20 - 14:30 and clears all existing comments.</p>
+<p><code>lb</code>, then <code>edit-booking 2 :/14-15 c/</code>
+Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-booked-service-code-delete-booking-code-code-db-code"><a class="link" href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">3.14. Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></h3>
+<h3 id="deleting-a-booked-service-code-deletebooking-code-code-delb-code"><a class="link" href="#deleting-a-booked-service-code-deletebooking-code-code-delb-code">3.14. Deleting a booked service: <code>deletebooking</code>, <code>delb</code></a></h3>
 <div class="paragraph">
-<p>Effect: Deletes a room service from the database.
-Format: <code>{delete-booking/db} INDEX</code></p>
+<p>Effect: Deletes a booking from the database.
+Format: <code>{deletebooking/delb} INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the room service at the specified index. The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
+<p>Deletes the booking at the specified index. The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
 </li>
 </ul>
 </div>
@@ -563,10 +543,8 @@ Format: <code>{delete-booking/db} INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* <code>lb</code>, then <code>delete-booking 2</code>
-Deletes the 2nd booking of the booking database
-* <code>lb i/2</code>, then <code>delete-booking 1</code>
-Deletes the 1st booking in the results of the <code>lists</code> command.</p>
+* <code>lb</code>, then <code>deletebooking 2</code>
+Deletes the 2nd booking of the booking database</p>
 </div>
 </div>
 <div class="sect2">
@@ -798,4 +776,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 12:55:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 13:07:59 UTC</div></div></div></body></html>
