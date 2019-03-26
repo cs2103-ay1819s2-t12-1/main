@@ -1,16 +1,60 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Hotel Management System - User Guide</title><link rel="stylesheet" href="./gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>HMS+ - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Hotel Management System - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>HMS+ - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <code>HMS+ User Guide</code>.</p>
+<p>By: <code>Team T12-1</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
 </div>
-<div class="paragraph">
-<p>Hope you are as excited as we were when we developed this guide for you.</p>
 </div>
-<div class="paragraph">
-<p>By: <code>cs2103-ay1819s2-t12-1</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
-</div>
+<div id="toc" class="toc">
+<div id="toctitle">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#introducing-hms">1. Introducing HMS+</a></li>
+<li><a href="#getting-started">2. Getting Started</a></li>
+<li><a href="#Features">3. Features</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-hms-code-code-clear-all-code">3.2. Clearing all entries : <code>clear-hms</code>, <code>clear-all</code></a></li>
+<li><a href="#customer-commands">3.3. Customer commands</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-customer-code-addcustomer-code-code-ac-code">3.3.1. Adding a customer : <code>addcustomer</code>, <code>ac</code></a></li>
+<li><a href="#listing-all-customers-code-listcustomers-code-code-lc-code">3.3.2. Listing all customers : <code>listcustomers</code>, <code>lc</code></a></li>
+<li><a href="#editing-a-customer-code-editcustomer-code-code-ec-code">3.3.3. Editing a customer : <code>editcustomer</code>, <code>ec</code></a></li>
+<li><a href="#finding-customers-by-name-code-findname-code-code-fn-code">3.3.4. Finding customers by name: <code>findname</code>, <code>fn</code></a></li>
+<li><a href="#deleting-a-customer-code-deletecustomer-code-code-deletec-code">3.3.5. Deleting a customer : <code>deletecustomer</code>, <code>deletec</code></a></li>
+</ul>
+</li>
+<li><a href="#room-reservation-commands">3.4. Room Reservation commands</a>
+<ul class="sectlevel3">
+<li><a href="#reserving-a-room-code-add-reservation-code-code-ar-code-code-coming-in-v2-0-code">3.4.1. Reserving a room : <code>add-reservation</code>, <code>ar</code>  <code>[coming in v2.0]</code></a></li>
+<li><a href="#listing-all-reservations-code-list-reservations-code-code-lr-code-code-coming-in-v2-0-code">3.4.2. Listing all reservations : <code>list-reservations</code>, <code>lr</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code-code-coming-in-v2-0-code">3.4.3. Editing a room reservation : <code>edit-reservation</code>, <code>er</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#deleting-reservations-code-delete-reservation-code-code-dr-code-code-coming-in-v2-0-code">3.4.4. Deleting reservations: <code>delete-reservation</code>, <code>dr</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-reservations-code-clear-reservations-code-code-clear-r-code">3.4.5. Clearing all reservations: <code>clear-reservations</code>, <code>clear-r</code></a></li>
+</ul>
+</li>
+<li><a href="#service-booking-commands">3.5. Service Booking commands</a>
+<ul class="sectlevel3">
+<li><a href="#booking-a-service-code-add-booking-code-code-ab-code">3.5.1. Booking a service: <code>add-booking</code>,<code>ab</code></a></li>
+<li><a href="#listing-all-booked-services-code-listbookings-code-code-lb-code">3.5.2. Listing all booked services: <code>listbookings</code>,<code>lb</code></a></li>
+<li><a href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">3.5.3. Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></li>
+<li><a href="#find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code">3.5.4. Find a booked service contains payer: <code>findbookingcontainspayer</code>, <code>fbcp</code></a></li>
+<li><a href="#deleting-a-booked-service-code-deletebooking-code-code-delb-code">3.5.5. Deleting a booked service: <code>deletebooking</code>, <code>delb</code></a></li>
+<li><a href="#clearing-all-bookings-code-clear-bookings-code-code-clear-b-code">3.5.6. Clearing all bookings: <code>clear-bookings</code>, <code>clear-b</code></a></li>
+</ul>
+</li>
+<li><a href="#generate-customer-s-bil-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code">3.6. Generate customer&#8217;s bil : <code>generatebill</code>, <code>gb</code>   <code>[coming in v2.0]</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.7. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.8. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.9. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.11. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.12. Encrypting data files <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
+</ul>
 </div>
 </div>
 <div class="sect1">
@@ -20,7 +64,7 @@
 <p>You need a world-class property management system to run your hotel’s front desk and back office. We’ve spent years listening to what independent hoteliers need to take their business to the next level. From before check-in to post check out, we have everything you need to get your customers moving and your hotel running.</p>
 </div>
 <div class="paragraph">
-<p>HMS+ is for hotels that want to use a single, integrated system to <strong>manage all aspects of their requirements</strong>. As a command line app, HMS is highly customisable to match the needs for different hotels and allows easy scripting for batch processing.</p>
+<p>HMS+ is for hotels that want to use a <strong>single, integrated system to manage all aspects of their requirements</strong>.</p>
 </div>
 <div class="paragraph">
 <p>This user guide provides in-depth documentation on the HMS+ installation process, system configuration and management, monitoring and troubleshooting problems. In addition the <a href="#getting-started">Section 2, &#8220;Getting Started&#8221;</a> will provide the basic knowledge of the setup process and how you can get started.</p>
@@ -116,7 +160,16 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-customer-code-addcustomer-code-code-ac-code"><a class="link" href="#adding-a-customer-code-addcustomer-code-code-ac-code">3.2. Adding a customer : <code>addcustomer</code>, <code>ac</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-hms-code-code-clear-all-code"><a class="link" href="#clearing-all-entries-code-clear-hms-code-code-clear-all-code">3.2. Clearing all entries : <code>clear-hms</code>, <code>clear-all</code></a></h3>
+<div class="paragraph">
+<p>Effect: Clears all entries from the database.<br>
+Format: <code>{clear-hms/clear-all}</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customer-commands"><a class="link" href="#customer-commands">3.3. Customer commands</a></h3>
+<div class="sect3">
+<h4 id="adding-a-customer-code-addcustomer-code-code-ac-code"><a class="link" href="#adding-a-customer-code-addcustomer-code-code-ac-code">3.3.1. Adding a customer : <code>addcustomer</code>, <code>ac</code></a></h4>
 <div class="paragraph">
 <p>Effect: Adds a customer to the customer database.<br>
 Format: <code>{addcustomer/ac} n/NAME [p/PHONE_NUMBER] [e/EMAIL] [id/IDENTIFICATIONNO] [a/ADDRESS] [t/TAG]…</code></p>
@@ -147,15 +200,15 @@ A person can have any number of tags (including 0)
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-customers-code-listcustomers-code-code-lc-code"><a class="link" href="#listing-all-customers-code-listcustomers-code-code-lc-code">3.3. Listing all customers : <code>listcustomers</code>, <code>lc</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-customers-code-listcustomers-code-code-lc-code"><a class="link" href="#listing-all-customers-code-listcustomers-code-code-lc-code">3.3.2. Listing all customers : <code>listcustomers</code>, <code>lc</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a customer list, which lists all customers in the customer database.<br>
 Format: <code>{listcustomers/lc}</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-customer-code-editcustomer-code-code-ec-code"><a class="link" href="#editing-a-customer-code-editcustomer-code-code-ec-code">3.4. Editing a customer : <code>editcustomer</code>, <code>ec</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-customer-code-editcustomer-code-code-ec-code"><a class="link" href="#editing-a-customer-code-editcustomer-code-code-ec-code">3.3.3. Editing a customer : <code>editcustomer</code>, <code>ec</code></a></h4>
 <div class="paragraph">
 <p>Effect: Edits the fields of an existing customer in the customer database.<br>
 Format: <code>{editcustomer/ec} INDEX [n/NAME] [p/PHONE] [e/EMAIL] [id/IDENTIFICATIONNO] [a/ADDRESS] [t/TAG]…</code></p>
@@ -199,8 +252,8 @@ Edits the name of the 2nd customer to be <code>Betsy Crower</code> and clears al
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="finding-customers-by-name-code-findname-code-code-fn-code"><a class="link" href="#finding-customers-by-name-code-findname-code-code-fn-code">3.5. Finding customers by name: <code>findname</code>, <code>fn</code></a></h3>
+<div class="sect3">
+<h4 id="finding-customers-by-name-code-findname-code-code-fn-code"><a class="link" href="#finding-customers-by-name-code-findname-code-code-fn-code">3.3.4. Finding customers by name: <code>findname</code>, <code>fn</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a customer list, which consists of customers whose names contain any of the given keywords.<br>
 Format: <code>{findname/fn} KEYWORD [MORE_KEYWORDS]</code></p>
@@ -241,8 +294,8 @@ Returns any person having names Betsy, Tim, or John</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-customer-code-deletecustomer-code-code-deletec-code"><a class="link" href="#deleting-a-customer-code-deletecustomer-code-code-deletec-code">3.6. Deleting a customer : <code>deletecustomer</code>, <code>deletec</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-customer-code-deletecustomer-code-code-deletec-code"><a class="link" href="#deleting-a-customer-code-deletecustomer-code-code-deletec-code">3.3.5. Deleting a customer : <code>deletecustomer</code>, <code>deletec</code></a></h4>
 <div class="paragraph">
 <p>Effect: Deletes a customer from the customer database.<br>
 Format: <code>{deletecustome/deletec} INDEX</code></p>
@@ -274,8 +327,11 @@ Deletes the 1st customer in the customer list returned by the <code>findname</co
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="reserving-a-room-code-add-reservation-code-code-ar-code-code-coming-in-v2-0-code"><a class="link" href="#reserving-a-room-code-add-reservation-code-code-ar-code-code-coming-in-v2-0-code">3.7. Reserving a room : <code>add-reservation</code>, <code>ar</code>  <code>[coming in v2.0]</code></a></h3>
+<h3 id="room-reservation-commands"><a class="link" href="#room-reservation-commands">3.4. Room Reservation commands</a></h3>
+<div class="sect3">
+<h4 id="reserving-a-room-code-add-reservation-code-code-ar-code-code-coming-in-v2-0-code"><a class="link" href="#reserving-a-room-code-add-reservation-code-code-ar-code-code-coming-in-v2-0-code">3.4.1. Reserving a room : <code>add-reservation</code>, <code>ar</code>  <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Effect: Adds a booking for a room associated with certain customers.<br>
 Format: <code>{add-reservation/ar} r/ROOM_TYPE d/START_DATE-END_DATE i/INDEX_OF_CUSTOMER [i/MORE_INDICIES]… [c/COMMENTS]</code></p>
@@ -313,8 +369,8 @@ Adds a booking of Room Type 3, two customers from the search result of Jack and 
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-reservations-code-list-reservations-code-code-lr-code-code-coming-in-v2-0-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code-code-coming-in-v2-0-code">3.8. Listing all reservations : <code>list-reservations</code>, <code>lr</code> <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-reservations-code-list-reservations-code-code-lr-code-code-coming-in-v2-0-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code-code-coming-in-v2-0-code">3.4.2. Listing all reservations : <code>list-reservations</code>, <code>lr</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a booking list, which lists one of: 1. all the bookings in the booking database; 2. the bookings associated with certain customers; 3. the bookings that contains a certain date.<br>
 Format: <code>{list-reservations/lr} [i/INDEX_OF_CUSTOMER]… [d/DATE]</code></p>
@@ -352,8 +408,8 @@ Lists all the bookings that spans across the date 12 May.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code-code-coming-in-v2-0-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code-code-coming-in-v2-0-code">3.9. Editing a room reservation : <code>edit-reservation</code>, <code>er</code> <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code-code-coming-in-v2-0-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code-code-coming-in-v2-0-code">3.4.3. Editing a room reservation : <code>edit-reservation</code>, <code>er</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Effect: Edits the fields of an existing booking in the booking database.<br>
 Format: <code>{edit-reservation/er} INDEX [r/ROOM_TYPE] [d/START_DATE-END_DATE] [c/COMMENTS]</code></p>
@@ -400,8 +456,8 @@ Edits the date of the 2nd booking to be from 14 Feb to 14 Mar and clears all exi
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-reservations-code-delete-reservation-code-code-dr-code-code-coming-in-v2-0-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code-code-coming-in-v2-0-code">3.10. Deleting reservations: <code>delete-reservation</code>, <code>dr</code> <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-reservations-code-delete-reservation-code-code-dr-code-code-coming-in-v2-0-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code-code-coming-in-v2-0-code">3.4.4. Deleting reservations: <code>delete-reservation</code>, <code>dr</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Effect: Deletes a booking from the booking database.<br>
 Format: <code>{delete-reservation/dr} INDEX</code></p>
@@ -433,8 +489,18 @@ Deletes the 1st booking in the results of the listb command.</p>
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="clearing-all-reservations-code-clear-reservations-code-code-clear-r-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-clear-r-code">3.4.5. Clearing all reservations: <code>clear-reservations</code>, <code>clear-r</code></a></h4>
+<div class="paragraph">
+<p>Effect: Removes all room reservations from the database.<br>
+Format: <code>{clear-reservations/clear-r}</code></p>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">3.11. Booking a service: <code>add-booking</code>,<code>ab</code></a></h3>
+<h3 id="service-booking-commands"><a class="link" href="#service-booking-commands">3.5. Service Booking commands</a></h3>
+<div class="sect3">
+<h4 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">3.5.1. Booking a service: <code>add-booking</code>,<code>ab</code></a></h4>
 <div class="paragraph">
 <p>Effect: Adds a service associated with certain customers.<br>
 Format: <code>{add-booking/ab} s/SERVICE_NAME :/START_TIME-END_TIME $/PAYER INDEX [c/CUSTOMER INDEX] [com/COMMENTS]</code></p>
@@ -472,15 +538,15 @@ Adds a booking of service GYM for customer index 2 payed by customer index 1, fr
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-booked-services-code-listbookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-listbookings-code-code-lb-code">3.12. Listing all booked services: <code>listbookings</code>,<code>lb</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-booked-services-code-listbookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-listbookings-code-code-lb-code">3.5.2. Listing all booked services: <code>listbookings</code>,<code>lb</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a booking list, which lists all the bookings made till now.
 Format: <code>{listbookings/lb}</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">3.13. Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">3.5.3. Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h4>
 <div class="paragraph">
 <p>Effect: Edits the fields of a booking in the database.<br>
 Format: <code>{edit-booking/eb} INDEX [s/SERVICE_NAME] [:/START_TIME - END_TIME] [p/PAYER INDEX] [c/CUSTOMER INDICES] [com/COMMENTS]</code></p>
@@ -524,8 +590,8 @@ Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing 
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code"><a class="link" href="#find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code">3.14. Find a booked service contains payer: <code>findbookingcontainspayer</code>, <code>fbcp</code></a></h3>
+<div class="sect3">
+<h4 id="find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code"><a class="link" href="#find-a-booked-service-contains-payer-code-findbookingcontainspayer-code-code-fbcp-code">3.5.4. Find a booked service contains payer: <code>findbookingcontainspayer</code>, <code>fbcp</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a booking list, which is paid by the customer whose identification number is the same as the given number
 Format: <code>{findbookingcontainspayer/fbcp} PAYER_IDENTIFICATION_NUMBER</code></p>
@@ -547,8 +613,8 @@ Format: <code>{findbookingcontainspayer/fbcp} PAYER_IDENTIFICATION_NUMBER</code>
 Returns any booking which is paid by the customer with identification number 12345678</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-booked-service-code-deletebooking-code-code-delb-code"><a class="link" href="#deleting-a-booked-service-code-deletebooking-code-code-delb-code">3.15. Deleting a booked service: <code>deletebooking</code>, <code>delb</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-booked-service-code-deletebooking-code-code-delb-code"><a class="link" href="#deleting-a-booked-service-code-deletebooking-code-code-delb-code">3.5.5. Deleting a booked service: <code>deletebooking</code>, <code>delb</code></a></h4>
 <div class="paragraph">
 <p>Effect: Deletes a booking from the database.
 Format: <code>{deletebooking/delb} INDEX</code></p>
@@ -570,8 +636,16 @@ Format: <code>{deletebooking/delb} INDEX</code></p>
 Deletes the 2nd booking of the booking database</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="clearing-all-bookings-code-clear-bookings-code-code-clear-b-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-clear-b-code">3.5.6. Clearing all bookings: <code>clear-bookings</code>, <code>clear-b</code></a></h4>
+<div class="paragraph">
+<p>Effect: Removes all booked services from the database.<br>
+Format: <code>{clear-bookings/clear-b}</code></p>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="generate-customer-s-bill-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code"><a class="link" href="#generate-customer-s-bill-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code">3.16. Generate customer&#8217;s bill : <code>generatebill</code>, <code>gb</code>   <code>[coming in v2.0]</code></a></h3>
+<h3 id="generate-customer-s-bil-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code"><a class="link" href="#generate-customer-s-bil-code-generatebill-code-code-gb-code-code-coming-in-v2-0-code">3.6. Generate customer&#8217;s bil : <code>generatebill</code>, <code>gb</code>   <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Effect: Generates the bill for the customer based on his room reservations plus service bookings less the amount the customer has already paid+
 Format: <code>{generatebill/gb} INDEX</code></p>
@@ -594,7 +668,7 @@ Generates the bill for the second customer.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.17. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.7. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Effect: Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -615,7 +689,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.8. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Effect: Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -659,7 +733,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.9. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Effect: Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -691,28 +765,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clearcustomers-code"><a class="link" href="#clearing-all-entries-code-clearcustomers-code">3.20. Clearing all entries : <code>clearcustomers</code></a></h3>
-<div class="paragraph">
-<p>Effect: Clears all entries from the customer database.<br>
-Format: <code>clearcustomers</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Effect: Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.11. Saving the data</a></h3>
 <div class="paragraph">
 <p>The HMS+ data file is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.12. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -788,15 +855,15 @@ There is no need to save manually.</p>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
-<p><strong>Clear customers</strong> : <code>clearcustomers</code></p>
+<p><strong>Clear hotel management system database</strong> : <code>{clear-hms/clear-all}</code></p>
 </li>
 <li>
-<p><strong>Clear room reservations</strong> : <code>clearreservations</code></p>
+<p><strong>Clear room reservations</strong> : <code>{clear-reservations/clear-r}</code></p>
 </li>
 <li>
-<p><strong>Clear room services</strong> : <code>clearbookings</code></p>
+<p><strong>Clear booked services</strong> : <code>{clear-bookings/clear-b}</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-23 03:44:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-26 12:33:23 UTC</div></div></div></body></html>
