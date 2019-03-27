@@ -162,20 +162,20 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletecustomer 1</code><br>
-<code>listc</code><br>
-<code>undo</code> (reverses the <code>deletecustomer 1</code> command)<br></p>
+<p><code>delete-customer 1</code><br>
+<code>lc</code><br>
+<code>undo</code> (adds back the deleted customer)<br></p>
 </li>
 <li>
-<p><code>listc</code><br>
+<p><code>lc</code><br>
 <code>undo</code><br>
 The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
 </li>
 <li>
-<p><code>deletecustomer 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>deletecustomer 1</code> command)<br></p>
+<p><code>delete-customer 1</code><br>
+<code>clear-all</code><br>
+<code>undo</code> (adds back all cleared entries)<br>
+<code>undo</code> (adds back the previously deleted customer)<br></p>
 </li>
 </ul>
 </div>
@@ -192,22 +192,22 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletecustomer 1</code><br>
-<code>undo</code> (reverses the <code>deletecustomer 1</code> command)<br>
-<code>redo</code> (reapplies the <code>deletecustomer 1</code> command)<br></p>
+<p><code>delete-customer 1</code><br>
+<code>undo</code> (adds back the deleted customer)<br>
+<code>redo</code> (deletes customer at index 1 again)<br></p>
 </li>
 <li>
-<p><code>deletecustomer 1</code><br>
+<p><code>delete-customer 1</code><br>
 <code>redo</code><br>
 The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
 </li>
 <li>
-<p><code>deletecustomer 1</code><br>
+<p><code>delete-customer 1</code><br>
 <code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>deletecustomer 1</code> command)<br>
-<code>redo</code> (reapplies the <code>deletecustomer 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<code>undo</code> (adds back all cleared entries)<br>
+<code>undo</code> (adds back the previously deleted customer)<br>
+<code>redo</code> (deletes customer at index 1 again)<br>
+<code>redo</code> (clears all remaining entries again)<br></p>
 </li>
 </ul>
 </div>
@@ -445,4 +445,4 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 05:30:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 10:42:47 UTC</div></div></div></body></html>
