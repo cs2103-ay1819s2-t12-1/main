@@ -90,11 +90,6 @@ public class CustomerCardHandle extends NodeHandle<Node> {
             .collect(Collectors.toList());
     }
 
-    public String toString() {
-        return (getId() + getName() + getAddress() + getDateOfBirth() + getIdNum() + getPhone() + getEmail()
-                + getTags());
-    }
-
     /**
      * Returns true if this handle contains {@code customer}.
      */
