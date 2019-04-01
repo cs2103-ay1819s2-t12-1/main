@@ -1,24 +1,24 @@
 package systemtests;
 
-import static org.junit.Assert.assertTrue;
-import static seedu.hms.commons.core.Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX;
-import static seedu.hms.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.hms.logic.commands.DeleteCustomerCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS;
-import static seedu.hms.testutil.TestUtil.getCustomer;
-import static seedu.hms.testutil.TestUtil.getLastIndex;
-import static seedu.hms.testutil.TestUtil.getMidIndex;
-import static seedu.hms.testutil.TypicalCustomers.KEYWORD_MATCHING_MEIER;
-import static seedu.hms.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
-
-import org.junit.Test;
-
-import seedu.hms.commons.core.Messages;
-import seedu.hms.commons.core.index.Index;
-import seedu.hms.logic.commands.DeleteCustomerCommand;
-import seedu.hms.logic.commands.RedoCommand;
-import seedu.hms.logic.commands.UndoCommand;
-import seedu.hms.model.CustomerModel;
-import seedu.hms.model.customer.Customer;
+//import static org.junit.Assert.assertTrue;
+//import static seedu.hms.commons.core.Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX;
+//import static seedu.hms.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+//import static seedu.hms.logic.commands.DeleteCustomerCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS;
+//import static seedu.hms.testutil.TestUtil.getCustomer;
+//import static seedu.hms.testutil.TestUtil.getLastIndex;
+//import static seedu.hms.testutil.TestUtil.getMidIndex;
+//import static seedu.hms.testutil.TypicalCustomers.KEYWORD_MATCHING_MEIER;
+//import static seedu.hms.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
+//
+//import org.junit.Test;
+//
+//import seedu.hms.commons.core.Messages;
+//import seedu.hms.commons.core.index.Index;
+//import seedu.hms.logic.commands.DeleteCustomerCommand;
+//import seedu.hms.logic.commands.RedoCommand;
+//import seedu.hms.logic.commands.UndoCommand;
+//import seedu.hms.model.CustomerModel;
+//import seedu.hms.model.customer.Customer;
 
 public class DeleteCommandSystemTest extends HotelManagementSystemSystemTest {
 //
