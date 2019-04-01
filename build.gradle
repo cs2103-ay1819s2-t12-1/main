@@ -133,9 +133,7 @@ test {
         // Prints the currently running test's name in the CI's build log,
         // so that we can check if tests are being silently skipped or
         // stalling the build.
-        if (System.env.'CI') {
-            events << TestLogEvent.STARTED
-        }
+        events << TestLogEvent.STARTED
     }
 
     jacoco {
