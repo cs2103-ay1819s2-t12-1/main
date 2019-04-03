@@ -3,7 +3,7 @@ package systemtests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-//import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 import static seedu.hms.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
 import static seedu.hms.ui.testutil.GuiTestAssert.assertListMatching;
 
@@ -83,21 +83,21 @@ public class HelpCommandSystemTest extends HotelManagementSystemSystemTest {
         assertEquals(1, guiRobot.getNumberOfWindowsShown(HelpWindowHandle.HELP_WINDOW_TITLE));
     }
 
-    ///**
-    // * Asserts that the help window is open, and closes it after checking.
-    // */
-    //private void assertHelpWindowOpen() {
-    //    assertTrue(ERROR_MESSAGE, HelpWindowHandle.isWindowPresent());
-    //    guiRobot.pauseForHuman();
-    //
-    //    new HelpWindowHandle(guiRobot.getStage(HelpWindowHandle.HELP_WINDOW_TITLE)).close();
-    //    getMainWindowHandle().focus();
-    //}
-
     /**
-     * Asserts that the help window isn't open.
+     * Asserts that the help window is open, and closes it after checking.
      */
-    private void assertHelpWindowNotOpen() {
-        assertFalse(ERROR_MESSAGE, HelpWindowHandle.isWindowPresent());
+    private void assertHelpWindowOpen() {
+        assertTrue(ERROR_MESSAGE, HelpWindowHandle.isWindowPresent());
+        guiRobot.pauseForHuman();
+
+        new HelpWindowHandle(guiRobot.getStage(HelpWindowHandle.HELP_WINDOW_TITLE)).close();
+        getMainWindowHandle().focus();
     }
+
+    ///**
+    // * Asserts that the help window isn't open.
+    // */
+    //private void assertHelpWindowNotOpen() {
+    //    assertFalse(ERROR_MESSAGE, HelpWindowHandle.isWindowPresent());
+    //}
 }
