@@ -92,10 +92,12 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>HMS+ is a Hotel Management System software that act as a <strong>single, integrated system</strong> to manage all aspects of a hotelier&#8217;s requirements. As a command line app, HMS is highly customisable to match the needs for different hotels and allows easy scripting for batch processing.</p>
+<p>HMS+ is a Hotel Management System software that act as a <strong>single, highly customizable integrated system</strong> to manage all aspects of a hotelier&#8217;s requirements.
+This guide aims to help all developers <strong>get familiar with the codebase</strong> and teach them <strong>how to build upon it.</strong></p>
 </div>
 <div class="paragraph">
-<p>There are <strong>many ways</strong> to contribute towards the <strong>development of the software: coding, testing, improving the build process and tools or contributing to the documentation.</strong> This guide provides information that will not only help you <strong>get started as a contributor</strong>, but that you&#8217;ll find useful to refer to even if you are already an <strong>experienced contributor.</strong></p>
+<p>There are <strong>many ways</strong> to contribute towards the <strong>development of the software: coding, testing, improving the build process and tools or contributing to the documentation.</strong>
+This guide provides information that will not only help you <strong>get started as a contributor</strong>, but that you&#8217;ll find useful to refer to even if you are already an <strong>experienced contributor.</strong></p>
 </div>
 </div>
 </div>
@@ -136,6 +138,7 @@ Windows developers are highly recommended to use JDK <code>9</code>.
 <td class="content">
 IntelliJ by default has Gradle and JavaFx plugins installed.<br>
 Do not disable them. If you have disabled them, go to <code>File</code> &gt; <code>Settings</code> &gt; <code>Plugins</code> to re-enable them.
+You can install AsciiDoc for live rendering of documentation.
 </td>
 </tr>
 </table>
@@ -184,7 +187,7 @@ Do not disable them. If you have disabled them, go to <code>File</code> &gt; <co
 This will generate all resources required by the application and tests.</p>
 </li>
 <li>
-<p>Open <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
+<p>Open <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -197,7 +200,7 @@ This will generate all resources required by the application and tests.</p>
 </div>
 </li>
 <li>
-<p>Repeat this for the test folder as well (e.g. check <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a> for code errors, and if so, resolve it the same way)</p>
+<p>Repeat this for the test folder as well (e.g. check <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a> for code errors, and if so, resolve it the same way)</p>
 </li>
 </ol>
 </div>
@@ -318,9 +321,6 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <div class="paragraph">
 <p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. It is designed to illustrate and identify the high level architecture systems used to design and implement the HMS+ Application.</p>
 </div>
-<div class="paragraph">
-<p>Given below is a quick overview of each component.</p>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -328,13 +328,16 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
+The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has only one class called <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p>Given below is a quick overview of each component.</p>
+</div>
+<div class="paragraph">
+<p><code>Main</code> has only one class called <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -392,19 +395,21 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
-<div class="paragraph">
-<div class="title">Class Diagram of the Logic Component</div>
-<p>image::logic-class-diagram.png</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="600">
+</div>
+<div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>deletecustomer 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete-booking 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/LogicComponentSequenceDiagram" alt="LogicComponentSequenceDiagram" width="800">
+<img src="images/logic-sequence-diagram.png" alt="logic sequence diagram" width="600">
 </div>
-<div class="title">Figure 2. Component interactions for <code>deletecustomer 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>delete-booking 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -416,29 +421,33 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/ui-class-diagram.png" alt="width:&quot;1200&quot;">
 </div>
-<div class="title">Figure 3. Structure of the UI Component</div>
+<div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
+<div class="sect3">
+<h4 id="how-the-ui-executes-commands"><a class="link" href="#how-the-ui-executes-commands">3.2.1. How the UI executes commands</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="how-the-ui-updates-itself"><a class="link" href="#how-the-ui-updates-itself">3.2.2. How the UI updates itself</a></h4>
 <div class="paragraph">
-<p>The <code>UI</code> component,</p>
+<p>This is handled by the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/util/InvalidationListenerManager.java"><code>InvalidationListenerManager</code></a>.
+It is basically a list of <code>InvalidationListeners</code> linked to three lists - <code>UniqueCustomerList</code>, <code>BookingList</code> and <code>ReservationList</code>.
+A listener is added for each of the three lists when the <code>HotelManagementSystem</code> is set up using the
+<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/90e374cb6e0dbafa2854fbc82792444434744a42/src/main/java/seedu/hms/model/HotelManagementSystem.java#L251"><code>addListener()</code></a> method.
+Whenever a change is made to any of these three lists of the <code>HotelManagementSystem</code>, all the listeners are called
+using the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/90e374cb6e0dbafa2854fbc82792444434744a42/src/main/java/seedu/hms/model/HotelManagementSystem.java#L263"><code>indicateModified()</code></a> method.
+Thus, the internal listeners when called update the UI automatically.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
-</li>
-<li>
-<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -447,41 +456,37 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/logic-class-diagram.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 4. Structure of the Logic Component</div>
+<div class="title">Figure 5. Overview of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
 <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>Logic</code> uses the <code>HotelManagementSystemParser</code> class to parse the user command.</p>
-</li>
-<li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code> using the
-<code>CustomerModel</code> or the <code>BookingModel</code> based on the type of command.
-Therefore command execution can affect the <code>CustomerModel</code> or <code>BookingModel</code>
-(e.g. adding a customer / editing a booking).</p>
-</li>
-<li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object
-which is passed back to the <code>UI</code>.</p>
-</li>
-<li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform
-certain actions, such as displaying help to the user.</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deletecustomer 1")</code> API call.</p>
+<p><code>Logic</code> uses the <code>HotelManagementSystemParser</code> class to parse the user command and invoke the
+relevant <code>{Command Name}Parser</code> class. Given below is the structure of the parser classes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteCustomerSdForLogic.png" alt="DeleteCustomerSdForLogic" width="800">
+<img src="images/parser-structure.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>deletecustomer 1</code> Command</div>
+<div class="title">Figure 6. Structure of the Parser classes</div>
+</div>
+<div class="paragraph">
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code> using the
+<code>CustomerModel</code>,<code>BookingModel</code>, etc. based on the type of command.
+Therefore command execution can affect the <code>CustomerModel</code>,<code>BookingModel</code>, etc.
+(e.g. adding a customer / editing a booking). Given below is the structure of the command classes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-structure.png" alt="width:&quot;800&quot;">
+</div>
+<div class="title">Figure 7. Structure of the Command classes</div>
+</div>
+<div class="paragraph">
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>UI</code>.
+In addition, the <code>CommandResult</code> object can also instruct the User-Interface to perform certain actions, such as displaying help to the user.</p>
 </div>
 </div>
 <div class="sect2">
@@ -490,7 +495,7 @@ certain actions, such as displaying help to the user.</p>
 <div class="content">
 <img src="images/model-class-diagram.png" alt="width:&quot;1200&quot;">
 </div>
-<div class="title">Figure 6. Structure of the Model Component</div>
+<div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model.java</code></a></p>
@@ -544,7 +549,7 @@ Another example is how we store a <code>Tag</code> list in <code>Hotel Managemen
 <div class="content">
 <img src="images/storage-class-diagram.png" alt="storage class diagram" width="1200">
 </div>
-<div class="title">Figure 7. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -1143,13 +1148,13 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 8. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">5.4. Site-wide Documentation Settings</a></h3>
 <div class="paragraph">
-<p>The <a href="https://github.com/cs2103-ay1819s2-t12-1/main/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
+<p>The <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1265,11 +1270,11 @@ One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutco
 <div class="sect2">
 <h3 id="site-template"><a class="link" href="#site-template">5.6. Site Template</a></h3>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
+<p>The files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
 You can modify them to change some properties of the site&#8217;s design.</p>
 </div>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
+<p>The files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
 These template files are written in a mixture of <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://slim-lang.com">Slim</a>.</p>
 </div>
 <div class="admonitionblock warning">
@@ -1280,7 +1285,7 @@ These template files are written in a mixture of <a href="https://www.ruby-lang.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Modifying the template files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
+<p>Modifying the template files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
 You should only modify them if you need greater control over the site&#8217;s layout than what stylesheets can provide.
 The SE-EDU team does not provide support for modified template files.</p>
 </div>
@@ -1465,7 +1470,7 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Update the version number in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/MainApp.java"><code>MainApp.java</code></a>.</p>
+<p>Update the version number in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/MainApp.java"><code>MainApp.java</code></a>.</p>
 </li>
 <li>
 <p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
@@ -1547,10 +1552,10 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Just like we store each individual command word constant <code>COMMAND_WORD</code> inside <code>*Command.java</code> (e.g.  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/commands/FindCommand.java"><code>FindCommand#COMMAND_WORD</code></a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/commands/DeleteCommand.java"><code>DeleteCommand#COMMAND_WORD</code></a>), you need a new constant for aliases as well (e.g. <code>FindCommand#COMMAND_ALIAS</code>).</p>
+<p>Just like we store each individual command word constant <code>COMMAND_WORD</code> inside <code>*Command.java</code> (e.g.  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/commands/FindCommand.java"><code>FindCommand#COMMAND_WORD</code></a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/commands/DeleteCommand.java"><code>DeleteCommand#COMMAND_WORD</code></a>), you need a new constant for aliases as well (e.g. <code>FindCommand#COMMAND_ALIAS</code>).</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> is responsible for analyzing command words.</p>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> is responsible for analyzing command words.</p>
 </li>
 </ul>
 </div>
@@ -1560,7 +1565,7 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the switch statement in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser#parseCommand(String)</code></a> such that both the proper command word and alias can be used to execute the same intended command.</p>
+<p>Modify the switch statement in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser#parseCommand(String)</code></a> such that both the proper command word and alias can be used to execute the same intended command.</p>
 </li>
 <li>
 <p>Add new tests for each of the aliases that you have added.</p>
@@ -1610,13 +1615,13 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/Model.java"><code>Model</code></a> and the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> API need to be updated.</p>
+<p>The <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model</code></a> and the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> API need to be updated.</p>
 </li>
 <li>
 <p>Think about how you can use SLAP to design the method. Where should we place the main logic of deleting tags?</p>
 </li>
 <li>
-<p>Find out which of the existing API methods in  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> allows you to update a customer, and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> allows you to update the tags.</p>
+<p>Find out which of the existing API methods in  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> allows you to update a customer, and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> allows you to update the tags.</p>
 </li>
 </ul>
 </div>
@@ -1626,10 +1631,10 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a>. Loop through each customer, and remove the <code>tag</code> from each customer.</p>
+<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a>. Loop through each customer, and remove the <code>tag</code> from each customer.</p>
 </li>
 <li>
-<p>Add a new API method <code>deleteTag(Tag)</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a> should call <code>HotelManagementSystem#removeTag(Tag)</code>.</p>
+<p>Add a new API method <code>deleteTag(Tag)</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a> should call <code>HotelManagementSystem#removeTag(Tag)</code>.</p>
 </li>
 <li>
 <p>Add new tests for each of the new public methods that you have added.</p>
@@ -1692,13 +1697,13 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>The tag labels are created inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/PersonCard.java">the <code>PersonCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
+<p>The tag labels are created inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java">the <code>PersonCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
 </li>
 <li>
 <p>Use the .css attribute <code>-fx-background-color</code> to add a color.</p>
 </li>
 <li>
-<p>You may wish to modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/resources/view/DarkTheme.css"><code>DarkTheme.css</code></a> to include some pre-defined colors using css, especially if you have experience with web-based css.</p>
+<p>You may wish to modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/DarkTheme.css"><code>DarkTheme.css</code></a> to include some pre-defined colors using css, especially if you have experience with web-based css.</p>
 </li>
 </ul>
 </div>
@@ -1729,7 +1734,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> such that <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> can show a different style on error (currently it shows the same regardless of errors).</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> such that <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> can show a different style on error (currently it shows the same regardless of errors).</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -1755,10 +1760,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> is raised by <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> which also knows whether the result is a success or failure, and is caught by <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> which is where we want to change the style to.</p>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> is raised by <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> which also knows whether the result is a success or failure, and is caught by <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> which is where we want to change the style to.</p>
 </li>
 <li>
-<p>Refer to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> for an example on how to display an error.</p>
+<p>Refer to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> for an example on how to display an error.</p>
 </li>
 </ul>
 </div>
@@ -1768,10 +1773,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> 's constructor so that users of the event can indicate whether an error has occurred.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> 's constructor so that users of the event can indicate whether an error has occurred.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay#handleNewResultAvailableEvent(NewResultAvailableEvent)</code></a> to react to this event appropriately.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay#handleNewResultAvailableEvent(NewResultAvailableEvent)</code></a> to react to this event appropriately.</p>
 </li>
 <li>
 <p>You can write two different kinds of tests to ensure that the functionality works:</p>
@@ -1781,7 +1786,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <p>The unit tests for <code>ResultDisplay</code> can be modified to include verification of the color.</p>
 </li>
 <li>
-<p>The system tests <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest#assertCommandBoxShowsDefaultStyle() and HotelManagementSystemSystemTest#assertCommandBoxShowsErrorStyle()</code></a> to include verification for <code>ResultDisplay</code> as well.</p>
+<p>The system tests <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest#assertCommandBoxShowsDefaultStyle() and HotelManagementSystemSystemTest#assertCommandBoxShowsErrorStyle()</code></a> to include verification for <code>ResultDisplay</code> as well.</p>
 </li>
 </ul>
 </div>
@@ -1805,7 +1810,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of people in the hotel management system.</p>
+<p>Modify the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of people in the hotel management system.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -1831,10 +1836,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/resources/view/StatusBarFooter.fxml"><code>StatusBarFooter.fxml</code></a> will need a new <code>StatusBar</code>. Be sure to set the <code>GridPane.columnIndex</code> properly for each <code>StatusBar</code> to avoid misalignment!</p>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/StatusBarFooter.fxml"><code>StatusBarFooter.fxml</code></a> will need a new <code>StatusBar</code>. Be sure to set the <code>GridPane.columnIndex</code> properly for each <code>StatusBar</code> to avoid misalignment!</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the hotel management system is updated.</p>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the hotel management system is updated.</p>
 </li>
 </ul>
 </div>
@@ -1844,16 +1849,16 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the constructor of <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of customers when the application just started.</p>
+<p>Modify the constructor of <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of customers when the application just started.</p>
 </li>
 <li>
-<p>Use <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter#handleHotelManagementSystemChangedEvent(HotelManagementSystemChangedEvent)</code></a> to update the number of customers whenever there are new changes to the hotel management system.</p>
+<p>Use <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter#handleHotelManagementSystemChangedEvent(HotelManagementSystemChangedEvent)</code></a> to update the number of customers whenever there are new changes to the hotel management system.</p>
 </li>
 <li>
-<p>For tests, modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of people status, just like what we did for save location and sync status.</p>
+<p>For tests, modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of people status, just like what we did for save location and sync status.</p>
 </li>
 <li>
-<p>For system tests, modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest</code></a> to also verify the new total number of customers status bar.</p>
+<p>For system tests, modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest</code></a> to also verify the new total number of customers status bar.</p>
 </li>
 <li>
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/803">PR</a> for the full solution.</p>
@@ -1897,10 +1902,10 @@ Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage componen
 <div class="ulist">
 <ul>
 <li>
-<p>Add the API method in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/storage/HotelManagementSystemStorage.java"><code>HotelManagementSystemStorage</code></a> interface.</p>
+<p>Add the API method in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/HotelManagementSystemStorage.java"><code>HotelManagementSystemStorage</code></a> interface.</p>
 </li>
 <li>
-<p>Implement the logic in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/storage/StorageManager.java"><code>StorageManager</code></a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/storage/JsonHotelManagementSystemStorage.java"><code>JsonHotelManagementSystemStorage</code></a> class.</p>
+<p>Implement the logic in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/StorageManager.java"><code>StorageManager</code></a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/JsonHotelManagementSystemStorage.java"><code>JsonHotelManagementSystemStorage</code></a> class.</p>
 </li>
 </ul>
 </div>
@@ -1966,10 +1971,10 @@ Removes the remark for the first customer.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>RemarkCommand</code> that extends <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/commands/Command.java"><code>Command</code></a>. Upon execution, it should just throw an <code>Exception</code>.</p>
+<p>Add a <code>RemarkCommand</code> that extends <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/commands/Command.java"><code>Command</code></a>. Upon execution, it should just throw an <code>Exception</code>.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to accept a <code>RemarkCommand</code>.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to accept a <code>RemarkCommand</code>.</p>
 </li>
 </ol>
 </div>
@@ -1982,7 +1987,7 @@ Removes the remark for the first customer.</p>
 <p>Add <code>RemarkCommandTest</code> that tests that <code>execute()</code> throws an Exception.</p>
 </li>
 <li>
-<p>Add new test method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a>, which tests that typing "remark" returns an instance of <code>RemarkCommand</code>.</p>
+<p>Add new test method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a>, which tests that typing "remark" returns an instance of <code>RemarkCommand</code>.</p>
 </li>
 </ol>
 </div>
@@ -2004,7 +2009,7 @@ Removes the remark for the first customer.</p>
 <p>Add <code>RemarkCommandParser</code> that knows how to parse two arguments, one index and one with prefix 'r/'.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to use the newly implemented <code>RemarkCommandParser</code>.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to use the newly implemented <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
@@ -2021,7 +2026,7 @@ Removes the remark for the first customer.</p>
 for <code>RemarkCommandParser</code>.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a> to test that the correct command is generated according to the user input.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a> to test that the correct command is generated according to the user input.</p>
 </li>
 </ol>
 </div>
@@ -2029,7 +2034,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-customercard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-customercard-code">[Step 3] Ui: Add a placeholder for remark in <code>CustomerCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/PersonCard.java"><code>CustomerCard</code></a> s to display a remark for each customer later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>CustomerCard</code></a> s to display a remark for each customer later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2037,10 +2042,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>Label</code> with any random text inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/resources/view/PersonListCard.fxml"><code>PersonListCard.fxml</code></a>.</p>
+<p>Add a <code>Label</code> with any random text inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/PersonListCard.fxml"><code>PersonListCard.fxml</code></a>.</p>
 </li>
 <li>
-<p>Add FXML annotation in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> to tie the variable to the actual label.</p>
+<p>Add FXML annotation in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> to tie the variable to the actual label.</p>
 </li>
 </ol>
 </div>
@@ -2050,7 +2055,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/guitests/guihandles/PersonCardHandle.java"><code>PersonCardHandle</code></a> so that future tests can read the contents of the remark label.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/guitests/guihandles/PersonCardHandle.java"><code>PersonCardHandle</code></a> so that future tests can read the contents of the remark label.</p>
 </li>
 </ol>
 </div>
@@ -2058,7 +2063,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>We have to properly encapsulate the remark in our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2066,7 +2071,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Address.java"><code>Address</code></a>, remove the regex and change the names accordingly).</p>
+<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Address.java"><code>Address</code></a>, remove the regex and change the names accordingly).</p>
 </li>
 <li>
 <p>Modify <code>RemarkCommand</code> to now take in a <code>Remark</code> instead of a <code>String</code>.</p>
@@ -2087,7 +2092,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-5-model-modify-code-person-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-person-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Person</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2095,13 +2100,13 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>getRemark()</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Add <code>getRemark()</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
 </li>
 <li>
 <p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the customer will be created without a remark).</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>data/hotelManagementSystem.json</code> so that the application will load the sample data when you launch it.)</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>data/hotelManagementSystem.json</code> so that the application will load the sample data when you launch it.)</p>
 </li>
 </ol>
 </div>
@@ -2109,7 +2114,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6-storage-add-code-remark-code-field-to-code-jsonadaptedperson-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-jsonadaptedperson-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>JsonAdaptedPerson</code> class</a></h5>
 <div class="paragraph">
-<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/storage/JsonAdaptedPerson.java"><code>JsonAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
+<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/JsonAdaptedPerson.java"><code>JsonAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2135,7 +2140,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6b-test-add-withremark-for-code-personbuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-personbuilder-code">[Step 6b] Test: Add withRemark() for <code>PersonBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -2143,10 +2148,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the customer that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the customer that it is currently building.</p>
 </li>
 <li>
-<p>Try and use the method on any sample <code>Person</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
+<p>Try and use the method on any sample <code>Person</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
 </li>
 </ol>
 </div>
@@ -2154,7 +2159,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-7-ui-connect-code-remark-code-field-to-code-personcard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-personcard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Our remark label in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
+<p>Our remark label in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2162,7 +2167,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Person</code> 's remark.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Person</code> 's remark.</p>
 </li>
 </ol>
 </div>
@@ -2172,7 +2177,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/src/test/java/seedu/hms/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysPerson(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysPerson(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
 </li>
 </ol>
 </div>
@@ -2724,4 +2729,4 @@ Expected: Bill is not generated. Error details shown in the status message. Stat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 13:59:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 15:22:23 UTC</div></div></div></body></html>
