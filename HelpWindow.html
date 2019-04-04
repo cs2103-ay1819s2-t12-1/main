@@ -32,23 +32,24 @@
 <li><a href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">3.5.3. Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></li>
 <li><a href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">3.5.4. Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></li>
 <li><a href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">3.5.5. Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></li>
-<li><a href="#find-a-booking-code-find-booking-code-code-fb-code">3.5.6. Find a booking: <code>find-booking</code>, <code>fb</code></a></li>
-<li><a href="#find-a-reservation-code-find-reservation-code-code-fr-code">3.5.7. Find a reservation: <code>find-reservation</code>, <code>fr</code></a></li>
+<li><a href="#find-a-specific-booking-code-find-booking-code-code-fb-code">3.5.6. Find a specific booking: <code>find-booking</code>, <code>fb</code></a></li>
+<li><a href="#find-a-specific-reservation-code-find-reservation-code-code-fr-code">3.5.7. Find a specific reservation: <code>find-reservation</code>, <code>fr</code></a></li>
 </ul>
 </li>
 <li><a href="#span-class-underline-bill-generation-commands-span">3.6. <span class="underline">Bill Generation commands</span></a>
 <ul class="sectlevel3">
-<li><a href="#span-class-underline-generate-bill-for-specific-booking-span-code-generate-bill-booking-code-code-gb-b-code">3.6.1. <span class="underline">Generate bill for specific booking</span> : <code>generate-bill-booking</code>, <code>gb-b</code></a></li>
-<li><a href="#span-class-underline-generate-bill-for-specific-reservation-span-code-generate-bill-reservation-code-code-gb-r-code">3.6.2. <span class="underline">Generate bill for specific reservation</span> : <code>generate-bill-reservation</code>, <code>gb-r</code></a></li>
-<li><a href="#span-class-underline-generate-customer-s-bill-span-code-generate-bill-customer-code-code-gb-c-code">3.6.3. <span class="underline">Generate customer&#8217;s bill</span> : <code>generate-bill-customer</code>, <code>gb-c</code></a></li>
+<li><a href="#generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code">3.6.1. Generate bill for specific booking: <code>generate-bill-booking</code>, <code>gb-b</code></a></li>
+<li><a href="#generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code">3.6.2. Generate bill for specific reservation: <code>generate-bill-reservation</code>, <code>gb-r</code></a></li>
+<li><a href="#generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code">3.6.3. Generate customer&#8217;s bill : <code>generate-bill-customer</code>, <code>gb-c</code></a></li>
 </ul>
 </li>
-<li><a href="#span-class-underline-listing-entered-commands-span-code-history-code">3.7. <span class="underline">Listing entered commands</span> : <code>history</code></a></li>
-<li><a href="#span-class-underline-undoing-previous-command-span-code-undo-code">3.8. <span class="underline">Undoing previous command</span> : <code>undo</code></a></li>
-<li><a href="#span-class-underline-redoing-the-previously-undone-command-span-code-redo-code">3.9. <span class="underline">Redoing the previously undone command</span> : <code>redo</code></a></li>
-<li><a href="#span-class-underline-exiting-the-program-span-code-exit-code">3.10. <span class="underline">Exiting the program</span> : <code>exit</code></a></li>
-<li><a href="#span-class-underline-saving-the-data-span">3.11. <span class="underline">Saving the data</span></a></li>
-<li><a href="#span-class-underline-encrypting-data-files-span-code-coming-in-v2-0-code">3.12. <span class="underline">Encrypting data files</span> <code>[coming in v2.0]</code></a></li>
+<li><a href="#span-class-underline-switch-tab-command-span-code-switch-tab-code-code-st-code">3.7. <span class="underline">Switch tab command</span> : <code>switch-tab</code>, <code>st</code></a></li>
+<li><a href="#span-class-underline-listing-entered-commands-span-code-history-code">3.8. <span class="underline">Listing entered commands</span> : <code>history</code></a></li>
+<li><a href="#span-class-underline-undoing-previous-command-span-code-undo-code">3.9. <span class="underline">Undoing previous command</span> : <code>undo</code></a></li>
+<li><a href="#span-class-underline-redoing-the-previously-undone-command-span-code-redo-code">3.10. <span class="underline">Redoing the previously undone command</span> : <code>redo</code></a></li>
+<li><a href="#span-class-underline-exiting-the-program-span-code-exit-code">3.11. <span class="underline">Exiting the program</span> : <code>exit</code></a></li>
+<li><a href="#span-class-underline-saving-the-data-span">3.12. <span class="underline">Saving the data</span></a></li>
+<li><a href="#span-class-underline-encrypting-data-files-span-code-coming-in-v2-0-code">3.13. <span class="underline">Encrypting data files</span> <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -679,7 +680,7 @@ Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</s
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-a-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-booking-code-find-booking-code-code-fb-code">3.5.6. Find a booking: <code>find-booking</code>, <code>fb</code></a></h4>
+<h4 id="find-a-specific-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-specific-booking-code-find-booking-code-code-fb-code">3.5.6. Find a specific booking: <code>find-booking</code>, <code>fb</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a booking list based on the filters given by the user.<br>
 Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>}  <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
@@ -719,7 +720,7 @@ Returns all gym bookings for customer with identification number, A0124422.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-a-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-reservation-code-find-reservation-code-code-fr-code">3.5.7. Find a reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
+<h4 id="find-a-specific-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-specific-reservation-code-find-reservation-code-code-fr-code">3.5.7. Find a specific reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
 <div class="paragraph">
 <p>Effect: Displays a reservation list based on the filters given by the user.<br>
 Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>}  <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span></code></p>
@@ -762,7 +763,7 @@ Returns all single room reservations for customer with identification number, A0
 <div class="sect2">
 <h3 id="span-class-underline-bill-generation-commands-span"><a class="link" href="#span-class-underline-bill-generation-commands-span">3.6. <span class="underline">Bill Generation commands</span></a></h3>
 <div class="sect3">
-<h4 id="span-class-underline-generate-bill-for-specific-booking-span-code-generate-bill-booking-code-code-gb-b-code"><a class="link" href="#span-class-underline-generate-bill-for-specific-booking-span-code-generate-bill-booking-code-code-gb-b-code">3.6.1. <span class="underline">Generate bill for specific booking</span> : <code>generate-bill-booking</code>, <code>gb-b</code></a></h4>
+<h4 id="generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code"><a class="link" href="#generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code">3.6.1. Generate bill for specific booking: <code>generate-bill-booking</code>, <code>gb-b</code></a></h4>
 <div class="paragraph">
 <p>Effect: Generates the bill for the specific booking of a customer<br>
 Format: <code>{<span class="aqua">generate-bill-booking</span>/<span class="aqua">gb-b</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME - END_TIME</span> <span class="black">]</span></code></p>
@@ -784,7 +785,7 @@ Returns the bill for all spa bookings for the customer at index 2</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="span-class-underline-generate-bill-for-specific-reservation-span-code-generate-bill-reservation-code-code-gb-r-code"><a class="link" href="#span-class-underline-generate-bill-for-specific-reservation-span-code-generate-bill-reservation-code-code-gb-r-code">3.6.2. <span class="underline">Generate bill for specific reservation</span> : <code>generate-bill-reservation</code>, <code>gb-r</code></a></h4>
+<h4 id="generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code"><a class="link" href="#generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code">3.6.2. Generate bill for specific reservation: <code>generate-bill-reservation</code>, <code>gb-r</code></a></h4>
 <div class="paragraph">
 <p>Effect: Generates the bill for the specific booking of a customer<br>
 Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="aqua">gb-r</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span></code></p>
@@ -806,7 +807,7 @@ Returns the bill for all single room reservations for the customer at index 2</p
 </div>
 </div>
 <div class="sect3">
-<h4 id="span-class-underline-generate-customer-s-bill-span-code-generate-bill-customer-code-code-gb-c-code"><a class="link" href="#span-class-underline-generate-customer-s-bill-span-code-generate-bill-customer-code-code-gb-c-code">3.6.3. <span class="underline">Generate customer&#8217;s bill</span> : <code>generate-bill-customer</code>, <code>gb-c</code></a></h4>
+<h4 id="generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code"><a class="link" href="#generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code">3.6.3. Generate customer&#8217;s bill : <code>generate-bill-customer</code>, <code>gb-c</code></a></h4>
 <div class="paragraph">
 <p>Effect: Generates the bill for the customer based on his total room reservations and service bookings.<br>
 Format: <code>{<span class="aqua">generate-bill-customer</span>/<span class="aqua">gb-c</span>} <span class="lime">INDEX</span></code></p>
@@ -825,13 +826,55 @@ to obtain the complete breakup for a customer.
 </table>
 </div>
 <div class="paragraph">
-<p>Example: <code>gb-c 2</code><br>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>gb-c 2</code><br>
 Returns the total bill (includes all bookings and reservations) for the customer at index 2</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-listing-entered-commands-span-code-history-code"><a class="link" href="#span-class-underline-listing-entered-commands-span-code-history-code">3.7. <span class="underline">Listing entered commands</span> : <code>history</code></a></h3>
+<h3 id="span-class-underline-switch-tab-command-span-code-switch-tab-code-code-st-code"><a class="link" href="#span-class-underline-switch-tab-command-span-code-switch-tab-code-code-st-code">3.7. <span class="underline">Switch tab command</span> : <code>switch-tab</code>, <code>st</code></a></h3>
+<div class="paragraph">
+<p>Effect: Switches the panel and the tab based on input by the user.<br>
+Format: <code>{<span class="aqua">switch-tab</span>/<span class="aqua">st</span>} <span class="lime">PANEL_NUMBER</span> <span class="lime">TAB_NUMBER</span></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Panel Number 1: Consists of <code>Booking</code>, <code>Reservation</code> and <code>Bill</code> tabs.<br>
+Panel Number 2: Consists of <code>Service Type</code> and <code>Room Type</code> tabs.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>st 1 1</code><br>
+This will switch to the booking tab in the the first panel.</p>
+</li>
+<li>
+<p><code>st 2 1</code><br>
+This will switch to the service type tab in the second panel.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="span-class-underline-listing-entered-commands-span-code-history-code"><a class="link" href="#span-class-underline-listing-entered-commands-span-code-history-code">3.8. <span class="underline">Listing entered commands</span> : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Effect: Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code><span class="aqua">history</span></code></p>
@@ -852,7 +895,7 @@ Format: <code><span class="aqua">history</span></code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-undoing-previous-command-span-code-undo-code"><a class="link" href="#span-class-underline-undoing-previous-command-span-code-undo-code">3.8. <span class="underline">Undoing previous command</span> : <code>undo</code></a></h3>
+<h3 id="span-class-underline-undoing-previous-command-span-code-undo-code"><a class="link" href="#span-class-underline-undoing-previous-command-span-code-undo-code">3.9. <span class="underline">Undoing previous command</span> : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Effect: Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code><span class="aqua">undo</span></code></p>
@@ -896,7 +939,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-redoing-the-previously-undone-command-span-code-redo-code"><a class="link" href="#span-class-underline-redoing-the-previously-undone-command-span-code-redo-code">3.9. <span class="underline">Redoing the previously undone command</span> : <code>redo</code></a></h3>
+<h3 id="span-class-underline-redoing-the-previously-undone-command-span-code-redo-code"><a class="link" href="#span-class-underline-redoing-the-previously-undone-command-span-code-redo-code">3.10. <span class="underline">Redoing the previously undone command</span> : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Effect: Reverses the most recent <code>undo</code> command.<br>
 Format: <code><span class="aqua">redo</span></code></p>
@@ -928,21 +971,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-exiting-the-program-span-code-exit-code"><a class="link" href="#span-class-underline-exiting-the-program-span-code-exit-code">3.10. <span class="underline">Exiting the program</span> : <code>exit</code></a></h3>
+<h3 id="span-class-underline-exiting-the-program-span-code-exit-code"><a class="link" href="#span-class-underline-exiting-the-program-span-code-exit-code">3.11. <span class="underline">Exiting the program</span> : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Effect: Exits the program.<br>
 Format: <code><span class="aqua">exit</span></code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-saving-the-data-span"><a class="link" href="#span-class-underline-saving-the-data-span">3.11. <span class="underline">Saving the data</span></a></h3>
+<h3 id="span-class-underline-saving-the-data-span"><a class="link" href="#span-class-underline-saving-the-data-span">3.12. <span class="underline">Saving the data</span></a></h3>
 <div class="paragraph">
 <p>The HMS+ data file is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-encrypting-data-files-span-code-coming-in-v2-0-code"><a class="link" href="#span-class-underline-encrypting-data-files-span-code-coming-in-v2-0-code">3.12. <span class="underline">Encrypting data files</span> <code>[coming in v2.0]</code></a></h3>
+<h3 id="span-class-underline-encrypting-data-files-span-code-coming-in-v2-0-code"><a class="link" href="#span-class-underline-encrypting-data-files-span-code-coming-in-v2-0-code">3.13. <span class="underline">Encrypting data files</span> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1330,7 +1373,7 @@ There is no need to save manually.</p>
 <p><strong>List Customers</strong> : <code>{list-customers/lc}</code></p>
 </li>
 <li>
-<p><strong>Edit Customer</strong> : <code>{edit-customer/ec} INDEX [n/NAME] [p/PHONE] [e/EMAIL] [id/IDENTIFICATIONNO] [a/ADDRESS] [t/TAG]…</code></p>
+<p><strong>Edit Customer</strong> : <code>{edit-customer/ec} INDEX [n/NAME] [p/PHONE] [e/EMAIL] [id/IDENTIFICATION_NO] [a/ADDRESS] [t/TAG]…</code></p>
 </li>
 <li>
 <p><strong>Find Customer by name</strong> : <code>{find-name/fn} KEYWORD [MORE_KEYWORDS]</code></p>
@@ -1351,19 +1394,34 @@ There is no need to save manually.</p>
 <p><strong>Delete room reservation</strong> : <code>{delete-reservation/dr} INDEX</code></p>
 </li>
 <li>
-<p><strong>Book services of hotel</strong> : <code>{add-booking/ab} `{add-booking/ab} s/SERVICE_NAME# :/START_TIME-END_TIME $/PAYER_INDEX [c/MORE_CUSTOMER_INDICES] [com/COMMENTS]</code></p>
+<p><strong>Book services of hotel</strong> : <code>{add-booking/ab} `{add-booking/ab} s/SERVICE_NAME :/START_TIME-END_TIME $/PAYER_INDEX [c/MORE_CUSTOMER_INDICES] [com/COMMENTS]</code></p>
 </li>
 <li>
 <p><strong>List services already booked</strong> : <code>{list-bookings/lb}</code></p>
 </li>
 <li>
-<p><strong>Edit services already booked</strong> : <code>{edit-booking/eb} INDEX [s/SERVICE_NAME] [:/START_TIME# - END_TIME] [p/PAYER# INDEX] [c/MORE_CUSTOMER_INDICES] [com/COMMENTS]</code></p>
+<p><strong>Edit services already booked</strong> : <code>{edit-booking/eb} INDEX [s/SERVICE_NAME] [:/START_TIME# - END_TIME] [p/PAYER_INDEX] [c/MORE_CUSTOMER_INDICES] [com/COMMENTS]</code></p>
 </li>
 <li>
-<p><strong>Delete service already booked</strong> : <code>delete-booking INDEX</code></p>
+<p><strong>Delete service already booked</strong> : <code>{delete-booking/db} INDEX</code></p>
 </li>
 <li>
-<p><strong>Generate bill</strong> : <code>{generate-bill/gb} INDEX</code></p>
+<p><strong>Finding a specific booking</strong> : <code>{find-booking/fb} id/IDENTIFICATION_NO [s/SERVICE_NAME] [:/START_TIME-END_TIME]</code></p>
+</li>
+<li>
+<p><strong>Finding a specific reservation</strong> : <code>{find-reservation/fr} id/IDENTIFICATION_NO [r/ROOM_TYPE]</code></p>
+</li>
+<li>
+<p><strong>Generate bill for specific booking</strong> : <code>{generate-bill-booking/gb-b} INDEX [s/SERVICE_NAME] [:/START_TIME-END_TIME]</code></p>
+</li>
+<li>
+<p><strong>Generate bill for specific reservation</strong> : <code>{generate-bill-reservation/gb-r} INDEX [r/ROOM_TYPE]</code></p>
+</li>
+<li>
+<p><strong>Generate bill for customer</strong> : <code>{generate-bill-customer/gb-c} INDEX</code></p>
+</li>
+<li>
+<p><strong>Switch tab</strong> : `{switch-tab/st} PANEL_NUMBER TAB_NUMBER</p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code></p>
@@ -1386,4 +1444,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 15:52:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 11:31:02 UTC</div></div></div></body></html>
