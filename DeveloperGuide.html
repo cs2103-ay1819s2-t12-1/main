@@ -83,6 +83,7 @@
 <li><a href="#adding-a-customer">H.2. Adding a customer</a></li>
 <li><a href="#deleting-a-customer">H.3. Deleting a customer</a></li>
 <li><a href="#generating-bill-for-a-customer">H.4. Generating bill for a customer</a></li>
+<li><a href="#switching-tab">H.5. Switching tab</a></li>
 </ul>
 </li>
 </ul>
@@ -2728,5 +2729,31 @@ Expected: Bill is not generated. Error details shown in the status message. Stat
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="switching-tab"><a class="link" href="#switching-tab">H.5. Switching tab</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Switching tabs in the application.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>st 1 2</code><br>
+Expected : Switches to Reservation tab in first panel and the appropriate message is displayed. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>st 1 0</code><br>
+Expected : No switch is made. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect switch tab commands to try: <code>st</code>, <code>st 1</code>, <code>st 1 2 3</code> &#8230;&#8203;<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 18:15:23 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 18:29:47 UTC</div></div></div></body></html>
