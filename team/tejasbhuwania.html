@@ -1,6 +1,13 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tejas Bhuwania - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tejas Bhuwania - Project Portfolio <span class="image"><img src="../images/tejas2805.png" alt="tejas2805" width="150"></span></h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tejas Bhuwania - Project Portfolio</h1></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="image"><img src="../images/tejas2805.png" alt="tejas2805" width="150"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="project-hms"><a class="link" href="#project-hms">PROJECT: HMS+</a></h2>
 <div class="sectionbody">
 <hr>
@@ -22,18 +29,19 @@ It is written in Java and has around 15k LOC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Added the complete backend for the booking and reservation from commands upto storage</p>
+<p><strong>Major enhancement</strong>: Added the complete backend for the bill generating commands.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It allows the hotel staff to add service-bookings and reservations for the customers.</p>
+<p>What it does: It allows the hotel staff to generate bills for the customers.</p>
 </li>
 <li>
-<p>Justification: This is the backbone of the application as these are the main amenities of any hotel.</p>
+<p>Justification: This is important for the application as this generates the bill for the amenities used by the customer during his stay in the hotel.</p>
 </li>
 <li>
-<p>Highlights: This enhancement required in-depth analysis of the codebase as it involved extending a single-model dependent system to a multi-model based system.
-I had to make sure the design implementation preserved the extensibility of the system as well as allowed the different components to interact with each other.</p>
+<p>Highlights: This enhancement allows the user to generate bills for a specific customer, a specific booking or a specific reservation. I had
+to make sure that I use the already implemented reservation and booking models while creating the newer bill model and make sure that the model has access to all bookings and reservations
+simultaneously so that it can generate the bill based on the command entered by the user.</p>
 </li>
 <li>
 <p>Credits: I mainly used the concepts from the existing codebase and those that were taught in CS2103T to implement my features.</p>
@@ -43,10 +51,7 @@ I had to make sure the design implementation preserved the extensibility of the 
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/booking">Booking Model</a></p>
-</li>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/reservation">Reservation Model</a></p>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/bill">Bill Model</a></p>
 </li>
 </ul>
 </div>
@@ -59,13 +64,14 @@ I had to make sure the design implementation preserved the extensibility of the 
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/UserGuide.adoc#33-customer-commands">Added support for VIP status to customer</a></p>
+<p>Implemented the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/131">clear hotel management system command</a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/134">the clear reservation command</a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/124">the clear booking command</a> so that the user can have an easy access to an empty database.</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/UserGuide.adoc#332-listing-all-customers&#8212;&#8203;list-customers-lc">Ported the whole codebase from <code>AddressBook</code> to <code>HotelManagementSystem</code></a></p>
+<p>Implemented the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/81">Date of Birth</a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/28">Identification Number</a> fields for Customer keeping in mind that
+as a Hotel Management System these are important fields to identify a customer.</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/138">Added API methods to show statistics</a></p>
+<p>Made the UI more understandable to a first time user. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/145">#145</a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/146">#146</a></p>
 </li>
 </ul>
 </div>
@@ -79,13 +85,19 @@ I had to make sure the design implementation preserved the extensibility of the 
 <div class="ulist">
 <ul>
 <li>
-<p>Created the Github Project Board and facilitated a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/issues/created_by/sreycodes">issue-based workflow</a>.</p>
+<p>Did the jar release for Dry Run of CS2103 Practical Exam.</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#32-ui-component">Reviewed and approves several PRs.</a></p>
+<p>Created a separate issue for all the user stories with labels, milestones and assignees. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/issues/82">#82</a> to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/issues/110">#110</a></p>
 </li>
 <li>
-<p><a href="https://github.com/nus-cs2103-AY1819S2/forum/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Asreycodes">Reported bugs and suggestions for other teams in the class</a></p>
+<p>Reviewed and approved several PRs. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/173">#173</a></p>
+</li>
+<li>
+<p>Reported and fixed bugs along with suggestions for team-mates. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/175">#175</a></p>
+</li>
+<li>
+<p>Kept on updating the user guide based on the features getting implemented in the application.</p>
 </li>
 </ul>
 </div>
@@ -95,11 +107,10 @@ I had to make sure the design implementation preserved the extensibility of the 
 <div class="ulist">
 <ul>
 <li>
-<p>Set the design structure for the implementation of future models.</p>
+<p>Added aliases for each command so that the user can type a shorter version of the same command. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/2">#2</a></p>
 </li>
 <li>
-<p>Created utility classes to handle timings and date intervals with
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/model/util/TimeRangeTest.java">relevant tests</a>.</p>
+<p>Made the Address field of a customer <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/132">optional</a> for the user to input.</p>
 </li>
 </ul>
 </div>
@@ -109,17 +120,10 @@ I had to make sure the design implementation preserved the extensibility of the 
 <div class="ulist">
 <ul>
 <li>
-<p>Added command formats and descriptions to the user guide.</p>
+<p>Added Prefix list to the user guide so that the user can easily refer to the prefixes in case required.</p>
 </li>
 <li>
-<p>Added color-coding to the user guide.</p>
-</li>
-<li>
-<p>Reformated all the commands to match an intuitive convention in guides and codebase.</p>
-</li>
-<li>
-<p>Added sections to developer guide.
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#41-adding-service-booking-functionality">Example</a> - I added a section to teach oncoming developers how to extend on the codebase.</p>
+<p>Added color-coding to the user guide so that the user can easily understand the difference between the command word, the command prefixes and the command parameters.</p>
 </li>
 </ul>
 </div>
@@ -129,10 +133,7 @@ I had to make sure the design implementation preserved the extensibility of the 
 <div class="ulist">
 <ul>
 <li>
-<p>Set Up Travis, Codacy and Coveralls</p>
-</li>
-<li>
-<p>Set the minimum requirements for code to be merged to master.</p>
+<p>Set Up Asciidoctor. This helps in converting asciidocs to html files and viewing how will the file look as a Web page.</p>
 </li>
 </ul>
 </div>
@@ -157,93 +158,71 @@ I had to make sure the design implementation preserved the extensibility of the 
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introducing-hms"><a class="link" href="#introducing-hms">Introducing HMS+</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need a world-class property management system to run your hotel’s front desk and back office. We’ve spent years listening to what independent hoteliers need to take their business to the next level. From before check-in to post check out, we have everything you need to get your customers moving and your hotel running.</p>
+</div>
+<div class="paragraph">
+<p>HMS+ is for hotels that want to use a <strong>single, integrated system to manage all aspects of their requirements</strong>.</p>
+</div>
+<div class="paragraph">
+<p>This user guide provides in-depth documentation on the HMS+ installation process, system configuration and management, monitoring and troubleshooting problems. In addition, the <a href="#Getting Started">[Getting Started]</a> will provide the basic knowledge of the setup process and how you can get started.</p>
+</div>
 <div class="sect2">
-<h3 id="span-class-underline-room-reservation-commands-span"><a class="link" href="#span-class-underline-room-reservation-commands-span"><span class="underline">Room Reservation commands</span></a></h3>
+<h3 id="span-class-underline-bill-generation-commands-span"><a class="link" href="#span-class-underline-bill-generation-commands-span"><span class="underline">Bill Generation commands</span></a></h3>
 <div class="sect3">
-<h4 id="reserving-a-room-code-add-reservation-code-code-ar-code"><a class="link" href="#reserving-a-room-code-add-reservation-code-code-ar-code">Reserving a room : <code>add-reservation</code>, <code>ar</code></a></h4>
+<h4 id="generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code"><a class="link" href="#generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code">Generate bill for specific booking: <code>generate-bill-booking</code>, <code>gb-b</code></a></h4>
 <div class="paragraph">
-<p>Effect: Adds a reservation for a room associated with certain customers.<br>
-Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</span>} <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICIES…</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>ROOM_TYPE</code> is the name of the room type taken from the list shown in the application</p>
-</li>
-<li>
-<p><code>START_DATE</code> and <code>END_DATE</code> follows the <code>DAY.MONTH</code> format.</p>
-</li>
-<li>
-<p><code>COMMENTS</code> can contain any text without slash (/).</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
+<p>Effect: Generates the bill for the specific booking of a customer<br>
+Format: <code>{<span class="aqua">generate-bill-booking</span>/<span class="aqua">gb-b</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME - END_TIME</span> <span class="black">]</span></code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/19-25/5/19 $/15</code><br>
-Adds a reservation of Single Room in the name of the 15th customer from 20 May 2019 to 25 May 2019.</p>
+<p><code>gb-b 2</code><br>
+Returns the bill for all bookings for the customer at index 2</p>
 </li>
 <li>
-<p><code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/2/2019-15/2/2019 $/1 c/2</code><br>
-Adds a reservation of Deluxe Room, in the name of the first customer for both him/her and the second customer, from 14 Feb 2019 to 15 Feb 2019.</p>
+<p><code>gb-b 2 s/SPA</code><br>
+Returns the bill for all spa bookings for the customer at index 2</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-reservations-code-list-reservations-code-code-lr-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code">Listing all reservations : <code>list-reservations</code>, <code>lr</code></a></h4>
+<h4 id="generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code"><a class="link" href="#generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code">Generate bill for specific reservation: <code>generate-bill-reservation</code>, <code>gb-r</code></a></h4>
 <div class="paragraph">
-<p>Effect: Displays a reservation list, which lists all the reservations.<br>
-Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr</span>}</code></p>
+<p>Effect: Generates the bill for the specific booking of a customer<br>
+Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="aqua">gb-r</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span></code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code">Editing a room reservation : <code>edit-reservation</code>, <code>er</code></a></h4>
 <div class="paragraph">
-<p>Effect: Edits the fields of an existing reservation in the reservation database.<br>
-Format: <code>{<span class="aqua">edit-reservation</span>/<span class="aqua">er</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE]</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+<p>Example:</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the reservation at the specified index. The index refers to the index number shown in the displayed reservation list. The index must be a positive integer.</p>
+<p><code>gb-r 2</code><br>
+Returns the bill for all reservations for the customer at index 2</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
+<p><code>gb-r 2 r/SINGLE ROOM</code><br>
+Returns the bill for all single room reservations for the customer at index 2</p>
 </li>
 </ul>
 </div>
-</td>
-</tr>
-</table>
+</div>
+<div class="sect3">
+<h4 id="generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code"><a class="link" href="#generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code">Generate customer&#8217;s bill : <code>generate-bill-customer</code>, <code>gb-c</code></a></h4>
+<div class="paragraph">
+<p>Effect: Generates the bill for the customer based on his total room reservations and service bookings.<br>
+Format: <code>{<span class="aqua">generate-bill-customer</span>/<span class="aqua">gb-c</span>} <span class="lime">INDEX</span></code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -252,83 +231,8 @@ Format: <code>{<span class="aqua">edit-reservation</span>/<span class="aqua">er<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can remove all the reservation&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lr</code>, then <code>er 1 r/3</code><br>
-Edits the room type of the 1st reseravtion to be Type 3.</p>
-</li>
-<li>
-<p><code>lr</code>, then <code>er 2 d/14.2-14.3 c/</code><br>
-Edits the date of the 2nd reservation to be from 14 Feb to 14 Mar and clears all existing comments.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-reservations-code-delete-reservation-code-code-dr-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code">Deleting reservations: <code>delete-reservation</code>, <code>dr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Deletes a reservation from the reservation database.<br>
-Format: <code>{<span class="aqua">delete-reservation</span>/<span class="aqua">dr</span>} <span class="lime">INDEX</span></code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the reservation at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lr</code>, then <code>dr 2</code><br>
-Deletes the 2nd entry of the reservation database</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Removes all room reservations from the database.<br>
-Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">cr</span>}</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-a-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-reservation-code-find-reservation-code-code-fr-code">Find a reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a reservation list based on the filters given by the user.<br>
-Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>}  <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The searching is done in the whole reservation list.</p>
-</li>
-</ul>
-</div>
+This command is a super set of all the other "generate bill" commands and can be used
+to obtain the complete breakup for a customer.
 </td>
 </tr>
 </table>
@@ -339,206 +243,8 @@ Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr<
 <div class="ulist">
 <ul>
 <li>
-<p><code>fr id/A0124422</code><br>
-Returns all reservations for customer with identification number, A0124422.</p>
-</li>
-<li>
-<p><code>fr id/A0124422 r/SINGLE ROOM</code><br>
-Returns all single room reservations for customer with identification number, A0124422.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="span-class-underline-service-booking-commands-span"><a class="link" href="#span-class-underline-service-booking-commands-span"><span class="underline">Service Booking commands</span></a></h3>
-<div class="sect3">
-<h4 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">Booking a service: <code>add-booking</code>,<code>ab</code></a></h4>
-<div class="paragraph">
-<p>Effect: Adds a service associated with certain customers.<br>
-Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span>} <span class="blue">s/</span> <span class="lime">SERVICE_TYPE</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>SERVICE_TYPE</code> is the name of the service taken from the list in the application</p>
-</li>
-<li>
-<p><code>START_TIME</code> and <code>END_TIME</code> follows the <code>HH 24-hour</code> format.</p>
-</li>
-<li>
-<p><code>COMMENTS</code> can contain any text without slash (<code>/</code>).</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lc</code>, then <code>add-booking s/GYM :/20-23 $/2</code>
-Adds a booking for service GYM, for the 2nd customer from the complete customer list, from 20:00 to 23:00 if the service is available.</p>
-</li>
-<li>
-<p><code>fn Jack Rose</code>, then <code>add-booking s/GYM h/14-15 $/1 c/2</code>
-Adds a booking of service GYM in the name for first customer for him/her , from 14:00 to 15:00.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-booked-services-code-list-bookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-list-bookings-code-code-lb-code">Listing all booked services: <code>list-bookings</code>,<code>lb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a booking list, which lists all the bookings made till now.
-Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</span>}</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Edits the fields of a booking in the database.<br>
-Format: <code>{<span class="aqua">edit-booking</span>/<span class="aqua">eb</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">p/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the booking at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can remove all the booking&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lb</code>, then <code>eb 1 s/GYM</code>
-Edits the service type of the 1st booking to be GYM.</p>
-</li>
-<li>
-<p><code>lb</code>, then <code>edit-booking 2 :/14-15 c/</code>
-Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-booked-service-code-delete-booking-code-code-db-code"><a class="link" href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></h4>
-<div class="paragraph">
-<p>Effect: Deletes a booking from the database.
-Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</span>} <span class="lime">INDEX</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the booking at the specified index. The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:
- <code>lb</code>, then <code>delete-booking 2</code><br>
-Deletes the 2nd booking of the booking database</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Removes all service bookings from the database.<br>
-Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</span>}</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-a-specific-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-specific-booking-code-find-booking-code-code-fb-code">Find a specific booking: <code>find-booking</code>, <code>fb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a booking list based on the filters given by the user.<br>
-Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>}  <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The searching is done in the whole booking list.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fb id/A0124422</code><br>
-Returns all bookings for customer with identification number, A0124422.</p>
-</li>
-<li>
-<p><code>fb id/A0124422 s/GYM</code><br>
-Returns all gym bookings for customer with identification number, A0124422.</p>
+<p><code>gb-c 2</code><br>
+Returns the total bill (includes all bookings and reservations) for the customer at index 2</p>
 </li>
 </ul>
 </div>
@@ -559,118 +265,285 @@ Returns all gym bookings for customer with identification number, A0124422.</p>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">User Stories</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 23%;">
+<col style="width: 25%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a room reservation or a service booking</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove a customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit a customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update details of an already existing customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find a customer by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of customers without having to go through the entire list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new room reservation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">allocate a room to a customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a room reservation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove a room reservation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit a room reservation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update details of an already existing room reservation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new service booking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">allocate a service to a customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a service booking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove a service booking</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit a service booking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update details of an already existing service booking</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generate bill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">show the customer the remaining amount he has to pay for his stay at the hotel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort reservations by date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see closer reservations first</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort customers by amount due</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see which customer owes more first</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view all room reservations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know which rooms are occupied and when</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view all service bookings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know which rooms are occupied and when</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view all customers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know who all are customers in my hotel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view services provided by hotel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select which service to book for customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view room types provided by hotel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select which room type to reserve for customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">send people for cleaning a room</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get a room cleaned and ready for next customer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upgrade a customer to VIP status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">give him VIP discounts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expand my service range</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change rates of a service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change their tariffs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new room type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expand my room type range</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change rates of a room type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change their tariffs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change capacity of a specific service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expand/shrink a specific service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort customers by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate a customer easily</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect2">
-<h3 id="adding-service-booking-functionality"><a class="link" href="#adding-service-booking-functionality">Adding service booking functionality</a></h3>
+<h3 id="generating-bill-for-customer-functionality"><a class="link" href="#generating-bill-for-customer-functionality">Generating Bill for Customer functionality</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>In general, when adding any new model and its related commands, we need to work on 3 components
-compulsorily - Logic, Model and Storage. The UI component is modified based on how we
-want the user to be able to interact with our newly added model.</p>
+<p>The generate bill for customer function is facilitated by the interface <code>BillModel</code> which extends the interface <code>Model</code>.
+The <code>BillModel</code> constitutes the API for our bill component which is used by <code>Logic</code> component to execute the commands related to this model.
+There is also the <code>BillManager</code> which implements the <code>BillModel</code> and consists of functions required for generating the bill.</p>
 </div>
 <div class="paragraph">
-<p>We start by working on the model component. We create a more specific model which
-implements the existing <code>Model</code> interface and create a manager for this model. This constitutes
-the API for our new model how the <code>Logic</code> component will execute the commands related to the model.
-For Booking, we create a <code>BookingModel</code> interface and a <code>BookingManager</code> manager which
-keeps track of a booking list. An 'observable booking list' is bounded to the UI using
-listeners so that the UI can be updated as the list changes.</p>
+<p>Then the <code>GenerateBillForCustomerCommand</code> is implemented along with its parser <code>GenerateBillForCustomerCommandParser</code>.
+This parser class makes sure that the user has given the command in the correct format, and executes the command accordingly.
+If the user doesn&#8217;t type the command correctly, the parser class <code>throws ParseException</code> and tells user to input in correct format.</p>
 </div>
 <div class="paragraph">
-<p>Then we add the command files and parser files so that the application can parse commands
-related to the model and execute them. We have seperated the commands for different models
-by adding an interface in the middle. For example, we have a <code>CustomerCommand</code> and a
-<code>BookingCommand</code> interface which implements the <code>Command</code> interface. Then each command
-(eg. AddBookingCommand, EditBookingCommand, etc.) implements the <code>BookingCommand</code> interface.
-This makes sure that only the booking manager can be used to execute these commands as well.
-We also need to add parser classes for each command we implement (eg. AddBookingCommandParser).
-These classes are invoked in the <code>HotelManagementSystemParser</code> to get back the
-<code>CommandResult</code> which is used by the UI.</p>
+<p>The command class extends <code>BillCommand</code> which uses a single model, the  <code>BillModel</code>, to execute all the commands.
+This ensure that only the <code>BillManager</code> can execute commands related to bill.</p>
 </div>
 <div class="paragraph">
-<p>If the new model needs to be stored, then we also need to define JSON adapted classes
-to represent these models. The <code>JsonSerializableHotelManagementSystem</code> has a list of
-<code>JsonAdaptedCustomer</code> and a list of <code>JsonAdaptedBooking</code> and these two lists are saved using
-<code>seedu.hms.commons.util.JsonUtil</code>. For each model class, we need to define a JSON-adapted
-class with a <code>toModelType</code> function so that we can read the data back from the file.</p>
-</div>
-<div class="paragraph">
-<p>The modifications in the UI for a new model depend heavily on the functionality it
-provides. In this case we decided to add a panel to display all the bookings/reservations
-which can be filtered based on the selected customer, service type and timing (to-do by v1.4).
-One can see the addition, updation and deletion of bookings in real-time in the UI as has
-been explained before.</p>
+<p>There is no storage created for the bill as a result of which the bill generated is never stored.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-should-the-api-be-structured"><a class="link" href="#aspect-how-should-the-api-be-structured">Aspect: How should the API be structured</a></h5>
+<h5 id="aspect-how-should-bill-generation-be-implemented"><a class="link" href="#aspect-how-should-bill-generation-be-implemented">Aspect: How should bill generation be implemented</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Every model has a seperate interface which implements
-the <code>Model</code></p>
+<p><strong>Alternative 1 (current choice):</strong> An entirely new model, <code>BillModel</code> has been implemented which helps in generating a bill.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Every model has access to the GUI and User Preferences.</p>
+<p>Pros: The <code>BillModel</code> interface can be extended to perform other functions related to bill generation if required.
+If new features get added, the <code>BillModel</code> will help in extending them without hassle or changing already implemented functions.</p>
 </li>
 <li>
-<p>Cons: There is no specific model for GUI actions and the Customer Model is used
-for these purposes.</p>
+<p>Cons: Initially, a lot of work needs to go in implementing the model.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> All the model APIs will be seperate and there will be no Model Interface.</p>
+<p><strong>Alternative 2:</strong> Adding functions to the <code>HotelManagementSystem</code> class which will generate the bill.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Better seperation and less scope for errors</p>
+<p>Pros: Easy to implement. Takes less time and less work required.</p>
 </li>
 <li>
-<p>Cons: Lot of refactoring required</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-implementing-services-and-room-types"><a class="link" href="#aspect-implementing-services-and-room-types">Aspect: Implementing Services (and Room Types)</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Using ENUM</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: It is safer as it makes sure every booking has a valid service</p>
-</li>
-<li>
-<p>Cons: Reduces flexibility of services and uses string matching in command parsing.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Using a class</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Makes it easier for staff to add and edit new services.</p>
-</li>
-<li>
-<p>Cons: Requires more error handling and safety measures</p>
+<p>Cons: Every-time a new feature is to be added, changes in the already implemented functions will also have to be done accordingly,
+creating more work.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-memory-storage-for-bill"><a class="link" href="#aspect-memory-storage-for-bill">Aspect: Memory storage for bill</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternate 1 (current choice):</strong> Bill doesn&#8217;t get stored</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No work required to be done for storing the bills.</p>
+</li>
+<li>
+<p>Cons: If a new feature gets implemented, which requires history of bills, system will not be able to provide it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: If bill history is required for a new feature, system will be able to provide it.</p>
+</li>
+<li>
+<p>Cons: Lot of work needs to be done for creating the storage of bills.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -679,23 +552,6 @@ for these purposes.</p>
 <div class="sect1">
 <h2 id="achievements-and-learnings"><a class="link" href="#achievements-and-learnings">Achievements and Learnings</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Worked with a team to implement complementing components smoothly</p>
-</li>
-<li>
-<p>Learned how to evaluate user requirements using user stories</p>
-</li>
-<li>
-<p>I was able to lead the module in terms of code contribution.</p>
-</li>
-</ul>
+
 </div>
-<div class="imageblock" style="text-align: right">
-<div class="content">
-<img src="../images/reposense.png" alt="reposense">
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 16:36:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 18:39:25 UTC</div></div></div></body></html>
