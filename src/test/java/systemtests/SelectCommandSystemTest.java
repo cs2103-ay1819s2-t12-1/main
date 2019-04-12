@@ -132,11 +132,10 @@ public class SelectCommandSystemTest extends HotelManagementSystemSystemTest {
 
         if (preExecutionSelectedCardIndex == expectedSelectedCardIndex.getZeroBased()) {
             assertSelectedCardUnchanged();
-        } //else {
-        //Todo: ServiceTypeAndRoomTypePanel test
-        //assertSelectedCardChanged(expectedSelectedCardIndex);
-        //}
-
+        } else {
+            //Todo: ServiceTypeAndRoomTypePanel test
+            //assertSelectedCardChanged(expectedSelectedCardIndex);
+        }
         assertCommandBoxShowsDefaultStyle();
         assertStatusBarUnchanged();
     }

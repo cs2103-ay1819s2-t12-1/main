@@ -1,7 +1,7 @@
 package systemtests;
 
 import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.hms.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
@@ -93,11 +93,10 @@ public class HelpCommandSystemTest extends HotelManagementSystemSystemTest {
         new HelpWindowHandle(guiRobot.getStage(HelpWindowHandle.HELP_WINDOW_TITLE)).close();
         getMainWindowHandle().focus();
     }
-
-    ///**
-    // * Asserts that the help window isn't open.
-    // */
-    //private void assertHelpWindowNotOpen() {
-    //    assertFalse(ERROR_MESSAGE, HelpWindowHandle.isWindowPresent());
-    //}
+    /**
+     * Asserts that the help window isn't open.
+     */
+    private void assertHelpWindowNotOpen() {
+        assertFalse(ERROR_MESSAGE, HelpWindowHandle.isWindowPresent());
+    }
 }

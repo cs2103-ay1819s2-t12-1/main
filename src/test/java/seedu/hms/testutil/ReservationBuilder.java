@@ -12,7 +12,7 @@ import java.util.Set;
 
 import seedu.hms.model.customer.Customer;
 import seedu.hms.model.reservation.Reservation;
-import seedu.hms.model.reservation.RoomType;
+import seedu.hms.model.reservation.roomType.RoomType;
 import seedu.hms.model.util.DateRange;
 
 /**
@@ -33,7 +33,7 @@ public class ReservationBuilder {
     private Optional<String> comment;
 
     public ReservationBuilder() {
-        this.room = RoomType.SINGLE;
+        this.room = new RoomType(100, "Single Room", 500.0);
         this.dateRange = new DateRange(dateBuilder("14/10/2018"), dateBuilder("17/10/2018"));
         this.payer = AMY;
         this.otherUsers = Optional.of(new ArrayList<>());
@@ -68,16 +68,11 @@ public class ReservationBuilder {
     }
 
     /**
-     * Sets the {@code timing} of the {@code Reservation} that we are building.
+     * Sets the {@code date} of the {@code Reservation} that we are building.
      */
     public ReservationBuilder withDates(String start, String end) {
-        String[] sd = start.split("/");
-        String[] ed = end.split("/");
-        Calendar startDate = Calendar.getInstance();
-        startDate.set(Integer.parseInt(sd[2]), Integer.parseInt(sd[1]), Integer.parseInt(sd[0]));
-        Calendar endDate = Calendar.getInstance();
-        endDate.set(Integer.parseInt(ed[2]), Integer.parseInt(ed[1]), Integer.parseInt(ed[0]));
-
+        Calendar startDate = dateBuilder(start);
+        Calendar endDate = dateBuilder(end);
         this.dateRange = new DateRange(startDate, endDate);
         return this;
     }

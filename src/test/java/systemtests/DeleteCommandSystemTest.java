@@ -113,10 +113,10 @@ public class DeleteCommandSystemTest extends HotelManagementSystemSystemTest {
     }
 
     /**
-    * Removes the {@code Customer} at the specified {@code index} in {@code model}'s address book.
-    *
-    * @return the removed customer
-    */
+     * Removes the {@code Customer} at the specified {@code index} in {@code model}'s address book.
+     *
+     * @return the removed customer
+     */
     private Customer removeCustomer(CustomerModel model, Index index) {
         Customer targetCustomer = getCustomer(model, index);
         model.deleteCustomer(targetCustomer);
@@ -125,9 +125,7 @@ public class DeleteCommandSystemTest extends HotelManagementSystemSystemTest {
 
     /**
      * Deletes the customer at {@code toDelete} by creating a default {@code DeleteCustomerCommand}
-     using {@code toDelete} and
-     * performs the same verification as {@code assertCommandSuccess(String, Model, String)}.
-     *
+     * using {@code toDelete} and performs the same verification as {@code assertCommandSuccess(String, Model, String)}.
      * @see DeleteCommandSystemTest#assertCommandSuccess(String, CustomerModel, String)
      */
     private void assertCommandSuccess(Index toDelete) {
