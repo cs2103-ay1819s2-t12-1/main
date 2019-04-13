@@ -178,10 +178,19 @@ Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</
 <p><code>ROOM_TYPE</code> is the name of the room type taken from the list shown in the application</p>
 </li>
 <li>
-<p><code>START_DATE</code> and <code>END_DATE</code> follows the <code>DAY.MONTH</code> format.</p>
+<p><code>START_DATE</code> and <code>END_DATE</code> follows the <code>DD/MM/YYYY</code> format.</p>
 </li>
 <li>
 <p><code>COMMENTS</code> can contain any text without slash (/).</p>
+</li>
+<li>
+<p>All reservations can only be done from current date to upto one year from current date.</p>
+</li>
+<li>
+<p>We alloW the same person to reserve the same room for the same dates. In short, we allow duplicate reservations.</p>
+</li>
+<li>
+<p>We allow different people to reserve the same room for the same date as someone else already has.</p>
 </li>
 </ul>
 </div>
@@ -194,19 +203,38 @@ Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</
 Assume current date is 10 May, 2019.<br>
 * <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/15</code><br>
 Adds a reservation of Single Room in the name of the 15th customer from 20 May 2019 to 25 May 2019.
-* <code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/2/2019-15/2/2019 $/1 c/2</code><br>
+* <code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/2/2019-15/2/2019 $/1 c/2</code><br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:<br>
+Assume current date is 10 May, 2019.<br>
+* <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/5</code><br>
+Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.
+* <code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/05/2019-15/05/2019 $/1 c/2</code><br>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
 Adds a reservation of Deluxe Room, in the name of the first customer for both him/her and the second customer, from 14 Feb 2019 to 15 Feb 2019.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-reservations-code-list-reservations-code-code-lr-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code">Listing all reservations : <code>list-reservations</code>, <code>lr</code></a></h4>
 <div class="paragraph">
-<p>Effect: Displays a reservation list, which lists all the reservations.<br>
+<p>==== Listing all reservations : <code>list-reservations</code>, <code>lr</code>
+Effect: Displays a reservation list, which lists all the reservations.<br>
 Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr</span>}</code></p>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
-<div class="sect3">
-<h4 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code">Editing a room reservation : <code>edit-reservation</code>, <code>er</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lr</code><br>
+Lists all reservations.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==== Editing a room reservation : <code>edit-reservation</code>, <code>er</code></p>
+</div>
 <div class="paragraph">
 <p>Effect: Edits the fields of an existing reservation in the reservation database.<br>
 Format: <code>{<span class="aqua">edit-reservation</span>/<span class="aqua">er</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE]</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
@@ -256,18 +284,18 @@ You can remove all the reservation&#8217;s comments by typing <code>com/</code> 
 <div class="ulist">
 <ul>
 <li>
-<p><code>lr</code>, then <code>er 1 r/3</code><br>
-Edits the room type of the 1st reseravtion to be Type 3.</p>
+<p><code>lr</code>, then <code>er 1 r/DOUBLE ROOM</code><br>
+Edits the room type of the 1st reservation to be DOUBLE ROOM.</p>
 </li>
 <li>
-<p><code>lr</code>, then <code>er 2 d/14.2-14.3 c/</code><br>
-Edits the date of the 2nd reservation to be from 14 Feb to 14 Mar and clears all existing comments.</p>
+<p><code>lr</code>, then <code>er 2 d/14/02/2020-14/03/2020 com/</code><br>
+Edits the date of the 2nd reservation to be from 14 Feb 2020 to 14 Mar 2020 and clears all existing comments related to it.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Deleting reservations: <code>delete-reservation</code>, <code>dr</code></p>
 </div>
-<div class="sect3">
-<h4 id="deleting-reservations-code-delete-reservation-code-code-dr-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code">Deleting reservations: <code>delete-reservation</code>, <code>dr</code></a></h4>
 <div class="paragraph">
 <p>Effect: Deletes a reservation from the reservation database.<br>
 Format: <code>{<span class="aqua">delete-reservation</span>/<span class="aqua">dr</span>} <span class="lime">INDEX</span></code></p>
@@ -290,23 +318,32 @@ Format: <code>{<span class="aqua">delete-reservation</span>/<span class="aqua">d
 <ul>
 <li>
 <p><code>lr</code>, then <code>dr 2</code><br>
-Deletes the 2nd entry of the reservation database</p>
+Deletes the 2nd entry of the reservation database.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
 <div class="paragraph">
-<p>Effect: Removes all room reservations from the database.<br>
+<p>==== Clearing all reservations: <code>clear-reservations</code>, <code>cr</code>
+Effect: Removes all room reservations from the database.<br>
 Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">cr</span>}</code></p>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
-<div class="sect3">
-<h4 id="find-a-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-reservation-code-find-reservation-code-code-fr-code">Find a reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cr</code><br>
+Clears all reservations from the database.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==== Find a reservation: <code>find-reservation</code>, <code>fr</code></p>
+</div>
 <div class="paragraph">
 <p>Effect: Displays a reservation list based on the filters given by the user.<br>
-Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>}  <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span></code></p>
+Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE - END_DATE</span> <span class="black">]</span></code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -319,6 +356,27 @@ Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr<
 <ul>
 <li>
 <p>The searching is done in the whole reservation list.</p>
+</li>
+<li>
+<p>If you just enter the command <code>fr</code>, it displays all the reservations in the database.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you enter <code>fr d/4/6/2019 - 7/6/2019</code>, it displays all reservations between 4th June to 7th June. This does not include reservations which include the date 7th June.</p>
 </li>
 </ul>
 </div>
@@ -341,15 +399,13 @@ Returns all single room reservations for customer with identification number, A0
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== <span class="underline">Service Booking commands</span>
+==== Booking a service: <code>add-booking</code>,<code>ab</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="span-class-underline-service-booking-commands-span"><a class="link" href="#span-class-underline-service-booking-commands-span"><span class="underline">Service Booking commands</span></a></h3>
-<div class="sect3">
-<h4 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">Booking a service: <code>add-booking</code>,<code>ab</code></a></h4>
 <div class="paragraph">
 <p>Effect: Adds a service associated with certain customers.<br>
-Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span>} <span class="blue">s/</span> <span class="lime">SERVICE_TYPE</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span>} <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -368,6 +424,12 @@ Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span
 </li>
 <li>
 <p><code>COMMENTS</code> can contain any text without slash (<code>/</code>).</p>
+</li>
+<li>
+<p>We allow the same person to book the same service for the same period of time. In short, we allow duplicate bookings.</p>
+</li>
+<li>
+<p>We allow a different person to book the same service for the same period od time as someone else already has.</p>
 </li>
 </ul>
 </div>
@@ -390,16 +452,25 @@ Adds a booking of service GYM in the name for first customer for him/her , from 
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-booked-services-code-list-bookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-list-bookings-code-code-lb-code">Listing all booked services: <code>list-bookings</code>,<code>lb</code></a></h4>
 <div class="paragraph">
-<p>Effect: Displays a booking list, which lists all the bookings made till now.
+<p>==== Listing all booked services: <code>list-bookings</code>,<code>lb</code>
+Effect: Displays a booking list, which lists all the bookings made till now.
 Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</span>}</code></p>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect3">
-<h4 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lb</code><br>
+Lists all bookings.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==== Editing a booked service: <code>edit-booking</code>, <code>eb</code></p>
+</div>
 <div class="paragraph">
 <p>Effect: Edits the fields of a booking in the database.<br>
 Format: <code>{<span class="aqua">edit-booking</span>/<span class="aqua">eb</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">p/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
@@ -453,14 +524,14 @@ You can remove all the booking&#8217;s comments by typing <code>com/</code> with
 Edits the service type of the 1st booking to be GYM.</p>
 </li>
 <li>
-<p><code>lb</code>, then <code>edit-booking 2 :/14-15 c/</code>
+<p><code>lb</code>, then <code>edit-booking 2 :/14-15 com/</code>
 Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Deleting a booked service: <code>delete-booking</code>, <code>db</code></p>
 </div>
-<div class="sect3">
-<h4 id="deleting-a-booked-service-code-delete-booking-code-code-db-code"><a class="link" href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></h4>
 <div class="paragraph">
 <p>Effect: Deletes a booking from the database.
 Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</span>} <span class="lime">INDEX</span></code></p>
@@ -475,7 +546,10 @@ Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</s
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the booking at the specified index. The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
+<p>Deletes the booking at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
 </li>
 </ul>
 </div>
@@ -488,19 +562,30 @@ Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</s
  <code>lb</code>, then <code>delete-booking 2</code><br>
 Deletes the 2nd booking of the booking database</p>
 </div>
+<div class="paragraph">
+<p>==== Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></p>
 </div>
-<div class="sect3">
-<h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
 <div class="paragraph">
 <p>Effect: Removes all service bookings from the database.<br>
 Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</span>}</code></p>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect3">
-<h4 id="find-a-specific-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-specific-booking-code-find-booking-code-code-fb-code">Find a specific booking: <code>find-booking</code>, <code>fb</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cb</code><br>
+Clears all bookings from the database.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==== Find a specific booking: <code>find-booking</code>, <code>fb</code></p>
+</div>
 <div class="paragraph">
 <p>Effect: Displays a booking list based on the filters given by the user.<br>
-Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>}  <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
+Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -513,6 +598,9 @@ Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</spa
 <ul>
 <li>
 <p>The searching is done in the whole booking list.</p>
+</li>
+<li>
+<p>If you just enter the command <code>fb</code>, it will display the entire booking list.</p>
 </li>
 </ul>
 </div>
@@ -535,13 +623,9 @@ Returns all gym bookings for customer with identification number, A0124422.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Contributions to the Developer Guide</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -552,10 +636,10 @@ Returns all gym bookings for customer with identification number, A0124422.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="adding-service-booking-functionality"><a class="link" href="#adding-service-booking-functionality">Adding service booking functionality</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>=== Adding service booking functionality
+==== Current Implementation</p>
+</div>
 <div class="paragraph">
 <p>In general, when adding any new model and its related commands, we need to work on 3 components
 compulsorily - Logic, Model and Storage. The UI component is modified based on how we
@@ -594,11 +678,12 @@ which can be filtered based on the selected customer, service type and timing (t
 One can see the addition, updation and deletion of bookings in real-time in the UI as has
 been explained before.</p>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-should-the-api-be-structured"><a class="link" href="#aspect-how-should-the-api-be-structured">Aspect: How should the API be structured</a></h5>
+<div class="paragraph">
+<p>===== Aspect: How should the API be structured</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -631,9 +716,9 @@ for these purposes.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>===== Aspect: Implementing Services (and Room Types)</p>
 </div>
-<div class="sect4">
-<h5 id="aspect-implementing-services-and-room-types"><a class="link" href="#aspect-implementing-services-and-room-types">Aspect: Implementing Services (and Room Types)</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -664,14 +749,9 @@ for these purposes.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Achievements and Learnings</p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="achievements-and-learnings"><a class="link" href="#achievements-and-learnings">Achievements and Learnings</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -691,4 +771,8 @@ for these purposes.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 05:22:00 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 17:22:53 UTC</div></div></div></body></html>

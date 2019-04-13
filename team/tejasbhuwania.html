@@ -186,11 +186,11 @@ Format: <code>{<span class="aqua">generate-bill-booking</span>/<span class="aqua
 <div class="ulist">
 <ul>
 <li>
-<p><code>gb-b 2</code><br>
+<p><code>lc</code>, then <code>gb-b 2</code><br>
 Returns the bill for all bookings for the customer at index 2</p>
 </li>
 <li>
-<p><code>gb-b 2 s/SPA</code><br>
+<p><code>lc</code>, then <code>gb-b 2 s/SPA</code><br>
 Returns the bill for all spa bookings for the customer at index 2</p>
 </li>
 </ul>
@@ -200,7 +200,25 @@ Returns the bill for all spa bookings for the customer at index 2</p>
 <h4 id="generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code"><a class="link" href="#generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code">Generate bill for specific reservation: <code>generate-bill-reservation</code>, <code>gb-r</code></a></h4>
 <div class="paragraph">
 <p>Effect: Generates the bill for the specific booking of a customer<br>
-Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="aqua">gb-r</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span></code></p>
+Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="aqua">gb-r</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE - END_DATE</span> <span class="black">]</span></code></p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you enter <code>gb-r 2 d/4/6/2019 - 7/6/2019</code>, it calculates the bill for all reservations between 4th June to 7th June for customer at index 2. This does not include reservations which include the date 7th June.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -208,11 +226,11 @@ Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="
 <div class="ulist">
 <ul>
 <li>
-<p><code>gb-r 2</code><br>
+<p><code>lc</code>, then <code>gb-r 2</code><br>
 Returns the bill for all reservations for the customer at index 2</p>
 </li>
 <li>
-<p><code>gb-r 2 r/SINGLE ROOM</code><br>
+<p><code>lc</code>, then <code>gb-r 2 r/SINGLE ROOM</code><br>
 Returns the bill for all single room reservations for the customer at index 2</p>
 </li>
 </ul>
@@ -231,8 +249,10 @@ Format: <code>{<span class="aqua">generate-bill-customer</span>/<span class="aqu
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-This command is a super set of all the other "generate bill" commands and can be used
-to obtain the complete breakup for a customer.
+<div class="paragraph">
+<p>This command is a super set of all the other "generate bill" commands and can be used
+to obtain the complete breakup for a customer.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -243,7 +263,7 @@ to obtain the complete breakup for a customer.
 <div class="ulist">
 <ul>
 <li>
-<p><code>gb-c 2</code><br>
+<p><code>lc, then `gb-c 2</code><br>
 Returns the total bill (includes all bookings and reservations) for the customer at index 2</p>
 </li>
 </ul>
@@ -554,4 +574,4 @@ creating more work.</p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 05:22:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 17:22:53 UTC</div></div></div></body></html>
