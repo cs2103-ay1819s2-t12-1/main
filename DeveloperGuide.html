@@ -404,13 +404,13 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete-booking 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete-customer 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/logic-sequence-diagram.png" alt="logic sequence diagram" width="600">
+<img src="images/LogicComponentSequenceDiagram.png" alt="LogicComponentSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete-booking 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>delete-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -420,7 +420,7 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ui-class-diagram.png" alt="width:&quot;1200&quot;">
+<img src="images/UiClassDiagram.png" alt="width:&quot;1200&quot;">
 </div>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
@@ -428,7 +428,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc.
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>StatsWindow</code>, <code>HelpWindow</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc.
 All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
@@ -442,10 +442,10 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <h4 id="how-the-ui-updates-itself"><a class="link" href="#how-the-ui-updates-itself">3.2.2. How the UI updates itself</a></h4>
 <div class="paragraph">
 <p>This is handled by the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/util/InvalidationListenerManager.java"><code>InvalidationListenerManager</code></a>.
-It is basically a list of <code>InvalidationListeners</code> linked to three lists - <code>UniqueCustomerList</code>, <code>BookingList</code> and <code>ReservationList</code>.
-A listener is added for each of the three lists when the <code>HotelManagementSystem</code> is set up using the
+It is basically a list of <code>InvalidationListeners</code> linked to three lists - <code>UniqueCustomerList</code>, <code>BookingList</code>, <code>ReservationList</code>, <code>RoomTypeList</code> and <code>ServiceTypeList</code>.
+A listener is added for each of the five lists when the <code>HotelManagementSystem</code> is set up using the
 <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/90e374cb6e0dbafa2854fbc82792444434744a42/src/main/java/seedu/hms/model/HotelManagementSystem.java#L251"><code>addListener()</code></a> method.
-Whenever a change is made to any of these three lists of the <code>HotelManagementSystem</code>, all the listeners are called
+Whenever a change is made to any of these five lists of the <code>HotelManagementSystem</code>, all the listeners are called
 using the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/90e374cb6e0dbafa2854fbc82792444434744a42/src/main/java/seedu/hms/model/HotelManagementSystem.java#L263"><code>indicateModified()</code></a> method.
 Thus, the internal listeners when called update the UI automatically.</p>
 </div>
@@ -498,6 +498,12 @@ In addition, the <code>CommandResult</code> object can also instruct the User-In
 </div>
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CustomerModelDiagram.png" alt="CustomerModelDiagram" width="200">
+</div>
+<div class="title">Figure 9. Structure of the CustomerModel Component</div>
+</div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model.java</code></a></p>
 </div>
@@ -548,9 +554,9 @@ Another example is how we store a <code>Tag</code> list in <code>Hotel Managemen
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/storage-class-diagram.png" alt="storage class diagram" width="1200">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="1200">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 10. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -813,7 +819,7 @@ creating more work.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternate 1 (current choice):</strong> Bill doesn&#8217;t get stored</p>
+<p><strong>Alternate 1 (current choice):</strong> Bill doesn&#8217;t get stored.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -826,7 +832,7 @@ creating more work.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong></p>
+<p><strong>Alternative 2:</strong> Bill gets stored.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -839,6 +845,12 @@ creating more work.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
+</div>
+<div class="title">Figure 11. Component interactions for <code>generate-bill-customer 1</code> command</div>
 </div>
 </div>
 </div>
@@ -1149,7 +1161,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2445,21 +2457,21 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <h3 id="use-case-delete-reservation" class="discrete">Use case: Delete reservation</h3>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p><strong>Main Success Scenario</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Staff requests all the reservations a customer has</p>
+<p>The actor requests all the reservations a customer has.</p>
 </li>
 <li>
-<p>HMS lists the reservations requested</p>
+<p>The system lists the reservations requested.</p>
 </li>
 <li>
-<p>Staff requests to delete one reservation</p>
+<p>The actor requests to delete a specific reservation.</p>
 </li>
 <li>
-<p>HMS deletes the reservation</p>
+<p>The system deletes the reservation.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3</p>
 </div>
@@ -2478,12 +2490,6 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>2b. The staff requests to stop editing the reservation.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
 <p>3a. The index that the staff selected is invalid.</p>
 <div class="ulist none">
 <ul class="none">
@@ -2497,17 +2503,339 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>3b. The staff requests to stop editing the reservation.</p>
+<p>3b. The staff requests to stop deleting the reservation.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+<h3 id="use-case-generate-total-bill-for-a-specific-customer" class="discrete">Use case: Generate total bill for a specific customer</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>4a. The commands given by the staff to edit the fields are invalid.</p>
+<p>The actor requests the lists of all the customers.</p>
+</li>
+<li>
+<p>The system lists all the customers.</p>
+</li>
+<li>
+<p>The actor requests to generate total bill for a specific customer.</p>
+</li>
+<li>
+<p>The system generates the total bill for that specific customer.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a1. HMS shows an error message.</p>
+<p>2a. There are no customers.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The command that the actor entered is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. The system shows an error message that the command is invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b. The index that the actor selected is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. The system shows an error message that the index is invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b. The index that the actor selected is wrong.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. The system generates total bill for a different customer, not the intended one.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-finding-the-specific-list-of-bookings" class="discrete">Use case: Finding the specific list of bookings</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The actor requests for the specific list of bookings.</p>
+</li>
+<li>
+<p>The system shows the specific list of bookings.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The command that the actor entered is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The system shows an error message that the command is invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. The identification number that the actor entered is in wrong format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. The system shows an error message that the identification number has been not entered in the correct format.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. The identification number that the actor entered is wrong.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. The system shows the specific list of bookings with the wrong identification number.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use cases for <code>ServiceType</code> and <code>TimeRange</code> can be created in a similar manner like steps <code>1b</code> and <code>1c</code>.</p>
+</div>
+<h3 id="use-case-finding-the-specific-list-of-reservations" class="discrete">Use case: Finding the specific list of reservations</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The actor requests for the specific list of reservations.</p>
+</li>
+<li>
+<p>The system shows the specific list of reservations.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The command that the actor entered is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The system shows an error message that the command is invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. The identification number that the actor entered is in wrong format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. The system shows an error message that the identification number has been not entered in the correct format.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. The identification number that the actor entered is wrong.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. The system shows the specific list of reservations with the wrong identification number.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use cases for <code>RoomType</code> and <code>DateRange</code> can be created in a similar manner like steps <code>1b</code> and <code>1c</code>.</p>
+</div>
+<h3 id="use-case-clear-all-reservations" class="discrete">Use case: Clear all reservations</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The actor requests the list of all reservations.</p>
+</li>
+<li>
+<p>The system shows the list of all reservations.</p>
+</li>
+<li>
+<p>The actor requests to clear all reservations.</p>
+</li>
+<li>
+<p>The system clears all the reservations.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list of reservations is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The command that the actor entered is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. The system shows an error message that the command is invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-clear-all-bookings" class="discrete">Use case: Clear all bookings</h3>
+<div class="paragraph">
+<p><strong>Main Success Scenario</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The actor requests the list of all bookings.</p>
+</li>
+<li>
+<p>The system shows the list of all bookings.</p>
+</li>
+<li>
+<p>The actor requests to clear all bookings.</p>
+</li>
+<li>
+<p>The system clears all the bookings.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list of bookings is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The command that the actor entered is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. The system shows an error message that the command is invalid.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -2534,9 +2862,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -2659,7 +2984,7 @@ Expected: No customer is added. Error details shown in the status message. Statu
 <p>Other incorrect commands to try: <code>addcustomer n/test name</code>, <code>addcustomer n/123 456</code>&#8230;&#8203;</p>
 </li>
 <li>
-<p>Test case: <code>addcustomer &#8230;&#8203;</code> followed by the details of an existing customer<br>
+<p>Test case: <code>add-customer &#8230;&#8203;</code> followed by the details of an existing customer<br>
 Expected: No customer is added. Message shows "This customer already exists in the hms book". Status bar remains the same.</p>
 </li>
 </ol>
@@ -2753,4 +3078,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 18:08:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 18:23:31 UTC</div></div></div></body></html>
