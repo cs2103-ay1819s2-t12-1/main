@@ -65,7 +65,27 @@
 <li><a href="#span-class-underline-redoing-the-previously-undone-command-span-code-redo-code-code-r-code">3.12. <span class="underline">Redoing the previously undone command</span> : <code>redo</code>,<code>r</code></a></li>
 <li><a href="#span-class-underline-clearing-all-entries-span-code-clear-hms-code-code-clear-all-code">3.13. <span class="underline">Clearing all entries</span> : <code>clear-hms</code>, <code>clear-all</code></a></li>
 <li><a href="#span-class-underline-exiting-the-program-span-code-exit-code-code-ex-code">3.14. <span class="underline">Exiting the program</span> : <code>exit</code>,<code>ex</code></a></li>
-<li><a href="#span-class-underline-saving-the-data-span">3.15. <span class="underline">Saving the data</span></a></li>
+<li><a href="#span-class-underline-automatic-tab-switching-span">3.15. <span class="underline">Automatic tab switching</span></a>
+<ul class="sectlevel3">
+<li><a href="#span-class-underline-service-booking-span">3.15.1. <span class="underline">Service Booking</span></a></li>
+<li><a href="#span-class-underline-room-reservation-span">3.15.2. <span class="underline">Room Reservation</span></a></li>
+<li><a href="#span-class-underline-bill-span">3.15.3. <span class="underline">Bill</span></a></li>
+</ul>
+</li>
+<li><a href="#span-class-underline-automatic-panel-scrolling-span">3.16. <span class="underline">Automatic panel scrolling</span></a>
+<ul class="sectlevel3">
+<li><a href="#span-class-underline-service-booking-span-2">3.16.1. <span class="underline">Service Booking</span></a></li>
+<li><a href="#span-class-underline-service-booking-span-3">3.16.2. <span class="underline">Service Booking</span></a></li>
+<li><a href="#span-class-underline-room-reservation-span-2">3.16.3. <span class="underline">Room Reservation</span></a></li>
+</ul>
+</li>
+<li><a href="#span-class-underline-filtering-by-clicking-span">3.17. <span class="underline">Filtering by clicking</span></a>
+<ul class="sectlevel3">
+<li><a href="#span-class-underline-service-booking-span-4">3.17.1. <span class="underline">Service Booking</span></a></li>
+<li><a href="#span-class-underline-room-reservation-span-3">3.17.2. <span class="underline">Room Reservation</span></a></li>
+</ul>
+</li>
+<li><a href="#span-class-underline-saving-the-data-span">3.18. <span class="underline">Saving the data</span></a></li>
 </ul>
 </li>
 <li><a href="#prefix-list">4. Prefix List</a>
@@ -1581,7 +1601,196 @@ Format: <code>{<span class="aqua">exit</span>/<span class="aqua">ex</span>}</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="span-class-underline-saving-the-data-span"><a class="link" href="#span-class-underline-saving-the-data-span">3.15. <span class="underline">Saving the data</span></a></h3>
+<h3 id="span-class-underline-automatic-tab-switching-span"><a class="link" href="#span-class-underline-automatic-tab-switching-span">3.15. <span class="underline">Automatic tab switching</span></a></h3>
+<div class="paragraph">
+<p>The tab will be switched automatically to show the content.</p>
+</div>
+<div class="sect3">
+<h4 id="span-class-underline-service-booking-span"><a class="link" href="#span-class-underline-service-booking-span">3.15.1. <span class="underline">Service Booking</span></a></h4>
+<div class="paragraph">
+<p>All service booking related commands will switch tab to the one for Booking and the one for Service Type.<br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lb</code><br>
+All bookings will be shown and the tab will also be switched</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/atp_forbooking1.png" alt="atp forbooking1" width="800">
+</div>
+<div class="title">Figure 19. Example for the automatic tab switching for <code>lb</code> command before executing</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/atp_forbooking2.png" alt="atp forbooking2" width="800">
+</div>
+<div class="title">Figure 20. Example for the automatic tab switching for <code>lb</code> command after executing</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="span-class-underline-room-reservation-span"><a class="link" href="#span-class-underline-room-reservation-span">3.15.2. <span class="underline">Room Reservation</span></a></h4>
+<div class="paragraph">
+<p>All room reservation related commands will switch tab to the one for Reservation and the one for Room Type.<br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lr</code><br>
+All reservations will be shown and the tab will also be switched.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/atp_forreservation1.png" alt="atp forreservation1" width="800">
+</div>
+<div class="title">Figure 21. Example for the automatic tab switching for <code>lr</code> command before executing</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/atp_forreservation2.png" alt="atp forreservation2" width="800">
+</div>
+<div class="title">Figure 22. Example for the automatic tab switching for <code>lr</code> command after executing</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="span-class-underline-bill-span"><a class="link" href="#span-class-underline-bill-span">3.15.3. <span class="underline">Bill</span></a></h4>
+<div class="paragraph">
+<p>All bill related commands will switch tab to the one for Bill.<br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>gb-c 1</code><br>
+The bill be generated and the tab will also be switched.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/atp_forbill1.png" alt="atp forbill1" width="800">
+</div>
+<div class="title">Figure 23. Example for the automatic tab switching for <code>gb-c 1</code> command before executing</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/atp_forbill2.png" alt="atp forbill2" width="800">
+</div>
+<div class="title">Figure 24. Example for the automatic tab switching for <code>gb-c 1</code> command after executing</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="span-class-underline-automatic-panel-scrolling-span"><a class="link" href="#span-class-underline-automatic-panel-scrolling-span">3.16. <span class="underline">Automatic panel scrolling</span></a></h3>
+<div class="sect3">
+<h4 id="span-class-underline-service-booking-span-2"><a class="link" href="#span-class-underline-service-booking-span-2">3.16.1. <span class="underline">Service Booking</span></a></h4>
+<div class="paragraph">
+<p>The customer panel will be scrolled automatically to show the newly added item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aps_forcustomer1.png" alt="aps forcustomer1" width="800">
+</div>
+<div class="title">Figure 25. Example for the automatic panel scrolling for <code>ac n/Tom Brown p/12442512 e/tom@brown.com id/G112342H</code> command before executing</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aps_forcustomer2.png" alt="aps forcustomer2" width="800">
+</div>
+<div class="title">Figure 26. Example for the automatic panel scrolling for <code>ac n/Tom Brown p/12442512 e/tom@brown.com id/G112342H</code> command after executing</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="span-class-underline-service-booking-span-3"><a class="link" href="#span-class-underline-service-booking-span-3">3.16.2. <span class="underline">Service Booking</span></a></h4>
+<div class="paragraph">
+<p>The booking panel will be scrolled automatically to show the newly added item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aps_forbooking1.png" alt="aps forbooking1" width="800">
+</div>
+<div class="title">Figure 27. Example for the automatic tab switching for <code>ab s/TUTORIAL :/10-11 $/1</code> command before executing</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aps_forbooking2.png" alt="aps forbooking2" width="800">
+</div>
+<div class="title">Figure 28. Example for the automatic tab switching for <code>ab s/TUTORIAL :/10-11 $/1</code> command after executing</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="span-class-underline-room-reservation-span-2"><a class="link" href="#span-class-underline-room-reservation-span-2">3.16.3. <span class="underline">Room Reservation</span></a></h4>
+<div class="paragraph">
+<p>The reservation panel will be scrolled automatically to show the newly added item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aps_forreservation1.png" alt="aps forreservation1" width="800">
+</div>
+<div class="title">Figure 29. Example for the automatic panel scrolling for <code>ar r/DOUBLE DOUBLE ROOM d/16/04/2019-17/04/2019 $/3</code> command before executing</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aps_forreservation2.png" alt="aps forreservation2" width="800">
+</div>
+<div class="title">Figure 30. Example for the automatic panel scrolling for <code>ar r/DOUBLE DOUBLE ROOM d/16/04/2019-17/04/2019 $/3</code> command after executing</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="span-class-underline-filtering-by-clicking-span"><a class="link" href="#span-class-underline-filtering-by-clicking-span">3.17. <span class="underline">Filtering by clicking</span></a></h3>
+<div class="sect3">
+<h4 id="span-class-underline-service-booking-span-4"><a class="link" href="#span-class-underline-service-booking-span-4">3.17.1. <span class="underline">Service Booking</span></a></h4>
+<div class="paragraph">
+<p>Click on a service type and the booking list will be filtered by the clicked service type.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/fbc_forbooking1.png" alt="fbc forbooking1" width="800">
+</div>
+<div class="title">Figure 31. Example for booking filtering before clicking</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/fbc_forbooking2.png" alt="fbc forbooking2" width="800">
+</div>
+<div class="title">Figure 32. Example for booking filtering after clicking</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="span-class-underline-room-reservation-span-3"><a class="link" href="#span-class-underline-room-reservation-span-3">3.17.2. <span class="underline">Room Reservation</span></a></h4>
+<div class="paragraph">
+<p>Click on a service type and the booking list will be filtered by the clicked room type.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/fbc_forbooking1.png" alt="fbc forbooking1" width="800">
+</div>
+<div class="title">Figure 33. Example for reservation filtering before clicking</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/fbc_forbooking2.png" alt="fbc forbooking2" width="800">
+</div>
+<div class="title">Figure 34. Example for reservation filtering after clicking</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="span-class-underline-saving-the-data-span"><a class="link" href="#span-class-underline-saving-the-data-span">3.18. <span class="underline">Saving the data</span></a></h3>
 <div class="paragraph">
 <p>The HMS+ data file is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -2196,4 +2405,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:58:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:11:35 UTC</div></div></div></body></html>
