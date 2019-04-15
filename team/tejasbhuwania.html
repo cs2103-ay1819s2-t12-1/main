@@ -21,10 +21,7 @@ Some extracts of my documentation from the HMS+ User Guide and Developer Guide h
 <h2 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The purpose of the project was to prepare us for the real world. The project was structured to resemble an
- intermediate stage of a non-trivial real-life software project. We had to optimize or morph an already existing AddressBook
-into a different product. Through this project we learned how to conceptualize and implement enhancements
-to a given product and have it ready to be carried forward by future developers.</p>
+<p>The purpose of the project was to prepare us for the real world. The project was structured in a way that it resembled an intermediate stage of a non-trivial real-life software project. We had to optimize or morph an already existing AddressBook into a different product. Through this, we learned how to conceptualize and implement enhancements to a given product so that it could be used by future developers.</p>
 </div>
 </div>
 </div>
@@ -32,14 +29,10 @@ to a given product and have it ready to be carried forward by future developers.
 <h2 id="application-overview"><a class="link" href="#application-overview">Application Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>HMS+ is a computer application targeted at hotels all around the world. It aims to make the life of the hotel management
-staff easy by giving them a single, integrated, and highly customizable hotel management system. It&#8217;s goal is to make the
-tedious process of running a hotel easier and more effective.</p>
+<p>HMS+ is a computer application that targets all the hotels around the world. It aims to make the life of the hotel management staff easy by giving them a single, integrated, and highly customizable hotel management system so that the tedious process of running a hotel can be made easier and more effective.</p>
 </div>
 <div class="paragraph">
-<p>Since HMS+ is for those who prefer using the keyboard over a mouse, it uses a Command Line Interface (CLI) for input.
-However, all the output is displayed in a traditional Graphical User Interface (GUI) - which is just a computer jargon
-for a display that includes panes, menus and message boxes. This has been done to keep the user experience engaging.</p>
+<p>Since HMS+ is for those who prefer using the keyboard over a mouse, it uses a Command Line Interface (CLI) for input. However, all the output is displayed in a traditional Graphical User Interface (GUI) - which is just a computer jargon for a display that includes panes, menus and message boxes. This has been done to keep the user engaged.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main Features</strong> :</p>
@@ -87,9 +80,7 @@ The <code>generate-bill</code> commands implemented do all this in one go making
 easier.</p>
 </li>
 <li>
-<p><span class="underline">Highlights</span>: This enhancement is an end-to-end feature that allows the hotel staff to generate bills for a specific customer, a specific booking or a specific reservation. I had
-to make sure that I use the already implemented reservation and booking models while creating the newer bill model and make sure that this model has access to all bookings and reservations
-simultaneously so that it can generate the bill based on the command entered by the user.</p>
+<p><span class="underline">Highlights</span>: This enhancement is an end-to-end feature that allows the hotel staff to generate bills for a specific customer, a specific booking or a specific reservation. I had to make sure that I use the already implemented reservation and booking models while creating the newer bill model. I also had to make sure that this model has access to all bookings and reservations simultaneously so that it could generate the bill based on the command entered by the user.</p>
 </li>
 <li>
 <p><span class="underline">Credits</span>: I mainly used the concepts from the existing codebase and those that were taught in CS2103T to implement my features.</p>
@@ -121,42 +112,13 @@ find a specific room reservation.</p>
 customer&#8217;s Identification Number or Room Type or Dates of Reservation or all of the above.</p>
 </li>
 <li>
-<p>Justification: Whenever the hotel staff need to edit or delete a specific reservation, they need to go through
-the entire reservation list to find that specific booking. This is a tedious process. Through <code>the FindReservationCommand</code>
-the hotel staff can find the specific reservation in one go, saving them extra work.</p>
+<p>Justification: Whenever the hotel staff needs to edit or delete a specific reservation, he or she needs to go through the entire reservation list to find that specific booking. This is a tedious process. Through the <code>FindReservationCommand</code>, the hotel staff can find the specific reservation in one go thereby reducing his or her workload.</p>
 </li>
 <li>
-<p>Highlights: This enhancement is an end-to-end feature that allows the hotel staff to find specific bookings
-based on three filters - customer&#8217;s Identification number, the Room Type and the Dates of Reservation. While implementing
-this I had to ensure that I use already placed prefixes so that it doesn&#8217;t become confusing for the staff with too many prefixes
-and also that the command is intuitive enough for easy use of the staff.</p>
+<p>Highlights: This enhancement is an end-to-end feature that allows the hotel staff to find specific bookings based on three filters - customer’s Identification number, the Room Type and the Dates of Reservation. While implementing this I had to ensure that I use the already placed prefixes so that it does not become confusing for the staff to handle too many prefixes and that the command is easy enough for them to use.</p>
 </li>
 <li>
 <p>Relevant Pull Requests: <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/147">#147</a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/165">#165</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><span class="underline">Clear Commands</span>: This enhancement added the functionality to clear the whole database or parts of it as and
-when required by the hotel staff.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: It allows the hotel staff to clear their entire database or specific parts of it as and when required.</p>
-</li>
-<li>
-<p>Justification: There are many times when hotels go through an overall revamp. For such purposes, the staff
-generally clean the database manually or do so by re-installing the software again. With the clear commands implemented,
-they can do so in one go without hassle.</p>
-</li>
-<li>
-<p>Highlights: This enhancement is an end-to-end feature that allows the user to clear his/her database as and how they want
-to. I had to make sure that while clearing certain parts of the database, I removed the parts associated with it too while keeping
-the other parts intact.</p>
-</li>
-<li>
-<p>Relevant Pull Requests: <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/124">#124</a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/131">#131</a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/134">#134</a>, and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/228">#228</a></p>
 </li>
 </ul>
 </div>
@@ -218,7 +180,7 @@ so that a similar structure is maintained throughout the codebase and it becomes
 <p>Made the Address field of a customer optional for the user to input (Pull request  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/132">#132</a>).</p>
 </li>
 <li>
-<p>Made the UI more understandable to a first time user (Pull Requests <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/145">#145</a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/146">#146</a>, and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/233">#233</a>).</p>
+<p>Made the UI more understandable for a first time user (Pull Requests <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/145">#145</a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/146">#146</a>, and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/233">#233</a>).</p>
 </li>
 <li>
 <p>Wrote additional tests for existing features and features implemented by team-mates to increase coverage and
@@ -251,9 +213,7 @@ color-coding to the user guide so that the user can easily understand the differ
 <p>Added all user stories to developer guide (Pull Requests <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/95/#">#95</a>).</p>
 </li>
 <li>
-<p>Added Glossary, Product Scope, Use Cases and Instructions for Manual Testing so that new developers coming to work on the
-project can easily understand what the project is about and how it works, so it becomes easier for their to do implement new
-features (Pull Request:</p>
+<p>Added Glossary, Product Scope, Use Cases and Instructions for Manual Testing so that new developers coming to work on the project can easily understand what the project is about and how it works, so it becomes easier for them to do implement new features (Pull Request: <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/238">#238</a></p>
 </li>
 <li>
 <p>Updated the diagrams of the Ui Component and Storage Component to make them represent the current stage of the application.
@@ -362,20 +322,6 @@ Returns the bill for all services booked by the customer at index 4.</p>
 </div>
 <div class="title">Figure 1. Example for the <code>generate-bill-booking 4</code> command</div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lc</code>, then <code>gb-b 1 s/SPA</code><br>
-Returns the bill for all spa services booked for the customer at index 1.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/gbb2.png" alt="gbb2" width="800">
-</div>
-<div class="title">Figure 2. Example for the <code>gb-b 1 s/SPA</code> command</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code"><a class="link" href="#generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code">Generate bill for specific reservation: <code>generate-bill-reservation</code>, <code>gb-r</code></a></h4>
@@ -402,35 +348,15 @@ Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="
 </table>
 </div>
 <div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lc</code>, then <code>generate-bill-reservation 1</code><br>
-Returns the bill for all rooms reserved by the customer at index 1.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/gbr2.png" alt="gbr2" width="800">
-</div>
-<div class="title">Figure 3. Example for the <code>generate-bill-reservation 1</code> command</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lc</code>, then <code>gb-r 3 r/SHARING ROOM</code><br>
+<p>Example:
+* <code>lc</code>, then <code>gb-r 3 r/SHARING ROOM</code><br>
 Returns the bill for all sharing rooms reserved by the customer at index 3.</p>
-</li>
-</ul>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/gbr1.png" alt="gbr1" width="800">
 </div>
-<div class="title">Figure 4. Example for the <code>gb-r 3 r/SHARING  ROOM</code> command</div>
+<div class="title">Figure 2. Example for the <code>gb-r 3 r/SHARING  ROOM</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -469,7 +395,7 @@ Returns the total bill (includes all bookings and reservations) for the customer
 <div class="content">
 <img src="../images/gbc1.png" alt="gbc1" width="800">
 </div>
-<div class="title">Figure 5. Example for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 3. Example for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p><span class="lime">End of Extract (from User Guide)</span></p>
@@ -534,34 +460,6 @@ reservations which include the date 4th June but does not include reservations w
 <div class="paragraph">
 <p>Example:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fr id/Q000001P</code><br>
-Returns all reservations for customer with identification number, Q000001P.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/fr1.png" alt="fr1" width="800">
-</div>
-<div class="title">Figure 6. Example for the <code>fr id/Q000001P</code> command</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fr id/Q000001P r/SHARING ROOM</code><br>
-Returns all sharing room reservations for customer with identification number, Q000001P.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/fr2.png" alt="fr2" width="800">
-</div>
-<div class="title">Figure 7. Example for the <code>fr id/Q000001P r/SHARING ROOM</code> command</div>
-</div>
 <div class="paragraph">
 <p><span class="lime">End of Extract (from User Guide)</span></p>
 </div>
@@ -578,8 +476,7 @@ Returns all sharing room reservations for customer with identification number, Q
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The developer guide has been written by me, keeping in mind the information required by new developers, who who would work on this app hereafter. I have
-stated the data needed by them to ameliorate or add value to the system by extending the existing functions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The developer guide has been written by me, keeping in mind the information required by new developers, who would work on this app hereafter. I have stated the data needed by them to improve the system by extending the existing functions</p></td>
 </tr>
 </tbody>
 </table>
@@ -609,9 +506,9 @@ illustrated in the UML diagram shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="600">
+<img src="../images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 8. GenerateBillForCustomerCommand UML Diagram</div>
+<div class="title">Figure 4. GenerateBillForCustomerCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -619,9 +516,9 @@ high level <span class="underline">Sequence Diagram</span> for the <code>Generat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
+<img src="../images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 9. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 5. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, there is no storage created for the bill as a result of which the bill generated is
@@ -636,7 +533,7 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
 <div class="content">
 <img src="../images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
 </div>
-<div class="title">Figure 10. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 6. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
@@ -673,28 +570,6 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
         }
         <span class="keyword">return</span> <span class="keyword">new</span> Pair&lt;&gt;(totalAmount, totalTime);
     }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The actual displaying of the booking bill is then done by <code>BillPanel</code> object by the following code snippet
-in the <code>Ui</code> component:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">if</span> (newValue.getBookingCount() &gt; <span class="integer">0</span>) {
-                stringBuilder.append(<span class="string"><span class="delimiter">&quot;</span><span class="content">Service Booking(s) :</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-                <span class="keyword">for</span> (ServiceType st: newValue.getServiceTypes()) {
-                    <span class="keyword">if</span> (newValue.getServiceTypeBookingCount(st) &gt; <span class="integer">0</span>) {
-                        stringBuilder.append(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">%14s</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">[</span><span class="delimiter">&quot;</span></span> + st.getName() + <span class="string"><span class="delimiter">&quot;</span><span class="content">]</span><span class="delimiter">&quot;</span></span>)
-                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Rate per hour:%2.1f</span><span class="delimiter">&quot;</span></span>, st.getRatePerHour()) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
-                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Number of hour(s):%2d</span><span class="delimiter">&quot;</span></span>, newValue.getServiceTypeBookingCount(st))
-                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Amount:%4.1f</span><span class="delimiter">&quot;</span></span>, newValue.getServiceTypeBill(st)) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-                    }
-                }
-                stringBuilder.append(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">---------------------Sub-Total: %6.1f</span><span class="delimiter">&quot;</span></span>,
-                        newValue.getAmountBooking()) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-                stringBuilder.append(<span class="string"><span class="delimiter">&quot;</span><span class="content">--------------------------------------</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-            } <span class="comment">//if count of bookings is greater than 0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -804,9 +679,9 @@ illustrated in the UML diagram shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="600">
+<img src="../images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 11. FindReservationCommand UML Diagram</div>
+<div class="title">Figure 7. FindReservationCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>FindReservationCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -814,9 +689,9 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindRes
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="600">
+<img src="../images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 12. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
+<div class="title">Figure 8. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, this command doesn&#8217;t affect storage at all as the purpose of this command is to just find
@@ -957,30 +832,7 @@ filter reservations.</p>
 more efficiently.</p>
 </div>
 <div class="sect2">
-<h3 id="a-1-introduction"><a class="link" href="#a-1-introduction">A.1 Introduction</a></h3>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from User Guide)</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="introducing-hms"><a class="link" href="#introducing-hms">Introducing HMS+</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You need a world-class property management system to run your hotel’s front desk and back office. We’ve spent years listening to what independent hoteliers need to take their business to the next level. From before check-in to post check out, we have everything you need to get your customers moving and your hotel running.</p>
-</div>
-<div class="paragraph">
-<p>HMS+ is for hotels that want to use a <strong>single, integrated system to manage all aspects of their requirements</strong>.</p>
-</div>
-<div class="paragraph">
-<p>This user guide provides an in-depth documentation on the HMS+ installation process, system configuration and management, monitoring and troubleshooting problems. In addition, the <a href="#Getting Started">[Getting Started]</a> will provide the basic knowledge of the setup process and how you can get started.</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from User Guide)</span></p>
-</div>
-<div class="sect2">
-<h3 id="a-2-prefix-list"><a class="link" href="#a-2-prefix-list">A.2 Prefix List</a></h3>
+<h3 id="a-1-prefix-list"><a class="link" href="#a-1-prefix-list">A.1 Prefix List</a></h3>
 <div class="paragraph">
 <p>The Prefix List was added by me keeping in mind that our software has a large number of prefixes and it might become confusing
 for the user as to which prefix to use when. This list will help the users understand which prefix to use when and the constraints
@@ -1115,16 +967,6 @@ In case, a developer is unsure about a specific term he/she can easily refer to 
 function should have responsibility over a single part of the functionality provided by the software, and that
 responsibility should be entirely encapsulated by the class.</p>
 </dd>
-<dt class="hdlist1"><a id="cli"></a> CLI</dt>
-<dd>
-<p>Acronym for Command Line Interface. It is a purely text-based interface for software. User respond to visual prompts by typing single commands into the interface and receive results as text as well.
-<span class="underline">For example</span>: MS-DOS.</p>
-</dd>
-<dt class="hdlist1"><a id="gui"></a> GUI</dt>
-<dd>
-<p>Acronym for Graphical User Interface. In a GUI, the software interface consists of graphical icons, menus and/or other visual indicators to display information. Users can typically interact with these graphics, rather than just using text in the <a href="#cli">command line</a>.<br>
-<span class="underline">For example</span>: All Windows operating systems have a GUI.</p>
-</dd>
 </dl>
 </div>
 <div class="paragraph">
@@ -1132,142 +974,7 @@ responsibility should be entirely encapsulated by the class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="b-2-product-scope"><a class="link" href="#b-2-product-scope">B.2 Product Scope</a></h3>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from Developer Guide)</span></p>
-</div>
-<div class="paragraph">
-<p>HMS+ is targeted at hotels which want to use a single, highly customizable integrated system to manage all the aspects
- their requirements.<br></p>
-</div>
-<div class="paragraph">
-<p>Hotels have hundreds of customers with each customer having their own service bookings, room reservations and
-their payments.<br></p>
-</div>
-<div class="paragraph">
-<p>This is why these hotels use different softwares to keep a track of customer&#8217;s bookings and reservations and
-accordingly their payments. With time, it becomes difficult to keep a track of everything using different softwares.</p>
-</div>
-<div class="paragraph">
-<p>HMS+ provides hotels with a one-stop shop for all their managerial and organization needs.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="underline">Target user profile</strong></span>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Hoteliers</p>
-</li>
-<li>
-<p>Hotel Management Staff</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong><span class="underline">Value proposition</span></strong>: hotels can efficiently manage its entire database faster than a typical mouse/GUI driven app.</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from Developer Guide)</span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="b-3-user-stories"><a class="link" href="#b-3-user-stories">B.3 User Stories</a></h3>
-<div class="paragraph">
-<p>I added User Stories to the Developer Guide to help the incoming developers understand the purpose of each feature and how
-will it actually help the user, so that they can keep them in the mind while implementing new features or enhancing existing ones.</p>
-</div>
-<div class="paragraph">
-<p>The extract shown below is just an excerpt from the User Stories and not all the user stories. To see the full list refer to
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#appendix-c-user-stories">User Stories in Developer Guide</a>.</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from Developer Guide)</span></p>
-</div>
-<div class="paragraph">
-<p>User stories are short, simple descriptions of a feature told from the perspective of the user who desires the new
-capability. This will help the existing and new developers understand the importance of each feature and how does it help
-our user.</p>
-</div>
-<div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Priority</th>
-<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new hotel management staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new customer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a room reservation or a service booking for the customer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a customer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove a customer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">change capacity of a specific service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">expand/shrink a specific service</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort customers by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a customer easily</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from Developer Guide)</span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="b-4-other-additions"><a class="link" href="#b-4-other-additions">B.4 Other Additions</a></h3>
-<div class="sect3">
-<h4 id="ui-component-diagram"><a class="link" href="#ui-component-diagram">Ui Component Diagram</a></h4>
-<div class="paragraph">
-<p>I also updated the <code>Ui Component Diagram</code> to make it represent the current stage of Ui. The current stage of Ui can be seen
-below:</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from Developer Guide)</span></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UiClassDiagram.png" alt="width:&quot;1200&quot;">
-</div>
-<div class="title">Figure 13. Structure of the UI Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a></p>
-</div>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from Developer Guide)</span></p>
-</div>
-</div>
+<h3 id="b-2-other-additions"><a class="link" href="#b-2-other-additions">B.2 Other Additions</a></h3>
 <div class="sect3">
 <h4 id="storage-component-diagram"><a class="link" href="#storage-component-diagram">Storage Component Diagram</a></h4>
 <div class="paragraph">
@@ -1281,7 +988,7 @@ can be seen below:</p>
 <div class="content">
 <img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="1200">
 </div>
-<div class="title">Figure 14. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><span class="lime">End of Extract (from Developer Guide)</span></p>
@@ -1304,4 +1011,4 @@ can be seen below:</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:14:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:22:21 UTC</div></div></div></body></html>

@@ -863,7 +863,7 @@ illustrated in the UML diagram shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="600">
+<img src="images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="300">
 </div>
 <div class="title">Figure 13. FindReservationCommand UML Diagram</div>
 </div>
@@ -873,7 +873,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindRes
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="600">
+<img src="images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="500">
 </div>
 <div class="title">Figure 14. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
@@ -1019,7 +1019,7 @@ illustrated in the UML diagram shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="600">
+<img src="images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="300">
 </div>
 <div class="title">Figure 15. GenerateBillForCustomerCommand UML Diagram</div>
 </div>
@@ -1029,7 +1029,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>Generat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
+<img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="500">
 </div>
 <div class="title">Figure 16. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
 </div>
@@ -1083,28 +1083,6 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
         }
         <span class="keyword">return</span> <span class="keyword">new</span> Pair&lt;&gt;(totalAmount, totalTime);
     }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The actual displaying of the booking bill is then done by <code>BillPanel</code> object by the following code snippet
-in the <code>Ui</code> component:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">if</span> (newValue.getBookingCount() &gt; <span class="integer">0</span>) {
-                stringBuilder.append(<span class="string"><span class="delimiter">&quot;</span><span class="content">Service Booking(s) :</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-                <span class="keyword">for</span> (ServiceType st: newValue.getServiceTypes()) {
-                    <span class="keyword">if</span> (newValue.getServiceTypeBookingCount(st) &gt; <span class="integer">0</span>) {
-                        stringBuilder.append(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">%14s</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">[</span><span class="delimiter">&quot;</span></span> + st.getName() + <span class="string"><span class="delimiter">&quot;</span><span class="content">]</span><span class="delimiter">&quot;</span></span>)
-                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Rate per hour:%2.1f</span><span class="delimiter">&quot;</span></span>, st.getRatePerHour()) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
-                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Number of hour(s):%2d</span><span class="delimiter">&quot;</span></span>, newValue.getServiceTypeBookingCount(st))
-                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Amount:%4.1f</span><span class="delimiter">&quot;</span></span>, newValue.getServiceTypeBill(st)) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-                    }
-                }
-                stringBuilder.append(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">---------------------Sub-Total: %6.1f</span><span class="delimiter">&quot;</span></span>,
-                        newValue.getAmountBooking()) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-                stringBuilder.append(<span class="string"><span class="delimiter">&quot;</span><span class="content">--------------------------------------</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
-            } <span class="comment">//if count of bookings is greater than 0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4493,4 +4471,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:14:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:22:21 UTC</div></div></div></body></html>
