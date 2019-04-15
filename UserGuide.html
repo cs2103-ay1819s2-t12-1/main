@@ -200,6 +200,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <li>
 <p>If you enter the same prefix twice, the data in the second prefix is recorded. For example, <code>n/Tejas Bhuwania n/Sanjay Bhuwania</code> will take in Sanjay Bhuwania inside the database.</p>
 </li>
+<li>
+<p>All commands using indexes refer to the displayed list. For example, if the displayed customer list has 2 customers and
+you try to delete customer at index 3, it is an invalid command, though there are total of five customers in the database.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -293,7 +297,7 @@ Adds the customer John Doe with the given details.</p>
 <div class="content">
 <img src="images/JohnDoeadd.png" alt="JohnDoeadd" width="800">
 </div>
-<div class="title">Figure 2. Example for the <code>above</code> command</div>
+<div class="title">Figure 2. Example for the above 'add-customer` command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -307,7 +311,7 @@ Adds the customer Betsy Crowe with the given details.</p>
 <div class="content">
 <img src="images/BetsyCroweadd.png" alt="BetsyCroweadd" width="800">
 </div>
-<div class="title">Figure 3. Example for the <code>above</code> command</div>
+<div class="title">Figure 3. Example for the above <code>add-customer</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -331,7 +335,7 @@ Lists all the customers present in the database.</p>
 <div class="content">
 <img src="images/lc.png" alt="lc" width="800">
 </div>
-<div class="title">Figure 4. Example for the <code>above</code> command</div>
+<div class="title">Figure 4. Example for the <code>lc</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -385,20 +389,6 @@ You can remove all the customer&#8217;s tags by typing <code>t/</code> without s
 <div class="ulist">
 <ul>
 <li>
-<p><code>list-customers</code>, then <code>edit-customer 1 p/91234567 e/johnny@example.com</code><br>
-Edits the phone number and email address of the 1st customer to be 91234567 and <a href="mailto:johnny@example.com">johnny@example.com</a> respectively.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ec1.png" alt="ec1" width="800">
-</div>
-<div class="title">Figure 5. Example for the <code>above</code> command</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
 <p><code>lc</code>, then <code>ec 2 n/Roshani Venkatesh t/</code><br>
 Edits the name of the 2nd customer to be <code>Roshani Venkatesh</code> and clears all existing tags.</p>
 </li>
@@ -406,9 +396,15 @@ Edits the name of the 2nd customer to be <code>Roshani Venkatesh</code> and clea
 </div>
 <div class="imageblock">
 <div class="content">
+<img src="images/ec1.png" alt="ec1" width="800">
+</div>
+<div class="title">Figure 5. Example before the above <code>ec</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
 <img src="images/ec2.png" alt="ec2" width="800">
 </div>
-<div class="title">Figure 6. Example for the <code>above</code> command</div>
+<div class="title">Figure 6. Example after the above <code>ec</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -459,7 +455,7 @@ Returns any person having name <code>Vidhi</code>.</p>
 <div class="content">
 <img src="images/fn1.png" alt="fn1" width="800">
 </div>
-<div class="title">Figure 7. Example for the <code>above</code> command</div>
+<div class="title">Figure 7. Example for the <code>find-name Vidhi</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -473,7 +469,7 @@ Returns any person having names <code>Tejas</code>, <code>Vidhi</code> and <code
 <div class="content">
 <img src="images/fn2.png" alt="fn2" width="800">
 </div>
-<div class="title">Figure 8. Example for the <code>above</code> command</div>
+<div class="title">Figure 8. Example for the <code>fn Tejas Vidhi Ayushi</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -518,13 +514,13 @@ Deletes the 2nd person of the customer database.</p>
 <div class="content">
 <img src="images/dc1a.png" alt="dc1a" width="800">
 </div>
-<div class="title">Figure 9. Example before the <code>above</code> command</div>
+<div class="title">Figure 9. Example before the <code>delete-customer 2</code> command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/dc1b.png" alt="dc1b" width="800">
 </div>
-<div class="title">Figure 10. Example after the <code>above</code> command</div>
+<div class="title">Figure 10. Example after the <code>delete-customer 2</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -598,10 +594,16 @@ Format: <code>{<span class="aqua">add-room-type</span>/<span class="aqua">art</s
 <div class="ulist">
 <ul>
 <li>
-<p><code>art n/SINGLE ROOM cap/50 rate/300.0</code><br>
-Adds a room type with name SINGLE ROOM, with a rate of 300.0 and capacity of 50</p>
+<p><code>art n/FUN ROOM cap/50 rate/300.0</code><br>
+Adds a room type with name FUN ROOM, with a rate of 300.0 and capacity of 50</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ast1.png" alt="ast1" width="800">
+</div>
+<div class="title">Figure 13. Example after the <code>art n/FUN ROOM cap/50 rate/300.0</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -631,9 +633,21 @@ Format: `{<span class="aqua">delete-room-type</span>/<span class="aqua">drt</spa
 <ul>
 <li>
 <p><code>drt 2</code><br>
-Deletes the room type at index 2</p>
+Deletes the room type at index 2.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/drt1.png" alt="drt1" width="800">
+</div>
+<div class="title">Figure 14. Example before the <code>drt 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/drt2.png" alt="drt2" width="800">
+</div>
+<div class="title">Figure 15. Example after the <code>drt 2</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -653,6 +667,18 @@ Clears all room types and reservations from the database.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/crta.png" alt="crta" width="800">
+</div>
+<div class="title">Figure 16. Example before the <code>crt</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/crtb.png" alt="crtb" width="800">
+</div>
+<div class="title">Figure 17. Example after the <code>crt</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="editing-a-room-type-code-edit-room-type-code-code-ert-code"><a class="link" href="#editing-a-room-type-code-edit-room-type-code-code-ert-code">3.3.4. Editing a room type : <code>edit-room-type</code>, <code>ert</code></a></h4>
@@ -670,6 +696,18 @@ Format: <code>{<span class="aqua">edit-room-type</span>/<span class="aqua">ert</
 Edits the room type at index 2 by changing the number of rooms to 100.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/erta.png" alt="erta" width="800">
+</div>
+<div class="title">Figure 18. Example before the <code>ert 2 cap/100</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ertb.png" alt="ertb" width="800">
+</div>
+<div class="title">Figure 19. Example after the <code>ert 2 cap/100</code> command</div>
 </div>
 </div>
 </div>
@@ -718,9 +756,28 @@ Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</
 <p>Examples:<br>
 Assume current date is 10 May, 2019.<br>
 * <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/5</code><br>
-Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.
-* <code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/05/2019-15/05/2019 $/1 c/2</code><br>
-Adds a reservation of Deluxe Room, in the name of the first customer for both him/her and the second customer, from 14 Feb 2019 to 15 Feb 2019.</p>
+Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ar1.png" alt="ar1" width="800">
+</div>
+<div class="title">Figure 20. Example after the <code>above</code> command</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-customers</code>, then <code>ar r/SHARING ROOM d/23/5/2019-25/5/2019 $/4 c/2 c/3</code><br>
+Adds a reservation of Sharing Room in the name of the 4th customer along with the 2nd and 3rd customers
+ from 23 May 2019 to 25 May 2019.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ar2.png" alt="ar2" width="800">
+</div>
+<div class="title">Figure 21. Example after the <code>above</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -739,6 +796,12 @@ Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr
 Lists all reservations.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lr.png" alt="lr" width="800">
+</div>
+<div class="title">Figure 22. Example after the <code>lr</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -795,6 +858,22 @@ You can remove all the reservation&#8217;s comments by typing <code>com/</code> 
 <p><code>lr</code>, then <code>er 1 r/DOUBLE ROOM</code><br>
 Edits the room type of the 1st reservation to be DOUBLE ROOM.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/era.png" alt="era" width="800">
+</div>
+<div class="title">Figure 23. Example before the <code>er 1 r/DOUBLE ROOM</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/erb.png" alt="erb" width="800">
+</div>
+<div class="title">Figure 24. Example after the <code>er 1 r/DOUBLE ROOM</code> command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>lr</code>, then <code>er 2 d/14/02/2020-14/03/2020 com/</code><br>
 Edits the date of the 2nd reservation to be from 14 Feb 2020 to 14 Mar 2020 and clears all existing comments related to it.</p>
@@ -830,6 +909,18 @@ Deletes the 2nd entry of the reservation database.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dr1.png" alt="dr1" width="800">
+</div>
+<div class="title">Figure 25. Example before the <code>dr 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dr2.png" alt="dr2" width="800">
+</div>
+<div class="title">Figure 26. Example after the <code>dr 2</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">3.4.5. Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
@@ -847,6 +938,18 @@ Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">c
 Clears all reservations from the database.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lr.png" alt="lr" width="800">
+</div>
+<div class="title">Figure 27. Example before the <code>cr</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cr.png" alt="cr" width="800">
+</div>
+<div class="title">Figure 28. Example after the <code>cr</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -910,7 +1013,7 @@ Returns all reservations for customer with identification number, Q000001P.</p>
 <div class="content">
 <img src="images/fr1.png" alt="fr1" width="800">
 </div>
-<div class="title">Figure 13. Example for the <code>fr id/Q000001P</code> command</div>
+<div class="title">Figure 29. Example for the <code>fr id/Q000001P</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -924,7 +1027,7 @@ Returns all sharing room reservations for customer with identification number, Q
 <div class="content">
 <img src="images/fr2.png" alt="fr2" width="800">
 </div>
-<div class="title">Figure 14. Example for the <code>fr id/Q000001P r/SHARING ROOM</code> command</div>
+<div class="title">Figure 30. Example for the <code>fr id/Q000001P r/SHARING ROOM</code> command</div>
 </div>
 </div>
 </div>
@@ -1018,9 +1121,21 @@ Format: `{<span class="aqua">delete-service-type</span>/<span class="aqua">dst</
 <ul>
 <li>
 <p><code>dst 2</code><br>
-Deletes the service type at index 2</p>
+Deletes the service type at index 2.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dst1.png" alt="dst1" width="800">
+</div>
+<div class="title">Figure 31. Example before the <code>dst 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dst2.png" alt="dst2" width="800">
+</div>
+<div class="title">Figure 32. Example after the <code>dst 2</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1040,6 +1155,18 @@ Clears all service types and service bookings from the database.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cst1.png" alt="cst1" width="800">
+</div>
+<div class="title">Figure 33. Example before the <code>cst</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cst2.png" alt="cst2" width="800">
+</div>
+<div class="title">Figure 34. Example after the <code>cst</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="editing-a-service-type-code-edit-service-type-code-code-est-code"><a class="link" href="#editing-a-service-type-code-edit-service-type-code-code-est-code">3.5.4. Editing a service type : <code>edit-service-type</code>, <code>est</code></a></h4>
@@ -1057,6 +1184,18 @@ Format: <code>{<span class="aqua">edit-service-type</span>/<span class="aqua">es
 Edits the service type at index 2 by changing the capacity of the service to 100.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/est1.png" alt="est1" width="800">
+</div>
+<div class="title">Figure 35. Example before the <code>est 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/est2.png" alt="est2" width="800">
+</div>
+<div class="title">Figure 36. Example after the <code>est 2</code> command</div>
 </div>
 </div>
 </div>
@@ -1104,14 +1243,16 @@ Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span
 <div class="ulist">
 <ul>
 <li>
-<p><code>lc</code>, then <code>add-booking s/GYM :/20-23 $/2</code>
-Adds a booking for service GYM, for the 2nd customer from the complete customer list, from 20:00 to 23:00 if the service is available.</p>
-</li>
-<li>
-<p><code>fn Jack Rose</code>, then <code>add-booking s/GYM h/14-15 $/1 c/2</code>
-Adds a booking of service GYM in the name for first customer for him/her , from 14:00 to 15:00.</p>
+<p><code>lc</code>, then <code>add-booking s/SWIMMING POOL :/12-14 $/2</code>
+Adds a booking for service SWIMMING POOL, for the 2nd customer from the complete customer list, from 12:00 to 14:00 if the service is available.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ab1.png" alt="ab1" width="800">
+</div>
+<div class="title">Figure 37. Example for the <code>above</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1130,6 +1271,12 @@ Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</sp
 Lists all bookings.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lb.png" alt="lb" width="800">
+</div>
+<div class="title">Figure 38. Example for the <code>lb</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1183,9 +1330,25 @@ You can remove all the booking&#8217;s comments by typing <code>com/</code> with
 <div class="ulist">
 <ul>
 <li>
-<p><code>lb</code>, then <code>eb 1 s/GYM</code>
+<p><code>lb</code>, then <code>eb 1 s/TRANSPORT</code>
 Edits the service type of the 1st booking to be GYM.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/eb1.png" alt="eb1" width="800">
+</div>
+<div class="title">Figure 39. Example before the <code>eb 1 s/TRANSPORT</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/eb2.png" alt="eb2" width="800">
+</div>
+<div class="title">Figure 40. Example after the <code>eb 1 s/TRANSPORT</code> command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>lb</code>, then <code>edit-booking 2 :/14-15 com/</code>
 Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
@@ -1225,6 +1388,18 @@ Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</s
  <code>lb</code>, then <code>delete-booking 2</code><br>
 Deletes the 2nd booking of the booking database</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/db1.png" alt="db1" width="800">
+</div>
+<div class="title">Figure 41. Example before the <code>delete-booking 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/db2.png" alt="db2" width="800">
+</div>
+<div class="title">Figure 42. Example after the <code>delete-booking 2</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">3.6.5. Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
@@ -1242,6 +1417,18 @@ Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</s
 Clears all bookings from the database.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lb.png" alt="lb" width="800">
+</div>
+<div class="title">Figure 43. Example before the <code>cb</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lb.png" alt="lb" width="800">
+</div>
+<div class="title">Figure 44. Example after the <code>cb</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1277,12 +1464,22 @@ Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</spa
 <div class="ulist">
 <ul>
 <li>
-<p><code>fb id/A0124422</code><br>
-Returns all bookings for customer with identification number, A0124422.</p>
+<p><code>fb id/A0176884J</code><br>
+Returns all bookings for customer with identification number, A0176884J.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/fb1.png" alt="fb1" width="800">
+</div>
+<div class="title">Figure 45. Example before the <code>fb id/A0176884J</code> command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>fb id/A0124422 s/GYM</code><br>
-Returns all gym bookings for customer with identification number, A0124422.</p>
+<p><code>fb id/A0176884J s/SPA</code><br>
+Returns all spa bookings for customer with identification number, A0176884j.</p>
 </li>
 </ul>
 </div>
@@ -1327,7 +1524,7 @@ Returns the bill for all services booked by the customer at index 4.</p>
 <div class="content">
 <img src="images/gbb1.png" alt="gbb1" width="800">
 </div>
-<div class="title">Figure 15. Example for the <code>generate-bill-booking 4</code> command</div>
+<div class="title">Figure 46. Example for the <code>generate-bill-booking 4</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1341,7 +1538,7 @@ Returns the bill for all spa services booked for the customer at index 1.</p>
 <div class="content">
 <img src="images/gbb2.png" alt="gbb2" width="800">
 </div>
-<div class="title">Figure 16. Example for the <code>gb-b 1 s/SPA</code> command</div>
+<div class="title">Figure 47. Example for the <code>gb-b 1 s/SPA</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1383,7 +1580,7 @@ Returns the bill for all rooms reserved by the customer at index 1.</p>
 <div class="content">
 <img src="images/gbr2.png" alt="gbr2" width="800">
 </div>
-<div class="title">Figure 17. Example for the <code>generate-bill-reservation 1</code> command</div>
+<div class="title">Figure 48. Example for the <code>generate-bill-reservation 1</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1397,7 +1594,7 @@ Returns the bill for all sharing rooms reserved by the customer at index 3.</p>
 <div class="content">
 <img src="images/gbr1.png" alt="gbr1" width="800">
 </div>
-<div class="title">Figure 18. Example for the <code>gb-r 3 r/SHARING  ROOM</code> command</div>
+<div class="title">Figure 49. Example for the <code>gb-r 3 r/SHARING  ROOM</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1436,7 +1633,7 @@ Returns the total bill (includes all bookings and reservations) for the customer
 <div class="content">
 <img src="images/gbc1.png" alt="gbc1" width="800">
 </div>
-<div class="title">Figure 19. Example for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 50. Example for the <code>generate-bill-customer 1</code> command</div>
 </div>
 </div>
 </div>
@@ -1476,7 +1673,7 @@ This will switch to the booking tab in the the first panel.</p>
 <div class="content">
 <img src="images/st-1-1.png" alt="st 1 1" width="800">
 </div>
-<div class="title">Figure 20. Example for the <code>st 1 1</code> command</div>
+<div class="title">Figure 51. Example for the <code>st 1 1</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1490,7 +1687,7 @@ This will switch to the service type tab in the second panel.</p>
 <div class="content">
 <img src="images/st-2-1.png" alt="st 2 1" width="800">
 </div>
-<div class="title">Figure 21. Example for the <code>st 2 1</code> command</div>
+<div class="title">Figure 52. Example for the <code>st 2 1</code> command</div>
 </div>
 </div>
 <div class="sect2">
@@ -1510,6 +1707,12 @@ Selects the customer at index 1.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/s1.png" alt="s1" width="800">
+</div>
+<div class="title">Figure 53. Example for the <code>s 11</code> command</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="span-class-underline-listing-entered-commands-span-code-history-code-code-hs-code"><a class="link" href="#span-class-underline-listing-entered-commands-span-code-history-code-code-hs-code">3.10. <span class="underline">Listing entered commands</span> : <code>history</code>,<code>hs</code></a></h3>
@@ -1521,7 +1724,7 @@ Format: <code>{<span class="aqua">history</span>/<span class="aqua">hs</span>}</
 <div class="content">
 <img src="images/history-command.png" alt="history command" width="800">
 </div>
-<div class="title">Figure 22. Example for the <code>clear-all</code> command</div>
+<div class="title">Figure 54. Example for the <code>clear-all</code> command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1574,7 +1777,7 @@ Format: <code>{<span class="aqua">undo</span>/<span class="aqua">u</span>}</code
 <div class="content">
 <img src="images/undo.png" alt="undo" width="800">
 </div>
-<div class="title">Figure 23. Example for the `undo`command</div>
+<div class="title">Figure 55. Example for the `undo`command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1614,7 +1817,7 @@ Format: <code>{<span class="aqua">redo</span>/<span class="aqua">r</span>}</code
 <div class="content">
 <img src="images/undo-redo.png" alt="undo redo" width="800">
 </div>
-<div class="title">Figure 24. Example for the <code>undo</code> and <code>redo</code> command</div>
+<div class="title">Figure 56. Example for the <code>undo</code> and <code>redo</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1644,7 +1847,7 @@ Format: <code>{<span class="aqua">clear-hms</span>/<span class="aqua">clear-all<
 <div class="content">
 <img src="images/clear-all-command.png" alt="clear all command" width="800">
 </div>
-<div class="title">Figure 25. Example for the <code>clear-all</code> command</div>
+<div class="title">Figure 57. Example for the <code>clear-all</code> command</div>
 </div>
 </div>
 <div class="sect2">
@@ -1657,7 +1860,7 @@ Format: <code>{<span class="aqua">exit</span>/<span class="aqua">ex</span>}</cod
 <div class="content">
 <img src="images/exit-command.png" alt="exit command" width="800">
 </div>
-<div class="title">Figure 26. The <code>exit</code> command</div>
+<div class="title">Figure 58. The <code>exit</code> command</div>
 </div>
 </div>
 <div class="sect2">
@@ -1685,13 +1888,13 @@ All bookings will be shown and the tab will also be switched</p>
 <div class="content">
 <img src="images/atp_forbooking1.png" alt="atp forbooking1" width="800">
 </div>
-<div class="title">Figure 27. Example for the automatic tab switching for <code>lb</code> command before executing</div>
+<div class="title">Figure 59. Example for the automatic tab switching for <code>lb</code> command before executing</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/atp_forbooking2.png" alt="atp forbooking2" width="800">
 </div>
-<div class="title">Figure 28. Example for the automatic tab switching for <code>lb</code> command after executing</div>
+<div class="title">Figure 60. Example for the automatic tab switching for <code>lb</code> command after executing</div>
 </div>
 </div>
 <div class="sect3">
@@ -1714,13 +1917,13 @@ All reservations will be shown and the tab will also be switched.</p>
 <div class="content">
 <img src="images/atp_forreservation1.png" alt="atp forreservation1" width="800">
 </div>
-<div class="title">Figure 29. Example for the automatic tab switching for <code>lr</code> command before executing</div>
+<div class="title">Figure 61. Example for the automatic tab switching for <code>lr</code> command before executing</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/atp_forreservation2.png" alt="atp forreservation2" width="800">
 </div>
-<div class="title">Figure 30. Example for the automatic tab switching for <code>lr</code> command after executing</div>
+<div class="title">Figure 62. Example for the automatic tab switching for <code>lr</code> command after executing</div>
 </div>
 </div>
 <div class="sect3">
@@ -1743,13 +1946,13 @@ The bill be generated and the tab will also be switched.</p>
 <div class="content">
 <img src="images/atp_forbill1.png" alt="atp forbill1" width="800">
 </div>
-<div class="title">Figure 31. Example for the automatic tab switching for <code>gb-c 1</code> command before executing</div>
+<div class="title">Figure 63. Example for the automatic tab switching for <code>gb-c 1</code> command before executing</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/atp_forbill2.png" alt="atp forbill2" width="800">
 </div>
-<div class="title">Figure 32. Example for the automatic tab switching for <code>gb-c 1</code> command after executing</div>
+<div class="title">Figure 64. Example for the automatic tab switching for <code>gb-c 1</code> command after executing</div>
 </div>
 </div>
 </div>
@@ -1764,13 +1967,13 @@ The bill be generated and the tab will also be switched.</p>
 <div class="content">
 <img src="images/aps_forcustomer1.png" alt="aps forcustomer1" width="800">
 </div>
-<div class="title">Figure 33. Example for the automatic panel scrolling for <code>ac n/Tom Brown p/12442512 e/tom@brown.com id/G112342H</code> command before executing</div>
+<div class="title">Figure 65. Example for the automatic panel scrolling for <code>ac n/Tom Brown p/12442512 e/tom@brown.com id/G112342H</code> command before executing</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/aps_forcustomer2.png" alt="aps forcustomer2" width="800">
 </div>
-<div class="title">Figure 34. Example for the automatic panel scrolling for <code>ac n/Tom Brown p/12442512 e/tom@brown.com id/G112342H</code> command after executing</div>
+<div class="title">Figure 66. Example for the automatic panel scrolling for <code>ac n/Tom Brown p/12442512 e/tom@brown.com id/G112342H</code> command after executing</div>
 </div>
 </div>
 <div class="sect3">
@@ -1782,13 +1985,13 @@ The bill be generated and the tab will also be switched.</p>
 <div class="content">
 <img src="images/aps_forbooking1.png" alt="aps forbooking1" width="800">
 </div>
-<div class="title">Figure 35. Example for the automatic tab switching for <code>ab s/TUTORIAL :/10-11 $/1</code> command before executing</div>
+<div class="title">Figure 67. Example for the automatic tab switching for <code>ab s/TUTORIAL :/10-11 $/1</code> command before executing</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/aps_forbooking2.png" alt="aps forbooking2" width="800">
 </div>
-<div class="title">Figure 36. Example for the automatic tab switching for <code>ab s/TUTORIAL :/10-11 $/1</code> command after executing</div>
+<div class="title">Figure 68. Example for the automatic tab switching for <code>ab s/TUTORIAL :/10-11 $/1</code> command after executing</div>
 </div>
 </div>
 <div class="sect3">
@@ -1800,13 +2003,13 @@ The bill be generated and the tab will also be switched.</p>
 <div class="content">
 <img src="images/aps_forreservation1.png" alt="aps forreservation1" width="800">
 </div>
-<div class="title">Figure 37. Example for the automatic panel scrolling for <code>ar r/DOUBLE DOUBLE ROOM d/16/04/2019-17/04/2019 $/3</code> command before executing</div>
+<div class="title">Figure 69. Example for the automatic panel scrolling for <code>ar r/DOUBLE DOUBLE ROOM d/16/04/2019-17/04/2019 $/3</code> command before executing</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/aps_forreservation2.png" alt="aps forreservation2" width="800">
 </div>
-<div class="title">Figure 38. Example for the automatic panel scrolling for <code>ar r/DOUBLE DOUBLE ROOM d/16/04/2019-17/04/2019 $/3</code> command after executing</div>
+<div class="title">Figure 70. Example for the automatic panel scrolling for <code>ar r/DOUBLE DOUBLE ROOM d/16/04/2019-17/04/2019 $/3</code> command after executing</div>
 </div>
 </div>
 </div>
@@ -1821,13 +2024,13 @@ The bill be generated and the tab will also be switched.</p>
 <div class="content">
 <img src="images/fbc_forbooking1.png" alt="fbc forbooking1" width="800">
 </div>
-<div class="title">Figure 39. Example for booking filtering before clicking</div>
+<div class="title">Figure 71. Example for booking filtering before clicking</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/fbc_forbooking2.png" alt="fbc forbooking2" width="800">
 </div>
-<div class="title">Figure 40. Example for booking filtering after clicking</div>
+<div class="title">Figure 72. Example for booking filtering after clicking</div>
 </div>
 </div>
 <div class="sect3">
@@ -1839,13 +2042,13 @@ The bill be generated and the tab will also be switched.</p>
 <div class="content">
 <img src="images/fbc_forbooking1.png" alt="fbc forbooking1" width="800">
 </div>
-<div class="title">Figure 41. Example for reservation filtering before clicking</div>
+<div class="title">Figure 73. Example for reservation filtering before clicking</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/fbc_forbooking2.png" alt="fbc forbooking2" width="800">
 </div>
-<div class="title">Figure 42. Example for reservation filtering after clicking</div>
+<div class="title">Figure 74. Example for reservation filtering after clicking</div>
 </div>
 </div>
 </div>
@@ -2465,4 +2668,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:51:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:14:09 UTC</div></div></div></body></html>

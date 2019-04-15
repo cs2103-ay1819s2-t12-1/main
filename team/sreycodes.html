@@ -233,9 +233,28 @@ Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</
 <p>Examples:<br>
 Assume current date is 10 May, 2019.<br>
 * <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/5</code><br>
-Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.
-* <code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/05/2019-15/05/2019 $/1 c/2</code><br>
-Adds a reservation of Deluxe Room, in the name of the first customer for both him/her and the second customer, from 14 Feb 2019 to 15 Feb 2019.</p>
+Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ar1.png" alt="ar1" width="800">
+</div>
+<div class="title">Figure 1. Example after the <code>above</code> command</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-customers</code>, then <code>ar r/SHARING ROOM d/23/5/2019-25/5/2019 $/4 c/2 c/3</code><br>
+Adds a reservation of Sharing Room in the name of the 4th customer along with the 2nd and 3rd customers
+ from 23 May 2019 to 25 May 2019.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ar2.png" alt="ar2" width="800">
+</div>
+<div class="title">Figure 2. Example after the <code>above</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -254,6 +273,12 @@ Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr
 Lists all reservations.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/lr.png" alt="lr" width="800">
+</div>
+<div class="title">Figure 3. Example after the <code>lr</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -310,6 +335,22 @@ You can remove all the reservation&#8217;s comments by typing <code>com/</code> 
 <p><code>lr</code>, then <code>er 1 r/DOUBLE ROOM</code><br>
 Edits the room type of the 1st reservation to be DOUBLE ROOM.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/era.png" alt="era" width="800">
+</div>
+<div class="title">Figure 4. Example before the <code>er 1 r/DOUBLE ROOM</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/erb.png" alt="erb" width="800">
+</div>
+<div class="title">Figure 5. Example after the <code>er 1 r/DOUBLE ROOM</code> command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>lr</code>, then <code>er 2 d/14/02/2020-14/03/2020 com/</code><br>
 Edits the date of the 2nd reservation to be from 14 Feb 2020 to 14 Mar 2020 and clears all existing comments related to it.</p>
@@ -345,6 +386,18 @@ Deletes the 2nd entry of the reservation database.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dr1.png" alt="dr1" width="800">
+</div>
+<div class="title">Figure 6. Example before the <code>dr 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dr2.png" alt="dr2" width="800">
+</div>
+<div class="title">Figure 7. Example after the <code>dr 2</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
@@ -362,6 +415,18 @@ Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">c
 Clears all reservations from the database.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/lr.png" alt="lr" width="800">
+</div>
+<div class="title">Figure 8. Example before the <code>cr</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cr.png" alt="cr" width="800">
+</div>
+<div class="title">Figure 9. Example after the <code>cr</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -425,7 +490,7 @@ Returns all reservations for customer with identification number, Q000001P.</p>
 <div class="content">
 <img src="../images/fr1.png" alt="fr1" width="800">
 </div>
-<div class="title">Figure 1. Example for the <code>fr id/Q000001P</code> command</div>
+<div class="title">Figure 10. Example for the <code>fr id/Q000001P</code> command</div>
 </div>
 <div class="ulist">
 <ul>
@@ -439,7 +504,7 @@ Returns all sharing room reservations for customer with identification number, Q
 <div class="content">
 <img src="../images/fr2.png" alt="fr2" width="800">
 </div>
-<div class="title">Figure 2. Example for the <code>fr id/Q000001P r/SHARING ROOM</code> command</div>
+<div class="title">Figure 11. Example for the <code>fr id/Q000001P r/SHARING ROOM</code> command</div>
 </div>
 </div>
 </div>
@@ -487,14 +552,16 @@ Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span
 <div class="ulist">
 <ul>
 <li>
-<p><code>lc</code>, then <code>add-booking s/GYM :/20-23 $/2</code>
-Adds a booking for service GYM, for the 2nd customer from the complete customer list, from 20:00 to 23:00 if the service is available.</p>
-</li>
-<li>
-<p><code>fn Jack Rose</code>, then <code>add-booking s/GYM h/14-15 $/1 c/2</code>
-Adds a booking of service GYM in the name for first customer for him/her , from 14:00 to 15:00.</p>
+<p><code>lc</code>, then <code>add-booking s/SWIMMING POOL :/12-14 $/2</code>
+Adds a booking for service SWIMMING POOL, for the 2nd customer from the complete customer list, from 12:00 to 14:00 if the service is available.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ab1.png" alt="ab1" width="800">
+</div>
+<div class="title">Figure 12. Example for the <code>above</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -513,6 +580,12 @@ Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</sp
 Lists all bookings.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/lb.png" alt="lb" width="800">
+</div>
+<div class="title">Figure 13. Example for the <code>lb</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -566,9 +639,25 @@ You can remove all the booking&#8217;s comments by typing <code>com/</code> with
 <div class="ulist">
 <ul>
 <li>
-<p><code>lb</code>, then <code>eb 1 s/GYM</code>
+<p><code>lb</code>, then <code>eb 1 s/TRANSPORT</code>
 Edits the service type of the 1st booking to be GYM.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/eb1.png" alt="eb1" width="800">
+</div>
+<div class="title">Figure 14. Example before the <code>eb 1 s/TRANSPORT</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/eb2.png" alt="eb2" width="800">
+</div>
+<div class="title">Figure 15. Example after the <code>eb 1 s/TRANSPORT</code> command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>lb</code>, then <code>edit-booking 2 :/14-15 com/</code>
 Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
@@ -608,6 +697,18 @@ Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</s
  <code>lb</code>, then <code>delete-booking 2</code><br>
 Deletes the 2nd booking of the booking database</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/db1.png" alt="db1" width="800">
+</div>
+<div class="title">Figure 16. Example before the <code>delete-booking 2</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/db2.png" alt="db2" width="800">
+</div>
+<div class="title">Figure 17. Example after the <code>delete-booking 2</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
@@ -625,6 +726,18 @@ Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</s
 Clears all bookings from the database.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/lb.png" alt="lb" width="800">
+</div>
+<div class="title">Figure 18. Example before the <code>cb</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/lb.png" alt="lb" width="800">
+</div>
+<div class="title">Figure 19. Example after the <code>cb</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -660,12 +773,22 @@ Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</spa
 <div class="ulist">
 <ul>
 <li>
-<p><code>fb id/A0124422</code><br>
-Returns all bookings for customer with identification number, A0124422.</p>
+<p><code>fb id/A0176884J</code><br>
+Returns all bookings for customer with identification number, A0176884J.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/fb1.png" alt="fb1" width="800">
+</div>
+<div class="title">Figure 20. Example before the <code>fb id/A0176884J</code> command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>fb id/A0124422 s/GYM</code><br>
-Returns all gym bookings for customer with identification number, A0124422.</p>
+<p><code>fb id/A0176884J s/SPA</code><br>
+Returns all spa bookings for customer with identification number, A0176884j.</p>
 </li>
 </ul>
 </div>
@@ -711,7 +834,7 @@ we create relevant classes like <code>ReservationList</code>, <code>Reservation<
 <div class="content">
 <img src="../images/ModelComparison.png" alt="ModelComparison" width="600">
 </div>
-<div class="title">Figure 3. Changes in the Model Structure</div>
+<div class="title">Figure 21. Changes in the Model Structure</div>
 </div>
 <div class="paragraph">
 <p>Then you need to add the command files and parser files so that the application can parse commands
@@ -729,7 +852,7 @@ to get back the <code>CommandResult</code> which is used by the UI.</p>
 <div class="content">
 <img src="../images/MainCommandStructure.png" alt="MainCommandStructure" width="600">
 </div>
-<div class="title">Figure 4. The new command structure</div>
+<div class="title">Figure 22. The new command structure</div>
 </div>
 <div class="paragraph">
 <p>If the new model needs to be stored, then you also need to define JSON adapted classes
@@ -833,7 +956,7 @@ A sequence diagram is given below to make the following more clear.</p>
 <div class="content">
 <img src="../images/AddCustomerSequenceDiagram.png" alt="AddCustomerSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 5. Sequence diagram for <code>add-customer</code></div>
+<div class="title">Figure 23. Sequence diagram for <code>add-customer</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -928,4 +1051,4 @@ software engineering course. You can checkout my other projects <a href="https:/
 You can also email me <a href="mailto:sreyans.sipani99@gmail.com">here</a>.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:51:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:14:09 UTC</div></div></div></body></html>
