@@ -1,27 +1,30 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>HMS+ - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>HMS+ - Developer Guide</h1></div><div id="content"><div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>By: <code>Team T12-1</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
-</div>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle">Contents</div>
-<ul class="sectlevel1">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article toc2 toc-left"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>HMS+ - Developer Guide</h1><div id="toc" class="toc2"><div id="toctitle">Contents</div><ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#setting-up">2. Setting up</a>
 <ul class="sectlevel2">
 <li><a href="#prerequisites">2.1. Prerequisites</a></li>
 <li><a href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></li>
 <li><a href="#verifying-the-setup">2.3. Verifying the setup</a></li>
-<li><a href="#configurations-to-do-before-writing-code">2.4. Configurations to do before writing code</a></li>
+<li><a href="#configurations-to-do-before-writing-code">2.4. Configurations to do before writing code</a>
+<ul class="sectlevel3">
+<li><a href="#configuring-the-coding-style">2.4.1. Configuring the coding style</a></li>
+<li><a href="#setting-up-ci">2.4.2. Setting up CI</a></li>
+<li><a href="#getting-started-with-coding">2.4.3. Getting started with coding</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">3.1. Architecture</a></li>
-<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a>
+<ul class="sectlevel3">
+<li><a href="#how-the-ui-executes-commands">3.2.1. How the UI executes commands</a></li>
+<li><a href="#how-the-ui-updates-itself">3.2.2. How the UI updates itself</a></li>
+</ul>
+</li>
 <li><a href="#Design-Logic">3.3. Logic component</a></li>
 <li><a href="#Design-Model">3.4. Model component</a></li>
 <li><a href="#Design-Storage">3.5. Storage component</a></li>
@@ -30,13 +33,48 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#how-to-include-a-new-model">4.1. How to include a new model</a></li>
-<li><a href="#making-a-model-customizable">4.2. Making a model customizable</a></li>
-<li><a href="#filtering-service-booking-functionality">4.3. Filtering service booking functionality</a></li>
-<li><a href="#filtering-room-reservation-functionality">4.4. Filtering Room Reservation functionality</a></li>
-<li><a href="#generating-bill-for-customers">4.5. Generating Bill for Customers</a></li>
-<li><a href="#clear-functionality">4.6. Clear functionality</a></li>
-<li><a href="#undo-redo-feature">4.7. Undo/Redo feature</a></li>
+<li><a href="#how-to-include-a-new-model">4.1. How to include a new model</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-using-service-booking">4.1.1. Current Implementation using service booking</a></li>
+<li><a href="#design-considerations">4.1.2. Design Considerations</a></li>
+</ul>
+</li>
+<li><a href="#making-a-model-customizable">4.2. Making a model customizable</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation">4.2.1. Current Implementation</a></li>
+<li><a href="#design-considerations-2">4.2.2. Design Considerations</a></li>
+</ul>
+</li>
+<li><a href="#filtering-service-booking-functionality">4.3. Filtering service booking functionality</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-2">4.3.1. Current Implementation</a></li>
+<li><a href="#design-considerations-3">4.3.2. Design Considerations</a></li>
+</ul>
+</li>
+<li><a href="#filtering-room-reservation-functionality">4.4. Filtering Room Reservation functionality</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-3">4.4.1. Current Implementation</a></li>
+<li><a href="#design-consideration">4.4.2. Design Consideration</a></li>
+</ul>
+</li>
+<li><a href="#generating-bill-for-customers">4.5. Generating Bill for Customers</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-4">4.5.1. Current Implementation</a></li>
+<li><a href="#design-consideration-2">4.5.2. Design Consideration</a></li>
+<li><a href="#aspect-memory-storage-for-bill">4.5.3. Aspect: Memory storage for bill</a></li>
+</ul>
+</li>
+<li><a href="#clear-functionality">4.6. Clear functionality</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-5">4.6.1. Current Implementation</a></li>
+</ul>
+</li>
+<li><a href="#undo-redo-feature">4.7. Undo/Redo feature</a>
+<ul class="sectlevel3">
+<li><a href="#current-implementation-6">4.7.1. Current Implementation</a></li>
+<li><a href="#design-considerations-4">4.7.2. Design Considerations</a></li>
+</ul>
+</li>
 <li><a href="#logging">4.8. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
@@ -71,7 +109,13 @@
 <li><a href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a>
 <ul class="sectlevel2">
 <li><a href="#GetStartedProgramming-EachComponent">A.1. Improving each component</a></li>
-<li><a href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></li>
+<li><a href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a>
+<ul class="sectlevel3">
+<li><a href="#description">A.2.1. Description</a></li>
+<li><a href="#step-by-step-instructions">A.2.2. Step-by-step Instructions</a></li>
+<li><a href="#full-solution">A.2.3. Full Solution</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
@@ -86,17 +130,56 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#customers">G.2. Customers</a></li>
-<li><a href="#reservations">G.3. Reservations</a></li>
-<li><a href="#bookings">G.4. Bookings</a></li>
-<li><a href="#service-types">G.5. Service Types</a></li>
-<li><a href="#room-types">G.6. Room Types</a></li>
-<li><a href="#bill">G.7. Bill</a></li>
+<li><a href="#customers">G.2. Customers</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-customer">G.2.1. Adding a customer</a></li>
+<li><a href="#deleting-a-customer">G.2.2. Deleting a customer</a></li>
+</ul>
+</li>
+<li><a href="#reservations">G.3. Reservations</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-reservation">G.3.1. Adding a reservation</a></li>
+<li><a href="#editing-a-reservation">G.3.2. Editing a reservation</a></li>
+<li><a href="#listing-reservations">G.3.3. Listing reservations</a></li>
+<li><a href="#deleting-a-reservation">G.3.4. Deleting a reservation</a></li>
+</ul>
+</li>
+<li><a href="#bookings">G.4. Bookings</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-booking">G.4.1. Adding a booking</a></li>
+<li><a href="#editing-a-booking">G.4.2. Editing a booking</a></li>
+<li><a href="#listing-bookings">G.4.3. Listing bookings</a></li>
+<li><a href="#deleting-a-booking">G.4.4. Deleting a booking</a></li>
+</ul>
+</li>
+<li><a href="#service-types">G.5. Service Types</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-service-type">G.5.1. Adding a service Type</a></li>
+<li><a href="#editing-a-service-type">G.5.2. Editing a service type</a></li>
+<li><a href="#deleting-a-service-type">G.5.3. Deleting a service type</a></li>
+</ul>
+</li>
+<li><a href="#room-types">G.6. Room Types</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-room-type">G.6.1. Adding a room Type</a></li>
+<li><a href="#editing-a-room-type">G.6.2. Editing a room type</a></li>
+<li><a href="#deleting-a-room-type">G.6.3. Deleting a room type</a></li>
+</ul>
+</li>
+<li><a href="#bill">G.7. Bill</a>
+<ul class="sectlevel3">
+<li><a href="#generating-bill-for-a-customer">G.7.1. Generating bill for a customer</a></li>
+</ul>
+</li>
 <li><a href="#generating-booking-bill-for-a-customer">G.8. Generating booking bill for a customer.</a></li>
 <li><a href="#switching-tab">G.9. Switching tab</a></li>
 </ul>
 </li>
-</ul>
+</ul></div></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>Team T12-1</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -676,7 +759,7 @@ bookings in real-time in the UI as has been explained before.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Every model has a seperate interface which implements
+<p><strong>Alternative 1 (current choice):</strong> Every model has a separate interface which implements
 the <code>Model</code> interface</p>
 <div class="ulist">
 <ul>
@@ -690,7 +773,7 @@ the <code>Model</code> interface</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> All the model APIs will be seperate and there will be no Model Interface.</p>
+<p><strong>Alternative 2:</strong> All the model APIs will be separate and there will be no Model Interface.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1050,7 +1133,7 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
- Complying with the rules of <a href="#abstraction">[abstraction]</a>, the Logic component calls on Model to handle the internal details for updation.</p>
+ Complying with the rules of <a href="#abstraction">[abstraction]</a>, the Logic component calls on Model to handle the internal details for updating.</p>
 </div>
 <div class="paragraph">
 <p>The code used for generating the <span class="underline">booking bill</span> for the customer is shown in the snippet below:</p>
@@ -1486,7 +1569,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="sect2">
 <h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
-<p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
+<p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in web pages.</p>
 </div>
 <div class="paragraph">
 <p>Here are the steps to convert the project documentation files to PDF format.</p>
@@ -2593,8 +2676,8 @@ for <code>RemarkCommandParser</code>.</p>
 their payments.<br></p>
 </div>
 <div class="paragraph">
-<p>This is why these hotels use different softwares to keep a track of customer&#8217;s bookings and reservations and
-accordingly their payments. With time, it becomes difficult to keep a track of everything using different softwares.</p>
+<p>This is why these hotels use different software to keep a track of customer&#8217;s bookings and reservations and
+accordingly their payments. With time, it becomes difficult to keep a track of everything using different software.</p>
 </div>
 <div class="paragraph">
 <p>HMS+ provides hotels with a one-stop shop for all their managerial and organization needs.</p>
@@ -2872,7 +2955,7 @@ our user.</p>
 <p>The actor requests to edit a reservation at a specified index.</p>
 </li>
 <li>
-<p>The system editss the reservation.</p>
+<p>The system edits the reservation.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -3024,7 +3107,7 @@ our user.</p>
 <p>The actor requests to edit a booking at a specified index.</p>
 </li>
 <li>
-<p>The system editss the booking.</p>
+<p>The system edits the booking.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -3196,7 +3279,7 @@ our user.</p>
 <p>The actor requests to edit a room-type at a specified index.</p>
 </li>
 <li>
-<p>The system editss the room-type.</p>
+<p>The system edits the room-type.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -3374,7 +3457,7 @@ our user.</p>
 <p>The actor requests to edit a service at a specified index.</p>
 </li>
 <li>
-<p>The system editss the service.</p>
+<p>The system edits the service.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -4046,7 +4129,7 @@ Expected: No customer is added. Message shows "This customer already exists in t
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all customers using the <code>list-customers</code> command. Multiple customers in the list or atleast 1.</p>
+<p>Prerequisites: List all customers using the <code>list-customers</code> command. Multiple customers in the list or at least 1.</p>
 </li>
 <li>
 <p>Test case: <code>delete-customer 1</code><br>
@@ -4420,7 +4503,7 @@ Expected: Bill is not generated. Error details shown in the status message. Stat
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: At-least one customer who has atleast one booking in the database.</p>
+<p>Prerequisites: At-least one customer who has at least one booking in the database.</p>
 </li>
 <li>
 <p>Test case: <code>gb-b</code><br>
@@ -4471,4 +4554,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:22:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:30:15 UTC</div></div></div></body></html>
