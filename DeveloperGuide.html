@@ -32,10 +32,12 @@
 <ul class="sectlevel2">
 <li><a href="#adding-service-booking-functionality">4.1. Adding service booking functionality</a></li>
 <li><a href="#filtering-service-booking-functionality">4.2. Filtering service booking functionality</a></li>
-<li><a href="#generating-bill-for-customer-functionality">4.3. Generating Bill for Customer functionality</a></li>
-<li><a href="#undo-redo-feature">4.4. Undo/Redo feature</a></li>
-<li><a href="#logging">4.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
+<li><a href="#filtering-room-reservation-functionality">4.3. Filtering Room Reservation functionality</a></li>
+<li><a href="#generating-bill-for-customers">4.4. Generating Bill for Customers</a></li>
+<li><a href="#clear-functionality">4.5. Clear functionality</a></li>
+<li><a href="#undo-redo-feature">4.6. Undo/Redo feature</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -425,10 +427,8 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>StatsWindow</code>, <code>HelpWindow</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc.
+<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a>
+The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>StatsWindow</code>, <code>HelpWindow</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc.
 All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
@@ -519,7 +519,7 @@ In addition, the <code>CommandResult</code> object can also instruct the User-In
 <p>stores the Hotel Management System data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Customer/Booking&gt;</code> that can be 'observed'
+<p>exposes an unmodifiable <code>ObservableList&lt;Customer/Booking/Reservation/RoomType/ServiceType&gt;</code> that can be 'observed'
 e.g. the UI can be bound to this list so that the UI automatically updates when the
 data in the list change.</p>
 </li>
@@ -527,8 +527,11 @@ data in the list change.</p>
 <p>does not depend on any of the other three components.</p>
 </li>
 <li>
-<p>The Booking/Customer models serve as the API for the application to modify the
-Booking/Customer data.</p>
+<p>The <code>Reservation/Booking/Customer models</code> serve as the API for the application to modify the
+<code>Reservation/Booking/Customer data</code>.</p>
+</li>
+<li>
+<p>The <code>Bill model</code> serves the API for the application to generate bills for the customer. It cannot modify data at all. It only has access to <code>ObservableList</code> of the remaining models.</p>
 </li>
 </ul>
 </div>
@@ -731,7 +734,7 @@ The reason we use identification number(ID) instead of name or other factors is 
 <p>Pros: The command can be implemented as only getting access to one model.</p>
 </li>
 <li>
-<p>Cons: The scalablity of the program is low.</p>
+<p>Cons: The scalability of the program is low.</p>
 </li>
 </ul>
 </div>
@@ -741,7 +744,7 @@ The reason we use identification number(ID) instead of name or other factors is 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The scalablity of the program is high</p>
+<p>Pros: The scalability of the program is high</p>
 </li>
 <li>
 <p>Cons: Requiring more work and the old abstraction may break.</p>
@@ -755,29 +758,272 @@ The reason we use identification number(ID) instead of name or other factors is 
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-bill-for-customer-functionality"><a class="link" href="#generating-bill-for-customer-functionality">4.3. Generating Bill for Customer functionality</a></h3>
+<h3 id="filtering-room-reservation-functionality"><a class="link" href="#filtering-room-reservation-functionality">4.3. Filtering Room Reservation functionality</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The generate bill for customer function is facilitated by the interface <code>BillModel</code> which extends the interface <code>Model</code>.
-The <code>BillModel</code> constitutes the API for our bill component which is used by <code>Logic</code> component to execute the commands related to this model.
-There is also the <code>BillManager</code> which implements the <code>BillModel</code> and consists of functions required for generating the bill.</p>
+<p>The finding a specific room reservation functionality is facilitated by the <code>FindReservationCommand</code> class and is used whenever
+the hotel staff wants to find a specific reservation done by the customer. It reduces the tedious process that the hotel staff needs
+to do and helps them find the reservation in one go. To facilitate this, it depends on the <code>ReservationModel</code> interface which
+provides the API for the room reservation and room type component.</p>
 </div>
 <div class="paragraph">
-<p>Then the <code>GenerateBillForCustomerCommand</code> is implemented along with its parser <code>GenerateBillForCustomerCommandParser</code>.
-This parser class makes sure that the user has given the command in the correct format, and executes the command accordingly.
-If the user doesn&#8217;t type the command correctly, the parser class <code>throws ParseException</code> and tells user to input in correct format.</p>
+<p>The <code>FindReservationCommand</code> extends from the <code>ReservationCommand</code> class which in turn extends from the <code>Command</code> class. This is
+illustrated in the UML diagram shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="600">
+</div>
+<div class="title">Figure 11. FindReservationCommand UML Diagram</div>
 </div>
 <div class="paragraph">
-<p>The command class extends <code>BillCommand</code> which uses a single model, the  <code>BillModel</code>, to execute all the commands.
-This ensure that only the <code>BillManager</code> can execute commands related to bill.</p>
+<p>The <code>FindReservationCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
+high level <span class="underline">Sequence Diagram</span> for the <code>FindReservationCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="600">
+</div>
+<div class="title">Figure 12. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
 <div class="paragraph">
-<p>There is no storage created for the bill as a result of which the bill generated is never stored.</p>
+<p>As seen from the above diagram, this command doesn&#8217;t affect storage at all as the purpose of this command is to just find
+a specific reservation.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Logic</code> is responsible for parsing <code>FindReservationCommand</code>. It return a <code>FindReservationCommand</code> object after parsing
+the filters provided by the hotel staff.</p>
+</div>
+<div class="paragraph">
+<p>The <code>FindReservationCommand#execute()</code> method invokes the <code>updateFilteredList(reservationPredicate)</code> method from the
+<code>ReservationModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ReservationModel</code> component filters the reservation list based on the filters given by the user and sends this filtered list
+back to the <code>Logic</code> which in turn sends it back to the <code>Ui</code> for displaying the specific room reservation.</p>
+</div>
+<div class="paragraph">
+<p>This code snippet below shows how the <code>reservationPredicate</code> is generated based on the filters given by the hotel staff.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> FindReservationCommand parse(<span class="predefined-type">String</span> args, ReservationModel reservationModel) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+
+        <span class="comment">// ... logging ...</span>
+
+        ReservationContainsPayerPredicate reservationContainsPayerPredicate;
+        <span class="keyword">if</span> (argMultimap.getValue(PREFIX_IDENTIFICATION_NUMBER).isPresent()) {
+            reservationContainsPayerPredicate = <span class="keyword">new</span> ReservationContainsPayerPredicate(
+                ParserUtil.parseIdNum(argMultimap.getValue(PREFIX_IDENTIFICATION_NUMBER).get()).toString());
+        } <span class="keyword">else</span> {
+            reservationContainsPayerPredicate = <span class="keyword">new</span> ReservationContainsPayerPredicate(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+        }
+
+        ReservationWithTypePredicate reservationWithTypePredicate;
+        <span class="keyword">if</span> (argMultimap.getValue(PREFIX_ROOM).isPresent()) {
+            reservationWithTypePredicate = <span class="keyword">new</span> ReservationWithTypePredicate(
+                ParserUtil.parseRoom(argMultimap.getValue(PREFIX_ROOM).get(), reservationModel).getName());
+        } <span class="keyword">else</span> {
+            reservationWithTypePredicate = <span class="keyword">new</span> ReservationWithTypePredicate(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+        }
+
+        <span class="comment">// ... logging ...</span>
+
+        DateRange dateRange = ParserUtil.parseDates(argMultimap.getValue(PREFIX_DATES)
+            .orElse(currentDay + <span class="string"><span class="delimiter">&quot;</span><span class="content">-</span><span class="delimiter">&quot;</span></span> + oneYearAfterCurrentDay));
+        ReservationWithDatePredicate reservationWithDatePredicate =
+            <span class="keyword">new</span> ReservationWithDatePredicate(dateRange);
+
+        <span class="keyword">return</span> <span class="keyword">new</span> FindReservationCommand(reservationContainsPayerPredicate,
+            reservationWithTypePredicate, reservationWithDatePredicate);
+    }</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-consideration"><a class="link" href="#design-consideration">4.3.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-find-the-customer-whose-specific-reservation-is-to-be-found"><a class="link" href="#aspect-how-to-find-the-customer-whose-specific-reservation-is-to-be-found">Aspect: How to find the customer whose specific reservation is to be found</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> We use the customer&#8217;s identification number to find the particular customer</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Identification number of a customer is unique making it easy to find the customer.</p>
+</li>
+<li>
+<p>Cons: The extensibility of the program is low as it only uses identification number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> We allow any customer field to be used as a filter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The extensibility of the program is high as any customer field can be used a filter.</p>
+</li>
+<li>
+<p>Cons: Filters for all customer fields need to be created and some customer fields like name or date of birth are not
+unique to customers.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-the-command"><a class="link" href="#aspect-how-to-implement-the-command">Aspect: How to implement the command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> The command only has access to <code>ReservationModel</code> interface and can therefore only be used to
+filter reservations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Follows the Single Responsibility Principle and maintains abstraction.</p>
+</li>
+<li>
+<p>Cons: Each command only has access to one model, which causes scalability to low.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create an interface which allows commands to have access to two or more models together.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The scalability is high as each command can access various models.</p>
+</li>
+<li>
+<p>Cons:: This might break abstraction and does not follow the Single Responsibility Principle.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="generating-bill-for-customers"><a class="link" href="#generating-bill-for-customers">4.4. Generating Bill for Customers</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The generate bill for customer functionality is facilitated by the <code>GenerateBillForCustomerCommand</code> class and is used whenever
+ the hotel staff wants to generate bills for its customers. It allows the hotel staff to generate bills for their customers in one
+ go. To facilitate this, it depends on the <code>BillModel</code> interface and the <code>CustomerModel</code> interface which provide the API
+ for the bill component.</p>
+</div>
+<div class="paragraph">
+<p>The <code>GenerateBillForCustomerCommand</code> extends from the <code>BillCommand</code> class which in turn extends from the <code>Command</code> class. This is
+illustrated in the UML diagram shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="600">
+</div>
+<div class="title">Figure 13. GenerateBillForCustomerCommand UML Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>GenerateBillForCustomerCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
+high level <span class="underline">Sequence Diagram</span> for the <code>GenerateBillForCustomerCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
+</div>
+<div class="title">Figure 14. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
+</div>
+<div class="paragraph">
+<p>As seen from the above diagram, there is no storage created for the bill as a result of which the bill generated is
+never stored. Therefore, the bill needs to be generated every time.</p>
+</div>
+<div class="paragraph">
+<p>The <code>GenerateBillForCustomerCommandParser</code> is responsible for parsing the command. It return an <code>GenerateBillForCustomerCommand</code> object after parsing the index
+of the customer whose bill is to be generated. The figure below depicts the Sequence Diagram for interactions within the
+<code>Logic</code> component for the <code>execute(generate-bill-customer 1)</code> API call.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
+</div>
+<div class="title">Figure 15. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
+</div>
+<div class="paragraph">
+<p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
+ Complying with the rules of <a href="#abstraction">[abstraction]</a>, the Logic component calls on Model to handle the internal details for updation.</p>
+</div>
+<div class="paragraph">
+<p>The code used for generating the <span class="underline">booking bill</span> for the customer is shown in the snippet below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="predefined-type">HashMap</span>&lt;ServiceType, Pair&lt;<span class="predefined-type">Double</span>, <span class="predefined-type">Integer</span>&gt;&gt; generateHashMapForBooking(ObservableList&lt;Booking&gt;
+                                                                                bookingObservableList) {
+
+        <span class="predefined-type">HashMap</span>&lt;ServiceType, Pair&lt;<span class="predefined-type">Double</span>, <span class="predefined-type">Integer</span>&gt;&gt; bookingBill = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;&gt;();
+        <span class="keyword">for</span> (ServiceType st: serviceTypeList) {
+            bookingBill.put(st, generateTotalBillBasedOnServiceType(bookingObservableList, st));
+        }
+        <span class="keyword">return</span> bookingBill;
+    }
+
+ <span class="directive">private</span> Pair&lt;<span class="predefined-type">Double</span>, <span class="predefined-type">Integer</span>&gt; generateTotalBillBasedOnServiceType(ObservableList&lt;Booking&gt; bookingObservableList,
+                                                                      ServiceType serviceType) {
+        <span class="type">int</span> totalTime = <span class="integer">0</span>;
+        <span class="type">double</span> totalAmount = <span class="float">0.0</span>;
+        <span class="keyword">for</span> (Booking booking : bookingObservableList) {
+            <span class="keyword">if</span> ((booking.getService().equals(serviceType))) {
+                TimeRange timeRange = booking.getTiming();
+                <span class="type">int</span> hoursBooked = timeRange.numOfHours();
+                totalTime = totalTime + hoursBooked;
+                <span class="type">double</span> ratePerHour = booking.getService().getRatePerHour();
+                <span class="type">double</span> amount = hoursBooked * ratePerHour;
+                totalAmount = totalAmount + amount;
+            }
+        }
+        <span class="keyword">return</span> <span class="keyword">new</span> Pair&lt;&gt;(totalAmount, totalTime);
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The actual displaying of the booking bill is then done by <code>BillPanel</code> object by the following code snippet
+in the <code>Ui</code> component:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">if</span> (newValue.getBookingCount() &gt; <span class="integer">0</span>) {
+                stringBuilder.append(<span class="string"><span class="delimiter">&quot;</span><span class="content">Service Booking(s) :</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
+                <span class="keyword">for</span> (ServiceType st: newValue.getServiceTypes()) {
+                    <span class="keyword">if</span> (newValue.getServiceTypeBookingCount(st) &gt; <span class="integer">0</span>) {
+                        stringBuilder.append(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">%14s</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">[</span><span class="delimiter">&quot;</span></span> + st.getName() + <span class="string"><span class="delimiter">&quot;</span><span class="content">]</span><span class="delimiter">&quot;</span></span>)
+                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Rate per hour:%2.1f</span><span class="delimiter">&quot;</span></span>, st.getRatePerHour()) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
+                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Number of hour(s):%2d</span><span class="delimiter">&quot;</span></span>, newValue.getServiceTypeBookingCount(st))
+                                + <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">  Amount:%4.1f</span><span class="delimiter">&quot;</span></span>, newValue.getServiceTypeBill(st)) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
+                    }
+                }
+                stringBuilder.append(<span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">---------------------Sub-Total: %6.1f</span><span class="delimiter">&quot;</span></span>,
+                        newValue.getAmountBooking()) + <span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
+                stringBuilder.append(<span class="string"><span class="delimiter">&quot;</span><span class="content">--------------------------------------</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>);
+            } <span class="comment">//if count of bookings is greater than 0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <span class="underline">reservation bill</span> for the customer is also generated in the same manner and has therefore not been shown.
+The two bills are then combined and showed to the user.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.4.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-should-bill-generation-be-implemented"><a class="link" href="#aspect-how-should-bill-generation-be-implemented">Aspect: How should bill generation be implemented</a></h5>
 <div class="ulist">
@@ -815,7 +1061,7 @@ creating more work.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-memory-storage-for-bill"><a class="link" href="#aspect-memory-storage-for-bill">4.3.3. Aspect: Memory storage for bill</a></h4>
+<h4 id="aspect-memory-storage-for-bill"><a class="link" href="#aspect-memory-storage-for-bill">4.4.3. Aspect: Memory storage for bill</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -823,10 +1069,10 @@ creating more work.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: No work required to be done for storing the bills.</p>
+<p>Pros: No work required to be done for storing the bills. Storage space is also saved.</p>
 </li>
 <li>
-<p>Cons: If a new feature gets implemented, which requires history of bills, system will not be able to provide it.</p>
+<p>Cons: While implementing new features that require history of bills, the system will not be able to provide it.</p>
 </li>
 </ul>
 </div>
@@ -839,25 +1085,61 @@ creating more work.</p>
 <p>Pros: If bill history is required for a new feature, system will be able to provide it.</p>
 </li>
 <li>
-<p>Cons: Lot of work needs to be done for creating the storage of bills.</p>
+<p>Cons: Storing of bills will create duplicates of most of the data, as bill uses only existing data to generate output to customer
+and doesn&#8217;t add any new data. As a result of this, if bill gets stored it will just create duplication of data and cost the user more space.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
-</div>
-<div class="title">Figure 11. Component interactions for <code>generate-bill-customer 1</code> command</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.4. Undo/Redo feature</a></h3>
+<h3 id="clear-functionality"><a class="link" href="#clear-functionality">4.5. Clear functionality</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The clearing mechanism of HMS+ is facilitated by 5 different commands - <code>ClearRoomTypeCommand</code>, <code>ClearServiceTypeCommand</code>,
+<code>ClearReservationCommand</code>,<code>ClearBookingCommand</code> and <code>ClearHotelManagementSystemCommand</code> - and each of these commands clear
+specific parts of the database.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s first understand which commands clears which part of the database.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ClearBookingCommand</code> clears all the bookings from the database.</p>
+</li>
+<li>
+<p><code>ClearServiceTypeCommand</code> clear all service types from the database.</p>
+</li>
+<li>
+<p><code>ClearReservationCommand</code> clears all the reservations from the database.</p>
+</li>
+<li>
+<p><code>ClearRoomTypeCommand</code> clear all room types from the database.</p>
+</li>
+<li>
+<p><code>ClearHotelManagementSystemCommand</code> clears the entire database.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All the 5 commands have been implemented in the exact way. Therefore we will just go through the underlying structure of
+the <code>ClearHotelManagementSystemCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>Currently, the <code>ClearHotelManagementSystemCommand</code> extends from the <code>Command</code> class. The figure below shows the UML Diagram
+for the <code>ClearHotelManagementSystemCommand</code> class.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.6. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedHotelManagementSystem</code>.
 It extends <code>HotelManagementSystem</code> with an undo/redo history, stored internally as an <code>hotelManagementSystemStateList</code> and <code>currentStatePointer</code>.
@@ -987,7 +1269,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1057,14 +1339,14 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1095,7 +1377,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1161,7 +1443,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2235,29 +2517,35 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix B: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
+<p>HMS+ is targeted at hotels which want to use a single, highly customizable integrated system to manage all the aspects
+ their requirements.<br></p>
+</div>
+<div class="paragraph">
+<p>Hotels have hundreds of customers with each customer having their own service bookings, room reservations and
+their payments.<br></p>
+</div>
+<div class="paragraph">
+<p>This is why these hotels use different softwares to keep a track of customer&#8217;s bookings and reservations and
+accordingly their payments. With time, it becomes difficult to keep a track of everything using different softwares.</p>
+</div>
+<div class="paragraph">
+<p>HMS+ provides hotels with a one-stop shop for all their managerial and organization needs.</p>
+</div>
+<div class="paragraph">
+<p><strong><span class="underline">Target user profile</strong></span>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>Hoteliers</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
-</li>
-<li>
-<p>can type fast</p>
-</li>
-<li>
-<p>prefers typing over mouse input</p>
-</li>
-<li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>Hotel Management Staff</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong><span class="underline">Value proposition</span></strong>: hotels can efficiently manage its entire database faster than a typical mouse/GUI driven app.</p>
 </div>
 </div>
 </div>
@@ -2293,7 +2581,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add a new customer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a room reservation or a service booking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a room reservation or a service booking for the customer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2353,7 +2641,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hotel management staff</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">generate bill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">show the customer the remaining amount he has to pay for his stay at the hotel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">show the customer the remaining he has to pay for his stay at the hotel</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2455,23 +2743,23 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>HMS+</code> and the <strong>Actor</strong> is the Hotel Staff, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-reservation" class="discrete">Use case: Delete reservation</h3>
+<h3 id="use-case-generate-booking-bill-for-a-specific-customer" class="discrete">Use case: Generate booking bill for a specific customer</h3>
 <div class="paragraph">
 <p><strong>Main Success Scenario</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The actor requests all the reservations a customer has.</p>
+<p>The actor requests the list of all customers.</p>
 </li>
 <li>
-<p>The system lists the reservations requested.</p>
+<p>The system lists all the customers.</p>
 </li>
 <li>
-<p>The actor requests to delete a specific reservation.</p>
+<p>The actor requests to generate total bill for a specific customer.</p>
 </li>
 <li>
-<p>The system deletes the reservation.</p>
+<p>The system generates the total bill for that specific customer.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3</p>
 </div>
@@ -2484,28 +2772,52 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The customer has no reservations.</p>
+<p>2a. There are no customers</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The index that the staff selected is invalid.</p>
+<p>3a. The command that the actor entered is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. HMS+ shows an error message.</p>
+<p>3a1. The system shows an error message that the command is invalid.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>3b. The staff requests to stop deleting the reservation.</p>
+<p>3b. The index that the actor selected is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. The system shows an error message that the index is invalid.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b. The index that the actor selected is wrong.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. The system generates the booking bill for a different customer, not the intended one.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -2517,7 +2829,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The actor requests the lists of all the customers.</p>
+<p>The actor requests the list of all the customers.</p>
 </li>
 <li>
 <p>The system lists all the customers.</p>
@@ -2870,6 +3182,43 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="abstraction"></a> Abstraction</dt>
+<dd>
+<p>In Object-oriented Programming, abstraction is the mechanism by which users are provided with only the functionality, and not the implementation details. So, abstraction provides users with information on what an object does, rather than how it does it.</p>
+</dd>
+<dt class="hdlist1"><a id="cli"></a> CLI</dt>
+<dd>
+<p>Acronym for Command Line Interface. It is a purely text-based interface for software. User respond to visual prompts by typing single commands into the interface and receive results as text as well.
+<span class="underline">For example</span>: MS-DOS.</p>
+</dd>
+<dt class="hdlist1"><a id="gui"></a> GUI</dt>
+<dd>
+<p>Acronym for Graphical User Interface. In a GUI, the software interface consists of graphical icons, menus and/or other visual indicators to display information. Users can typically interact with these graphics, rather than just using text in the <a href="#cli">command line</a>.<br>
+<span class="underline">For example</span>: All Windows operating systems have a GUI.</p>
+</dd>
+<dt class="hdlist1"><a id="customer"></a> Customer</dt>
+<dd>
+<p>People who go to live in a hotel while they are on a vacation or stay-cation.</p>
+</dd>
+<dt class="hdlist1"><a id="hoteliers"></a> Hotelier</dt>
+<dd>
+<p>They are owners of the hotel who had initially invested money and now share in its profits.</p>
+</dd>
+<dt class="hdlist1"><a id="hotelstaff"></a> Hotel Management Staff</dt>
+<dd>
+<p>People who work in a hotel to earn livelihood and are concerned with the day to day activities of the  hotel.</p>
+</dd>
+<dt class="hdlist1"><a id="bookings"></a> Bookings</dt>
+<dd>
+<p>These refer to services which are blocked and paid for by the customers for a certain number of hours for their leisure or entertainment.<br>
+<span class="underline">For example</span>: A customer can book a service like gym for 2 hours.</p>
+</dd>
+<dt class="hdlist1"><a id="reservations"></a> Reservations</dt>
+<dd>
+<p>These refer to rooms which are blocked and paid for by the customers for a certain number of days so that they can have an enjoyable
+stay in the hotel.<br>
+<span class="underline">For example</span> : A customer can reserve a room for 3 days.</p>
+</dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
@@ -3031,7 +3380,7 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: At-least one customer in database.</p>
+<p>Prerequisites: At-least one customer who has atleast one booking or reservation in the database.</p>
 </li>
 <li>
 <p>Test case: <code>gb-c</code><br>
@@ -3078,4 +3427,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 08:46:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 09:55:54 UTC</div></div></div></body></html>
