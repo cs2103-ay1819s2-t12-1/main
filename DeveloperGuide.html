@@ -892,6 +892,16 @@ same time in one command. To implement the function without changing the base ab
 to check whether the payer of the booking is the customer we are selecting instead of using the index of a customer.
 The reason we use identification number(ID) instead of name or other factors is that the ID of one customer is unique.</p>
 </div>
+<div class="paragraph">
+<p>The <code>FindBookingCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
+high level <span class="underline">Sequence Diagram</span> for the <code>FindBookingCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindBookingSequenceDiagram.png" alt="FindBookingSequenceDiagram" width="600">
+</div>
+<div class="title">Figure 13. High Level Sequence Diagram for the  <code>find-booking id/A0176684J</code> command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
@@ -948,7 +958,7 @@ illustrated in the UML diagram shown below.</p>
 <div class="content">
 <img src="images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 13. FindReservationCommand UML Diagram</div>
+<div class="title">Figure 14. FindReservationCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>FindReservationCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -958,7 +968,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindRes
 <div class="content">
 <img src="images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 14. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
+<div class="title">Figure 15. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, this command doesn&#8217;t affect storage at all as the purpose of this command is to just find
@@ -1104,7 +1114,7 @@ illustrated in the UML diagram shown below.</p>
 <div class="content">
 <img src="images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 15. GenerateBillForCustomerCommand UML Diagram</div>
+<div class="title">Figure 16. GenerateBillForCustomerCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -1114,7 +1124,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>Generat
 <div class="content">
 <img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 16. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 17. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, there is no storage created for the bill as a result of which the bill generated is
@@ -1129,7 +1139,7 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
 <div class="content">
 <img src="images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
 </div>
-<div class="title">Figure 17. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 18. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
@@ -1594,7 +1604,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 19. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1933,7 +1943,7 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 <div class="sect2">
 <h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.6. Managing Dependencies</a></h3>
 <div class="paragraph">
-<p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives:</p>
+<p>A project often depends on third-party libraries. For example, Hotel Management System depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives:</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -2143,7 +2153,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>The tag labels are created inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java">the <code>PersonCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
+<p>The tag labels are created inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CustomerCard.java">the <code>CustomerCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
 </li>
 <li>
 <p>Use the .css attribute <code>-fx-background-color</code> to add a color.</p>
@@ -2159,7 +2169,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>You can modify the existing test methods for <code>PersonCard</code> 's to include testing the tag&#8217;s color as well.</p>
+<p>You can modify the existing test methods for <code>CustomerCard</code> 's to include testing the tag&#8217;s color as well.</p>
 </li>
 <li>
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/798">PR</a> for the full solution.</p>
@@ -2480,7 +2490,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-customercard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-customercard-code">[Step 3] Ui: Add a placeholder for remark in <code>CustomerCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>CustomerCard</code></a> s to display a remark for each customer later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CustomerCard.java"><code>CustomerCard</code></a> s to display a remark for each customer later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2488,10 +2498,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>Label</code> with any random text inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/PersonListCard.fxml"><code>PersonListCard.fxml</code></a>.</p>
+<p>Add a <code>Label</code> with any random text inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/CustomerListCard.fxml"><code>CustomerListCard.fxml</code></a>.</p>
 </li>
 <li>
-<p>Add FXML annotation in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> to tie the variable to the actual label.</p>
+<p>Add FXML annotation in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CustomerCard.java"><code>CustomerCard</code></a> to tie the variable to the actual label.</p>
 </li>
 </ol>
 </div>
@@ -2501,7 +2511,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/guitests/guihandles/PersonCardHandle.java"><code>PersonCardHandle</code></a> so that future tests can read the contents of the remark label.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/guitests/guihandles/CustomerCardHandle.java"><code>CustomerCardHandle</code></a> so that future tests can read the contents of the remark label.</p>
 </li>
 </ol>
 </div>
@@ -2509,7 +2519,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>We have to properly encapsulate the remark in our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2536,9 +2546,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="step-5-model-modify-code-person-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-person-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Person</code> to support a <code>Remark</code> field</a></h5>
+<h5 id="step-5-model-modify-code-customer-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-customer-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Customer</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2546,7 +2556,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>getRemark()</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Add <code>getRemark()</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a>.</p>
 </li>
 <li>
 <p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the customer will be created without a remark).</p>
@@ -2558,9 +2568,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="step-6-storage-add-code-remark-code-field-to-code-jsonadaptedperson-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-jsonadaptedperson-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>JsonAdaptedPerson</code> class</a></h5>
+<h5 id="step-6-storage-add-code-remark-code-field-to-code-jsonadaptedcustomer-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-jsonadaptedcustomer-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>JsonAdaptedCustomer</code> class</a></h5>
 <div class="paragraph">
-<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/JsonAdaptedPerson.java"><code>JsonAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
+<p>We now have <code>Remark</code> s for <code>Customer</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/JsonAdaptedCustomer.java"><code>JsonAdaptedCustomer</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2578,15 +2588,15 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Fix <code>invalidAndValidPersonHotelManagementSystem.json</code>, <code>typicalPersonsHotelManagementSystem.json</code>, <code>validHotelManagementSystem.json</code> etc., such that the JSON tests will not fail due to a missing <code>remark</code> field.</p>
+<p>Fix <code>invalidAndValidCustomerHotelManagementSystem.json</code>, <code>typicalCustomersHotelManagementSystem.json</code>, <code>validHotelManagementSystem.json</code> etc., such that the JSON tests will not fail due to a missing <code>remark</code> field.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect4">
-<h5 id="step-6b-test-add-withremark-for-code-personbuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-personbuilder-code">[Step 6b] Test: Add withRemark() for <code>PersonBuilder</code></a></h5>
+<h5 id="step-6b-test-add-withremark-for-code-customerbuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-customerbuilder-code">[Step 6b] Test: Add withRemark() for <code>CustomerBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Since <code>Customer</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/CustomerBuilder.java"><code>CustomerBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -2594,18 +2604,18 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the customer that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/CustomerBuilder.java"><code>CustomerBuilder</code></a>. This method will create a new <code>Remark</code> for the customer that it is currently building.</p>
 </li>
 <li>
-<p>Try and use the method on any sample <code>Person</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
+<p>Try and use the method on any sample <code>Customer</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/TypicalCustomers.java"><code>TypicalCustomers</code></a>.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect4">
-<h5 id="step-7-ui-connect-code-remark-code-field-to-code-personcard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-personcard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code></a></h5>
+<h5 id="step-7-ui-connect-code-remark-code-field-to-code-customercard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-customercard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>CustomerCard</code></a></h5>
 <div class="paragraph">
-<p>Our remark label in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
+<p>Our remark label in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CustomerCard.java"><code>CustomerCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2613,7 +2623,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Person</code> 's remark.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CustomerCard.java"><code>CustomerCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Customer</code> 's remark.</p>
 </li>
 </ol>
 </div>
@@ -2623,7 +2633,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysPerson(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
+<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysCustomer(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
 </li>
 </ol>
 </div>
@@ -4554,4 +4564,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:30:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:44 UTC</div></div></div></body></html>
