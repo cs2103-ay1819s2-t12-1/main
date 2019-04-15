@@ -25,7 +25,11 @@
 <li><a href="#how-the-ui-updates-itself">3.2.2. How the UI updates itself</a></li>
 </ul>
 </li>
-<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a>
+<ul class="sectlevel3">
+<li><a href="#statistics">3.3.1. Statistics</a></li>
+</ul>
+</li>
 <li><a href="#Design-Model">3.4. Model component</a></li>
 <li><a href="#Design-Storage">3.5. Storage component</a></li>
 <li><a href="#Design-Commons">3.6. Common classes</a></li>
@@ -567,29 +571,102 @@ The selected tab will also be changed accordingly if the command executed is a <
 </div>
 <div class="paragraph">
 <p><code>Logic</code> uses the <code>HotelManagementSystemParser</code> class to parse the user command and invoke the
-relevant <code>{Command Name}Parser</code> class. Given below is the structure of the parser classes.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/parser-structure.png" alt="width:&quot;800&quot;">
-</div>
-<div class="title">Figure 5. Structure of the Parser classes</div>
-</div>
-<div class="paragraph">
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code> using the
+relevant <code>{Command Name}Parser</code> class.
+This results in a <code>Command</code> object which is executed by the <code>LogicManager</code> using the
 <code>CustomerModel</code>,<code>BookingModel</code>, etc. based on the type of command.
 Therefore command execution can affect the <code>CustomerModel</code>,<code>BookingModel</code>, etc.
 (e.g. adding a customer / editing a booking). Given below is the structure of the command classes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command-structure.png" alt="width:&quot;800&quot;">
+<img src="images/CommandClassDiagram.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 6. Structure of the Command classes</div>
+<div class="title">Figure 5. Structure of the Command classes</div>
 </div>
 <div class="paragraph">
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>UI</code>.
 In addition, the <code>CommandResult</code> object can also instruct the User-Interface to perform certain actions, such as displaying help to the user.</p>
+</div>
+<div class="sect3">
+<h4 id="statistics"><a class="link" href="#statistics">3.3.1. Statistics</a></h4>
+<div class="paragraph">
+<p>The statistics features are implemented as a part of the Logic component, since it gathers information from all the models.
+The <code>Stats</code> object is a singleton that controls all calculations and updating of the individual items of the statistics.
+The <code>StatsItem</code> objects represent individual items to be displayed, e.g. the most popular room types and service types are two different <code>StatsItem</code>.
+The <code>ShowStatsCommand</code> emits a message for the <code>MainWindow</code> to open up a new <code>StatsWindow</code> and update its content.</p>
+</div>
+<div class="sect4">
+<h5 id="code-stats-code"><a class="link" href="#code-stats-code"><code>Stats</code></a></h5>
+<div class="paragraph">
+<p>The <code>Stats</code> object takes charge of all aspects of the statistics feature by doing the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Maintains a reference to the HMS.</p>
+</li>
+<li>
+<p>Maintains a list of <code>StatItem</code> to be calculated.</p>
+</li>
+<li>
+<p>Maintains a list for items that needs to be shown.</p>
+</li>
+<li>
+<p>Provides a way for the items to be exported to one text report, which would show up in the <code>StatsWindow</code>.</p>
+</li>
+<li>
+<p>Provides a way to update everything that needs to be shown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>Stats</code> object is designed in a modular way.
+If one wants to add a new <code>StatsItem</code>, they simply need to add a new instance of that <code>StatsItem</code> to the items list.
+Everything else will be taken care of, including calculating and displaying.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-statsitem-code"><a class="link" href="#code-statsitem-code"><code>StatsItem</code></a></h5>
+<div class="paragraph">
+<p><code>StatsItem</code> objects are individual items to be computed, or, small fields in the reports.  The following information is stored in each <code>StatsItem</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The title of the item is stored in a <code>String</code>.</p>
+</li>
+<li>
+<p>The results of the stats are stored in a <code>Map&lt;String, Long&gt;</code>.</p>
+</li>
+<li>
+<p>The way to calculate the stats should be defined in the <code>calcResults</code> function, which would return that <code>Map&lt;String, Long&gt;</code>.</p>
+</li>
+<li>
+<p>A <code>longest</code> variable which contains the length of the longest string in the keys of the map. This is useful in formatting.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The abstract class also provides a few utility functions for easier creation of new <code>StatItem</code>:
+- <code>count</code> which turns an observable list (the returned value from all models) to a map of counting, in a way defined by the function provided.
+- <code>updateLongest</code> which iterates through the list and updates the <code>longest</code> variable.
+- <code>sortAndFormat</code> whose name suggests what it does.</p>
+</div>
+<div class="paragraph">
+<p>Usually, the developer only needs to provide the observable list and the function <code>f</code> for <code>count</code>. That <code>f</code> should transform items of the observable list into strings.
+Then, <code>count</code> will iterate through the observable list, map each element into a string with <code>f</code>, and count how many times the strings have appeared.
+For example, in the <code>CountRoomTypes</code> item, the observable list is the reservation list, and <code>f</code> maps each reservation into a string of its room type.
+Many reservations can have the same room type, and then the result will be a <code>Map&lt;String, Long&gt;</code>, the strings of the room types being the key, and the number they appear being the value.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="code-showstatscommand-code"><a class="link" href="#code-showstatscommand-code"><code>ShowStatsCommand</code></a></h5>
+<div class="paragraph">
+<p>To implement the <code>ShowStatsCommand</code>, which needs to emit messages to the <code>MainWindow</code>, two new arguments for <code>CommandResult</code> are added.
+One is a boolean value for whether the stats window should show up or not, the other a list for what items to display.
+Apart from that, the static variable <code>maxIndex</code> is set by the <code>Stats</code> object, for what the <code>maxIndex</code> should be is not known until run time.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -598,13 +675,13 @@ In addition, the <code>CommandResult</code> object can also instruct the User-In
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="width:&quot;600&quot;">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CustomerModelDiagram.png" alt="CustomerModelDiagram" width="200">
 </div>
-<div class="title">Figure 8. Structure of the CustomerModel Component</div>
+<div class="title">Figure 7. Structure of the CustomerModel Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model.java</code></a></p>
@@ -661,7 +738,7 @@ Another example is how we store a <code>Tag</code> list in <code>Hotel Managemen
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="1200">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -718,7 +795,7 @@ we create relevant classes like <code>ReservationList</code>, <code>Reservation<
 <div class="content">
 <img src="images/ModelComparison.png" alt="ModelComparison" width="600">
 </div>
-<div class="title">Figure 10. Changes in the Model Structure</div>
+<div class="title">Figure 9. Changes in the Model Structure</div>
 </div>
 <div class="paragraph">
 <p>Then you need to add the command files and parser files so that the application can parse commands
@@ -736,7 +813,7 @@ to get back the <code>CommandResult</code> which is used by the UI.</p>
 <div class="content">
 <img src="images/MainCommandStructure.png" alt="MainCommandStructure" width="600">
 </div>
-<div class="title">Figure 11. The new command structure</div>
+<div class="title">Figure 10. The new command structure</div>
 </div>
 <div class="paragraph">
 <p>If the new model needs to be stored, then you also need to define JSON adapted classes
@@ -840,7 +917,7 @@ A sequence diagram is given below to make the following more clear.</p>
 <div class="content">
 <img src="images/AddCustomerSequenceDiagram.png" alt="AddCustomerSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 12. Sequence diagram for <code>add-customer</code></div>
+<div class="title">Figure 11. Sequence diagram for <code>add-customer</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -900,7 +977,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindBoo
 <div class="content">
 <img src="images/FindBookingSequenceDiagram.png" alt="FindBookingSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 13. High Level Sequence Diagram for the  <code>find-booking id/A0176684J</code> command</div>
+<div class="title">Figure 12. High Level Sequence Diagram for the  <code>find-booking id/A0176684J</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -958,7 +1035,7 @@ illustrated in the UML diagram shown below.</p>
 <div class="content">
 <img src="images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 14. FindReservationCommand UML Diagram</div>
+<div class="title">Figure 13. FindReservationCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>FindReservationCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -968,7 +1045,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindRes
 <div class="content">
 <img src="images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 15. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
+<div class="title">Figure 14. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, this command doesn&#8217;t affect storage at all as the purpose of this command is to just find
@@ -985,43 +1062,6 @@ the filters provided by the hotel staff.</p>
 <div class="paragraph">
 <p>The <code>ReservationModel</code> component filters the reservation list based on the filters given by the user and sends this filtered list
 back to the <code>Logic</code> which in turn sends it back to the <code>Ui</code> for displaying the specific room reservation.</p>
-</div>
-<div class="paragraph">
-<p>This code snippet below shows how the <code>reservationPredicate</code> is generated based on the filters given by the hotel staff.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> FindReservationCommand parse(<span class="predefined-type">String</span> args, ReservationModel reservationModel) <span class="directive">throws</span> <span class="exception">ParseException</span> {
-
-        <span class="comment">// ... logging ...</span>
-
-        ReservationContainsPayerPredicate reservationContainsPayerPredicate;
-        <span class="keyword">if</span> (argMultimap.getValue(PREFIX_IDENTIFICATION_NUMBER).isPresent()) {
-            reservationContainsPayerPredicate = <span class="keyword">new</span> ReservationContainsPayerPredicate(
-                ParserUtil.parseIdNum(argMultimap.getValue(PREFIX_IDENTIFICATION_NUMBER).get()).toString());
-        } <span class="keyword">else</span> {
-            reservationContainsPayerPredicate = <span class="keyword">new</span> ReservationContainsPayerPredicate(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-        }
-
-        ReservationWithTypePredicate reservationWithTypePredicate;
-        <span class="keyword">if</span> (argMultimap.getValue(PREFIX_ROOM).isPresent()) {
-            reservationWithTypePredicate = <span class="keyword">new</span> ReservationWithTypePredicate(
-                ParserUtil.parseRoom(argMultimap.getValue(PREFIX_ROOM).get(), reservationModel).getName());
-        } <span class="keyword">else</span> {
-            reservationWithTypePredicate = <span class="keyword">new</span> ReservationWithTypePredicate(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-        }
-
-        <span class="comment">// ... logging ...</span>
-
-        DateRange dateRange = ParserUtil.parseDates(argMultimap.getValue(PREFIX_DATES)
-            .orElse(currentDay + <span class="string"><span class="delimiter">&quot;</span><span class="content">-</span><span class="delimiter">&quot;</span></span> + oneYearAfterCurrentDay));
-        ReservationWithDatePredicate reservationWithDatePredicate =
-            <span class="keyword">new</span> ReservationWithDatePredicate(dateRange);
-
-        <span class="keyword">return</span> <span class="keyword">new</span> FindReservationCommand(reservationContainsPayerPredicate,
-            reservationWithTypePredicate, reservationWithDatePredicate);
-    }</code></pre>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -1114,7 +1154,7 @@ illustrated in the UML diagram shown below.</p>
 <div class="content">
 <img src="images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 16. GenerateBillForCustomerCommand UML Diagram</div>
+<div class="title">Figure 15. GenerateBillForCustomerCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -1124,7 +1164,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>Generat
 <div class="content">
 <img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 17. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 16. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, there is no storage created for the bill as a result of which the bill generated is
@@ -1139,7 +1179,7 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
 <div class="content">
 <img src="images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
 </div>
-<div class="title">Figure 18. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 17. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
@@ -1604,7 +1644,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 19. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4564,4 +4604,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:55:37 UTC</div></div></div></body></html>

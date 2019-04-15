@@ -123,29 +123,6 @@ customer&#8217;s Identification Number or Room Type or Dates of Reservation or a
 </ul>
 </div>
 </li>
-<li>
-<p><span class="underline">Customer fields</span>: This enhancement added two customer fields - <code>Date of Birth</code> and <code>Identification Number</code> -
-to a customer&#8217;s data.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: This enhancement added two new fields - <code>Date of Birth</code> and <code>Identification Number</code> - to identify a customer.</p>
-</li>
-<li>
-<p>Justification: Running a hotel management system, <code>Date of Birth</code> and <code>Identification Number</code> are two important fields required by the hotel management to identify
-a customer.</p>
-</li>
-<li>
-<p>Highlights: This enhancement is an end-to-end implementation that allows staff to take in two additional fields for the
-customer. While implementing them, I had to make sure that I followed the structure of the already implemented customer fields
-so that a similar structure is maintained throughout the codebase and it becomes easier for a new developer to understand and work on the code.</p>
-</li>
-<li>
-<p>Relevant Pull Requests: <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/81">#81</a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/28">#28</a></p>
-</li>
-</ul>
-</div>
-</li>
 </ol>
 </div>
 </li>
@@ -280,85 +257,6 @@ them understand the commands.</p>
 <div class="paragraph">
 <p><span class="lime">Start of Extract (from User Guide)</span></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="span-class-underline-generate-bill-commands-span"><a class="link" href="#span-class-underline-generate-bill-commands-span"><span class="underline">Generate Bill commands</span></a></h3>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>All generate bill commands only display the bill. They don&#8217;t make any change in the storage or the database. That is, the bill
-isn&#8217;t stored anywhere. So any changes in the database due to other commands while bill is being displayed doesn&#8217;t affect it.
-To see the new update in the bill, the command needs to be inputted again.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sect3">
-<h4 id="generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code"><a class="link" href="#generate-bill-for-specific-booking-code-generate-bill-booking-code-code-gb-b-code">Generate bill for specific booking: <code>generate-bill-booking</code>, <code>gb-b</code></a></h4>
-<div class="paragraph">
-<p>Effect: Generates the bill for the specific booking of a customer<br>
-Format: <code>{<span class="aqua">generate-bill-booking</span>/<span class="aqua">gb-b</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME - END_TIME</span> <span class="black">]</span></code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lc</code>, then <code>generate-bill-booking 4</code><br>
-Returns the bill for all services booked by the customer at index 4.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/gbb1.png" alt="gbb1" width="800">
-</div>
-<div class="title">Figure 1. Example for the <code>generate-bill-booking 4</code> command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code"><a class="link" href="#generate-bill-for-specific-reservation-code-generate-bill-reservation-code-code-gb-r-code">Generate bill for specific reservation: <code>generate-bill-reservation</code>, <code>gb-r</code></a></h4>
-<div class="paragraph">
-<p>Effect: Generates the bill for the specific booking of a customer<br>
-Format: <code>{<span class="aqua">generate-bill-reservation</span>/<span class="aqua">gb-r</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE - END_DATE</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If you enter <code>gb-r 2 d/4/6/2019 - 7/6/2019</code>, it calculates the bill for all reservations between 4th June to 7th June for customer at index 2. This does not include reservations which include the date 7th June.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:
-* <code>lc</code>, then <code>gb-r 3 r/SHARING ROOM</code><br>
-Returns the bill for all sharing rooms reserved by the customer at index 3.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/gbr1.png" alt="gbr1" width="800">
-</div>
-<div class="title">Figure 2. Example for the <code>gb-r 3 r/SHARING  ROOM</code> command</div>
-</div>
-</div>
 <div class="sect3">
 <h4 id="generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code"><a class="link" href="#generate-customer-s-bill-code-generate-bill-customer-code-code-gb-c-code">Generate customer&#8217;s bill : <code>generate-bill-customer</code>, <code>gb-c</code></a></h4>
 <div class="paragraph">
@@ -395,7 +293,7 @@ Returns the total bill (includes all bookings and reservations) for the customer
 <div class="content">
 <img src="../images/gbc1.png" alt="gbc1" width="800">
 </div>
-<div class="title">Figure 3. Example for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 1. Example for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p><span class="lime">End of Extract (from User Guide)</span></p>
@@ -508,7 +406,7 @@ illustrated in the UML diagram shown below.</p>
 <div class="content">
 <img src="../images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 4. GenerateBillForCustomerCommand UML Diagram</div>
+<div class="title">Figure 2. GenerateBillForCustomerCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -518,7 +416,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>Generat
 <div class="content">
 <img src="../images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 5. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 3. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, there is no storage created for the bill as a result of which the bill generated is
@@ -533,7 +431,7 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
 <div class="content">
 <img src="../images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
 </div>
-<div class="title">Figure 6. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 4. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
@@ -681,7 +579,7 @@ illustrated in the UML diagram shown below.</p>
 <div class="content">
 <img src="../images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="300">
 </div>
-<div class="title">Figure 7. FindReservationCommand UML Diagram</div>
+<div class="title">Figure 5. FindReservationCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>FindReservationCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -691,7 +589,7 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindRes
 <div class="content">
 <img src="../images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 8. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
+<div class="title">Figure 6. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, this command doesn&#8217;t affect storage at all as the purpose of this command is to just find
@@ -708,43 +606,6 @@ the filters provided by the hotel staff.</p>
 <div class="paragraph">
 <p>The <code>ReservationModel</code> component filters the reservation list based on the filters given by the user and sends this filtered list
 back to the <code>Logic</code> which in turn sends it back to the <code>Ui</code> for displaying the specific room reservation.</p>
-</div>
-<div class="paragraph">
-<p>This code snippet below shows how the <code>reservationPredicate</code> is generated based on the filters given by the hotel staff.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> FindReservationCommand parse(<span class="predefined-type">String</span> args, ReservationModel reservationModel) <span class="directive">throws</span> <span class="exception">ParseException</span> {
-
-        <span class="comment">// ... logging ...</span>
-
-        ReservationContainsPayerPredicate reservationContainsPayerPredicate;
-        <span class="keyword">if</span> (argMultimap.getValue(PREFIX_IDENTIFICATION_NUMBER).isPresent()) {
-            reservationContainsPayerPredicate = <span class="keyword">new</span> ReservationContainsPayerPredicate(
-                ParserUtil.parseIdNum(argMultimap.getValue(PREFIX_IDENTIFICATION_NUMBER).get()).toString());
-        } <span class="keyword">else</span> {
-            reservationContainsPayerPredicate = <span class="keyword">new</span> ReservationContainsPayerPredicate(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-        }
-
-        ReservationWithTypePredicate reservationWithTypePredicate;
-        <span class="keyword">if</span> (argMultimap.getValue(PREFIX_ROOM).isPresent()) {
-            reservationWithTypePredicate = <span class="keyword">new</span> ReservationWithTypePredicate(
-                ParserUtil.parseRoom(argMultimap.getValue(PREFIX_ROOM).get(), reservationModel).getName());
-        } <span class="keyword">else</span> {
-            reservationWithTypePredicate = <span class="keyword">new</span> ReservationWithTypePredicate(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-        }
-
-        <span class="comment">// ... logging ...</span>
-
-        DateRange dateRange = ParserUtil.parseDates(argMultimap.getValue(PREFIX_DATES)
-            .orElse(currentDay + <span class="string"><span class="delimiter">&quot;</span><span class="content">-</span><span class="delimiter">&quot;</span></span> + oneYearAfterCurrentDay));
-        ReservationWithDatePredicate reservationWithDatePredicate =
-            <span class="keyword">new</span> ReservationWithDatePredicate(dateRange);
-
-        <span class="keyword">return</span> <span class="keyword">new</span> FindReservationCommand(reservationContainsPayerPredicate,
-            reservationWithTypePredicate, reservationWithDatePredicate);
-    }</code></pre>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -782,216 +643,9 @@ unique to customers.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-to-implement-the-command"><a class="link" href="#aspect-how-to-implement-the-command">Aspect: How to implement the command</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> The command only has access to <code>ReservationModel</code> interface and can therefore only be used to
-filter reservations.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Follows the Single Responsibility Principle and maintains abstraction.</p>
-</li>
-<li>
-<p>Cons: Each command only has access to one model, which causes scalability to low.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Create an interface which allows commands to have access to two or more models together.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: The scalability is high as each command can access various models.</p>
-</li>
-<li>
-<p>Cons:: This might break abstraction and does not follow the Single Responsibility Principle.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p><span class="lime">End of Extract (from Developer Guide)</span></p>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="other-sections-in-the-user-guide"><a class="link" href="#other-sections-in-the-user-guide">Appendix A: Other sections in the User Guide</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section contains all my other additions to User Guide which will help the user understand the software and use it
-more efficiently.</p>
-</div>
-<div class="sect2">
-<h3 id="a-1-prefix-list"><a class="link" href="#a-1-prefix-list">A.1 Prefix List</a></h3>
-<div class="paragraph">
-<p>The Prefix List was added by me keeping in mind that our software has a large number of prefixes and it might become confusing
-for the user as to which prefix to use when. This list will help the users understand which prefix to use when and the constraints
-that each of the prefixes have.</p>
-</div>
-<div class="paragraph">
-<p>The extract shown below is just an excerpt from the Prefix List and not the entire glossary. To see the full list refer to
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/UserGuide.adoc#5-prefix-list">Prefix List in User Guide</a>.</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from User Guide)</span></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong class="underline">Email</strong><br></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><em>Prefix</em></dt>
-<dd>
-<p><code>e/</code><br></p>
-</dd>
-<dt class="hdlist1"><em>Validation</em></dt>
-<dd>
-<p>Email should  adhere to the following constraints:</p>
-<div class="literalblock">
-<div class="content">
-<pre>1: Email should be of the format local-part@domain.
-2: The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (!#$%&amp;'*+/=?`{|}~^.-).
-3: This is followed by a '@' and then a domain name. The domain name must:
-    - be at least 2 characters long
-    - start and end with alphanumeric characters
-    - consists alphanumeric characters, a period or hyphen for characters in between</pre>
-</div>
-</div>
-</dd>
-<dt class="hdlist1"><em>Example</em></dt>
-<dd>
-<p><span class="blue">e/</span> <a href="mailto:tejasbhuwania2855@gmail.com">tejasbhuwania2855@gmail.com</a></p>
-</dd>
-</dl>
-</div>
-</li>
-<li>
-<p><strong class="underline">Identification Number</strong><br></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><em>Prefix</em></dt>
-<dd>
-<p><code>id/</code><br></p>
-</dd>
-<dt class="hdlist1"><em>Validation</em></dt>
-<dd>
-<p>Identification Number should adhere to following constraints:</p>
-<div class="literalblock">
-<div class="content">
-<pre>1: It should contain only digits and uppercase alphabetical letters.
-2: It should be at least 7 digits long and maximum 10 digits long</pre>
-</div>
-</div>
-</dd>
-<dt class="hdlist1"><em>Example</em></dt>
-<dd>
-<p><span class="blue">id/</span> Z4264321</p>
-</dd>
-</dl>
-</div>
-</li>
-<li>
-<p><strong class="underline">Date of Birth</strong><br></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><em>Prefix</em></dt>
-<dd>
-<p><code>dob/</code><br></p>
-</dd>
-<dt class="hdlist1"><em>Validation</em></dt>
-<dd>
-<p>Date of Birth should adhere to the following constraints:</p>
-<div class="literalblock">
-<div class="content">
-<pre>1: Date of birth should not exceed the current date.
-2: Date of birth should be of the format: DD/MM/YYYY.</pre>
-</div>
-</div>
-</dd>
-<dt class="hdlist1"><em>Example</em></dt>
-<dd>
-<p><span class="blue">dob/</span> 28/05/1999</p>
-</dd>
-</dl>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from User Guide)</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="other-sections-in-the-developer-guide"><a class="link" href="#other-sections-in-the-developer-guide">Appendix B: Other sections in the Developer Guide</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section contains all my other additions to the Developer Guide which will help the incoming developers understand the
-motives behind the software and how they all fit well together into a single product. This well help them dive into the software
-with full preparation and work on it in an efficient manner.</p>
-</div>
-<div class="sect2">
-<h3 id="b-1-glossary"><a class="link" href="#b-1-glossary">B.1 Glossary</a></h3>
-<div class="paragraph">
-<p>The Glossary section was added by me to help the developers understand the different terms used in the Developer Guide.
-In case, a developer is unsure about a specific term he/she can easily refer to it in the glossary and understand what it means.</p>
-</div>
-<div class="paragraph">
-<p>The extract shown below is just an excerpt from the Glossary and not the entire list. To see the full list refer to
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#appendix-f-glossary">Glossary in Developer Guide</a>.</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from Developer Guide)</span></p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="abstraction"></a> Abstraction</dt>
-<dd>
-<p>In Object-oriented Programming, abstraction is the mechanism by which users are provided with only the functionality, and not the implementation details. So, abstraction provides users with information on what an object does, rather than how it does it.</p>
-</dd>
-<dt class="hdlist1"><a id="singleresprinciple"></a> Single Responsibility Principle</dt>
-<dd>
-<p>The single responsibility principle is a computer programming principle that states that every module, class, or
-function should have responsibility over a single part of the functionality provided by the software, and that
-responsibility should be entirely encapsulated by the class.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from Developer Guide)</span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="b-2-other-additions"><a class="link" href="#b-2-other-additions">B.2 Other Additions</a></h3>
-<div class="sect3">
-<h4 id="storage-component-diagram"><a class="link" href="#storage-component-diagram">Storage Component Diagram</a></h4>
-<div class="paragraph">
-<p>I also updated the <code>Storage Component Diagram</code> to make it represent the current stage of Storage. The current stage of Storage
-can be seen below:</p>
-</div>
-<div class="paragraph">
-<p><span class="lime">Start of Extract (from Developer Guide)</span></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="1200">
-</div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
-</div>
-<div class="paragraph">
-<p><span class="lime">End of Extract (from Developer Guide)</span></p>
 </div>
 </div>
 </div>
@@ -1003,7 +657,7 @@ can be seen below:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Learned how to work on a large code base with more 8000 lines of code.</p>
+<p>Learned how to work on a large code base with more 10000 lines of code.</p>
 </li>
 <li>
 <p>Learned how to effectively work in a team when everyone is working on the same project.</p>
@@ -1011,4 +665,4 @@ can be seen below:</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:40:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:55:37 UTC</div></div></div></body></html>
