@@ -1,336 +1,270 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>HMS+ - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Sreyans Sipani - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>HMS+ - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Sreyans Sipani - Project Portfolio <span class="image"><img src="../images/sreycodes.png" alt="sreycodes" width="150"></span></h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team T12-1</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
-</div>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle">Contents</div>
-<ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#setting-up">2. Setting up</a>
-<ul class="sectlevel2">
-<li><a href="#prerequisites">2.1. Prerequisites</a></li>
-<li><a href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></li>
-<li><a href="#verifying-the-setup">2.3. Verifying the setup</a></li>
-<li><a href="#configurations-to-do-before-writing-code">2.4. Configurations to do before writing code</a></li>
-</ul>
-</li>
-<li><a href="#design">3. Design</a>
-<ul class="sectlevel2">
-<li><a href="#Design-Architecture">3.1. Architecture</a></li>
-<li><a href="#Design-Ui">3.2. UI component</a></li>
-<li><a href="#Design-Logic">3.3. Logic component</a></li>
-<li><a href="#Design-Model">3.4. Model component</a></li>
-<li><a href="#Design-Storage">3.5. Storage component</a></li>
-<li><a href="#Design-Commons">3.6. Common classes</a></li>
-</ul>
-</li>
-<li><a href="#implementation">4. Implementation</a>
-<ul class="sectlevel2">
-<li><a href="#how-to-include-a-new-model">4.1. How to include a new model</a></li>
-<li><a href="#making-a-model-customizable">4.2. Making a model customizable</a></li>
-<li><a href="#filtering-service-booking-functionality">4.3. Filtering service booking functionality</a></li>
-<li><a href="#filtering-room-reservation-functionality">4.4. Filtering Room Reservation functionality</a></li>
-<li><a href="#generating-bill-for-customers">4.5. Generating Bill for Customers</a></li>
-<li><a href="#clear-functionality">4.6. Clear functionality</a></li>
-<li><a href="#undo-redo-feature">4.7. Undo/Redo feature</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
-</ul>
-</li>
-<li><a href="#documentation">5. Documentation</a>
-<ul class="sectlevel2">
-<li><a href="#editing-documentation">5.1. Editing Documentation</a></li>
-<li><a href="#publishing-documentation">5.2. Publishing Documentation</a></li>
-<li><a href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></li>
-<li><a href="#Docs-SiteWideDocSettings">5.4. Site-wide Documentation Settings</a></li>
-<li><a href="#Docs-PerFileDocSettings">5.5. Per-file Documentation Settings</a></li>
-<li><a href="#site-template">5.6. Site Template</a></li>
-</ul>
-</li>
-<li><a href="#Testing">6. Testing</a>
-<ul class="sectlevel2">
-<li><a href="#running-tests">6.1. Running Tests</a></li>
-<li><a href="#types-of-tests">6.2. Types of tests</a></li>
-<li><a href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></li>
-</ul>
-</li>
-<li><a href="#dev-ops">7. Dev Ops</a>
-<ul class="sectlevel2">
-<li><a href="#build-automation">7.1. Build Automation</a></li>
-<li><a href="#continuous-integration">7.2. Continuous Integration</a></li>
-<li><a href="#coverage-reporting">7.3. Coverage Reporting</a></li>
-<li><a href="#documentation-previews">7.4. Documentation Previews</a></li>
-<li><a href="#making-a-release">7.5. Making a Release</a></li>
-<li><a href="#managing-dependencies">7.6. Managing Dependencies</a></li>
-</ul>
-</li>
-<li><a href="#GetStartedProgramming">Appendix A: Suggested Programming Tasks to Get Started</a>
-<ul class="sectlevel2">
-<li><a href="#GetStartedProgramming-EachComponent">A.1. Improving each component</a></li>
-<li><a href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></li>
-</ul>
-</li>
-<li><a href="#product-scope">Appendix B: Product Scope</a></li>
-<li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a>
-<ul class="sectlevel2">
-<li><a href="#use-case-generate-bill-for-a-specific-customer">D.1. Use case: Generate bill for a specific customer</a></li>
-</ul>
-</li>
-<li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#customers">H.2. Customers</a></li>
-<li><a href="#reservations">H.3. Reservations</a></li>
-<li><a href="#bookings">H.4. Bookings</a></li>
-<li><a href="#service-types">H.5. Service Types</a></li>
-<li><a href="#room-types">H.6. Room Types</a></li>
-<li><a href="#bill">H.7. Bill</a></li>
-<li><a href="#switching-tab">H.8. Switching tab</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>HMS+ is a Hotel Management System software that act as a <strong>single, highly customizable integrated system</strong> to manage all aspects of a hotelier&#8217;s requirements.
-This guide aims to help all developers <strong>get familiar with the codebase</strong> and teach them <strong>how to build upon it.</strong></p>
-</div>
-<div class="paragraph">
-<p>There are <strong>many ways</strong> to contribute towards the <strong>development of the software: coding, testing, improving the build process and tools or contributing to the documentation.</strong>
-This guide provides information that will not only help you <strong>get started as a contributor</strong>, but that you&#8217;ll find useful to refer to even if you are already an <strong>experienced contributor.</strong></p>
+<p>This portfolio serves to document my contributions and learning while building
+HMS+</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
+<h2 id="project-hms"><a class="link" href="#project-hms">PROJECT: HMS+</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Follow the simple steps below to set up the software and get it running for your system.</p>
-</div>
-<div class="sect2">
-<h3 id="prerequisites"><a class="link" href="#prerequisites">2.1. Prerequisites</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>JDK <code>9</code></strong> or later</p>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-JDK <code>10</code> on Windows will fail to run tests in <a href="UsingGradle.html#Running-Tests">headless mode</a> due to a <a href="https://github.com/javafxports/openjdk-jfx/issues/66">JavaFX bug</a>.
-Windows developers are highly recommended to use JDK <code>9</code>.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p><strong>IntelliJ</strong> IDE</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-IntelliJ by default has Gradle and JavaFx plugins installed.<br>
-Do not disable them. If you have disabled them, go to <code>File</code> &gt; <code>Settings</code> &gt; <code>Plugins</code> to re-enable them.
-You can install AsciiDoc for live rendering of documentation.
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ol>
+<p>HMS+ is a hotel management system made for hotels to manage their customers and their relevant transactions.
+The hotel staff interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
+It is written in Java and has around 15k LOC.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="setting-up-the-project-in-your-computer"><a class="link" href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Fork this repo, and clone the fork to your computer</p>
-</li>
-<li>
-<p>Open IntelliJ (if you are not in the welcome screen, click <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog first)</p>
-</li>
-<li>
-<p>Set up the correct JDK version for Gradle</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <code>Configure</code> &gt; <code>Project Defaults</code> &gt; <code>Project Structure</code></p>
-</li>
-<li>
-<p>Click <code>New&#8230;&#8203;</code> and find the directory of the JDK</p>
-</li>
-</ol>
 </div>
-</li>
-<li>
-<p>Click <code>Import Project</code></p>
-</li>
-<li>
-<p>Locate the <code>build.gradle</code> file and select it. Click <code>OK</code></p>
-</li>
-<li>
-<p>Click <code>Open as Project</code></p>
-</li>
-<li>
-<p>Click <code>OK</code> to accept the default settings</p>
-</li>
-<li>
-<p>Open a console and run the command <code>gradlew processResources</code> (Mac/Linux: <code>./gradlew processResources</code>). It should finish with the <code>BUILD SUCCESSFUL</code> message.<br>
-This will generate all resources required by the application and tests.</p>
-</li>
-<li>
-<p>Open <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Due to an ongoing <a href="https://youtrack.jetbrains.com/issue/IDEA-189060">issue</a> with some of the newer versions of IntelliJ, code errors may be detected even if the project can be built and run successfully</p>
-</li>
-<li>
-<p>To resolve this, place your cursor over any of the code section highlighted in red. Press <span class="keyseq"><kbd>ALT</kbd>+<kbd>ENTER</kbd></span>, and select <code>Add '--add-modules=&#8230;&#8203;' to module compiler options</code> for each error</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Repeat this for the test folder as well (e.g. check <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a> for code errors, and if so, resolve it the same way)</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="verifying-the-setup"><a class="link" href="#verifying-the-setup">2.3. Verifying the setup</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Run the <code>seedu.hms.MainApp</code> and try a few commands</p>
-</li>
-<li>
-<p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configurations-to-do-before-writing-code"><a class="link" href="#configurations-to-do-before-writing-code">2.4. Configurations to do before writing code</a></h3>
-<div class="sect3">
-<h4 id="configuring-the-coding-style"><a class="link" href="#configuring-the-coding-style">2.4.1. Configuring the coding style</a></h4>
-<div class="paragraph">
-<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Go to <code>File</code> &gt; <code>Settings&#8230;&#8203;</code> (Windows/Linux), or <code>IntelliJ IDEA</code> &gt; <code>Preferences&#8230;&#8203;</code> (macOS)</p>
-</li>
-<li>
-<p>Select <code>Editor</code> &gt; <code>Code Style</code> &gt; <code>Java</code></p>
-</li>
-<li>
-<p>Click on the <code>Imports</code> tab to set the order</p>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>For <code>Class count to use import with '*'</code> and <code>Names count to use static import with '*'</code>: Set to <code>999</code> to prevent IntelliJ from contracting the import statements</p>
+<p><strong>Major enhancement</strong>: Added the complete backend for the booking and reservation from commands upto storage</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the hotel staff to add service-bookings and reservations for the customers.</p>
 </li>
 <li>
-<p>For <code>Import Layout</code>: The order is <code>import static all other imports</code>, <code>import java.*</code>, <code>import javax.*</code>, <code>import org.*</code>, <code>import com.*</code>, <code>import all other imports</code>. Add a <code>&lt;blank line&gt;</code> between each <code>import</code></p>
+<p>Justification: This is the backbone of the application as these are the main amenities of any hotel.</p>
+</li>
+<li>
+<p>Highlights: This enhancement required in-depth analysis of the codebase as it involved extending a single-model dependent system to a multi-model based system.
+I had to make sure the design implementation preserved the extensibility of the system as well as allowed the different components to interact with each other.</p>
+</li>
+<li>
+<p>Credits: I mainly used the concepts from the existing codebase and those that were taught in CS2103T to implement my features.</p>
+</li>
+<li>
+<p>Related Files:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/booking">Booking Model</a></p>
+</li>
+<li>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/reservation">Reservation Model</a></p>
 </li>
 </ul>
 </div>
 </li>
-</ol>
+</ul>
 </div>
-<div class="paragraph">
-<p>Optionally, you can follow the <a href="UsingCheckstyle.html">UsingCheckstyle.adoc</a> document to configure Intellij to check style-compliance as you write code.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-up-ci"><a class="link" href="#setting-up-ci">2.4.2. Setting up CI</a></h4>
-<div class="paragraph">
-<p>Set up Travis to perform Continuous Integration (CI) for your fork. See <a href="UsingTravis.html">UsingTravis.adoc</a> to learn how to set it up.</p>
-</div>
-<div class="paragraph">
-<p>After setting up Travis, you can optionally set up coverage reporting for your team fork (see <a href="UsingCoveralls.html">UsingCoveralls.adoc</a>).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Coverage reporting could be useful for a team repository that hosts the final version but it is not that useful for your personal fork.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Optionally, you can set up AppVeyor as a second CI (see <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a>).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Having both Travis and AppVeyor ensures your App works on both Unix-based platforms and Windows-based platforms (Travis is Unix-based and AppVeyor is Windows-based)
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="getting-started-with-coding"><a class="link" href="#getting-started-with-coding">2.4.3. Getting started with coding</a></h4>
-<div class="paragraph">
-<p>When you are ready to start coding,</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Get some sense of the overall design by reading <a href="#Design-Architecture">Section 3.1, &#8220;Architecture&#8221;</a>.</p>
 </li>
 <li>
-<p>Take a look at <a href="#GetStartedProgramming">Appendix A, <em>Suggested Programming Tasks to Get Started</em></a>.</p>
+<p><strong>Minor enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/4">Added support for VIP status to customer</a></p>
 </li>
-</ol>
+<li>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/77">Ported the whole codebase from <code>AddressBook</code> to <code>HotelManagementSystem</code></a></p>
+</li>
+<li>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/138">Added API methods to show statistics</a></p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created the Github Project Board and facilitated a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/issues/created_by/sreycodes">issue-based workflow</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Asreycodes">Reviewed and approves several PRs.</a></p>
+</li>
+<li>
+<p><a href="https://github.com/nus-cs2103-AY1819S2/forum/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Asreycodes">Reported bugs and suggestions for other teams in the class</a></p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the design structure for the implementation of future models.</p>
+</li>
+<li>
+<p>Created utility classes to handle timings and date intervals with
+<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/model/util/TimeRangeTest.java">relevant tests</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added command formats and descriptions to the user guide.</p>
+</li>
+<li>
+<p>Added color-coding to the user guide.</p>
+</li>
+<li>
+<p>Reformated all the commands to match an intuitive convention in guides and codebase.</p>
+</li>
+<li>
+<p>Added sections to developer guide.
+<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#41-adding-service-booking-functionality">Example</a> - I added a section to teach oncoming developers how to extend on the codebase.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set Up Travis, Codacy and Coveralls</p>
+</li>
+<li>
+<p>Set the minimum requirements for code to be merged to master.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/Architecture.png" alt="Architecture" width="600">
+<h3 id="span-class-underline-room-reservation-commands-span"><a class="link" href="#span-class-underline-room-reservation-commands-span"><span class="underline">Room Reservation commands</span></a></h3>
+<div class="sect3">
+<h4 id="reserving-a-room-code-add-reservation-code-code-ar-code"><a class="link" href="#reserving-a-room-code-add-reservation-code-code-ar-code">Reserving a room : <code>add-reservation</code>, <code>ar</code></a></h4>
+<div class="paragraph">
+<p>Effect: Adds a reservation for a room associated with certain customers.<br>
+Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</span>} <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICIES…</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
 </div>
-<div class="title">Figure 1. Architecture Diagram</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ROOM_TYPE</code> is the name of the room type taken from the list shown in the application</p>
+</li>
+<li>
+<p><code>START_DATE</code> and <code>END_DATE</code> follows the <code>DD/MM/YYYY</code> format.</p>
+</li>
+<li>
+<p><code>COMMENTS</code> can contain any text without slash (/).</p>
+</li>
+<li>
+<p>All reservations can only be done from current date to upto one year from current date.</p>
+</li>
+<li>
+<p>We alloW the same person to reserve the same room for the same dates. In short, we allow duplicate reservations.</p>
+</li>
+<li>
+<p>We allow different people to reserve the same room for the same date as someone else already has.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. It is designed to illustrate and identify the high level architecture systems used to design and implement the HMS+ Application.</p>
+<p>Examples:<br>
+Assume current date is 10 May, 2019.<br>
+* <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/5</code><br>
+Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.
+* <code>find-name Jack Rose</code>, then <code>add-reservation r/DELUXE ROOM d/14/05/2019-15/05/2019 $/1 c/2</code><br>
+Adds a reservation of Deluxe Room, in the name of the first customer for both him/her and the second customer, from 14 Feb 2019 to 15 Feb 2019.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-reservations-code-list-reservations-code-code-lr-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code">Listing all reservations : <code>list-reservations</code>, <code>lr</code></a></h4>
+<div class="paragraph">
+<p>Effect: Displays a reservation list, which lists all the reservations.<br>
+Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr</span>}</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lr</code><br>
+Lists all reservations.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code">Editing a room reservation : <code>edit-reservation</code>, <code>er</code></a></h4>
+<div class="paragraph">
+<p>Effect: Edits the fields of an existing reservation in the reservation database.<br>
+Format: <code>{<span class="aqua">edit-reservation</span>/<span class="aqua">er</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE]</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the reservation at the specified index. The index refers to the index number shown in the displayed reservation list. The index must be a positive integer.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -339,200 +273,79 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
+You can remove all the reservation&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Given below is a quick overview of each component.</p>
-</div>
-<div class="paragraph">
-<p><code>Main</code> has only one class called <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p><code>lr</code>, then <code>er 1 r/DOUBLE ROOM</code><br>
+Edits the room type of the 1st reservation to be DOUBLE ROOM.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p><code>lr</code>, then <code>er 2 d/14/02/2020-14/03/2020 com/</code><br>
+Edits the date of the 2nd reservation to be from 14 Feb 2020 to 14 Mar 2020 and clears all existing comments related to it.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
-The following class plays an important role at the architecture level:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The rest of the App consists of four components.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
-</li>
-<li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
-</li>
-<li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
-</li>
-<li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each of the four components</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
-</li>
-<li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
-</li>
-</ul>
-</div>
-<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
-<div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete-customer 1</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicComponentSequenceDiagram.png" alt="LogicComponentSequenceDiagram" width="600">
-</div>
-<div class="title">Figure 2. Component interactions for <code>delete-customer 1</code> command</div>
-</div>
-<div class="paragraph">
-<p>The sections below give more details of each component.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/UiClassDiagram.png" alt="width:&quot;1200&quot;">
-</div>
-<div class="title">Figure 3. Structure of the UI Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/Ui.java"><code>Ui.java</code></a>
-The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>StatsWindow</code>, <code>HelpWindow</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc.
-All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="sect3">
-<h4 id="how-the-ui-executes-commands"><a class="link" href="#how-the-ui-executes-commands">3.2.1. How the UI executes commands</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="how-the-ui-updates-itself"><a class="link" href="#how-the-ui-updates-itself">3.2.2. How the UI updates itself</a></h4>
+<h4 id="deleting-reservations-code-delete-reservation-code-code-dr-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code">Deleting reservations: <code>delete-reservation</code>, <code>dr</code></a></h4>
 <div class="paragraph">
-<p>This is handled by the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/util/InvalidationListenerManager.java"><code>InvalidationListenerManager</code></a>.
-It is basically a list of <code>InvalidationListeners</code> linked to three lists - <code>UniqueCustomerList</code>, <code>BookingList</code>, <code>ReservationList</code>, <code>RoomTypeList</code> and <code>ServiceTypeList</code>.
-A listener is added for each of the five lists when the <code>HotelManagementSystem</code> is set up using the
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/90e374cb6e0dbafa2854fbc82792444434744a42/src/main/java/seedu/hms/model/HotelManagementSystem.java#L251"><code>addListener()</code></a> method.
-Whenever a change is made to any of these five lists of the <code>HotelManagementSystem</code>, all the listeners are called
-using the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/90e374cb6e0dbafa2854fbc82792444434744a42/src/main/java/seedu/hms/model/HotelManagementSystem.java#L263"><code>indicateModified()</code></a> method.
-Thus, the internal listeners when called update the UI automatically.</p>
+<p>Effect: Deletes a reservation from the reservation database.<br>
+Format: <code>{<span class="aqua">delete-reservation</span>/<span class="aqua">dr</span>} <span class="lime">INDEX</span></code></p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="sidebarblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="600">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the reservation at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
+</li>
+</ul>
 </div>
-<div class="title">Figure 4. Class Diagram of the Logic Component</div>
 </div>
-<div class="paragraph">
-<p><strong>API</strong> :
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/Logic.java"><code>Logic.java</code></a></p>
-</div>
-<div class="paragraph">
-<p><code>Logic</code> uses the <code>HotelManagementSystemParser</code> class to parse the user command and invoke the
-relevant <code>{Command Name}Parser</code> class. Given below is the structure of the parser classes.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/parser-structure.png" alt="width:&quot;800&quot;">
-</div>
-<div class="title">Figure 5. Structure of the Parser classes</div>
 </div>
 <div class="paragraph">
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code> using the
-<code>CustomerModel</code>,<code>BookingModel</code>, etc. based on the type of command.
-Therefore command execution can affect the <code>CustomerModel</code>,<code>BookingModel</code>, etc.
-(e.g. adding a customer / editing a booking). Given below is the structure of the command classes.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/command-structure.png" alt="width:&quot;800&quot;">
-</div>
-<div class="title">Figure 6. Structure of the Command classes</div>
-</div>
-<div class="paragraph">
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>UI</code>.
-In addition, the <code>CommandResult</code> object can also instruct the User-Interface to perform certain actions, such as displaying help to the user.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/ModelClassDiagram.png" alt="width:&quot;600&quot;">
-</div>
-<div class="title">Figure 7. Structure of the Model Component</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CustomerModelDiagram.png" alt="CustomerModelDiagram" width="200">
-</div>
-<div class="title">Figure 8. Structure of the CustomerModel Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
-</li>
-<li>
-<p>stores the Hotel Management System data.</p>
-</li>
-<li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Customer/Booking/Reservation/RoomType/ServiceType&gt;</code> that can be 'observed'
-e.g. the UI can be bound to this list so that the UI automatically updates when the
-data in the list change.</p>
-</li>
-<li>
-<p>does not depend on any of the other three components.</p>
-</li>
-<li>
-<p>The <code>Reservation/Booking/Customer models</code> serve as the API for the application to modify the
-<code>Reservation/Booking/Customer data</code>.</p>
-</li>
-<li>
-<p>The <code>Bill model</code> serves the API for the application to generate bills for the customer. It cannot modify data at all. It only has access to <code>ObservableList</code> of the remaining models.</p>
+<p><code>lr</code>, then <code>dr 2</code><br>
+Deletes the 2nd entry of the reservation database.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
+<div class="paragraph">
+<p>Effect: Removes all room reservations from the database.<br>
+Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">cr</span>}</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cr</code><br>
+Clears all reservations from the database.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-reservation-code-find-reservation-code-code-fr-code">Find a reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
+<div class="paragraph">
+<p>Effect: Displays a reservation list based on the filters given by the user.<br>
+Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE - END_DATE</span> <span class="black">]</span></code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -541,60 +354,319 @@ data in the list change.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can reference a <code>ServiceType</code> in <code>Booking</code>. This would allow the
-<code>Hotel Management System</code> to only require one <code>ServiceType</code> instance per unique <code>ServiceType</code>,
- instead of each <code>Booking</code> needing their own <code>Service</code> object.<br>
-Another example is how we store a <code>Tag</code> list in <code>Hotel Management System</code>, which <code>Customer</code> can reference. This would allow <code>Hotel Management System</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Customer</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="950"></span>
+<div class="ulist">
+<ul>
+<li>
+<p>The searching is done in the whole reservation list.</p>
+</li>
+<li>
+<p>If you just enter the command <code>fr</code>, it displays all the reservations in the database.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you enter <code>fr d/4/6/2019 - 7/6/2019</code>, it displays all reservations between 4th June to 7th June. This consists of
+reservations which include the date 4th June but does not include reservations which include the date 7th June.</p>
+</li>
+</ul>
 </div>
-<div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="1200">
-</div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/Storage.java"><code>Storage.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>Storage</code> component,</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p><code>fr id/Q000001P</code><br>
+Returns all reservations for customer with identification number, Q000001P.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/fr1.png" alt="fr1" width="800">
+</div>
+<div class="title">Figure 1. Example for the <code>fr id/Q000001P</code> command</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fr id/Q000001P r/SHARING ROOM</code><br>
+Returns all sharing room reservations for customer with identification number, Q000001P.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/fr2.png" alt="fr2" width="800">
+</div>
+<div class="title">Figure 2. Example for the <code>fr id/Q000001P r/SHARING ROOM</code> command</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="span-class-underline-service-booking-commands-span"><a class="link" href="#span-class-underline-service-booking-commands-span"><span class="underline">Service Booking commands</span></a></h3>
+<div class="sect3">
+<h4 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">Booking a service: <code>add-booking</code>,<code>ab</code></a></h4>
+<div class="paragraph">
+<p>Effect: Adds a service associated with certain customers.<br>
+Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span>} <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>SERVICE_TYPE</code> is the name of the service taken from the list in the application</p>
 </li>
 <li>
-<p>can save the Hotel Management System data in json format and read it back.</p>
+<p><code>START_TIME</code> and <code>END_TIME</code> follows the <code>HH 24-hour</code> format.</p>
+</li>
+<li>
+<p><code>COMMENTS</code> can contain any text without slash (<code>/</code>).</p>
+</li>
+<li>
+<p>We allow the same person to book the same service for the same period of time. In short, we allow duplicate bookings.</p>
+</li>
+<li>
+<p>We allow a different person to book the same service for the same period od time as someone else already has.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lc</code>, then <code>add-booking s/GYM :/20-23 $/2</code>
+Adds a booking for service GYM, for the 2nd customer from the complete customer list, from 20:00 to 23:00 if the service is available.</p>
+</li>
+<li>
+<p><code>fn Jack Rose</code>, then <code>add-booking s/GYM h/14-15 $/1 c/2</code>
+Adds a booking of service GYM in the name for first customer for him/her , from 14:00 to 15:00.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
+<div class="sect3">
+<h4 id="listing-all-booked-services-code-list-bookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-list-bookings-code-code-lb-code">Listing all booked services: <code>list-bookings</code>,<code>lb</code></a></h4>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.hms.commons</code> package.</p>
+<p>Effect: Displays a booking list, which lists all the bookings made till now.
+Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</span>}</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lb</code><br>
+Lists all bookings.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h4>
+<div class="paragraph">
+<p>Effect: Edits the fields of a booking in the database.<br>
+Format: <code>{<span class="aqua">edit-booking</span>/<span class="aqua">eb</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">p/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the booking at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can remove all the booking&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lb</code>, then <code>eb 1 s/GYM</code>
+Edits the service type of the 1st booking to be GYM.</p>
+</li>
+<li>
+<p><code>lb</code>, then <code>edit-booking 2 :/14-15 com/</code>
+Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-booked-service-code-delete-booking-code-code-db-code"><a class="link" href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></h4>
+<div class="paragraph">
+<p>Effect: Deletes a booking from the database.
+Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</span>} <span class="lime">INDEX</span></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the booking at the specified index.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:
+ <code>lb</code>, then <code>delete-booking 2</code><br>
+Deletes the 2nd booking of the booking database</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
+<div class="paragraph">
+<p>Effect: Removes all service bookings from the database.<br>
+Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</span>}</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cb</code><br>
+Clears all bookings from the database.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-specific-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-specific-booking-code-find-booking-code-code-fb-code">Find a specific booking: <code>find-booking</code>, <code>fb</code></a></h4>
+<div class="paragraph">
+<p>Effect: Displays a booking list based on the filters given by the user.<br>
+Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The searching is done in the whole booking list.</p>
+</li>
+<li>
+<p>If you just enter the command <code>fb</code>, it will display the entire booking list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fb id/A0124422</code><br>
+Returns all bookings for customer with identification number, A0124422.</p>
+</li>
+<li>
+<p><code>fb id/A0124422 s/GYM</code><br>
+Returns all gym bookings for customer with identification number, A0124422.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect2">
-<h3 id="how-to-include-a-new-model"><a class="link" href="#how-to-include-a-new-model">4.1. How to include a new model</a></h3>
+<h3 id="how-to-include-a-new-model"><a class="link" href="#how-to-include-a-new-model">How to include a new model</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-using-service-booking"><a class="link" href="#current-implementation-using-service-booking">4.1.1. Current Implementation using service booking</a></h4>
+<h4 id="current-implementation-using-service-booking"><a class="link" href="#current-implementation-using-service-booking">Current Implementation using service booking</a></h4>
 <div class="paragraph">
 <p>In general, when adding any new model and its related commands, you need to work on 3 components
 compulsorily - Logic, Model and Storage. The UI component is modified based on how you
@@ -613,9 +685,9 @@ we create relevant classes like <code>ReservationList</code>, <code>Reservation<
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelComparison.png" alt="ModelComparison" width="600">
+<img src="../images/ModelComparison.png" alt="ModelComparison" width="600">
 </div>
-<div class="title">Figure 10. Changes in the Model Structure</div>
+<div class="title">Figure 3. Changes in the Model Structure</div>
 </div>
 <div class="paragraph">
 <p>Then you need to add the command files and parser files so that the application can parse commands
@@ -631,9 +703,9 @@ to get back the <code>CommandResult</code> which is used by the UI.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/MainCommandStructure.png" alt="MainCommandStructure" width="600">
+<img src="../images/MainCommandStructure.png" alt="MainCommandStructure" width="600">
 </div>
-<div class="title">Figure 11. The new command structure</div>
+<div class="title">Figure 4. The new command structure</div>
 </div>
 <div class="paragraph">
 <p>If the new model needs to be stored, then you also need to define JSON adapted classes
@@ -650,7 +722,7 @@ bookings in real-time in the UI as has been explained before.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-should-the-api-be-structured"><a class="link" href="#aspect-how-should-the-api-be-structured">Aspect: How should the API be structured</a></h5>
 <div class="ulist">
@@ -688,9 +760,9 @@ the <code>Model</code> interface</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-model-customizable"><a class="link" href="#making-a-model-customizable">4.2. Making a model customizable</a></h3>
+<h3 id="making-a-model-customizable"><a class="link" href="#making-a-model-customizable">Making a model customizable</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>In this section a model is considered to be customizable if an instance of it can be:</p>
 </div>
@@ -735,13 +807,13 @@ A sequence diagram is given below to make the following more clear.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddCustomerSequenceDiagram.png" alt="AddCustomerSequenceDiagram" width="600">
+<img src="../images/AddCustomerSequenceDiagram.png" alt="AddCustomerSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 12. Sequence diagram for <code>add-customer</code></div>
+<div class="title">Figure 5. Sequence diagram for <code>add-customer</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-editing-a-model-object"><a class="link" href="#aspect-editing-a-model-object">Aspect: Editing a model object</a></h5>
 <div class="ulist">
@@ -778,9 +850,9 @@ A sequence diagram is given below to make the following more clear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-service-booking-functionality"><a class="link" href="#filtering-service-booking-functionality">4.3. Filtering service booking functionality</a></h3>
+<h3 id="filtering-service-booking-functionality"><a class="link" href="#filtering-service-booking-functionality">Filtering service booking functionality</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
 <p>To find and filter the service bookings, we need to work on Logic, Model and Storage components. We can start
 on the Logic component. According to the current implementation, a command can only take in one model&#8201;&#8212;&#8201;either
@@ -791,7 +863,7 @@ The reason we use identification number(ID) instead of name or other factors is 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-should-the-customer-be-stressed"><a class="link" href="#aspect-how-should-the-customer-be-stressed">Aspect: How should the customer be stressed</a></h5>
 <div class="ulist">
@@ -828,9 +900,9 @@ The reason we use identification number(ID) instead of name or other factors is 
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-room-reservation-functionality"><a class="link" href="#filtering-room-reservation-functionality">4.4. Filtering Room Reservation functionality</a></h3>
+<h3 id="filtering-room-reservation-functionality"><a class="link" href="#filtering-room-reservation-functionality">Filtering Room Reservation functionality</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The finding a specific room reservation functionality is facilitated by the <code>FindReservationCommand</code> class and is used whenever
 the hotel staff wants to find a specific reservation done by the customer. It reduces the tedious process that the hotel staff needs
@@ -843,9 +915,9 @@ illustrated in the UML diagram shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="600">
+<img src="../images/FindReservationCommandUMLDiagram.png" alt="FindReservationCommandUMLDiagram" width="600">
 </div>
-<div class="title">Figure 13. FindReservationCommand UML Diagram</div>
+<div class="title">Figure 6. FindReservationCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>FindReservationCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -853,9 +925,9 @@ high level <span class="underline">Sequence Diagram</span> for the <code>FindRes
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="600">
+<img src="../images/FindReservationLogicSequenceDiagram.png" alt="FindReservationLogicSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 14. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
+<div class="title">Figure 7. High Level Sequence Diagram for the  <code>find-reservation id/A0176684J</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, this command doesn&#8217;t affect storage at all as the purpose of this command is to just find
@@ -912,7 +984,7 @@ back to the <code>Logic</code> which in turn sends it back to the <code>Ui</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.2. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-find-the-customer-whose-specific-reservation-is-to-be-found"><a class="link" href="#aspect-how-to-find-the-customer-whose-specific-reservation-is-to-be-found">Aspect: How to find the customer whose specific reservation is to be found</a></h5>
 <div class="ulist">
@@ -984,9 +1056,9 @@ filter reservations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-bill-for-customers"><a class="link" href="#generating-bill-for-customers">4.5. Generating Bill for Customers</a></h3>
+<h3 id="generating-bill-for-customers"><a class="link" href="#generating-bill-for-customers">Generating Bill for Customers</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The generate bill for customer functionality is facilitated by the <code>GenerateBillForCustomerCommand</code> class and is used whenever
  the hotel staff wants to generate bills for its customers. It allows the hotel staff to generate bills for their customers in one
@@ -999,9 +1071,9 @@ illustrated in the UML diagram shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="600">
+<img src="../images/GenerateBillForCustomerCommandUMLDiagram.png" alt="GenerateBillForCustomerCommandUMLDiagram" width="600">
 </div>
-<div class="title">Figure 15. GenerateBillForCustomerCommand UML Diagram</div>
+<div class="title">Figure 8. GenerateBillForCustomerCommand UML Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand</code> involves the use of multiple components of the HMS+ application. The figure below shows the
@@ -1009,9 +1081,9 @@ high level <span class="underline">Sequence Diagram</span> for the <code>Generat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
+<img src="../images/GenerateBillLogicSequenceDiagram.png" alt="GenerateBillLogicSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 16. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 9. High Level Sequence Diagram for the  <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, there is no storage created for the bill as a result of which the bill generated is
@@ -1024,9 +1096,9 @@ of the customer whose bill is to be generated. The figure below depicts the Sequ
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
+<img src="../images/gbcLogicDiagram.png" alt="gbcLogicDiagram" width="800">
 </div>
-<div class="title">Figure 17. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
+<div class="title">Figure 10. Interactions inside the Logic Component for the <code>generate-bill-customer 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>GenerateBillForCustomerCommand#execute()</code> method invokes the <code>updateBill(bill)</code> method from the <code>BillModel</code>.
@@ -1093,7 +1165,7 @@ The two bills are then combined and showed to the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.5.2. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-should-bill-generation-be-implemented"><a class="link" href="#aspect-how-should-bill-generation-be-implemented">Aspect: How should bill generation be implemented</a></h5>
 <div class="ulist">
@@ -1131,7 +1203,7 @@ creating more work.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-memory-storage-for-bill"><a class="link" href="#aspect-memory-storage-for-bill">4.5.3. Aspect: Memory storage for bill</a></h4>
+<h4 id="aspect-memory-storage-for-bill"><a class="link" href="#aspect-memory-storage-for-bill">Aspect: Memory storage for bill</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1166,9 +1238,9 @@ and doesn&#8217;t add any new data. As a result of this, if bill gets stored it 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-functionality"><a class="link" href="#clear-functionality">4.6. Clear functionality</a></h3>
+<h3 id="clear-functionality"><a class="link" href="#clear-functionality">Clear functionality</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The clearing mechanism of HMS+ is facilitated by 5 different commands - <code>ClearRoomTypeCommand</code>, <code>ClearServiceTypeCommand</code>,
 <code>ClearReservationCommand</code>,<code>ClearBookingCommand</code> and <code>ClearHotelManagementSystemCommand</code> - and each of these commands clear
@@ -1207,9 +1279,9 @@ for the <code>ClearHotelManagementSystemCommand</code> class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.7. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedHotelManagementSystem</code>.
 It extends <code>HotelManagementSystem</code> with an undo/redo history, stored internally as an <code>hotelManagementSystemStateList</code> and <code>currentStatePointer</code>.
@@ -1239,7 +1311,7 @@ Additionally, it implements the following operations:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -1247,7 +1319,7 @@ Additionally, it implements the following operations:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
+<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -1255,7 +1327,7 @@ Additionally, it implements the following operations:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
+<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1275,7 +1347,7 @@ If a command fails its execution, it will not call <code>Model#commitHotelManage
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
+<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1295,7 +1367,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial h
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
+<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -1318,7 +1390,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
+<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -1326,7 +1398,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
+<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -1334,12 +1406,12 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1409,14 +1481,14 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Configuration</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1447,7 +1519,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1455,7 +1527,7 @@ If the <code>currentStatePointer</code> is at index <code>hotelManagementSystemS
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We use asciidoc for writing documentation.</p>
@@ -1473,20 +1545,20 @@ We chose asciidoc over Markdown because asciidoc, although a bit more complex th
 </table>
 </div>
 <div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing Documentation</a></h3>
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">Editing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.2. Publishing Documentation</a></h3>
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">Publishing Documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -1511,15 +1583,15 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
+<img src="../images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">5.4. Site-wide Documentation Settings</a></h3>
+<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">Site-wide Documentation Settings</a></h3>
 <div class="paragraph">
-<p>The <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
+<p>The <a href="{repoURL}/blob/master/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1576,7 +1648,7 @@ This will render the SE-EDU navigation bar at the top of the page, and add some 
 </table>
 </div>
 <div class="sect2">
-<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">5.5. Per-file Documentation Settings</a></h3>
+<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">Per-file Documentation Settings</a></h3>
 <div class="paragraph">
 <p>Each <code>.adoc</code> file may also specify some file-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how the file is rendered.</p>
 </div>
@@ -1633,13 +1705,13 @@ One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutco
 </table>
 </div>
 <div class="sect2">
-<h3 id="site-template"><a class="link" href="#site-template">5.6. Site Template</a></h3>
+<h3 id="site-template"><a class="link" href="#site-template">Site Template</a></h3>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
+<p>The files in <a href="{repoURL}/blob/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
 You can modify them to change some properties of the site&#8217;s design.</p>
 </div>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
+<p>The files in <a href="{repoURL}/blob/master/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
 These template files are written in a mixture of <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://slim-lang.com">Slim</a>.</p>
 </div>
 <div class="admonitionblock warning">
@@ -1650,7 +1722,7 @@ These template files are written in a mixture of <a href="https://www.ruby-lang.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Modifying the template files in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
+<p>Modifying the template files in <a href="{repoURL}/blob/master/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
 You should only modify them if you need greater control over the site&#8217;s layout than what stylesheets can provide.
 The SE-EDU team does not provide support for modified template files.</p>
 </div>
@@ -1662,7 +1734,7 @@ The SE-EDU team does not provide support for modified template files.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Testing"><a class="link" href="#Testing">6. Testing</a></h2>
+<h2 id="Testing"><a class="link" href="#Testing">Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Testing your application is an <strong>integral part</strong> of the app development process. Testing allows you to <strong>verify the correctness, functional behaviour, and usability of your app</strong> before you release it publicly.</p>
@@ -1679,7 +1751,7 @@ Therefore, in short, you have to decide where to implement your new tests and wh
 <p>Below you will find a short summary on the kind of tests already implemented and how to run them.</p>
 </div>
 <div class="sect2">
-<h3 id="running-tests"><a class="link" href="#running-tests">6.1. Running Tests</a></h3>
+<h3 id="running-tests"><a class="link" href="#running-tests">Running Tests</a></h3>
 <div class="paragraph">
 <p>There are three ways you can run tests in.</p>
 </div>
@@ -1741,7 +1813,7 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 </div>
 </div>
 <div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of tests</a></h3>
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">Types of tests</a></h3>
 <div class="paragraph">
 <p>We have two types of tests:</p>
 </div>
@@ -1783,7 +1855,7 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></h3>
+<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">Troubleshooting Testing</a></h3>
 <div class="paragraph">
 <p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
 </div>
@@ -1801,41 +1873,41 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="build-automation"><a class="link" href="#build-automation">7.1. Build Automation</a></h3>
+<h3 id="build-automation"><a class="link" href="#build-automation">Build Automation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="continuous-integration"><a class="link" href="#continuous-integration">7.2. Continuous Integration</a></h3>
+<h3 id="continuous-integration"><a class="link" href="#continuous-integration">Continuous Integration</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">7.3. Coverage Reporting</a></h3>
+<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">Coverage Reporting</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects. See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="documentation-previews"><a class="link" href="#documentation-previews">7.4. Documentation Previews</a></h3>
+<h3 id="documentation-previews"><a class="link" href="#documentation-previews">Documentation Previews</a></h3>
 <div class="paragraph">
 <p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">7.5. Making a Release</a></h3>
+<h3 id="making-a-release"><a class="link" href="#making-a-release">Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Update the version number in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/MainApp.java"><code>MainApp.java</code></a>.</p>
+<p>Update the version number in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/MainApp.java"><code>MainApp.java</code></a>.</p>
 </li>
 <li>
 <p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
@@ -1850,7 +1922,7 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.6. Managing Dependencies</a></h3>
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives:</p>
 </div>
@@ -1876,15 +1948,15 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">Section A.1, &#8220;Improving each component&#8221;</a>.</p>
+<p>First, add small local-impact (i.e. the impact of the change does not go beyond the component) enhancements to one component at a time. Some suggestions are given in <a href="#GetStartedProgramming-EachComponent">Improving each component</a>.</p>
 </li>
 <li>
-<p>Next, add a feature that touches multiple components to learn how to implement an end-to-end feature across all components. <a href="#GetStartedProgramming-RemarkCommand">Section A.2, &#8220;Creating a new command: <code>remark</code>&#8221;</a> explains how to go about adding such a feature.</p>
+<p>Next, add a feature that touches multiple components to learn how to implement an end-to-end feature across all components. <a href="#GetStartedProgramming-RemarkCommand">Creating a new command: <code>remark</code></a> explains how to go about adding such a feature.</p>
 </li>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">A.1. Improving each component</a></h3>
+<h3 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">Improving each component</a></h3>
 <div class="paragraph">
 <p>Each individual exercise in this section is component-based (i.e. you would not need to modify the other components to get it to work).</p>
 </div>
@@ -1899,7 +1971,7 @@ e.g. <code>seedu.hms.logic.LogicManagerTest</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8221;</a> before attempting to modify the <code>Logic</code> component.
+Do take a look at <a href="#Design-Logic">[Design-Logic]</a> before attempting to modify the <code>Logic</code> component.
 </td>
 </tr>
 </table>
@@ -1917,10 +1989,10 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Just like we store each individual command word constant <code>COMMAND_WORD</code> inside <code>*Command.java</code> (e.g.  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/commands/FindCommand.java"><code>FindCommand#COMMAND_WORD</code></a>, <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/commands/DeleteCommand.java"><code>DeleteCommand#COMMAND_WORD</code></a>), you need a new constant for aliases as well (e.g. <code>FindCommand#COMMAND_ALIAS</code>).</p>
+<p>Just like we store each individual command word constant <code>COMMAND_WORD</code> inside <code>*Command.java</code> (e.g.  <a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/commands/FindCommand.java"><code>FindCommand#COMMAND_WORD</code></a>, <a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/commands/DeleteCommand.java"><code>DeleteCommand#COMMAND_WORD</code></a>), you need a new constant for aliases as well (e.g. <code>FindCommand#COMMAND_ALIAS</code>).</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> is responsible for analyzing command words.</p>
+<p><a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> is responsible for analyzing command words.</p>
 </li>
 </ul>
 </div>
@@ -1930,7 +2002,7 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the switch statement in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser#parseCommand(String)</code></a> such that both the proper command word and alias can be used to execute the same intended command.</p>
+<p>Modify the switch statement in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser#parseCommand(String)</code></a> such that both the proper command word and alias can be used to execute the same intended command.</p>
 </li>
 <li>
 <p>Add new tests for each of the aliases that you have added.</p>
@@ -1962,7 +2034,7 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8221;</a> before attempting to modify the <code>Model</code> component.
+Do take a look at <a href="#Design-Model">[Design-Model]</a> before attempting to modify the <code>Model</code> component.
 </td>
 </tr>
 </table>
@@ -1980,13 +2052,13 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model</code></a> and the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> API need to be updated.</p>
+<p>The <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/Model.java"><code>Model</code></a> and the <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> API need to be updated.</p>
 </li>
 <li>
 <p>Think about how you can use SLAP to design the method. Where should we place the main logic of deleting tags?</p>
 </li>
 <li>
-<p>Find out which of the existing API methods in  <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> allows you to update a customer, and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> allows you to update the tags.</p>
+<p>Find out which of the existing API methods in  <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> and <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> classes can be used to implement the tag removal logic. <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a> allows you to update a customer, and <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Customer.java"><code>Customer</code></a> allows you to update the tags.</p>
 </li>
 </ul>
 </div>
@@ -1996,10 +2068,10 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a>. Loop through each customer, and remove the <code>tag</code> from each customer.</p>
+<p>Implement a <code>removeTag(Tag)</code> method in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/HotelManagementSystem.java"><code>HotelManagementSystem</code></a>. Loop through each customer, and remove the <code>tag</code> from each customer.</p>
 </li>
 <li>
-<p>Add a new API method <code>deleteTag(Tag)</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a> should call <code>HotelManagementSystem#removeTag(Tag)</code>.</p>
+<p>Add a new API method <code>deleteTag(Tag)</code> in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/ModelManager.java"><code>ModelManager</code></a> should call <code>HotelManagementSystem#removeTag(Tag)</code>.</p>
 </li>
 <li>
 <p>Add new tests for each of the new public methods that you have added.</p>
@@ -2028,7 +2100,7 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</a> before attempting to modify the <code>UI</code> component.
+Do take a look at <a href="#Design-Ui">[Design-Ui]</a> before attempting to modify the <code>UI</code> component.
 </td>
 </tr>
 </table>
@@ -2042,7 +2114,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/getting-started-ui-tag-before.png" alt="getting started ui tag before" width="300">
+<img src="../images/getting-started-ui-tag-before.png" alt="getting started ui tag before" width="300">
 </div>
 </div>
 <div class="paragraph">
@@ -2050,7 +2122,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/getting-started-ui-tag-after.png" alt="getting started ui tag after" width="300">
+<img src="../images/getting-started-ui-tag-after.png" alt="getting started ui tag after" width="300">
 </div>
 </div>
 <div class="sidebarblock">
@@ -2062,13 +2134,13 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>The tag labels are created inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java">the <code>PersonCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
+<p>The tag labels are created inside <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/PersonCard.java">the <code>PersonCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
 </li>
 <li>
 <p>Use the .css attribute <code>-fx-background-color</code> to add a color.</p>
 </li>
 <li>
-<p>You may wish to modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/DarkTheme.css"><code>DarkTheme.css</code></a> to include some pre-defined colors using css, especially if you have experience with web-based css.</p>
+<p>You may wish to modify <a href="{repoURL}/blob/master/src/main/resources/view/DarkTheme.css"><code>DarkTheme.css</code></a> to include some pre-defined colors using css, especially if you have experience with web-based css.</p>
 </li>
 </ul>
 </div>
@@ -2099,13 +2171,13 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> such that <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> can show a different style on error (currently it shows the same regardless of errors).</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> such that <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> can show a different style on error (currently it shows the same regardless of errors).</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/getting-started-ui-result-before.png" alt="getting started ui result before" width="200">
+<img src="../images/getting-started-ui-result-before.png" alt="getting started ui result before" width="200">
 </div>
 </div>
 <div class="paragraph">
@@ -2113,7 +2185,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/getting-started-ui-result-after.png" alt="getting started ui result after" width="200">
+<img src="../images/getting-started-ui-result-after.png" alt="getting started ui result after" width="200">
 </div>
 </div>
 <div class="sidebarblock">
@@ -2125,10 +2197,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> is raised by <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> which also knows whether the result is a success or failure, and is caught by <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> which is where we want to change the style to.</p>
+<p><a href="{repoURL}/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> is raised by <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> which also knows whether the result is a success or failure, and is caught by <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay</code></a> which is where we want to change the style to.</p>
 </li>
 <li>
-<p>Refer to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> for an example on how to display an error.</p>
+<p>Refer to <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/CommandBox.java"><code>CommandBox</code></a> for an example on how to display an error.</p>
 </li>
 </ul>
 </div>
@@ -2138,10 +2210,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> 's constructor so that users of the event can indicate whether an error has occurred.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> 's constructor so that users of the event can indicate whether an error has occurred.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay#handleNewResultAvailableEvent(NewResultAvailableEvent)</code></a> to react to this event appropriately.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/ResultDisplay.java"><code>ResultDisplay#handleNewResultAvailableEvent(NewResultAvailableEvent)</code></a> to react to this event appropriately.</p>
 </li>
 <li>
 <p>You can write two different kinds of tests to ensure that the functionality works:</p>
@@ -2151,7 +2223,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <p>The unit tests for <code>ResultDisplay</code> can be modified to include verification of the color.</p>
 </li>
 <li>
-<p>The system tests <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest#assertCommandBoxShowsDefaultStyle() and HotelManagementSystemSystemTest#assertCommandBoxShowsErrorStyle()</code></a> to include verification for <code>ResultDisplay</code> as well.</p>
+<p>The system tests <a href="{repoURL}/blob/master/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest#assertCommandBoxShowsDefaultStyle() and HotelManagementSystemSystemTest#assertCommandBoxShowsErrorStyle()</code></a> to include verification for <code>ResultDisplay</code> as well.</p>
 </li>
 </ul>
 </div>
@@ -2175,13 +2247,13 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of people in the hotel management system.</p>
+<p>Modify the <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of people in the hotel management system.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/getting-started-ui-status-before.png" alt="getting started ui status before" width="500">
+<img src="../images/getting-started-ui-status-before.png" alt="getting started ui status before" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -2189,7 +2261,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/getting-started-ui-status-after.png" alt="getting started ui status after" width="500">
+<img src="../images/getting-started-ui-status-after.png" alt="getting started ui status after" width="500">
 </div>
 </div>
 <div class="sidebarblock">
@@ -2201,10 +2273,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/StatusBarFooter.fxml"><code>StatusBarFooter.fxml</code></a> will need a new <code>StatusBar</code>. Be sure to set the <code>GridPane.columnIndex</code> properly for each <code>StatusBar</code> to avoid misalignment!</p>
+<p><a href="{repoURL}/blob/master/src/main/resources/view/StatusBarFooter.fxml"><code>StatusBarFooter.fxml</code></a> will need a new <code>StatusBar</code>. Be sure to set the <code>GridPane.columnIndex</code> properly for each <code>StatusBar</code> to avoid misalignment!</p>
 </li>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the hotel management system is updated.</p>
+<p><a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the hotel management system is updated.</p>
 </li>
 </ul>
 </div>
@@ -2214,16 +2286,16 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the constructor of <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of customers when the application just started.</p>
+<p>Modify the constructor of <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of customers when the application just started.</p>
 </li>
 <li>
-<p>Use <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter#handleHotelManagementSystemChangedEvent(HotelManagementSystemChangedEvent)</code></a> to update the number of customers whenever there are new changes to the hotel management system.</p>
+<p>Use <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/StatusBarFooter.java"><code>StatusBarFooter#handleHotelManagementSystemChangedEvent(HotelManagementSystemChangedEvent)</code></a> to update the number of customers whenever there are new changes to the hotel management system.</p>
 </li>
 <li>
-<p>For tests, modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of people status, just like what we did for save location and sync status.</p>
+<p>For tests, modify <a href="{repoURL}/blob/master/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of people status, just like what we did for save location and sync status.</p>
 </li>
 <li>
-<p>For system tests, modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest</code></a> to also verify the new total number of customers status bar.</p>
+<p>For system tests, modify <a href="{repoURL}/blob/master/src/test/java/systemtests/HotelManagementSystemSystemTest.java"><code>HotelManagementSystemSystemTest</code></a> to also verify the new total number of customers status bar.</p>
 </li>
 <li>
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/803">PR</a> for the full solution.</p>
@@ -2249,7 +2321,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage component&#8221;</a> before attempting to modify the <code>Storage</code> component.
+Do take a look at <a href="#Design-Storage">[Design-Storage]</a> before attempting to modify the <code>Storage</code> component.
 </td>
 </tr>
 </table>
@@ -2267,10 +2339,10 @@ Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage componen
 <div class="ulist">
 <ul>
 <li>
-<p>Add the API method in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/HotelManagementSystemStorage.java"><code>HotelManagementSystemStorage</code></a> interface.</p>
+<p>Add the API method in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/storage/HotelManagementSystemStorage.java"><code>HotelManagementSystemStorage</code></a> interface.</p>
 </li>
 <li>
-<p>Implement the logic in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/StorageManager.java"><code>StorageManager</code></a> and <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/JsonHotelManagementSystemStorage.java"><code>JsonHotelManagementSystemStorage</code></a> class.</p>
+<p>Implement the logic in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/storage/StorageManager.java"><code>StorageManager</code></a> and <a href="{repoURL}/blob/master/src/main/java/seedu/hms/storage/JsonHotelManagementSystemStorage.java"><code>JsonHotelManagementSystemStorage</code></a> class.</p>
 </li>
 </ul>
 </div>
@@ -2294,7 +2366,7 @@ Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage componen
 </div>
 </div>
 <div class="sect2">
-<h3 id="GetStartedProgramming-RemarkCommand"><a class="link" href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></h3>
+<h3 id="GetStartedProgramming-RemarkCommand"><a class="link" href="#GetStartedProgramming-RemarkCommand">Creating a new command: <code>remark</code></a></h3>
 <div class="paragraph">
 <p>By creating this command, you will get a chance to learn how to implement a feature end-to-end, touching all major components of the app.</p>
 </div>
@@ -2302,7 +2374,7 @@ Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage componen
 <p><strong>Scenario:</strong> You are a software maintainer for <code>HMS+</code>, as the former developer team has moved on to new projects. The current users of your application have a list of new feature requests that they hope the software will eventually have. The most popular request is to allow adding additional comments/notes about a particular contact, by providing a flexible <code>remark</code> field for each contact, rather than relying on tags alone. After designing the specification for the <code>remark</code> command, you are convinced that this feature is worth implementing. Your job is to implement the <code>remark</code> command.</p>
 </div>
 <div class="sect3">
-<h4 id="description"><a class="link" href="#description">A.2.1. Description</a></h4>
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
 <div class="paragraph">
 <p>Edits the remark for a customer specified in the <code>INDEX</code>.<br>
 Format: <code>remark INDEX r/[REMARK]</code></p>
@@ -2324,7 +2396,7 @@ Removes the remark for the first customer.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="step-by-step-instructions"><a class="link" href="#step-by-step-instructions">A.2.2. Step-by-step Instructions</a></h4>
+<h4 id="step-by-step-instructions"><a class="link" href="#step-by-step-instructions">Step-by-step Instructions</a></h4>
 <div class="sect4">
 <h5 id="step-1-logic-teach-the-app-to-accept-remark-which-does-nothing"><a class="link" href="#step-1-logic-teach-the-app-to-accept-remark-which-does-nothing">[Step 1] Logic: Teach the app to accept 'remark' which does nothing</a></h5>
 <div class="paragraph">
@@ -2336,10 +2408,10 @@ Removes the remark for the first customer.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>RemarkCommand</code> that extends <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/commands/Command.java"><code>Command</code></a>. Upon execution, it should just throw an <code>Exception</code>.</p>
+<p>Add a <code>RemarkCommand</code> that extends <a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/commands/Command.java"><code>Command</code></a>. Upon execution, it should just throw an <code>Exception</code>.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to accept a <code>RemarkCommand</code>.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to accept a <code>RemarkCommand</code>.</p>
 </li>
 </ol>
 </div>
@@ -2352,7 +2424,7 @@ Removes the remark for the first customer.</p>
 <p>Add <code>RemarkCommandTest</code> that tests that <code>execute()</code> throws an Exception.</p>
 </li>
 <li>
-<p>Add new test method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a>, which tests that typing "remark" returns an instance of <code>RemarkCommand</code>.</p>
+<p>Add new test method to <a href="{repoURL}/blob/master/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a>, which tests that typing "remark" returns an instance of <code>RemarkCommand</code>.</p>
 </li>
 </ol>
 </div>
@@ -2374,7 +2446,7 @@ Removes the remark for the first customer.</p>
 <p>Add <code>RemarkCommandParser</code> that knows how to parse two arguments, one index and one with prefix 'r/'.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to use the newly implemented <code>RemarkCommandParser</code>.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/logic/parser/HotelManagementSystemParser.java"><code>HotelManagementSystemParser</code></a> to use the newly implemented <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
@@ -2391,7 +2463,7 @@ Removes the remark for the first customer.</p>
 for <code>RemarkCommandParser</code>.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a> to test that the correct command is generated according to the user input.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/test/java/seedu/hms/logic/parser/HotelManagementSystemParserTest.java"><code>HotelManagementSystemParserTest</code></a> to test that the correct command is generated according to the user input.</p>
 </li>
 </ol>
 </div>
@@ -2399,7 +2471,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-customercard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-customercard-code">[Step 3] Ui: Add a placeholder for remark in <code>CustomerCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>CustomerCard</code></a> s to display a remark for each customer later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>CustomerCard</code></a> s to display a remark for each customer later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2407,10 +2479,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>Label</code> with any random text inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/resources/view/PersonListCard.fxml"><code>PersonListCard.fxml</code></a>.</p>
+<p>Add a <code>Label</code> with any random text inside <a href="{repoURL}/blob/master/src/main/resources/view/PersonListCard.fxml"><code>PersonListCard.fxml</code></a>.</p>
 </li>
 <li>
-<p>Add FXML annotation in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> to tie the variable to the actual label.</p>
+<p>Add FXML annotation in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> to tie the variable to the actual label.</p>
 </li>
 </ol>
 </div>
@@ -2420,7 +2492,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/guitests/guihandles/PersonCardHandle.java"><code>PersonCardHandle</code></a> so that future tests can read the contents of the remark label.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/test/java/guitests/guihandles/PersonCardHandle.java"><code>PersonCardHandle</code></a> so that future tests can read the contents of the remark label.</p>
 </li>
 </ol>
 </div>
@@ -2428,7 +2500,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>We have to properly encapsulate the remark in our <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2436,7 +2508,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Address.java"><code>Address</code></a>, remove the regex and change the names accordingly).</p>
+<p>Add <code>Remark</code> to model component (you can copy from <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Address.java"><code>Address</code></a>, remove the regex and change the names accordingly).</p>
 </li>
 <li>
 <p>Modify <code>RemarkCommand</code> to now take in a <code>Remark</code> instead of a <code>String</code>.</p>
@@ -2457,7 +2529,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-5-model-modify-code-person-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-person-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Person</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2465,13 +2537,13 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>getRemark()</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Add <code>getRemark()</code> in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
 </li>
 <li>
 <p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the customer will be created without a remark).</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>data/hotelManagementSystem.json</code> so that the application will load the sample data when you launch it.)</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>data/hotelManagementSystem.json</code> so that the application will load the sample data when you launch it.)</p>
 </li>
 </ol>
 </div>
@@ -2479,7 +2551,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6-storage-add-code-remark-code-field-to-code-jsonadaptedperson-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-jsonadaptedperson-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>JsonAdaptedPerson</code> class</a></h5>
 <div class="paragraph">
-<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/storage/JsonAdaptedPerson.java"><code>JsonAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
+<p>We now have <code>Remark</code> s for <code>Person</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/storage/JsonAdaptedPerson.java"><code>JsonAdaptedPerson</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2505,7 +2577,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6b-test-add-withremark-for-code-personbuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-personbuilder-code">[Step 6b] Test: Add withRemark() for <code>PersonBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
+<p>Since <code>Person</code> can now have a <code>Remark</code>, we should add a helper method to <a href="{repoURL}/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>, so that users are able to create remarks when building a <a href="{repoURL}/blob/master/src/main/java/seedu/hms/model/customer/Person.java"><code>Person</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -2513,10 +2585,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the customer that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="{repoURL}/blob/master/src/test/java/seedu/hms/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the customer that it is currently building.</p>
 </li>
 <li>
-<p>Try and use the method on any sample <code>Person</code> in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
+<p>Try and use the method on any sample <code>Person</code> in <a href="{repoURL}/blob/master/src/test/java/seedu/hms/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
 </li>
 </ol>
 </div>
@@ -2524,7 +2596,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-7-ui-connect-code-remark-code-field-to-code-personcard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-personcard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Our remark label in <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
+<p>Our remark label in <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2532,7 +2604,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Person</code> 's remark.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/main/java/seedu/hms/ui/PersonCard.java"><code>PersonCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Person</code> 's remark.</p>
 </li>
 </ol>
 </div>
@@ -2542,7 +2614,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysPerson(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
+<p>Modify <a href="{repoURL}/blob/master/src/test/java/seedu/hms/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysPerson(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
 </li>
 </ol>
 </div>
@@ -2575,7 +2647,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="full-solution"><a class="link" href="#full-solution">A.2.3. Full Solution</a></h4>
+<h4 id="full-solution"><a class="link" href="#full-solution">Full Solution</a></h4>
 <div class="paragraph">
 <p>See this <a href="https://github.com/se-edu/addressbook-level4/pull/599">PR</a> for the step-by-step solution.</p>
 </div>
@@ -3474,7 +3546,7 @@ accordingly their payments. With time, it becomes difficult to keep a track of e
 </ul>
 </div>
 <div class="sect2">
-<h3 id="use-case-generate-bill-for-a-specific-customer"><a class="link" href="#use-case-generate-bill-for-a-specific-customer">D.1. Use case: Generate bill for a specific customer</a></h3>
+<h3 id="use-case-generate-bill-for-a-specific-customer"><a class="link" href="#use-case-generate-bill-for-a-specific-customer">Use case: Generate bill for a specific customer</a></h3>
 <div class="paragraph">
 <p><strong>Main Success Scenario</strong></p>
 </div>
@@ -3677,7 +3749,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3712,9 +3784,9 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="customers"><a class="link" href="#customers">H.2. Customers</a></h3>
+<h3 id="customers"><a class="link" href="#customers">Customers</a></h3>
 <div class="sect3">
-<h4 id="adding-a-customer"><a class="link" href="#adding-a-customer">H.2.1. Adding a customer</a></h4>
+<h4 id="adding-a-customer"><a class="link" href="#adding-a-customer">Adding a customer</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3739,7 +3811,7 @@ Expected: No customer is added. Message shows "This customer already exists in t
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-customer"><a class="link" href="#deleting-a-customer">H.2.2. Deleting a customer</a></h4>
+<h4 id="deleting-a-customer"><a class="link" href="#deleting-a-customer">Deleting a customer</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3769,9 +3841,9 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reservations"><a class="link" href="#reservations">H.3. Reservations</a></h3>
+<h3 id="reservations"><a class="link" href="#reservations">Reservations</a></h3>
 <div class="sect3">
-<h4 id="adding-a-reservation"><a class="link" href="#adding-a-reservation">H.3.1. Adding a reservation</a></h4>
+<h4 id="adding-a-reservation"><a class="link" href="#adding-a-reservation">Adding a reservation</a></h4>
 <div class="paragraph">
 <p>Adding a reservation with the <code>add-reservation</code> command</p>
 </div>
@@ -3793,7 +3865,7 @@ Expected: No reservation is added. Error details shown in the status message. St
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-reservation"><a class="link" href="#editing-a-reservation">H.3.2. Editing a reservation</a></h4>
+<h4 id="editing-a-reservation"><a class="link" href="#editing-a-reservation">Editing a reservation</a></h4>
 <div class="paragraph">
 <p>=Editing a reservation with the <code>edit-reservation</code> command</p>
 </div>
@@ -3818,7 +3890,7 @@ Expected: No reservation is edited. Error details regarding the date range are s
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-reservations"><a class="link" href="#listing-reservations">H.3.3. Listing reservations</a></h4>
+<h4 id="listing-reservations"><a class="link" href="#listing-reservations">Listing reservations</a></h4>
 <div class="paragraph">
 <p>Listing all reservations with the <code>list-reservation</code> command</p>
 </div>
@@ -3832,7 +3904,7 @@ Expected: All reservations are listed.  Timestamp in the status bar is updated.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-reservation"><a class="link" href="#deleting-a-reservation">H.3.4. Deleting a reservation</a></h4>
+<h4 id="deleting-a-reservation"><a class="link" href="#deleting-a-reservation">Deleting a reservation</a></h4>
 <div class="paragraph">
 <p>Deleting a reservation while all reservations are listed</p>
 </div>
@@ -3858,9 +3930,9 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="bookings"><a class="link" href="#bookings">H.4. Bookings</a></h3>
+<h3 id="bookings"><a class="link" href="#bookings">Bookings</a></h3>
 <div class="sect3">
-<h4 id="adding-a-booking"><a class="link" href="#adding-a-booking">H.4.1. Adding a booking</a></h4>
+<h4 id="adding-a-booking"><a class="link" href="#adding-a-booking">Adding a booking</a></h4>
 <div class="paragraph">
 <p>Adding a booking with the <code>add-booking</code> command</p>
 </div>
@@ -3882,7 +3954,7 @@ Expected: No booking is added. Error details shown in the status message. Status
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-booking"><a class="link" href="#editing-a-booking">H.4.2. Editing a booking</a></h4>
+<h4 id="editing-a-booking"><a class="link" href="#editing-a-booking">Editing a booking</a></h4>
 <div class="paragraph">
 <p>=Editing a booking with the <code>edit-booking</code> command</p>
 </div>
@@ -3907,7 +3979,7 @@ Expected: No booking is edited. Error details regarding the time range are shown
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-bookings"><a class="link" href="#listing-bookings">H.4.3. Listing bookings</a></h4>
+<h4 id="listing-bookings"><a class="link" href="#listing-bookings">Listing bookings</a></h4>
 <div class="paragraph">
 <p>Listing all bookings with the <code>list-booking</code> command</p>
 </div>
@@ -3921,7 +3993,7 @@ Expected: All bookings are listed.  Timestamp in the status bar is updated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-booking"><a class="link" href="#deleting-a-booking">H.4.4. Deleting a booking</a></h4>
+<h4 id="deleting-a-booking"><a class="link" href="#deleting-a-booking">Deleting a booking</a></h4>
 <div class="paragraph">
 <p>Deleting a booking while all bookings are listed</p>
 </div>
@@ -3947,9 +4019,9 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="service-types"><a class="link" href="#service-types">H.5. Service Types</a></h3>
+<h3 id="service-types"><a class="link" href="#service-types">Service Types</a></h3>
 <div class="sect3">
-<h4 id="adding-a-service-type"><a class="link" href="#adding-a-service-type">H.5.1. Adding a service Type</a></h4>
+<h4 id="adding-a-service-type"><a class="link" href="#adding-a-service-type">Adding a service Type</a></h4>
 <div class="paragraph">
 <p>Adding a service Type with the <code>add-service-type</code> command</p>
 </div>
@@ -3970,7 +4042,7 @@ Expected: No service type is added. Error details regarding the time range are s
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-service-type"><a class="link" href="#editing-a-service-type">H.5.2. Editing a service type</a></h4>
+<h4 id="editing-a-service-type"><a class="link" href="#editing-a-service-type">Editing a service type</a></h4>
 <div class="paragraph">
 <p>=Editing a service type with the <code>edit-service-type</code> command</p>
 </div>
@@ -3995,7 +4067,7 @@ Expected: No service type is edited. Error details regarding the time range are 
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-service-type"><a class="link" href="#deleting-a-service-type">H.5.3. Deleting a service type</a></h4>
+<h4 id="deleting-a-service-type"><a class="link" href="#deleting-a-service-type">Deleting a service type</a></h4>
 <div class="paragraph">
 <p>Deleting a service type while all service types are listed</p>
 </div>
@@ -4018,9 +4090,9 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="room-types"><a class="link" href="#room-types">H.6. Room Types</a></h3>
+<h3 id="room-types"><a class="link" href="#room-types">Room Types</a></h3>
 <div class="sect3">
-<h4 id="adding-a-room-type"><a class="link" href="#adding-a-room-type">H.6.1. Adding a room Type</a></h4>
+<h4 id="adding-a-room-type"><a class="link" href="#adding-a-room-type">Adding a room Type</a></h4>
 <div class="paragraph">
 <p>Adding a room Type with the <code>add-room-type</code> command</p>
 </div>
@@ -4037,7 +4109,7 @@ Expected: No room type is added. Error details shown in the status message. Stat
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-room-type"><a class="link" href="#editing-a-room-type">H.6.2. Editing a room type</a></h4>
+<h4 id="editing-a-room-type"><a class="link" href="#editing-a-room-type">Editing a room type</a></h4>
 <div class="paragraph">
 <p>=Editing a room type with the <code>edit-room-type</code> command</p>
 </div>
@@ -4058,7 +4130,7 @@ Expected: No room type is edited. Error details shown in the status message. Sta
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-room-type"><a class="link" href="#deleting-a-room-type">H.6.3. Deleting a room type</a></h4>
+<h4 id="deleting-a-room-type"><a class="link" href="#deleting-a-room-type">Deleting a room type</a></h4>
 <div class="paragraph">
 <p>Deleting a room type while all room types are listed</p>
 </div>
@@ -4081,9 +4153,9 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="bill"><a class="link" href="#bill">H.7. Bill</a></h3>
+<h3 id="bill"><a class="link" href="#bill">Bill</a></h3>
 <div class="sect3">
-<h4 id="generating-bill-for-a-customer"><a class="link" href="#generating-bill-for-a-customer">H.7.1. Generating bill for a customer</a></h4>
+<h4 id="generating-bill-for-a-customer"><a class="link" href="#generating-bill-for-a-customer">Generating bill for a customer</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4113,7 +4185,7 @@ Expected: Bill is not generated. Error details shown in the status message. Stat
 </div>
 </div>
 <div class="sect2">
-<h3 id="switching-tab"><a class="link" href="#switching-tab">H.8. Switching tab</a></h3>
+<h3 id="switching-tab"><a class="link" href="#switching-tab">Switching tab</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4136,6 +4208,29 @@ Expected: Similar to previous.</p>
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="achievements-and-learnings"><a class="link" href="#achievements-and-learnings">Achievements and Learnings</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Worked with a team to implement complementing components smoothly</p>
+</li>
+<li>
+<p>Learned how to evaluate user requirements using user stories</p>
+</li>
+<li>
+<p>I was able to lead the module in terms of code contribution.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: right">
+<div class="content">
+<img src="../images/reposense.png" alt="reposense">
 </div>
 </div>
 </div>
