@@ -1,919 +1,921 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Sreyans Sipani - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Sreyans Sipani - Project Portfolio</h1></div><div id="content"><div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p><span class="image"><img src="../images/sreycodes.png" alt="sreycodes" width="150"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-hms"><a class="link" href="#project-hms">PROJECT: HMS+</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This portfolio serves to document my contributions and learning while building HMS+</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>HMS+ is a hotel management system made for hotels to manage their customers and their relevant transactions.
-The hotel staff interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
-It is written in Java and has around 15,000 lines of code.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This section summarizes my contributions to the application and explains their importance.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Major enhancement</strong>: I added the complete backend for the booking and reservation from commands upto storage.
-This also includes making sure each component is customizable which involved refactoring service and room types
-from <code>ENUM</code> to classes.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: It allows the hotel staff to add service-bookings, reservations, service types and room types to the hotel.</p>
-</li>
-<li>
-<p>Justification: This is the backbone of the application as these are the main amenities of any hotel. Most other
-functionality such as bill and statistics can work because of these models.</p>
-</li>
-<li>
-<p>Highlights: This enhancement required in-depth analysis of the codebase as it involved extending a single-model dependent system to a multi-model based system.
-I had to make sure the design implementation preserved the extensibility of the system as well as allowed the different components to interact with each other.</p>
-</li>
-<li>
-<p>Credits: I mainly used the concepts from the existing codebase and those that were taught in CS2103T to implement my features.</p>
-</li>
-<li>
-<p>Related Files:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/booking">Booking Model</a></p>
-</li>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/reservation">Reservation Model</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancements</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/4">Added support for VIP status to customer</a></p>
-</li>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/77">Ported the whole codebase from <code>AddressBook</code> to <code>HotelManagementSystem</code></a></p>
-</li>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/138">Added API methods to show statistics</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Created the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/projects/1">Github Project Board</a> and facilitated a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/issues/created_by/sreycodes">issue-based workflow</a>.</p>
-</li>
-<li>
-<p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Asreycodes">Reviewed and approves several PRs.</a></p>
-</li>
-<li>
-<p><a href="https://github.com/nus-cs2103-AY1819S2/forum/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Asreycodes">Reported bugs and suggestions for other teams in the class</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Set the design structure for the implementation of future models.</p>
-</li>
-<li>
-<p>Created utility classes to handle timings and date intervals with
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/model/util/TimeRangeTest.java">relevant tests</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Added command formats and descriptions to the user guide.</p>
-</li>
-<li>
-<p>Added color-coding to the user guide.</p>
-</li>
-<li>
-<p>Reformated all the commands to match an intuitive convention in guides and codebase.</p>
-</li>
-<li>
-<p>Added sections to developer guide.
-<a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#41-adding-service-booking-functionality">Example</a>- I
-added a section to teach oncoming developers how to add new models to the codebase.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Set Up Travis, Codacy and Coveralls</p>
-</li>
-<li>
-<p>Set the minimum requirements for code to be merged to master.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This section displays the main sections of the User Guide added or edited by me. They showcase my ability to write documentation
-which can be understood by the targeted end-users._</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect2">
-<h3 id="span-class-underline-room-reservation-commands-span"><a class="link" href="#span-class-underline-room-reservation-commands-span"><span class="underline">Room Reservation commands</span></a></h3>
-<div class="sect3">
-<h4 id="reserving-a-room-code-add-reservation-code-code-ar-code"><a class="link" href="#reserving-a-room-code-add-reservation-code-code-ar-code">Reserving a room : <code>add-reservation</code>, <code>ar</code></a></h4>
-<div class="paragraph">
-<p>Effect: Adds a reservation for a room associated with certain customers.<br>
-Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</span>} <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICIES…</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>ROOM_TYPE</code> is the name of the room type taken from the list shown in the application</p>
-</li>
-<li>
-<p><code>START_DATE</code> and <code>END_DATE</code> follows the <code>DD/MM/YYYY</code> format.</p>
-</li>
-<li>
-<p><code>COMMENTS</code> can contain any text without slash (/).</p>
-</li>
-<li>
-<p>All reservations can only be done from current date to upto one year from current date.</p>
-</li>
-<li>
-<p>We alloW the same person to reserve the same room for the same dates. In short, we allow duplicate reservations.</p>
-</li>
-<li>
-<p>We allow different people to reserve the same room for the same date as someone else already has.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:<br>
-Assume current date is 10 May, 2019.<br>
-* <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/5</code><br>
-Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list-customers</code>, then <code>ar r/SHARING ROOM d/23/5/2019-25/5/2019 $/4 c/2 c/3</code><br>
-Adds a reservation of Sharing Room in the name of the 4th customer along with the 2nd and 3rd customers
- from 23 May 2019 to 25 May 2019.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-reservations-code-list-reservations-code-code-lr-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code">Listing all reservations : <code>list-reservations</code>, <code>lr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a reservation list, which lists all the reservations.<br>
-Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr</span>}</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lr</code><br>
-Lists all reservations.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code">Editing a room reservation : <code>edit-reservation</code>, <code>er</code></a></h4>
-<div class="paragraph">
-<p>Effect: Edits the fields of an existing reservation in the reservation database.<br>
-Format: <code>{<span class="aqua">edit-reservation</span>/<span class="aqua">er</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE]</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the reservation at the specified index. The index refers to the index number shown in the displayed reservation list. The index must be a positive integer.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can remove all the reservation&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lr</code>, then <code>er 1 r/DOUBLE ROOM</code><br>
-Edits the room type of the 1st reservation to be DOUBLE ROOM.</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lr</code>, then <code>er 2 d/14/02/2020-14/03/2020 com/</code><br>
-Edits the date of the 2nd reservation to be from 14 Feb 2020 to 14 Mar 2020 and clears all existing comments related to it.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-reservations-code-delete-reservation-code-code-dr-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code">Deleting reservations: <code>delete-reservation</code>, <code>dr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Deletes a reservation from the reservation database.<br>
-Format: <code>{<span class="aqua">delete-reservation</span>/<span class="aqua">dr</span>} <span class="lime">INDEX</span></code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the reservation at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lr</code>, then <code>dr 2</code><br>
-Deletes the 2nd entry of the reservation database.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Removes all room reservations from the database.<br>
-Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">cr</span>}</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cr</code><br>
-Clears all reservations from the database.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-a-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-reservation-code-find-reservation-code-code-fr-code">Find a reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a reservation list based on the filters given by the user.<br>
-Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE - END_DATE</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The searching is done in the whole reservation list.</p>
-</li>
-<li>
-<p>If you just enter the command <code>fr</code>, it displays all the reservations in the database.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If you enter <code>fr d/4/6/2019 - 7/6/2019</code>, it displays all reservations between 4th June to 7th June. This consists of
-reservations which include the date 4th June but does not include reservations which include the date 7th June.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fr id/Q000001P</code><br>
-Returns all reservations for customer with identification number, Q000001P.</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fr id/Q000001P r/SHARING ROOM</code><br>
-Returns all sharing room reservations for customer with identification number, Q000001P.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="span-class-underline-service-booking-commands-span"><a class="link" href="#span-class-underline-service-booking-commands-span"><span class="underline">Service Booking commands</span></a></h3>
-<div class="sect3">
-<h4 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">Booking a service: <code>add-booking</code>,<code>ab</code></a></h4>
-<div class="paragraph">
-<p>Effect: Adds a service associated with certain customers.<br>
-Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span>} <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>SERVICE_TYPE</code> is the name of the service taken from the list in the application</p>
-</li>
-<li>
-<p><code>START_TIME</code> and <code>END_TIME</code> follows the <code>HH 24-hour</code> format.</p>
-</li>
-<li>
-<p><code>COMMENTS</code> can contain any text without slash (<code>/</code>).</p>
-</li>
-<li>
-<p>We allow the same person to book the same service for the same period of time. In short, we allow duplicate bookings.</p>
-</li>
-<li>
-<p>We allow a different person to book the same service for the same period od time as someone else already has.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lc</code>, then <code>add-booking s/SWIMMING POOL :/12-14 $/2</code>
-Adds a booking for service SWIMMING POOL, for the 2nd customer from the complete customer list, from 12:00 to 14:00 if the service is available.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-booked-services-code-list-bookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-list-bookings-code-code-lb-code">Listing all booked services: <code>list-bookings</code>,<code>lb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a booking list, which lists all the bookings made till now.
-Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</span>}</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lb</code><br>
-Lists all bookings.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Edits the fields of a booking in the database.<br>
-Format: <code>{<span class="aqua">edit-booking</span>/<span class="aqua">eb</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">p/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the booking at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can remove all the booking&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lb</code>, then <code>eb 1 s/TRANSPORT</code>
-Edits the service type of the 1st booking to be GYM.</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lb</code>, then <code>edit-booking 2 :/14-15 com/</code>
-Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-booked-service-code-delete-booking-code-code-db-code"><a class="link" href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></h4>
-<div class="paragraph">
-<p>Effect: Deletes a booking from the database.
-Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</span>} <span class="lime">INDEX</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the booking at the specified index.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:
- <code>lb</code>, then <code>delete-booking 2</code><br>
-Deletes the 2nd booking of the booking database</p>
-</div>
-<div class="title">Figure 17. Example after the <code>delete-booking 2</code> command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Removes all service bookings from the database.<br>
-Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</span>}</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cb</code><br>
-Clears all bookings from the database.</p>
-</li>
-</ul>
-</div>
-<div class="title">Figure 19. Example after the <code>cb</code> command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-a-specific-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-specific-booking-code-find-booking-code-code-fb-code">Find a specific booking: <code>find-booking</code>, <code>fb</code></a></h4>
-<div class="paragraph">
-<p>Effect: Displays a booking list based on the filters given by the user.<br>
-Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The searching is done in the whole booking list.</p>
-</li>
-<li>
-<p>If you just enter the command <code>fb</code>, it will display the entire booking list.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fb id/A0176884J</code><br>
-Returns all bookings for customer with identification number, A0176884J.</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fb id/A0176884J s/SPA</code><br>
-Returns all spa bookings for customer with identification number, A0176884j.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Given below are the main sections I added to the developer guide so that oncoming developers
-can easily extend our codebase and add features quickly.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect2">
-<h3 id="how-to-include-a-new-model"><a class="link" href="#how-to-include-a-new-model">How to include a new model</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-using-service-booking"><a class="link" href="#current-implementation-using-service-booking">Current Implementation using service booking</a></h4>
-<div class="paragraph">
-<p>In general, when adding any new model and its related commands, you need to work on 3 components
-compulsorily - Logic, Model and Storage. The UI component is modified based on how you
-want the user to be able to interact with our newly added model.</p>
-</div>
-<div class="paragraph">
-<p>You will start by working on the model component. You must create a more specific model which
-implements the existing <code>Model</code> interface and create a manager for this model. This constitutes
-the API for our new model how the <code>Logic</code> component will execute the commands related to the model.
-For Booking, there is a <code>BookingModel</code> interface and a <code>BookingManager</code> class which
-keeps track of a booking list. An 'observable booking list' is bounded to the UI using
-listeners so that the UI can be updated as the list changes. While the interface is a means of exposing the
-API, the manager class links with the system and performs the actions. We also create the relevant class files
-to represent the model we are implementing. For example, for representing our list of reservations,
-we create relevant classes like <code>ReservationList</code>, <code>Reservation</code>, <code>DateRange</code>, <code>RoomType</code>, etc.\</p>
-</div>
-<div class="paragraph">
-<p>Then you need to add the command files and parser files so that the application can parse commands
-related to the model and execute them. The commands have been separated for different models
-by adding an interface in the middle. This interface makes sure the correct model is used to execute
-those commands. For example, there is a <code>CustomerCommand</code> and a <code>BookingCommand</code> interface which
-implements the <code>Command</code> interface. Moreover the <code>CustomerCommand</code> interface specifies that it uses
-the <code>CustomerModel</code> to execute itself. Then each command (eg. AddBookingCommand, EditBookingCommand, etc.)
-implements the <code>BookingCommand</code> interface. This makes sure that only the booking manager can be used to
-execute these commands as well. You also need to add parser classes for each command you implement
-(eg. AddBookingCommandParser). These classes are invoked in the <code>HotelManagementSystemParser</code>
-to get back the <code>CommandResult</code> which is used by the UI.</p>
-</div>
-<div class="paragraph">
-<p>If the new model needs to be stored, then you also need to define JSON adapted classes
-to represent these models. The <code>JsonSerializableHotelManagementSystem</code> has a list of
-<code>JsonAdaptedCustomer</code> and a list of <code>JsonAdaptedBooking</code> and these two lists are saved using
-<code>seedu.hms.commons.util.JsonUtil</code>. For each model class, you need to define a JSON-adapted
-class with a <code>toModelType</code> function so that the system can read the data back from the file.</p>
-</div>
-<div class="paragraph">
-<p>The modifications in the UI for a new model depend heavily on the functionality it
-provides. For booking and reservations, a panel was added to display all the bookings/reservations
-which can be filtered based on different parameters. You can see the addition, updating and deletion of
-bookings in real-time in the UI as has been explained before.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-should-the-api-be-structured"><a class="link" href="#aspect-how-should-the-api-be-structured">Aspect: How should the API be structured</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Every model has a seperate interface which implements
-the <code>Model</code> interface</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Every model has access to the GUI and User Preferences.</p>
-</li>
-<li>
-<p>Cons: Some models have unnecessary methods.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> All the model APIs will be seperate and there will be no Model Interface.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Better separation and less scope for errors.</p>
-</li>
-<li>
-<p>Cons: Lot of refactoring required.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="making-a-model-customizable"><a class="link" href="#making-a-model-customizable">Making a model customizable</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
-<div class="paragraph">
-<p>In this section a model is considered to be customizable if an instance of it can be:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Added</p>
-</li>
-<li>
-<p>Edited</p>
-</li>
-<li>
-<p>Deleted</p>
-</li>
-<li>
-<p>Listed (or Displayed)</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You can relate this with the infamous CRUD cycle if you are familiar with it.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Every model/manager has access to the <code>HotelManagementSystem</code> inside which resides all the
-lists (<code>BookingList</code>, <code>UniqueCustomerList</code>, etc.). These lists have methods to add an item,
-set or replace an item at a particular index and delete an item. Therefore, when you are
-implementing a model and its list wrapper (Eg. <code>ReservationList</code>), you must include these functions.
-You must also define equality between instances of a model created so that it is easy to find
-an instance and replace it. Include an instance of your list inside the <code>HotelManagementSystem</code>
-and add a listener to it to automatically update the UI every time the function <code>indicateModified</code> is called.
-Based on the action, you might want to update the shown list using the <code>updateFiltered#{Model Name}List</code> method.
-A sequence diagram is given below to make the following more clear.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-editing-a-model-object"><a class="link" href="#aspect-editing-a-model-object">Aspect: Editing a model object</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Allowing objects to be edited</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We avoid recreating new instances and will have better performance.</p>
-</li>
-<li>
-<p>Cons: It is very hard to update the UI every time an object is added or updated.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Replacing objects with a new object with edited parameters</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Lot of instances are created and we need to make sure the old object doesn&#8217;t reappear again.</p>
-</li>
-<li>
-<p>Cons: It is easy to update the UI using a listener for each list.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="achievements-and-learnings"><a class="link" href="#achievements-and-learnings">Achievements and Learnings</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Given below are the my takeaways from this project and my achievements
-in this project.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p>Worked with a team to implement complementing components smoothly</p>
-</li>
-<li>
-<p>Learned how to evaluate user requirements using user stories</p>
-</li>
-<li>
-<p><a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=&amp;sort=totalCommits&amp;since=2019-02-10&amp;until=2019-04-15&amp;timeframe=day&amp;reverse=true&amp;repoSort=false">I was able to lead the module in terms of code contribution.</a></p>
-</li>
-</ul>
-</div>
-<div class="imageblock" style="text-align: right">
-<div class="content">
-<img src="../images/reposense.png" alt="reposense">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contact-me"><a class="link" href="#contact-me">Contact Me</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This section tells you more about me and how to reach me.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>I am a year 2 NUS student studying computer science and made this project as a part of my
-software engineering course. You can checkout my other projects <a href="https://www.github.com/sreycodes">here</a>.
-You can also email me <a href="mailto:sreyans.sipani99@gmail.com">here</a>.</p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:14:09 UTC</div></div></div></body></html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HMS+</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Sreyans Sipani - Project Portfolio</h1></div>
+<div id="content"><div id="preamble">
+    <div class="sectionbody">
+        <div class="paragraph">
+            <p><span class="image"><img src="../images/sreycodes.png" alt="sreycodes" width="150"></span></p>
+        </div>
+    </div>
+</div>
+    <div class="sect1">
+        <h2 id="project-hms"><a class="link" href="#project-hms">PROJECT: HMS+</a></h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">This portfolio serves to document my contributions and learning while building HMS+</p></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>HMS+ is a hotel management system made for hotels to manage their customers and their relevant transactions.
+                    The hotel staff interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
+                    It is written in Java and has around 15,000 lines of code.</p>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">This section summarizes my contributions to the application and explains their importance.</p></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="ulist">
+                <ul>
+                    <li>
+                        <p><strong>Major enhancement</strong>: I added the complete backend for the booking and reservation from commands upto storage.
+                            This also includes making sure each component is customizable which involved refactoring service and room types
+                            from <code>ENUM</code> to classes.</p>
+                        <div class="ulist">
+                            <ul>
+                                <li>
+                                    <p>What it does: It allows the hotel staff to add service-bookings, reservations, service types and room types to the hotel.</p>
+                                </li>
+                                <li>
+                                    <p>Justification: This is the backbone of the application as these are the main amenities of any hotel. Most other
+                                        functionality such as bill and statistics can work because of these models.</p>
+                                </li>
+                                <li>
+                                    <p>Highlights: This enhancement required in-depth analysis of the codebase as it involved extending a single-model dependent system to a multi-model based system.
+                                        I had to make sure the design implementation preserved the extensibility of the system as well as allowed the different components to interact with each other.</p>
+                                </li>
+                                <li>
+                                    <p>Credits: I mainly used the concepts from the existing codebase and those that were taught in CS2103T to implement my features.</p>
+                                </li>
+                                <li>
+                                    <p>Related Files:</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/booking">Booking Model</a></p>
+                                            </li>
+                                            <li>
+                                                <p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/tree/master/src/main/java/seedu/hms/model/reservation">Reservation Model</a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Minor enhancements</strong>:</p>
+                        <div class="ulist">
+                            <ul>
+                                <li>
+                                    <p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/4">Added support for VIP status to customer</a></p>
+                                </li>
+                                <li>
+                                    <p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/77">Ported the whole codebase from <code>AddressBook</code> to <code>HotelManagementSystem</code></a></p>
+                                </li>
+                                <li>
+                                    <p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pull/138">Added API methods to show statistics</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Other contributions</strong>:</p>
+                        <div class="ulist">
+                            <ul>
+                                <li>
+                                    <p>Project management:</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Created the <a href="https://github.com/cs2103-ay1819s2-t12-1/main/projects/1">Github Project Board</a> and facilitated a <a href="https://github.com/cs2103-ay1819s2-t12-1/main/issues/created_by/sreycodes">issue-based workflow</a>.</p>
+                                            </li>
+                                            <li>
+                                                <p><a href="https://github.com/cs2103-ay1819s2-t12-1/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Asreycodes">Reviewed and approves several PRs.</a></p>
+                                            </li>
+                                            <li>
+                                                <p><a href="https://github.com/nus-cs2103-AY1819S2/forum/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Asreycodes">Reported bugs and suggestions for other teams in the class</a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Enhancements to existing features:</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Set the design structure for the implementation of future models.</p>
+                                            </li>
+                                            <li>
+                                                <p>Created utility classes to handle timings and date intervals with
+                                                    <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/src/test/java/seedu/hms/model/util/TimeRangeTest.java">relevant tests</a>.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Documentation:</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Added command formats and descriptions to the user guide.</p>
+                                            </li>
+                                            <li>
+                                                <p>Added color-coding to the user guide.</p>
+                                            </li>
+                                            <li>
+                                                <p>Reformated all the commands to match an intuitive convention in guides and codebase.</p>
+                                            </li>
+                                            <li>
+                                                <p>Added sections to developer guide.
+                                                    <a href="https://github.com/cs2103-ay1819s2-t12-1/main/blob/master/docs/DeveloperGuide.adoc#41-adding-service-booking-functionality">Example</a>- I
+                                                    added a section to teach oncoming developers how to add new models to the codebase.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Tools:</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Set Up Travis, Codacy and Coveralls</p>
+                                            </li>
+                                            <li>
+                                                <p>Set the minimum requirements for code to be merged to master.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">This section displays the main sections of the User Guide added or edited by me. They showcase my ability to write documentation
+                        which can be understood by the targeted end-users._</p></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="sect2">
+                <h3 id="span-class-underline-room-reservation-commands-span"><a class="link" href="#span-class-underline-room-reservation-commands-span"><span class="underline">Room Reservation commands</span></a></h3>
+                <div class="sect3">
+                    <h4 id="reserving-a-room-code-add-reservation-code-code-ar-code"><a class="link" href="#reserving-a-room-code-add-reservation-code-code-ar-code">Reserving a room : <code>add-reservation</code>, <code>ar</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Adds a reservation for a room associated with certain customers.<br>
+                            Format: <code>{<span class="aqua">add-reservation</span>/<span class="aqua">ar</span>} <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICIES…</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p><code>ROOM_TYPE</code> is the name of the room type taken from the list shown in the application</p>
+                                            </li>
+                                            <li>
+                                                <p><code>START_DATE</code> and <code>END_DATE</code> follows the <code>DD/MM/YYYY</code> format.</p>
+                                            </li>
+                                            <li>
+                                                <p><code>COMMENTS</code> can contain any text without slash (/).</p>
+                                            </li>
+                                            <li>
+                                                <p>All reservations can only be done from current date to upto one year from current date.</p>
+                                            </li>
+                                            <li>
+                                                <p>We alloW the same person to reserve the same room for the same dates. In short, we allow duplicate reservations.</p>
+                                            </li>
+                                            <li>
+                                                <p>We allow different people to reserve the same room for the same date as someone else already has.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:<br>
+                            Assume current date is 10 May, 2019.<br>
+                            * <code>list-customers</code>, then <code>ar r/SINGLE ROOM d/20/5/2019-25/5/2019 $/5</code><br>
+                            Adds a reservation of Single Room in the name of the 5th customer from 20 May 2019 to 25 May 2019.</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>list-customers</code>, then <code>ar r/SHARING ROOM d/23/5/2019-25/5/2019 $/4 c/2 c/3</code><br>
+                                    Adds a reservation of Sharing Room in the name of the 4th customer along with the 2nd and 3rd customers
+                                    from 23 May 2019 to 25 May 2019.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="listing-all-reservations-code-list-reservations-code-code-lr-code"><a class="link" href="#listing-all-reservations-code-list-reservations-code-code-lr-code">Listing all reservations : <code>list-reservations</code>, <code>lr</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Displays a reservation list, which lists all the reservations.<br>
+                            Format: <code>{<span class="aqua">list-reservations</span>/<span class="aqua">lr</span>}</code></p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lr</code><br>
+                                    Lists all reservations.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="editing-a-room-reservation-code-edit-reservation-code-code-er-code"><a class="link" href="#editing-a-room-reservation-code-edit-reservation-code-code-er-code">Editing a room reservation : <code>edit-reservation</code>, <code>er</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Edits the fields of an existing reservation in the reservation database.<br>
+                            Format: <code>{<span class="aqua">edit-reservation</span>/<span class="aqua">er</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE-END_DATE]</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Edits the reservation at the specified index. The index refers to the index number shown in the displayed reservation list. The index must be a positive integer.</p>
+                                            </li>
+                                            <li>
+                                                <p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
+                                            </li>
+                                            <li>
+                                                <p>Existing values will be updated to the input values.</p>
+                                            </li>
+                                            <li>
+                                                <p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="admonitionblock tip">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-tip" title="Tip"></i>
+                                </td>
+                                <td class="content">
+                                    You can remove all the reservation&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lr</code>, then <code>er 1 r/DOUBLE ROOM</code><br>
+                                    Edits the room type of the 1st reservation to be DOUBLE ROOM.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lr</code>, then <code>er 2 d/14/02/2020-14/03/2020 com/</code><br>
+                                    Edits the date of the 2nd reservation to be from 14 Feb 2020 to 14 Mar 2020 and clears all existing comments related to it.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="deleting-reservations-code-delete-reservation-code-code-dr-code"><a class="link" href="#deleting-reservations-code-delete-reservation-code-code-dr-code">Deleting reservations: <code>delete-reservation</code>, <code>dr</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Deletes a reservation from the reservation database.<br>
+                            Format: <code>{<span class="aqua">delete-reservation</span>/<span class="aqua">dr</span>} <span class="lime">INDEX</span></code></p>
+                    </div>
+                    <div class="sidebarblock">
+                        <div class="content">
+                            <div class="ulist">
+                                <ul>
+                                    <li>
+                                        <p>Deletes the reservation at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lr</code>, then <code>dr 2</code><br>
+                                    Deletes the 2nd entry of the reservation database.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="clearing-all-reservations-code-clear-reservations-code-code-cr-code"><a class="link" href="#clearing-all-reservations-code-clear-reservations-code-code-cr-code">Clearing all reservations: <code>clear-reservations</code>, <code>cr</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Removes all room reservations from the database.<br>
+                            Format: <code>{<span class="aqua">clear-reservations</span>/<span class="aqua">cr</span>}</code></p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>cr</code><br>
+                                    Clears all reservations from the database.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="find-a-reservation-code-find-reservation-code-code-fr-code"><a class="link" href="#find-a-reservation-code-find-reservation-code-code-fr-code">Find a reservation: <code>find-reservation</code>, <code>fr</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Displays a reservation list based on the filters given by the user.<br>
+                            Format: <code>{<span class="aqua">find-reservation</span>/<span class="aqua">fr</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">r/</span> <span class="lime">ROOM_TYPE</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">d/</span> <span class="lime">START_DATE - END_DATE</span> <span class="black">]</span></code></p>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>The searching is done in the whole reservation list.</p>
+                                            </li>
+                                            <li>
+                                                <p>If you just enter the command <code>fr</code>, it displays all the reservations in the database.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="admonitionblock caution">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-caution" title="Caution"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>If you enter <code>fr d/4/6/2019 - 7/6/2019</code>, it displays all reservations between 4th June to 7th June. This consists of
+                                                    reservations which include the date 4th June but does not include reservations which include the date 7th June.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Example:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>fr id/Q000001P</code><br>
+                                    Returns all reservations for customer with identification number, Q000001P.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>fr id/Q000001P r/SHARING ROOM</code><br>
+                                    Returns all sharing room reservations for customer with identification number, Q000001P.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="span-class-underline-service-booking-commands-span"><a class="link" href="#span-class-underline-service-booking-commands-span"><span class="underline">Service Booking commands</span></a></h3>
+                <div class="sect3">
+                    <h4 id="booking-a-service-code-add-booking-code-code-ab-code"><a class="link" href="#booking-a-service-code-add-booking-code-code-ab-code">Booking a service: <code>add-booking</code>,<code>ab</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Adds a service associated with certain customers.<br>
+                            Format: <code>{<span class="aqua">add-booking</span>/<span class="aqua">ab</span>} <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="blue">$/</span> <span class="lime">PAYER_INDEX</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p><code>SERVICE_TYPE</code> is the name of the service taken from the list in the application</p>
+                                            </li>
+                                            <li>
+                                                <p><code>START_TIME</code> and <code>END_TIME</code> follows the <code>HH 24-hour</code> format.</p>
+                                            </li>
+                                            <li>
+                                                <p><code>COMMENTS</code> can contain any text without slash (<code>/</code>).</p>
+                                            </li>
+                                            <li>
+                                                <p>We allow the same person to book the same service for the same period of time. In short, we allow duplicate bookings.</p>
+                                            </li>
+                                            <li>
+                                                <p>We allow a different person to book the same service for the same period od time as someone else already has.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lc</code>, then <code>add-booking s/SWIMMING POOL :/12-14 $/2</code>
+                                    Adds a booking for service SWIMMING POOL, for the 2nd customer from the complete customer list, from 12:00 to 14:00 if the service is available.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="listing-all-booked-services-code-list-bookings-code-code-lb-code"><a class="link" href="#listing-all-booked-services-code-list-bookings-code-code-lb-code">Listing all booked services: <code>list-bookings</code>,<code>lb</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Displays a booking list, which lists all the bookings made till now.
+                            Format: <code>{<span class="aqua">list-bookings</span>/<span class="aqua">lb</span>}</code></p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Example:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lb</code><br>
+                                    Lists all bookings.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="editing-a-booked-service-code-edit-booking-code-code-eb-code"><a class="link" href="#editing-a-booked-service-code-edit-booking-code-code-eb-code">Editing a booked service: <code>edit-booking</code>, <code>eb</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Edits the fields of a booking in the database.<br>
+                            Format: <code>{<span class="aqua">edit-booking</span>/<span class="aqua">eb</span>} <span class="lime">INDEX</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">p/</span> <span class="lime">PAYER_INDEX</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">c/</span> <span class="lime">MORE_CUSTOMER_INDICES</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">com/</span> <span class="lime">COMMENTS</span> <span class="black">]</span></code></p>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Edits the booking at the specified index. The index refers to the index number shown in the displayed booking list. The index must be a positive integer.</p>
+                                            </li>
+                                            <li>
+                                                <p>At least one of the optional fields must be provided. Otherwise, nothing will be changed.</p>
+                                            </li>
+                                            <li>
+                                                <p>Existing values will be updated to the input values.</p>
+                                            </li>
+                                            <li>
+                                                <p>When editing comments, the existing comments of the booking will be removed, i.e adding of comments is not cumulative.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="admonitionblock tip">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-tip" title="Tip"></i>
+                                </td>
+                                <td class="content">
+                                    You can remove all the booking&#8217;s comments by typing <code>com/</code> without specifying any tags after it.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Examples:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lb</code>, then <code>eb 1 s/TRANSPORT</code>
+                                    Edits the service type of the 1st booking to be GYM.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><code>lb</code>, then <code>edit-booking 2 :/14-15 com/</code>
+                                    Edits the timing of the 2nd booking to be 14:00 - 15:00 and clears all existing comments.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="deleting-a-booked-service-code-delete-booking-code-code-db-code"><a class="link" href="#deleting-a-booked-service-code-delete-booking-code-code-db-code">Deleting a booked service: <code>delete-booking</code>, <code>db</code></a></h4>
+                    <div class="paragraph">
+                        <p>Effect: Deletes a booking from the database.
+                            Format: <code>{<span class="aqua">delete-booking</span>/<span class="aqua">db</span>} <span class="lime">INDEX</span></code></p>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Deletes the booking at the specified index.</p>
+                                            </li>
+                                            <li>
+                                                <p>The index refers to the index number shown in the displayed room service list. The index must be a positive integer.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Example:
+                            <code>lb</code>, then <code>delete-booking 2</code><br>
+                            Deletes the 2nd booking of the booking database</p>
+                    </div>
+                    <div class="title">Figure 17. Example after the <code>delete-booking 2</code> command</div>
+                </div>
+            </div>
+            <div class="sect3">
+                <h4 id="clearing-all-bookings-code-clear-bookings-code-code-cb-code"><a class="link" href="#clearing-all-bookings-code-clear-bookings-code-code-cb-code">Clearing all bookings: <code>clear-bookings</code>, <code>cb</code></a></h4>
+                <div class="paragraph">
+                    <p>Effect: Removes all service bookings from the database.<br>
+                        Format: <code>{<span class="aqua">clear-bookings</span>/<span class="aqua">cb</span>}</code></p>
+                </div>
+                <div class="paragraph">
+                    <p>Example:</p>
+                </div>
+                <div class="ulist">
+                    <ul>
+                        <li>
+                            <p><code>cb</code><br>
+                                Clears all bookings from the database.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="title">Figure 19. Example after the <code>cb</code> command</div>
+            </div>
+        </div>
+        <div class="sect3">
+            <h4 id="find-a-specific-booking-code-find-booking-code-code-fb-code"><a class="link" href="#find-a-specific-booking-code-find-booking-code-code-fb-code">Find a specific booking: <code>find-booking</code>, <code>fb</code></a></h4>
+            <div class="paragraph">
+                <p>Effect: Displays a booking list based on the filters given by the user.<br>
+                    Format: <code>{<span class="aqua">find-booking</span>/<span class="aqua">fb</span>} <span class="black">[</span> <span class="blue">id/</span> <span class="lime">IDENTIFICATION_NO</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">s/</span> <span class="lime">SERVICE_NAME</span> <span class="black">]</span> <span class="black">[</span> <span class="blue">:/</span> <span class="lime">START_TIME-END_TIME</span> <span class="black">]</span></code></p>
+            </div>
+            <div class="admonitionblock note">
+                <table>
+                    <tr>
+                        <td class="icon">
+                            <i class="fa icon-note" title="Note"></i>
+                        </td>
+                        <td class="content">
+                            <div class="ulist">
+                                <ul>
+                                    <li>
+                                        <p>The searching is done in the whole booking list.</p>
+                                    </li>
+                                    <li>
+                                        <p>If you just enter the command <code>fb</code>, it will display the entire booking list.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="paragraph">
+                <p>Example:</p>
+            </div>
+            <div class="ulist">
+                <ul>
+                    <li>
+                        <p><code>fb id/A0176884J</code><br>
+                            Returns all bookings for customer with identification number, A0176884J.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="ulist">
+                <ul>
+                    <li>
+                        <p><code>fb id/A0176884J s/SPA</code><br>
+                            Returns all spa bookings for customer with identification number, A0176884j.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">Given below are the main sections I added to the developer guide so that oncoming developers
+                        can easily extend our codebase and add features quickly.</p></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="sect2">
+                <h3 id="how-to-include-a-new-model"><a class="link" href="#how-to-include-a-new-model">How to include a new model</a></h3>
+                <div class="sect3">
+                    <h4 id="current-implementation-using-service-booking"><a class="link" href="#current-implementation-using-service-booking">Current Implementation using service booking</a></h4>
+                    <div class="paragraph">
+                        <p>In general, when adding any new model and its related commands, you need to work on 3 components
+                            compulsorily - Logic, Model and Storage. The UI component is modified based on how you
+                            want the user to be able to interact with our newly added model.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>You will start by working on the model component. You must create a more specific model which
+                            implements the existing <code>Model</code> interface and create a manager for this model. This constitutes
+                            the API for our new model how the <code>Logic</code> component will execute the commands related to the model.
+                            For Booking, there is a <code>BookingModel</code> interface and a <code>BookingManager</code> class which
+                            keeps track of a booking list. An 'observable booking list' is bounded to the UI using
+                            listeners so that the UI can be updated as the list changes. While the interface is a means of exposing the
+                            API, the manager class links with the system and performs the actions. We also create the relevant class files
+                            to represent the model we are implementing. For example, for representing our list of reservations,
+                            we create relevant classes like <code>ReservationList</code>, <code>Reservation</code>, <code>DateRange</code>, <code>RoomType</code>, etc.\</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Then you need to add the command files and parser files so that the application can parse commands
+                            related to the model and execute them. The commands have been separated for different models
+                            by adding an interface in the middle. This interface makes sure the correct model is used to execute
+                            those commands. For example, there is a <code>CustomerCommand</code> and a <code>BookingCommand</code> interface which
+                            implements the <code>Command</code> interface. Moreover the <code>CustomerCommand</code> interface specifies that it uses
+                            the <code>CustomerModel</code> to execute itself. Then each command (eg. AddBookingCommand, EditBookingCommand, etc.)
+                            implements the <code>BookingCommand</code> interface. This makes sure that only the booking manager can be used to
+                            execute these commands as well. You also need to add parser classes for each command you implement
+                            (eg. AddBookingCommandParser). These classes are invoked in the <code>HotelManagementSystemParser</code>
+                            to get back the <code>CommandResult</code> which is used by the UI.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>If the new model needs to be stored, then you also need to define JSON adapted classes
+                            to represent these models. The <code>JsonSerializableHotelManagementSystem</code> has a list of
+                            <code>JsonAdaptedCustomer</code> and a list of <code>JsonAdaptedBooking</code> and these two lists are saved using
+                            <code>seedu.hms.commons.util.JsonUtil</code>. For each model class, you need to define a JSON-adapted
+                            class with a <code>toModelType</code> function so that the system can read the data back from the file.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>The modifications in the UI for a new model depend heavily on the functionality it
+                            provides. For booking and reservations, a panel was added to display all the bookings/reservations
+                            which can be filtered based on different parameters. You can see the addition, updating and deletion of
+                            bookings in real-time in the UI as has been explained before.</p>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+                    <div class="sect4">
+                        <h5 id="aspect-how-should-the-api-be-structured"><a class="link" href="#aspect-how-should-the-api-be-structured">Aspect: How should the API be structured</a></h5>
+                        <div class="ulist">
+                            <ul>
+                                <li>
+                                    <p><strong>Alternative 1 (current choice):</strong> Every model has a seperate interface which implements
+                                        the <code>Model</code> interface</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Pros: Every model has access to the GUI and User Preferences.</p>
+                                            </li>
+                                            <li>
+                                                <p>Cons: Some models have unnecessary methods.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><strong>Alternative 2:</strong> All the model APIs will be seperate and there will be no Model Interface.</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Pros: Better separation and less scope for errors.</p>
+                                            </li>
+                                            <li>
+                                                <p>Cons: Lot of refactoring required.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="making-a-model-customizable"><a class="link" href="#making-a-model-customizable">Making a model customizable</a></h3>
+                <div class="sect3">
+                    <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+                    <div class="paragraph">
+                        <p>In this section a model is considered to be customizable if an instance of it can be:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p>Added</p>
+                            </li>
+                            <li>
+                                <p>Edited</p>
+                            </li>
+                            <li>
+                                <p>Deleted</p>
+                            </li>
+                            <li>
+                                <p>Listed (or Displayed)</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="admonitionblock note">
+                        <table>
+                            <tr>
+                                <td class="icon">
+                                    <i class="fa icon-note" title="Note"></i>
+                                </td>
+                                <td class="content">
+                                    You can relate this with the infamous CRUD cycle if you are familiar with it.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paragraph">
+                        <p>Every model/manager has access to the <code>HotelManagementSystem</code> inside which resides all the
+                            lists (<code>BookingList</code>, <code>UniqueCustomerList</code>, etc.). These lists have methods to add an item,
+                            set or replace an item at a particular index and delete an item. Therefore, when you are
+                            implementing a model and its list wrapper (Eg. <code>ReservationList</code>), you must include these functions.
+                            You must also define equality between instances of a model created so that it is easy to find
+                            an instance and replace it. Include an instance of your list inside the <code>HotelManagementSystem</code>
+                            and add a listener to it to automatically update the UI every time the function <code>indicateModified</code> is called.
+                            Based on the action, you might want to update the shown list using the <code>updateFiltered#{Model Name}List</code> method.
+                            A sequence diagram is given below to make the following more clear.</p>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+                    <div class="sect4">
+                        <h5 id="aspect-editing-a-model-object"><a class="link" href="#aspect-editing-a-model-object">Aspect: Editing a model object</a></h5>
+                        <div class="ulist">
+                            <ul>
+                                <li>
+                                    <p><strong>Alternative 1:</strong> Allowing objects to be edited</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Pros: We avoid recreating new instances and will have better performance.</p>
+                                            </li>
+                                            <li>
+                                                <p>Cons: It is very hard to update the UI every time an object is added or updated.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><strong>Alternative 2 (current choice):</strong> Replacing objects with a new object with edited parameters</p>
+                                    <div class="ulist">
+                                        <ul>
+                                            <li>
+                                                <p>Pros: Lot of instances are created and we need to make sure the old object doesn&#8217;t reappear again.</p>
+                                            </li>
+                                            <li>
+                                                <p>Cons: It is easy to update the UI using a listener for each list.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="achievements-and-learnings"><a class="link" href="#achievements-and-learnings">Achievements and Learnings</a></h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">Given below are the my takeaways from this project and my achievements
+                        in this project.</p></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="ulist">
+                <ul>
+                    <li>
+                        <p>Worked with a team to implement complementing components smoothly</p>
+                    </li>
+                    <li>
+                        <p>Learned how to evaluate user requirements using user stories</p>
+                    </li>
+                    <li>
+                        <p><a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=&amp;sort=totalCommits&amp;since=2019-02-10&amp;until=2019-04-15&amp;timeframe=day&amp;reverse=true&amp;repoSort=false">I was able to lead the module in terms of code contribution.</a></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="imageblock" style="text-align: right">
+                <div class="content">
+                    <img src="../images/reposense.png" alt="reposense">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="contact-me"><a class="link" href="#contact-me">Contact Me</a></h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">This section tells you more about me and how to reach me.</p></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="paragraph">
+                <p>I am a year 2 NUS student studying computer science and made this project as a part of my
+                    software engineering course. You can checkout my other projects <a href="https://www.github.com/sreycodes">here</a>.
+                    You can also email me <a href="mailto:sreyans.sipani99@gmail.com">here</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:14:09 UTC</div></div></div></body></html>
